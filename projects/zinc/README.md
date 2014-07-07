@@ -8,12 +8,12 @@ Currently only the *Core* and *Tests* packages have been ported to GsDevKit:
 * Zinc-Character-Encoding-Tests
 * Zinc-Resource-Meta-Core
 * Zinc-Resource-Meta-Tests
-
 ## Zinc 2.4.3 for GemStone 2.4 and 3.x [![Build Status](https://travis-ci.org/GsDevKit/zinc.png?branch=gs_master)](https://travis-ci.org/gs_master/zinc)
 This is the version of Zinc that is currently recommended for use. 
 This version of Zinc depends upon GLASS1 for proper operation.
 
 To install:
+
 1. [Upgrade to GLASS 1.0-beta.9.3][1]
 2. Execute:
 ```Smalltalk
@@ -30,6 +30,7 @@ This is the version that has been most heavily used, but
 improvements.
 
 To install:
+
 1. [Upgrade to GLASS 1.0-beta.9.1][2]
 2. Execute:
 ```Smalltalk
@@ -44,6 +45,7 @@ GsDeployer deploy: [
 This version has some stability issues and using [Zinc 2.4.3][5] is higly recommended.
 
 To install:
+
 1. [Upgrade to GLASS 1.0-beta.9.1][2]
 2. Execute:
 ```Smalltalk
