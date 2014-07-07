@@ -1,11 +1,8 @@
-GsDevKit: *Open Source Development Kit for GemStone/S 64 Bit*
-============
-
-* [What is GsDevKit?](#what-is-gsdevkit)
+#GsDevKit
+GsDevKit is an *Open Source Development Kit for GemStone/S 64 Bit*.
 * [Getting Started with GsDevKit](#getting-started-with-gsdevkit)
 * [MIT license](#mit-license)
 
-## What is GsDevKit?
 ### GemStone/S 64 
 ### tODE - GUI-based Development Environment
 #### Monticello and Metacello for Package Management
@@ -18,7 +15,7 @@ GsDevKit: *Open Source Development Kit for GemStone/S 64 Bit*
 | [Seaside][1] | [Web Development with Seaside][2], [Mailing list][3] | |
 | [Magritte][4]| [Mailing list][5] | |
 | [Pier][6]|[Documentation][7], [Mailing list][5] | |
-| [Zinc][8] |[Documentation][9] | [installation][10] |
+| [Zinc][8] |[Documentation][9] | [version info][10] |
 
 #### Open Source Infrascture and Development Environments
 | Project | General Info | GsDevKit Info  |
@@ -44,4 +41,4 @@ GsDevKit: *Open Source Development Kit for GemStone/S 64 Bit*
 [7]: http://www.piercms.com/doc
 [8]: http://zn.stfx.eu/zn/index.html
 [9]: https://github.com/svenvc/zinc/blob/master/zinc-http-components-paper.md#http
-[10]: https://github.com/GsDevKit/zinc#loading-into-gemstone
+[10]: projects/zinc/README.md#gsdevkit-installation-instructions-for-zinc
