@@ -11,10 +11,11 @@ GsDevKit: *Open Source Development Kit for GemStone/S 64 Bit*
 #### Monticello and Metacello for Package Management
 #### Git - Distributed Version Control
 #### GitHub - Collaboration and Source Code Hosting
-### Seaside
-### Magritte
-### Pier
-### Zinc
+### Supported Open Source Projects
+#### Seaside
+#### Magritte
+#### Pier
+#### Zinc
 ### Pharo/Squeak Compatability Layer
 
 ## Getting Started with GsDevKit
