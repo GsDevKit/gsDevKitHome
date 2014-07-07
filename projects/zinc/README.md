@@ -1,5 +1,5 @@
 #GsDevKit Installation instructions for Zinc
-The [Zinc][3] project is a fork of [Sven Van Caekenberghe's Zinc project][4]. 
+The [GsDevKit Zinc project][3] is a fork of [Sven Van Caekenberghe's Zinc project][4]. 
 
 Currently only the *Core* and *Tests* packages have been ported to GsDevKit:
 * Zinc-HTTP
@@ -11,9 +11,11 @@ Currently only the *Core* and *Tests* packages have been ported to GsDevKit:
 
 ## Zinc 2.4.3 for GemStone 2.4 and 3.x [![Build Status](https://travis-ci.org/GsDevKit/zinc.png?branch=gs_master)](https://travis-ci.org/gs_master/zinc)
 This is the version of Zinc that is currently recommended for use. 
-This version of Zinc does depend upon GLASS1 for proper operation.
+This version of Zinc depends upon GLASS1 for proper operation.
 
-[Upgrade to GLASS 1.0-beta.9.3][1], then:
+To install:
+1. [Upgrade to GLASS 1.0-beta.9.3][1]
+2. Execute:
 ```Smalltalk
 GsDeployer deploy: [
   Metacello new
@@ -27,7 +29,9 @@ This is the version that has been most heavily used, but
 [Zinc 2.4.3 for both GemStone 2.4.x and 3.x][5] has a number of bugfixes and stability 
 improvements.
 
-[Upgrade to GLASS 1.0-beta.9.1][2], then:
+To install:
+1. [Upgrade to GLASS 1.0-beta.9.1][2]
+2. Execute:
 ```Smalltalk
 GsDeployer deploy: [
   Metacello new
@@ -39,7 +43,9 @@ GsDeployer deploy: [
 ## Zinc 1.7 for GemStone 3.x only [![Build Status](https://travis-ci.org/glassdb/zinc.png?branch=gemstone3.1)](https://travis-ci.org/glassdb/zinc)
 This version has some stability issues and using [Zinc 2.4.3][5] is higly recommended.
 
-[Upgrade to GLASS 1.0-beta.9.1][2], then:
+To install:
+1. [Upgrade to GLASS 1.0-beta.9.1][2]
+2. Execute:
 ```Smalltalk
 GsDeployer deploy: [
   Metacello new
