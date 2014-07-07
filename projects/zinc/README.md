@@ -8,6 +8,7 @@ Currently only the *Core* and *Tests* packages have been ported to GsDevKit:
 * Zinc-Character-Encoding-Tests
 * Zinc-Resource-Meta-Core
 * Zinc-Resource-Meta-Tests
+
 ## Zinc 2.4.3 for GemStone 2.4 and 3.x [![Build Status](https://travis-ci.org/GsDevKit/zinc.png?branch=gs_master)](https://travis-ci.org/gs_master/zinc)
 This is the version of Zinc that is currently recommended for use. 
 This version of Zinc depends upon GLASS1 for proper operation.
