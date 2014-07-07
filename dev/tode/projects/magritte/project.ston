@@ -1,0 +1,10 @@
+TDObjectGatewayNode{#name:'project',#contents:'| project |
+project := TDProjectSpecEntryDefinition new
+  configuration: \'Magritte3\'
+    version: \'3.0\'
+    repository: \'http://smalltalkhub.com/mc/Magritte/Magritte3/main\'
+    loads: #(\'Magritte-Seaside\');
+  projectPath: self parent printString;
+  status: #(#\'inactive\');
+  yourself.
+^ project'}

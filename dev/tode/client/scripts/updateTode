@@ -1,0 +1,3 @@
+updateClient --clientRepo=github://dalehenrich/tode:master/repository
+updateServer --clientScriptPath=scripts
+bu backup home.dbf

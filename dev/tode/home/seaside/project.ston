@@ -1,0 +1,7 @@
+TDObjectGatewayNode{#name:'project',#contents:'TDProjectSpecEntryDefinition new
+  baseline: \'Seaside3\'
+    repository: \'github://glassdb/Seaside31:gemstone3.1/repository\'
+    loads: #(\'Development\' \'Examples\' \'Zinc\' \'FastCGI\' \'Swazoo\');
+  projectPath: self parent printString;
+  status: #(#\'active\');
+  yourself'}

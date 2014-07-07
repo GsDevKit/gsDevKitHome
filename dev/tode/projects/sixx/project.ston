@@ -1,0 +1,9 @@
+TDObjectGatewayNode{#name:'project',#contents:'| project |
+project := TDProjectSpecEntryDefinition new
+  baseline: \'SIXX\'
+    repository: \'filetree:///opt/git/SIXX/repository\'
+    loads: \'default\';
+  projectPath: self parent printString;
+  status: #(#\'inactive\');
+  yourself.
+^ project'}

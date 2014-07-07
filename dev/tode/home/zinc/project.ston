@@ -1,0 +1,7 @@
+TDObjectGatewayNode{#name:'project',#contents:'^ TDProjectSpecEntryDefinition new
+  baseline: \'Zinc\'
+    repository: \'github://glassdb/zinc:dev3.1/repository\'
+    loads: #(\'Core\' \'Tests\');
+  projectPath: self parent printString;
+  status: #(#\'active\');
+  yourself'}
