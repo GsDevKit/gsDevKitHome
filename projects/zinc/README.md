@@ -17,6 +17,7 @@ To install:
 
 1. [Upgrade to GLASS 1.0-beta.9.3][1]
 2. Execute:
+
    ```Smalltalk
    GsDeployer deploy: [
      Metacello new
@@ -34,6 +35,7 @@ To install:
 
 1. [Upgrade to GLASS 1.0-beta.9.1][2]
 2. Execute:
+
    ```Smalltalk
 GsDeployer deploy: [
   Metacello new
@@ -49,6 +51,7 @@ To install:
 
 1. [Upgrade to GLASS 1.0-beta.9.1][2]
 2. Execute:
+
    ```Smalltalk
 GsDeployer deploy: [
   Metacello new
