@@ -37,11 +37,11 @@ To install:
 2. Execute:
 
    ```Smalltalk
-GsDeployer deploy: [
-  Metacello new
-    baseline: 'Zinc';
-    repository: 'github://glass/glassdb:gemstone2.4/repository';
-    load: 'Tests' ].
+   GsDeployer deploy: [
+     Metacello new
+       baseline: 'Zinc';
+       repository: 'github://glass/glassdb:gemstone2.4/repository';
+       load: 'Tests' ].
    ```
 
 ## Zinc 1.7 for GemStone 3.x only [![Build Status](https://travis-ci.org/glassdb/zinc.png?branch=gemstone3.1)](https://travis-ci.org/glassdb/zinc)
@@ -53,11 +53,11 @@ To install:
 2. Execute:
 
    ```Smalltalk
-GsDeployer deploy: [
-  Metacello new
-    baseline: 'Zinc';
-    repository: 'github://glass/glassdb:gemstone3.1/repository';
-    load: 'Tests' ].
+   GsDeployer deploy: [
+     Metacello new
+       baseline: 'Zinc';
+       repository: 'github://glass/glassdb:gemstone3.1/repository';
+       load: 'Tests' ].
    ```
 
 [1]: ../glass/upgradeTo1.0-beta9.3.md
