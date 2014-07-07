@@ -13,15 +13,15 @@ GsDevKit: *Open Source Development Kit for GemStone/S 64 Bit*
 #### GitHub - Collaboration and Source Code Hosting
 ### Open Source Application and Project 
 #### Open Source Applications 
-| Application | Links | GsDevKit Installation Instructions |
+| Application | Links | GsDevKit Installation  |
 ----------|----------|-----------------------|
 | [Seaside][1] | [Web Development with Seaside][2], [Mailing list][3] | |
 | [Magritte][4]| [Mailing list][5] | |
 | [Pier][6]|[Documentation][7], [Mailing list][5] | |
-| [Zinc][8] |[Documentation][9] | [instructions][10] |
+| [Zinc][8] |[Documentation][9] | [install][10] |
 
 #### Open Source Infrascture and Development Environments
-| Project | Links | GsDevKit Installation Instructions |
+| Project | Links | GsDevKit Installation  |
 ----------|----------|-----------------------|
 |Metacello| | |
 |FileTree| | |
