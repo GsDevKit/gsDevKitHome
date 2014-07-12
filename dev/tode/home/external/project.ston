@@ -1,8 +1,0 @@
-TDObjectGatewayNode{#name:'project',#contents:'^TDProjectSpecEntryDefinition new
-  configuration: \'External\'
-  version: \'1.0.0\'
-  repository: \'http://ss3.gemstone.com/ss/external\'
-  loads: \'default\';
-  projectPath: self parent printString;
-  status: #(#inactive);
-  yourself'}
