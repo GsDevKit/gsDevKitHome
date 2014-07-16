@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ -s $GEMSTONE/seaside/etc/gemstone.secret ]; then
+      . $GEMSTONE/seaside/etc/gemstone.secret
+else
+      echo 'Missing password file $GEMSTONE/seaside/etc/gemstone.secret'
+      exit 1
+fi
+
+$GEMSTONE/bin/stopstone -i $GEMSTONE_NAME DataCurator $GEMSTONE_CURATOR_PASS
+
