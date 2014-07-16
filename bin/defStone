@@ -10,7 +10,9 @@ fi
 stonePath=$GS_HOME/gemstone/stones/$1
 path=$stonePath/stone.env
 if [ -r $path ]; then
+    pushd $stonePath
     . $path
+    popd
 else
 	echo 'defStone: WARNING - Your GEMSTONE environment variables have not been set!'
 	echo "defStone: Missing env file $path"
@@ -23,7 +25,7 @@ STONE_LEN=${#stonePath}
 ## Gemstone, Seaside, and stone program paths
 #    with $stonePath/bin first, you can override any
 #    gemstone scripts on a stone by stone basis
-if [[ ${PATH:0:$STONE_LEN} != $stonePath]] ; then
+if [[ ${PATH:0:$STONE_LEN} != ${stonePath} ]] ; then
     export PATH=$stonePath/bin:$GEMSTONE/bin:$GEMSTONE/seaside/bin:$PATH
 fi
 
@@ -45,5 +47,5 @@ fi
 # You can remove any that you set via other means
 export GEMSTONE GEMSTONE_LOGDIR GEMSTONE_DATADIR GEMSTONE_KEYFILE
 export GEMSTONE_NAME GEMSTONE_SYS_CONF GEMSTONE_EXE_CONF
-export GEMSTONE_TRANLOGDIR GEMSTONE_NAME
+export GEMSTONE_TRANLOGDIR GEMSTONE_NAME GEMSTONE_STONE_DIR
 export PATH MANPATH LD_LIBRARY_PATH DYLD_LIBRARY_PATH
