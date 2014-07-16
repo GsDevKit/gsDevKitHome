@@ -1,3 +1,8 @@
+#=========================================================================
+# Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
+#
+#=========================================================================
+
 stonePath=$GS_HOME/gemstone/stones/$1
 path=$stonePath/stone.env
 if [ -r $path ]; then
@@ -36,9 +41,9 @@ if [ -r $path ]; then
     export GEMSTONE_TRANLOGDIR GEMSTONE_NAME GEMSTONE_STONE_DIR
     export PATH MANPATH LD_LIBRARY_PATH DYLD_LIBRARY_PATH
 else
-	echo 'defStone: WARNING - Your GEMSTONE environment variables have not been set!'
-	echo "defStone: Missing env file $path"
-	echo "Make sure you've passed in the stone name as an argument"
-	echo ' and that $GS_HOME is defined'
+    echo 'defStone: WARNING - Your GEMSTONE environment variables have not been set!'
+    echo "defStone: Missing env file $path"
+    echo "Make sure you've passed in the stone name as an argument"
+    echo ' and that $GS_HOME is defined'
 fi
 
