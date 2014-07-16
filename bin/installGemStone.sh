@@ -289,10 +289,5 @@ if [[ -x /sbin/ifconfig && `/sbin/ifconfig -a | grep -sc " inet addr:.*Bcast"` -
     /sbin/ifconfig -a | grep ' inet addr:.*Bcast' | cut -f2 -d: | cut -f1 -d' '
 fi
 
-# Reminder to setup environment variables
-echo ""
-echo "[Info] Remember to set GEMSTONE environment variables by running:"
-echo "source $WE_HOME/bin/defWebEdition"
-
 # End of script
 exit 0
