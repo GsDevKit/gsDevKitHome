@@ -15,6 +15,7 @@
 #    Create the stone directory
 #    Create link to the selected gemstone/products/$gs_vers directory 
 #    Create backups directory
+#    Create bin directory
 #    Create extents directory
 #    Create logs directory
 #    Create stats directory
@@ -78,6 +79,9 @@ ln -sf $GS_HOME/gemstone/products/$gsvers $stoneDir/product
  
 #    Create backups directory
 mkdir  $stoneDir/backups
+
+#    Create bin directory
+mkdir  $stoneDir/bin
 
 #    Create extents directory
 mkdir  $stoneDir/extents
