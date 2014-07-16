@@ -85,7 +85,7 @@ mkdir  $stoneDir/bin
 
 #    Create extents directory
 mkdir  $stoneDir/extents
-cp $GS_HOME/gemstone/products/$gsvers/seaside/data/exten0.dbf $stoneDir/extents
+cp $GS_HOME/gemstone/products/$gsvers/seaside/data/extent0.dbf $stoneDir/extents
 cp $GS_HOME/gemstone/templates/system.conf $stoneDir/extents
 
 #    Create logs directory
@@ -98,7 +98,7 @@ mkdir  $stoneDir/stats
 mkdir  $stoneDir/tranlogs
 
 #    Copy stone-specific conf files
-cp $GS_HOME/gemstone/templates/stone.conf $stoneDir
+cp $GS_HOME/gemstone/templates/stone.env $stoneDir
 cp $GS_HOME/gemstone/templates/gem.conf $stoneDir
 cp $GS_HOME/gemstone/templates/maint.conf $stoneDir
 

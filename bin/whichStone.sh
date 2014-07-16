@@ -1,0 +1,1 @@
+echo $GEMSTONE_NAME
