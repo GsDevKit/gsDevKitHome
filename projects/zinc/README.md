@@ -27,7 +27,7 @@ To install:
        load: 'Tests' ].
    ```
 
-## Zinc 2.4.3 for GemStone 2.4 only [![Build Status](https://travis-ci.org/glassdb/zinc.png?branch=gemstone2.4)](https://travis-ci.org/glassdb/zinc)
+## Zinc 2.4.3 for GemStone 2.4 only [![Build Status](https://travis-ci.org/GsDevKit/zinc.png?branch=gemstone2.4)](https://travis-ci.org/glassdb/zinc)
 This is the version that has been most heavily used, but 
 [Zinc 2.4.3 for both GemStone 2.4.x and 3.x][5] has a number of bugfixes and stability 
 improvements.
@@ -45,7 +45,7 @@ To install:
        load: 'Tests' ].
    ```
 
-## Zinc 1.7 for GemStone 3.x only [![Build Status](https://travis-ci.org/glassdb/zinc.png?branch=gemstone3.1)](https://travis-ci.org/glassdb/zinc)
+## Zinc 1.7 for GemStone 3.x only [![Build Status](https://travis-ci.org/GsDevKit/zinc.png?branch=gemstone3.1)](https://travis-ci.org/glassdb/zinc)
 This version has some stability issues and using [Zinc 2.4.3][5] is higly recommended.
 
 To install:
