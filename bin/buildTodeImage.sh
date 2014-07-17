@@ -24,7 +24,6 @@ $pharo/pharo $pharo/todeClient.image eval --save "Gofer new package: 'Configurat
 $pharo/pharo $pharo/todeClient.image config \
 	filetree://$GS_HOME/repository \
 	ConfigurationOfTodeClient \
-	--group=Tode \
 	--install=release
 
 echo

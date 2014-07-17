@@ -1,0 +1,17 @@
+{
+	"class" : {
+		"commandName" : "dkh 7/17/2014 13:35",
+		"description" : "dkh 7/17/2014 13:35" },
+	"instance" : {
+		"activate" : "dkh 7/17/2014 13:35",
+		"copySeasideExtent:" : "dkh 7/17/2014 15:38",
+		"copySeasideSystemConf:" : "dkh 7/17/2014 15:38",
+		"copyTemplateFiles:" : "dkh 7/17/2014 15:44",
+		"createEmptySubDirectories:" : "dkh 7/17/2014 15:26",
+		"createProductLn:" : "dkh 7/17/2014 15:28",
+		"createStone" : "dkh 7/17/2014 15:40",
+		"gsDownloadName" : "dkh 7/17/2014 15:28",
+		"gsVers" : "dkh 7/17/2014 13:39",
+		"stoneName" : "dkh 7/17/2014 13:39",
+		"subDirectories" : "dkh 7/17/2014 15:22",
+		"templateFiles" : "dkh 7/17/2014 15:42" } }
