@@ -1,13 +1,11 @@
 Transcript
   cr;
   show: '-----Upgrading Metacello to latest version on master branch'.
-GsDeployer bulkMigrate: [ 
-  Metacello new
-    baseline: 'Metacello';
-    repository: 'github://dalehenrich/metacello-work:master/repository';
-    get.
-  Metacello new
-    baseline: 'Metacello';
-    repository: 'github://dalehenrich/metacello-work:master/repository';
-    load: 'ALL' 
+false ifTrue: [ 
+  "Only needed if you use a non-standard repo for Metacello"
+  GsDeployer bulkMigrate: [
+    Metacello new
+      baseline: 'Metacello';
+      repository: 'filetree:///opt/git/metacello-work/repository';
+      lock ].
   ].

@@ -1,14 +1,11 @@
 Transcript
   cr;
   show: '-----Upgrading GLASS1 to most recent master version'.
-GsDeployer bulkMigrate: [
-  Metacello new
-    baseline: 'GLASS1';
-    repository: 'github://glassdb/glass:master/repository';
-    get.
-  Metacello new
-    baseline: 'GLASS1';
-    repository: 'github://glassdb/glass:master/repository';
-    onConflict: [ :ex | ex allow ];
-    load: 'default'.
+false ifTrue: [ 
+  "only needed if you want to use a non-standard repo for GLASS1"
+  GsDeployer bulkMigrate: [
+    Metacello new
+      baseline: 'GLASS1';
+      repository: 'filetree:///opt/git/glass/repository';
+      lock ].
   ].
