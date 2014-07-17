@@ -4,7 +4,7 @@ version001: spec
 	spec
 		for: #'pharo3.x'
 		do: [ 
-			spec repository: 'filetree//' , (FileSystem workingDirectory parent / 'repository') pathString.
+			spec repository: 'filetree://' , (FileSystem workingDirectory parent / 'repository') pathString.
 			spec
 				package: 'GsDevKit-CommandLine' with: [ spec requires: #('Tode' 'OSProcess') ];
 				configuration: 'OSProcess'

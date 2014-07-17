@@ -3,9 +3,9 @@
 #=========================================================================
 # Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
 #
-# Name - tode.sh 
+# Name - todeClient.sh 
 #
-# Purpose - run headless tode scripts
+# Purpose - launch todeClient image
 #
 #=========================================================================
 
@@ -19,7 +19,7 @@ fi
 
 # Run script
 pharo=$GS_HOME/pharo
-$pharo/pharo $pharo/todeClient.image $*
+$pharo/pharo-ui $pharo/todeClient.image &
 
 # End of script
 exit 0
