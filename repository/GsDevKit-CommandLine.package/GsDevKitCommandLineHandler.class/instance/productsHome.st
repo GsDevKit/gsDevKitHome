@@ -1,3 +1,3 @@
 accessing
 productsHome
-	^ self gsDevKitHome / 'products'
+	^ self gemstoneHome / 'products'

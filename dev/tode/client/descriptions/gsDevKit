@@ -3,12 +3,17 @@ TDSessionDescription {
 	#stoneHost : 'localhost',
 	#stoneName : 'gsDevKit',
 	#gemHost : 'localhost',
-	#netLDI : '50377',
+	#netLDI : '46357',
 	#gemTask : 'gemnetobject',
 	#userId : 'DataCurator',
 	#password : 'swordfish',
+	#osUserId : nil,
+	#osPassword : nil,
+	#dataDirectory : nil,
 	#backupDirectory : '',
-	#gemstoneVersion : '3.2.0',
-        #serverGitRoot : '/opt/git', 
-        #serverTodeRoot : '/opt/git/gsDevKitHome/dev/tode'
+	#gemstoneVersion : '3.2.1',
+	#gciLibraryName : nil,
+	#adornmentColor : nil,
+	#serverGitRoot : '/opt/git',
+	#serverTodeRoot : '/opt/git/gsDevKitHome/dev/tode'
 }

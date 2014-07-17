@@ -1,3 +1,3 @@
 accessing
 templateHome
-	^ self gsDevKitHome / 'gemstone' / 'templates'
+	^ self gemstoneHome  / 'templates'

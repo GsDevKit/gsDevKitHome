@@ -1,3 +1,3 @@
 accessing
 stonesHome
-	^ self gsDevKitHome / 'stones'
+	^ self gemstoneHome / 'stones'

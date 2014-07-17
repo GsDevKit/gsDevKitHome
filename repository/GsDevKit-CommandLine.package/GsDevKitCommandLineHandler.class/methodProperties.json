@@ -1,9 +1,10 @@
 {
 	"class" : {
-		 },
+		"isAbstract" : "dkh 7/17/2014 15:59" },
 	"instance" : {
+		"gemstoneHome" : "dkh 7/17/2014 16:13",
 		"gsDevKitHome" : "dkh 7/17/2014 13:41",
 		"gsDownloadNameFor:" : "dkh 7/17/2014 15:24",
-		"productsHome" : "dkh 7/17/2014 14:54",
-		"stonesHome" : "dkh 7/17/2014 14:53",
-		"templateHome" : "dkh 7/17/2014 15:44" } }
+		"productsHome" : "dkh 7/17/2014 16:14",
+		"stonesHome" : "dkh 7/17/2014 16:13",
+		"templateHome" : "dkh 7/17/2014 16:14" } }
