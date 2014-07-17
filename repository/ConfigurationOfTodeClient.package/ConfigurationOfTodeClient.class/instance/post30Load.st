@@ -1,6 +1,6 @@
 doits
 post30Load
-	| gsDevKitHome |
+	| gsDevKitHome windowLayoutHome windowProperties |
 	gsDevKitHome := FileSystem workingDirectory parent.
 	Deprecation
 		showWarning: false;
@@ -11,4 +11,8 @@ post30Load
 		perform: #desktopLogoFileName:
 		with: (gsDevKitHome / 'pharo' / 'GemTalkSystemsLogo.png') pathString.
 	(Smalltalk at: #TaskbarMorph) perform: #showTaskbar: with: false.
-	(Smalltalk at: #NECPreferences) perform: #enabled: with: false
+	(Smalltalk at: #NECPreferences) perform: #enabled: with: false.
+	windowLayoutHome := ((Smalltalk at: #TDShell) perform: #windowLayoutHome) asFileReference.
+	windowProperties := (Smalltalk at: #TDAbstractWindowProperties)
+		importFrom: (windowLayoutHome / 'standard-small') pathString.
+	windowProperties installOn: (Smalltalk at: #TDTopezGemStoneClient)
