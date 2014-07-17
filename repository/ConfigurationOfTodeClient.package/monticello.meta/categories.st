@@ -1,0 +1,2 @@
+SystemOrganization addCategory: #ConfigurationOftodeClient!
+SystemOrganization addCategory: 'ConfigurationOftodeClient-ConfigurationOfTodeClient'!

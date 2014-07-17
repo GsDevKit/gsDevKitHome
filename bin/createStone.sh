@@ -42,7 +42,7 @@ echo "Creating $stoneName for GemStone $vers"
 
 stoneDir="$GS_HOME/gemstone/stones/$stoneName"
 #    Create the stone directory
-if [ ! -e $stoneDir ]; then
+if [ ! -e "$stoneDir" ]; then
   mkdir $stoneDir
 else
   echo "[Warning]  $GS_HOME/gemstone/stones/$stoneName already exists"
@@ -70,7 +70,7 @@ case "$PLATFORM" in
     ;;
 esac
 
-if [ ! -e $GS_HOME/gemstone/products/$gsvers ]; then
+if [ ! -e "$GS_HOME/gemstone/products/$gsvers" ]; then
   echo "[Error] the specified product directory: $gsvers does not exist"
   exit 1
 fi
