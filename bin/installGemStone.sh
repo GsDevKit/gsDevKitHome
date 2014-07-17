@@ -21,6 +21,7 @@
 #    Download the GemStone product zipfile
 #    Uncompress the GemStone zipfile into $GS_HOME/products
 #    Copy the initial GsDevKit repository to data directory
+#    Copy the gci libraries to the Pharo vm (install Pharo if necessary)
 #    Print build version information and available IPv4 addresses
 #=========================================================================
 
@@ -251,6 +252,7 @@ else
 fi
 
 gs_product=$GS_HOME/gemstone/products/$gsvers
+pharo_vm=$GS_HOME/pharo/pharo-vm
 
 # Copy initial system.conf into the Seaside data directory
 echo "[Info] Copying initial system.conf to data directory"
@@ -274,6 +276,12 @@ if [ ! -e $gs_product/seaside/data/extent0.dbf ]
 else
     echo "[Warning] $gs_product/seaside/data/extent0.dbf already exists"
     echo "to replace it, remove or rename it and rerun this script"
+fi
+
+#    Copy the gci libraries to the Pharo vm
+if [! -e "$pharo_vm" ]; then
+  echo "Install Pharo"
+  $GS_HOME/bin/installPharo.sh
 fi
 
 echo "[Info] Finished $gsvers installation on $machine_name"
