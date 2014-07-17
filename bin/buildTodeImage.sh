@@ -20,11 +20,15 @@ echo "Building tODE client image"
 cd $GS_HOME/dev/tode/client/image
 pharo=$GS_HOME/pharo
 $pharo/pharo $pharo/Pharo.image save tode
+$pharo/pharo $pharo/tode.image eval --save "Gofer new package: 'ConfigurationOfTodeClient'; repository: (MCFileTreeRepository new directory: '$GS_HOME/repository' asFileReference); load"
 $pharo/pharo $pharo/tode.image config \
 	filetree://$GS_HOME/repository \
 	ConfigurationOfTodeClient \
-	--group="'GemStone Dev'" \
+	--group=Tode \
 	--install=release
+
+echo
+echo "tODE client image build complete"
 
 # End of script
 exit 0
