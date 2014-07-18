@@ -2,8 +2,6 @@ actions
 produceStoneReport
 	"GsDevKitStonesCommandLineHandler new produceStoneReport"
 
-	| stream |
-	stream := WriteStream on: String new.
 	installedStones := Dictionary new.
 	self stonesHome directories
 		do: [ :stoneDir | 
@@ -13,7 +11,7 @@ produceStoneReport
 					info := GsDevKitStoneInfo importFrom: infoFile.
 					installedStones at: info stoneName put: info ] ].
 	self
-		installedStoneReportOn: stream;
-		runningStoneReportOn: stream;
+		installedStoneReportOn: Transcript;
+		runningStoneReportOn: Transcript;
 		yourself.
-	^ stream contents
+	self exitSuccess

@@ -7,13 +7,14 @@ runningStoneReportOn: stream
 			^ self ].
 	stream
 		nextPutAll: 'Running Stones:';
-		lf.
+		cr.
 	result := self runShellCommand: (self gemstoneBin / 'gslist') pathString args: #('-lc').
 	(result beginsWith: 'gslist[Info]: No GemStone servers')
 		ifTrue: [ ^ self ].
+		result linesDo: [:line | ].
 	(self runningStones values sorted: [ :a :b | a printString < b printString ])
 		do: [ :info | 
 			stream
 				tab;
 				nextPutAll: info printString;
-				lf ]
+				cr ]
