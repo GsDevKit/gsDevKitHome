@@ -7,5 +7,7 @@ installedStoneReportOn: stream
 		do: [ :info | 
 			stream
 				tab;
-				nextPutAll: info printString;
+				nextPutAll: info gsVers;
+				tab;
+				nextPutAll: info stoneName;
 				cr ]

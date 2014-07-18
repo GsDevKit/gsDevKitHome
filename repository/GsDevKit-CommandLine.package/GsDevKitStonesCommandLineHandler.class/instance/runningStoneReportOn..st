@@ -11,10 +11,18 @@ runningStoneReportOn: stream
 	result := self runShellCommand: (self gemstoneBin / 'gslist') pathString args: #('-lc').
 	(result beginsWith: 'gslist[Info]: No GemStone servers')
 		ifTrue: [ ^ self ].
-		result linesDo: [:line | ].
-	(self runningStones values sorted: [ :a :b | a printString < b printString ])
-		do: [ :info | 
-			stream
-				tab;
-				nextPutAll: info printString;
-				cr ]
+	stream
+		tab;
+		nextPutAll: 'Status       Version    Owner    Pid   Port   Started     Type       Name';
+		cr;
+		tab;
+		nextPutAll: '-------     --------- --------- ----- ----- ------------ ------      ----';
+		cr.
+	result
+		linesDo: [ :line | 
+			(line includesSubstring: 'Stone')
+				ifTrue: [ 
+					stream
+						tab;
+						nextPutAll: line;
+						cr ] ]
