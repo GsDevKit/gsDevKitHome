@@ -17,7 +17,7 @@ if [ -r $path ]; then
     #    with $stonePath/bin first, you can override any
     #    gemstone scripts on a stone by stone basis
     if [[ ${PATH:0:$STONE_LEN} != ${stonePath} ]] ; then
-        export PATH=$stonePath/bin:$GEMSTONE/bin:$GEMSTONE/seaside/bin:$GS_HOME/bin:$PATH
+        export PATH=$stonePath/bin:$GEMSTONE/bin:$GEMSTONE/seaside/bin:$PATH
     fi
 
     ## Gemstone library path

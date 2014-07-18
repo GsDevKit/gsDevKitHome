@@ -1,5 +1,9 @@
 actions
 createEmptySubDirectories: stoneDirectory
+	Transcript
+		cr;
+		tab;
+		show: 'Creating subdirectories '.
 	self subDirectories
 		do: [ :dirName | 
 			| dir |
