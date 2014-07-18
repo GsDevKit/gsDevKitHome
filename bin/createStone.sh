@@ -12,8 +12,8 @@
 #    <stone-name> and populate directory with supporting files and directories.
 # 
 # Examples     
-#      tode.sh createStone --help
-#      tode.sh createStone gsDevKit 3.2.1
+#      createStone.sh --help
+#      createStone.sh gsDevKit 3.2.1
 #
 # Actions:
 #    Create the stone directory

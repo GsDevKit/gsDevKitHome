@@ -1,27 +1,34 @@
 #=========================================================================
 # Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
 #
-# Name - stones.sh
+# Name - stopStone.sh
 #
-# Purpose - Provide information about the installed and running stones
+# Purpose - stop the named stone
 #
 # Examples
-#   stones.sh --help
-#   stones.sh
+#   stopStone.sh gsDevKit
 #
 #=========================================================================
+
+if [ "$1x" = "x" ] ; then
+  echo "stopStone.sh <stone-name>"
+  exit 1
+fi
+stoneName=$1
 
 if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"
   exit 1
 fi
-if [ ! -e "$GS_HOME/pharo/pharo" ]; then
-  $GS_HOME/bin/installPharo.sh
-fi
 
-# Run script
-pharo=$GS_HOME/pharo
-$pharo/pharo $pharo/todeClient.image stones $*
+# set up stone environment
+stonePath=$GS_HOME/gemstone/stones/$stoneName
+pushd $stonePath
+source $stonePath/stone.env
+popd $stonePath
+
+# stop the stone
+$stonePath/product/seaside/bin/stopGemstone
 
 # End of script
 exit 0
