@@ -1,6 +1,6 @@
 actions
 createStone
-	| stoneDirectory |
+	| stoneDirectory stoneInfo |
 	Transcript
 		cr;
 		show: 'Creating stone ' , self stoneName.
@@ -21,10 +21,11 @@ createStone
 		copySeasideSystemConf: stoneDirectory;
 		copyTemplateFiles: stoneDirectory;
 		yourself.
-	(GsDevKitStoneInfo new
+	(stoneInfo := GsDevKitStoneInfo new
 		stoneName: self stoneName;
 		gsVers: self gsVers;
 		yourself) exportTo: stoneDirectory / self stoneInfoFilename.
+	self createTodeDescription: stoneInfo.
 	Transcript
 		cr;
 		tab;

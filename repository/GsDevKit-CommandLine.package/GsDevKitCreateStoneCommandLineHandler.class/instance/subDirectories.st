@@ -1,3 +1,3 @@
 accessing
 subDirectories
-	^ #('backups' 'bin' 'extents' 'logs' 'stats' 'tranlogs')
+	^ #('backups' 'bin' 'extents' 'git' 'logs' 'stats' 'tranlogs')
