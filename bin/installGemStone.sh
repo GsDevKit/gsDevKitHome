@@ -279,10 +279,18 @@ else
 fi
 
 #    Copy the gci libraries to the Pharo vm
-if [! -e "$pharo_vm" ]; then
+if [ ! -e "$pharo_vm" ]; then
   echo "Install Pharo"
   $GS_HOME/bin/installPharo.sh
 fi
+case "$PLATFORM" in
+  Linux-x86_64)
+    cp $gs_product/lib32/lib* $pharo_vm
+  ;;
+  Darwin-i386)
+    cp $gs_product/lib32/lib* $pharo_vm/Pharo.app/Contents/MacOS/Plugins
+  ;;
+esac
 
 echo "[Info] Finished $gsvers installation on $machine_name"
 echo ""

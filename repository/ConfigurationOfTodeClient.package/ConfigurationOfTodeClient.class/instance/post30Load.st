@@ -5,6 +5,7 @@ post30Load
 	Deprecation
 		showWarning: false;
 		raiseWarning: false.
+	World closeAllWindowsDiscardingChanges.	"close all windows"
 	ThreadSafeTranscript open.
 	(Smalltalk at: #TDShell) perform: #webEditionRoot: with: gsDevKitHome pathString.
 	(Smalltalk at: #PolymorphSystemSettings)
