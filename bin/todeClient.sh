@@ -7,6 +7,9 @@
 #
 # Purpose - launch todeClient image
 #
+# Examples
+#   todeClient.sh
+#
 #=========================================================================
 
 if [ "${GS_HOME}x" = "x" ] ; then

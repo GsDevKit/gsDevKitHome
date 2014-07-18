@@ -5,7 +5,11 @@
 #
 # Name - pharo.sh 
 #
-# Purpose - run headless pharo scripts
+# Purpose - run headless pharo scripts using the Pharo image
+#
+# Examples
+#   pharo.sh --help
+#   pharo.sh --list
 #
 #=========================================================================
 

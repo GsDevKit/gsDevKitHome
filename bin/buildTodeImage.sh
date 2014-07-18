@@ -3,9 +3,12 @@
 #=========================================================================
 # Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
 #
-# Name - buildTodeClientImage.sh
+# Name - buildTodeImage.sh
 #
 # Purpose - build the tODE client image
+#
+# Examples
+#   buildTodeImage.sh
 #
 #=========================================================================
 

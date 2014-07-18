@@ -14,6 +14,9 @@
 #    Safe to run multiple times, as it will not overwrite existing data
 #    Requires root access (using sudo) to change setings and create directories
 #
+# Examples
+#    installGemStone.sh 3.2.1
+#
 # Actions:
 #    Verify machine is capable of running GemStone 64-bit
 #    Add shared memory setup to /etc/sysctl.conf

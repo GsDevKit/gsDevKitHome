@@ -5,7 +5,11 @@
 #
 # Name - tode.sh 
 #
-# Purpose - run headless tode scripts
+# Purpose - run headless tode scripts using the todeClient image
+#
+# Examples
+#   tode.sh --help
+#   tode.sh createStone --help
 #
 #=========================================================================
 

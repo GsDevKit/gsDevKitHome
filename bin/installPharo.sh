@@ -8,6 +8,9 @@
 # Purpose - Automatically download and install a Linux, Mac or Windows
 #           Pharo VM
 #
+# Examples
+#   installPharo.sh
+#
 #=========================================================================
 
 if [ "${GS_HOME}x" = "x" ] ; then
