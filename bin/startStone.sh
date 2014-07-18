@@ -23,9 +23,9 @@ fi
 
 # set up stone environment
 stonePath=$GS_HOME/gemstone/stones/$stoneName
-pushd $stonePath
+pushd $stonePath >& /dev/null
 source $stonePath/stone.env
-popd $stonePath
+popd $stonePath >& /dev/null
 
 # start the stone
 $stonePath/product/seaside/bin/startGemstone

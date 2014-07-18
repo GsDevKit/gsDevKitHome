@@ -11,7 +11,7 @@
 #=========================================================================
 
 if [ "$1x" = "x" ] ; then
-  echo "startStone.sh <stone-name>"
+  echo "startnetldi.sh <stone-name>"
   exit 1
 fi
 stoneName=$1

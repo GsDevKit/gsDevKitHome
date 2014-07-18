@@ -1,17 +1,17 @@
 #=========================================================================
 # Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
 #
-# Name - stopStone.sh
+# Name - installTodeStone.sh
 #
-# Purpose - stop the named stone
+# Purpose - install tODE in the given stone
 #
 # Examples
-#   stopStone.sh gsDevKit
+#   installTodeStone.sh gsDevKit
 #
 #=========================================================================
 
 if [ "$1x" = "x" ] ; then
-  echo "stopStone.sh <stone-name>"
+  echo "installTodeStone.sh <stone-name>"
   exit 1
 fi
 stoneName=$1
@@ -27,8 +27,8 @@ pushd $stonePath >& /dev/null
 source $stonePath/stone.env
 popd $stonePath >& /dev/null
 
-# stop the stone
-$stonePath/product/seaside/bin/stopGemstone
+# install tode
+$GS_HOME/bin/tode.sh installTode $stoneName
 
 # End of script
 exit 0
