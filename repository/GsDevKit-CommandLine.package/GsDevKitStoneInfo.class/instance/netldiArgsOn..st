@@ -1,3 +1,7 @@
 operations
-netldiArgsOn: aStream
-	aStream nextPutAll: '-g -a ' , self username , ' ' , self netldiName
+netldiArgsOn: netldiArgs
+	netldiArgs
+		add: '-g';
+		add: '-a';
+		add: self username;
+		add: self netldiName

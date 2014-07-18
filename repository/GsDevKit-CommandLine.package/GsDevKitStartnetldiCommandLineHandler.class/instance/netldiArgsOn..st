@@ -1,5 +1,7 @@
 actions
-netldiArgsOn: aStream
+netldiArgsOn: netldiArgs
 	| logDir |
 	logDir := OSPlatform current environment getEnv: 'GEMSTONE_LOGDIR'.
-	aStream nextPutAll: '-l ' , logDir , '/netldi.log '
+	netldiArgs
+		add: '-l';
+		add: logDir , '/netldi.log '
