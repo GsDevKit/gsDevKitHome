@@ -27,7 +27,7 @@ fi
 # Download Pharo
 
 cd $GS_HOME/pharo
-wget -O- get.pharo.org/30+vm | bash
+wget -O- get.pharo.org/30+vmLatest | bash
 
 # End of script
 exit 0
