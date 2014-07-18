@@ -7,7 +7,9 @@
 	"commentStamp" : "",
 	"instvars" : [
 		"stoneName",
-		"gsVers" ],
+		"gsVers",
+		"username",
+		"netldiName" ],
 	"name" : "GsDevKitStoneInfo",
 	"pools" : [
 		 ],

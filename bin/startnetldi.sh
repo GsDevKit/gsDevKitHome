@@ -23,13 +23,11 @@ fi
 
 # set up stone environment
 stonePath=$GS_HOME/gemstone/stones/$stoneName
-pushd $stonePath
+pushd $stonePath >& /dev/null
 source $stonePath/stone.env
-popd $stonePath
+popd $stonePath >& /dev/null
 
-netldiArgs=`$GS_HOME/bin/tode.sh netldiArgs`
-# start the netldi process
-$stonePath/product/bin/startnetldi $netldiArgs
+$GS_HOME/bin/tode.sh startnetldi $stoneName
 
 # End of script
 exit 0
