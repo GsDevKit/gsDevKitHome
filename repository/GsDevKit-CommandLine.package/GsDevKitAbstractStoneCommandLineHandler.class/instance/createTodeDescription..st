@@ -11,7 +11,7 @@ createTodeDescription: stoneInfo
 		gemTask: 'gemnetobject';
 		userId: 'DataCurator';
 		password: 'swordfish';
-		backupDirectory: '';
+		backupDirectory: self backupsHome pathString;
 		serverGitRoot: self gitHome pathString;
 		serverTodeRoot: self todeHome pathString;
 		yourself.
