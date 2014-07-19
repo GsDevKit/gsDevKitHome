@@ -18,7 +18,7 @@ createStone
 		createProductLn: stoneDirectory;
 		createEmptySubDirectories: stoneDirectory;
 		copySeasideExtent: stoneDirectory;
-		copySeasideSystemConf: stoneDirectory;
+		copyTemplateSystemConf: stoneDirectory;
 		copyTemplateFiles: stoneDirectory;
 		yourself.
 	(stoneInfo := GsDevKitStoneInfo new
