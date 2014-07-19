@@ -21,6 +21,8 @@ if [ "${GS_HOME}x" = "x" ] ; then
   exit 1
 fi
 
+echo "starting netldi $stoneName"
+
 # set up stone environment
 stonePath=$GS_HOME/gemstone/stones/$stoneName
 pushd $stonePath >& /dev/null
@@ -28,6 +30,7 @@ source $stonePath/stone.env
 popd $stonePath >& /dev/null
 
 $GS_HOME/bin/tode.sh startnetldi $stoneName
+if [[ $? != 0 ]] ; then exit 1; fi
 
 # End of script
 exit 0

@@ -31,11 +31,23 @@ if [ "${GS_HOME}x" = "x" ] ; then
 fi
 
 $GS_HOME/bin/installGemStone.sh $gsvers
+if [[ $? != 0 ]] ; then exit 1; fi
+
 $GS_HOME/bin/buildTodeImage.sh
+if [[ $? != 0 ]] ; then exit 1; fi
+
 $GS_HOME/bin/createStone.sh $stoneName $gsvers
+if [[ $? != 0 ]] ; then exit 1; fi
+
 $GS_HOME/bin/startStone.sh $stoneName
+if [[ $? != 0 ]] ; then exit 1; fi
+
 $GS_HOME/bin/startnetldi.sh $stoneName
+if [[ $? != 0 ]] ; then exit 1; fi
+
 $GS_HOME/bin/installTodeStone.sh $stoneName
+if [[ $? != 0 ]] ; then exit 1; fi
+
 $GS_HOME/bin/todeClient.sh
 
 # End of script

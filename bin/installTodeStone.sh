@@ -21,6 +21,8 @@ if [ "${GS_HOME}x" = "x" ] ; then
   exit 1
 fi
 
+echo "Install tODE on server: $stoneName"
+
 # set up stone environment
 stonePath=$GS_HOME/gemstone/stones/$stoneName
 pushd $stonePath >& /dev/null
@@ -29,6 +31,7 @@ popd $stonePath >& /dev/null
 
 # install tode
 $GS_HOME/bin/tode.sh installTode $stoneName
+if [[ $? != 0 ]] ; then exit 1; fi
 
 # End of script
 exit 0

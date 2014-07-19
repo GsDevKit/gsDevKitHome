@@ -6,9 +6,9 @@
 stonePath=$GS_HOME/gemstone/stones/$1
 path=$stonePath/stone.env
 if [ -r $path ]; then
-    pushd $stonePath
+    pushd $stonePath >& /dev/null
     . $path
-    popd
+    popd >& /dev/null
     # Compute the length of the $GEMSTONE environment variable
     GS_LEN=${#GEMSTONE}
     STONE_LEN=${#stonePath}
@@ -34,12 +34,6 @@ if [ -r $path ]; then
         MANPATH=$GEMSTONE/doc:$MANPATH
     fi
 
-    ## Export environment variables for use outside this script
-    # You can remove any that you set via other means
-    export GEMSTONE GEMSTONE_LOGDIR GEMSTONE_DATADIR GEMSTONE_KEYFILE
-    export GEMSTONE_NAME GEMSTONE_SYS_CONF GEMSTONE_EXE_CONF
-    export GEMSTONE_TRANLOGDIR GEMSTONE_NAME GEMSTONE_STONE_DIR
-    export PATH MANPATH LD_LIBRARY_PATH DYLD_LIBRARY_PATH
 else
     echo 'defStone: WARNING - Your GEMSTONE environment variables have not been set!'
     echo "defStone: Missing env file $path"

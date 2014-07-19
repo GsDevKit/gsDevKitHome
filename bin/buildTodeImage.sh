@@ -16,19 +16,35 @@ if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"
   exit 1
 fi
-echo "Building tODE client image"
 
 # build tODE client
-
-cd $GS_HOME/dev/tode/client/image
 pharo=$GS_HOME/pharo
-$pharo/pharo $pharo/Pharo.image save todeClient
-$pharo/pharo $pharo/todeClient.image eval --save "Gofer new package: 'ConfigurationOfTodeClient'; repository: (MCFileTreeRepository new directory: '$GS_HOME/repository' asFileReference); load"
-$pharo/pharo $pharo/todeClient.image config \
+if [ -e $pharo/todeClient.image ] ; then
+  echo "todeClent already installed"
+  exit 0
+fi
+
+echo "building todeClient image"
+
+$pharo/pharo $pharo/Pharo.image save todeClientTmp
+$pharo/pharo $pharo/todeClientTmp.image eval --save "Gofer new package: 'ConfigurationOfTodeClient'; repository: (MCFileTreeRepository new directory: '$GS_HOME/repository' asFileReference); load"
+$pharo/pharo $pharo/todeClientTmp.image config \
 	filetree://$GS_HOME/repository \
 	ConfigurationOfTodeClient \
 	--install=release
+if [[ $? != 0 ]] ; then
+  echo "buildTodeImage.sh[Error]: failed loading tode client"
+  exit 1
+fi
 
+$pharo/pharo $pharo/todeClientTmp.image save todeClient
+if [[ $? != 0 ]] ; then
+  echo "buildTodeImage.sh[Error]: failed saving tode client"
+  rm -f todeClient*
+  exit 1
+fi
+
+rm -f todeClientTmp.*
 echo
 echo "tODE client image build complete"
 

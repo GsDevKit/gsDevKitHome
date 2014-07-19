@@ -35,9 +35,11 @@ if [ ! -e "$GS_HOME/pharo/pharo" ]; then
   $GS_HOME/bin/installPharo.sh
 fi
 
+echo "Creating stone $*"
 # Run script
 pharo=$GS_HOME/pharo
 $pharo/pharo $pharo/todeClient.image createStone $*
+if [[ $? != 0 ]] ; then exit 1; fi
 
 # End of script
 exit 0

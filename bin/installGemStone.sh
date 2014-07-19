@@ -285,13 +285,23 @@ fi
 if [ ! -e "$pharo_vm" ]; then
   echo "Install Pharo"
   $GS_HOME/bin/installPharo.sh
+  if [[ $? != 0 ]] ; then exit 1; fi
 fi
+echo "copy gci libraries"
 case "$PLATFORM" in
   Linux-x86_64)
-    cp $gs_product/lib32/lib* $pharo_vm
+    if [ ! -e $pharo_vm/libgcirpc-${vers}-32.so ] ; then
+      cp $gs_product/lib32/lib* $pharo_vm
+    else
+      echo "[Warning] gci libraries already present to replace, delete them and try again"
+    fi
   ;;
   Darwin-i386)
-    cp $gs_product/lib32/lib* $pharo_vm/Pharo.app/Contents/MacOS/Plugins
+    if [ ! -e $pharo_vm/Pharo.app/Contents/MacOS/Plugins/libgcirpc-${vers}-32.dylib ] ; then
+      cp $gs_product/lib32/lib* $pharo_vm/Pharo.app/Contents/MacOS/Plugins
+    else
+      echo "[Warning] gci libraries already present to replace, delete them and try again"
+    fi
   ;;
 esac
 

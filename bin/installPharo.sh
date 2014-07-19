@@ -19,6 +19,11 @@ if [ "${GS_HOME}x" = "x" ] ; then
 fi
 echo "Installing Pharo"
 
+if [ -e "$pharo_vm" ]; then
+  echo "Pharo already installed. To reinstall delete Pharo directory and try again."
+  exit 0
+fi
+
 # Look for wget to download Pharo
 if [ -e "`which wget`" ]; then
     cmd="`which wget`"
