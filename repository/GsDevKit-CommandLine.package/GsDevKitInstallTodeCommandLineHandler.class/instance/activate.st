@@ -6,7 +6,10 @@ activate
 		ifTrue: [ 
 			self printHelp.
 			^ self exitFailure: 'Missing arguments' ].
-	self
-		installTode;
-		installTode2.
+	Author
+		useAuthor: 'gsDevKit'
+		during: [ 
+			self
+				installTode;
+				installTode2 ].
 	self exitSuccess
