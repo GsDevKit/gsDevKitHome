@@ -11,5 +11,5 @@
 	"name" : "GsDevKitStonesCommandLineHandler",
 	"pools" : [
 		 ],
-	"super" : "GsDevKitCommandLineHandler",
+	"super" : "GsDevKitAbstractCommandLineHandler",
 	"type" : "normal" }

@@ -10,5 +10,5 @@
 	"name" : "GsDevKitInstallTodeCommandLineHandler",
 	"pools" : [
 		 ],
-	"super" : "GsDevKitCommandLineHandler",
+	"super" : "GsDevKitAbstractCommandLineHandler",
 	"type" : "normal" }

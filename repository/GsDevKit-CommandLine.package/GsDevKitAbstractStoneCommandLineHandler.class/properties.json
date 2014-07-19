@@ -4,10 +4,10 @@
 		 ],
 	"classvars" : [
 		 ],
-	"commentStamp" : "dkh 7/18/2014 14:10",
+	"commentStamp" : "",
 	"instvars" : [
-		"stoneName" ],
-	"name" : "GsDevKitStartnetldiCommandLineHandler",
+		 ],
+	"name" : "GsDevKitAbstractStoneCommandLineHandler",
 	"pools" : [
 		 ],
 	"super" : "GsDevKitAbstractCommandLineHandler",

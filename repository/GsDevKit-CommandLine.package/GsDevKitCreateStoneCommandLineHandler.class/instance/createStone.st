@@ -1,4 +1,4 @@
-actions
+activations
 createStone
 	| stoneDirectory stoneInfo |
 	Transcript
