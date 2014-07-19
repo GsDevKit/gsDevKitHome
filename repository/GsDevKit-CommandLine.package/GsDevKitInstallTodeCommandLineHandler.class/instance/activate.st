@@ -6,5 +6,7 @@ activate
 		ifTrue: [ 
 			self printHelp.
 			^ self exitFailure: 'Missing arguments' ].
-	self installTode.
+	self
+		installTode;
+		installTode2.
 	self exitSuccess

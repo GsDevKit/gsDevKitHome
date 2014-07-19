@@ -1,6 +1,1 @@
 installServer --clientScriptPath=scripts
-bu backup tode.dbf
-mount --todeRoot home /
-bu backup home.dbf
-commit
-cd 
