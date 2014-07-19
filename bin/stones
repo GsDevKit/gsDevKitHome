@@ -3,13 +3,13 @@
 #=========================================================================
 # Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
 #
-# Name - pharo.sh 
+# Name - stones
 #
-# Purpose - run headless pharo scripts using the Pharo image
+# Purpose - Provide information about the installed and running stones
 #
 # Examples
-#   pharo.sh --help
-#   pharo.sh --list
+#   stones --help
+#   stones
 #
 #=========================================================================
 
@@ -18,12 +18,12 @@ if [ "${GS_HOME}x" = "x" ] ; then
   exit 1
 fi
 if [ ! -e "$GS_HOME/pharo/pharo" ]; then
-  $GS_HOME/bin/installPharo.sh
+  $GS_HOME/bin/installPharo
 fi
 
 # Run script
 pharo=$GS_HOME/pharo
-$pharo/pharo $pharo/Pharo.image $*
+$pharo/pharo $pharo/todeClient.image stones $*
 
 # End of script
 exit 0

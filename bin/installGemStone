@@ -4,7 +4,7 @@
 # Copyright (C) VMware, Inc. 1986-2011.  All Rights Reserved.
 # Copyright (c) 2013-2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
 #
-# Name - installGemStone.sh <gemstone version (e.g., 3.2)>
+# Name - installGemStone <gemstone version (e.g., 3.2)>
 #
 # Purpose - Automatically download and install a Linux or Mac version of GemStone
 #
@@ -15,7 +15,7 @@
 #    Requires root access (using sudo) to change setings and create directories
 #
 # Examples
-#    installGemStone.sh 3.2.1
+#    installGemStone 3.2.1
 #
 # Actions:
 #    Verify machine is capable of running GemStone 64-bit
@@ -29,7 +29,7 @@
 #=========================================================================
 
 if [ "$1x" = "x" ] ; then
-  echo "installGemStone.sh <gemstone version (e.g., 3.1.0.1)>"
+  echo "installGemStone <gemstone version (e.g., 3.1.0.1)>"
   exit 1
 fi 
 vers="$1"
@@ -118,7 +118,7 @@ sudo date
 
 echo "[Info] Setting up shared memory"
 # Ref: http://developer.postgresql.org/pgdocs/postgres/kernel-resources.html
-# Ref: http://www.idevelopment.info/data/Oracle/DBA_tips/Linux/LINUX_8.shtml
+# Ref: http://www.idevelopment.info/data/Oracle/DBA_tips/Linux/LINUX_8tml
 
 case "$PLATFORM" in
     Linux-x86_64)
@@ -133,9 +133,9 @@ case "$PLATFORM" in
     Darwin-i386)
     totalMem="`sysctl hw.memsize | cut -f2 -d' '`"
     # Figure out the max shared memory segment size currently allowed
-    shmmax="`sysctl kern.sysv.shmmax | cut -f2 -d' '`"
+    shmmax="`sysctl kern.sysvmmax | cut -f2 -d' '`"
     # Figure out the max shared memory currently allowed
-    shmall="`sysctl kern.sysv.shmall | cut -f2 -d' '`"
+    shmall="`sysctl kern.sysvmall | cut -f2 -d' '`"
     ;;
     *)
     echo "[Error] Can't determine operating system. Check script."
@@ -169,7 +169,7 @@ shmallNewMB=$(($shmallNew / 256))
 # Increase shmmax if appropriate
 if [ $shmmaxNew -gt $shmmax ]; then
     echo "[Info] Increasing max shared memory segment size to $shmmaxNewMB MB"
-    [ $PLATFORM = "Darwin-i386" ] && sudo sysctl -w kern.sysv.shmmax=$shmmaxNew
+    [ $PLATFORM = "Darwin-i386" ] && sudo sysctl -w kern.sysvmmax=$shmmaxNew
     [ $PLATFORM = "Linux-x86_64" ] && sudo bash -c "echo $shmmaxNew > /proc/sys/kernel/shmmax"
 else
     echo "[Info] No need to increase max shared memory segment size"
@@ -178,7 +178,7 @@ fi
 # Increase shmall if appropriate
 if [ $shmallNew -gt $shmall ]; then
     echo "[Info] Increasing max shared memory allowed to $shmallNewMB MB"
-    [ $PLATFORM = "Darwin-i386" ] && sudo sysctl -w kern.sysv.shmall=$shmallNew
+    [ $PLATFORM = "Darwin-i386" ] && sudo sysctl -w kern.sysvmall=$shmallNew
     [ $PLATFORM = "Linux-x86_64" ] && sudo bash -c "echo $shmallNew > /proc/sys/kernel/shmall"
 else
     echo "[Info] No need to increase max shared memory allowed"
@@ -186,19 +186,19 @@ fi
 
 # At this point, shared memory settings contain the values we want, 
 # put them in sysctl.conf so they are preserved.
-if [[ ! -f /etc/sysctl.conf || `grep -sc "kern.*.shm" /etc/sysctl.conf` -eq 0 ]]; then
+if [[ ! -f /etc/sysctl.conf || `grep -sc "kern.*m" /etc/sysctl.conf` -eq 0 ]]; then
     case "$PLATFORM" in
         Linux-x86_64)
-        echo "# kernel.shm* settings added by MagLev installation" > /tmp/sysctl.conf.$$
-        echo "kernel.shmmax=`cat /proc/sys/kernel/shmmax`" >> /tmp/sysctl.conf.$$
-        echo "kernel.shmall=`cat /proc/sys/kernel/shmall`" >> /tmp/sysctl.conf.$$
+        echo "# kernelm* settings added by MagLev installation" > /tmp/sysctl.conf.$$
+        echo "kernelmmax=`cat /proc/sys/kernel/shmmax`" >> /tmp/sysctl.conf.$$
+        echo "kernelmall=`cat /proc/sys/kernel/shmall`" >> /tmp/sysctl.conf.$$
         ;;
         Darwin-i386)
         # On Mac OS X Leopard, you must have all five settings in sysctl.conf
         # before they will take effect.
-        echo "# kern.sysv.shm* settings added by MagLev installation" > /tmp/sysctl.conf.$$
-        sysctl kern.sysv.shmmax kern.sysv.shmall kern.sysv.shmmin kern.sysv.shmmni \
-        kern.sysv.shmseg  | tr ":" "=" | tr -d " " >> /tmp/sysctl.conf.$$
+        echo "# kern.sysvm* settings added by MagLev installation" > /tmp/sysctl.conf.$$
+        sysctl kern.sysvmmax kern.sysv.shmall kern.sysv.shmmin kern.sysv.shmmni \
+        kern.sysvmseg  | tr ":" "=" | tr -d " " >> /tmp/sysctl.conf.$$
         ;;
         *)
         echo "[Error] Can't determine operating system. Check script."
@@ -213,7 +213,7 @@ if [[ ! -f /etc/sysctl.conf || `grep -sc "kern.*.shm" /etc/sysctl.conf` -eq 0 ]]
 else
     echo "[Info] The following shared memory settings already exist in /etc/sysctl.conf"
     echo "To change them, remove the following lines from /etc/sysctl.conf and rerun this script"
-    grep "kern.*.shm" /etc/sysctl.conf
+    grep "kern.*m" /etc/sysctl.conf
 fi
 
 # Now setup for NetLDI in case we ever need it.
@@ -286,7 +286,7 @@ fi
 #    Copy the gci libraries to the Pharo vm
 if [ ! -e "$pharo_vm" ]; then
   echo "Install Pharo"
-  $GS_HOME/bin/installPharo.sh
+  $GS_HOME/bin/installPharo
   if [[ $? != 0 ]] ; then exit 1; fi
 fi
 echo "copy gci libraries"

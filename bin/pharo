@@ -3,13 +3,13 @@
 #=========================================================================
 # Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
 #
-# Name - tode.sh 
+# Name - pharo 
 #
-# Purpose - run headless tode scripts using the todeClient image
+# Purpose - run headless pharo scripts using the Pharo image
 #
 # Examples
-#   tode.sh --help
-#   tode.sh createStone --help
+#   pharo --help
+#   pharo --list
 #
 #=========================================================================
 
@@ -18,12 +18,12 @@ if [ "${GS_HOME}x" = "x" ] ; then
   exit 1
 fi
 if [ ! -e "$GS_HOME/pharo/pharo" ]; then
-  $GS_HOME/bin/installPharo.sh
+  $GS_HOME/bin/installPharo
 fi
 
 # Run script
 pharo=$GS_HOME/pharo
-$pharo/pharo $pharo/todeClient.image $*
+$pharo/pharo $pharo/Pharo.image $*
 
 # End of script
 exit 0

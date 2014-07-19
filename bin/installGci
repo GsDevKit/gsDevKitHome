@@ -3,18 +3,18 @@
 #=========================================================================
 # Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
 #
-# Name - installGci.sh 
+# Name - installGci 
 #
 # Purpose - Install gemstone gci libraries from the specied gemstone
 #           release into the pharo vm
 #
 # Examples
-#   installGci.sh <gs-version>
+#   installGci <gs-version>
 #
 #=========================================================================
 
 if [ "$1x" = "x" ] ; then
-  echo "installGemStone.sh <gemstone version (e.g., 3.1.0.1)>"
+  echo "installGemStone <gemstone version (e.g., 3.1.0.1)>"
   exit 1
 fi 
 vers="$1"
@@ -30,7 +30,7 @@ pharo_vm=$GS_HOME/pharo/pharo-vm
 #    Copy the gci libraries to the Pharo vm
 if [ ! -e "$pharo_vm" ]; then
   echo "Install Pharo"
-  $GS_HOME/bin/installPharo.sh
+  $GS_HOME/bin/installPharo
 fi
 
 # Detect operating system

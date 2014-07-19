@@ -1,13 +1,14 @@
+#! /bin/bash
+
 #=========================================================================
 # Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
 #
-# Name - stones.sh
+# Name - todeClient 
 #
-# Purpose - Provide information about the installed and running stones
+# Purpose - launch todeClient image
 #
 # Examples
-#   stones.sh --help
-#   stones.sh
+#   todeClient
 #
 #=========================================================================
 
@@ -16,12 +17,12 @@ if [ "${GS_HOME}x" = "x" ] ; then
   exit 1
 fi
 if [ ! -e "$GS_HOME/pharo/pharo" ]; then
-  $GS_HOME/bin/installPharo.sh
+  $GS_HOME/bin/installPharo
 fi
 
 # Run script
 pharo=$GS_HOME/pharo
-$pharo/pharo $pharo/todeClient.image stones $*
+$pharo/pharo-ui $pharo/todeClient.image &
 
 # End of script
 exit 0

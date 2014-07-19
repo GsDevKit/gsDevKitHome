@@ -3,18 +3,18 @@
 #=========================================================================
 # Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
 #
-# Name - createTodeStone.sh 
+# Name - createTodeStone 
 #
 # Purpose - Create a new stone and install tODE
 #
 # Examples
-#   createTodeStone.sh 3.2.1 gsDevKit
-#   createTodeStone.sh gsDevKit
+#   createTodeStone 3.2.1 gsDevKit
+#   createTodeStone gsDevKit
 #
 #=========================================================================
 
 if [ "$1x" = "x" ] ; then
-  echo "createTodeStone.sh <gs-version> [ <stone-name> ]"
+  echo "createTodeStone <gs-version> [ <stone-name> ]"
   exit 1
 fi
 gsvers="$1"
@@ -29,16 +29,16 @@ if [ "${GS_HOME}x" = "x" ] ; then
   exit 1
 fi
 
-$GS_HOME/bin/createStone.sh $stoneName $gsvers
+$GS_HOME/bin/createStone $stoneName $gsvers
 if [[ $? != 0 ]] ; then exit 1; fi
 
-$GS_HOME/bin/startStone.sh $stoneName
+$GS_HOME/bin/startStone $stoneName
 if [[ $? != 0 ]] ; then exit 1; fi
 
-$GS_HOME/bin/startnetldi.sh $stoneName
+$GS_HOME/bin/startNetldi $stoneName
 if [[ $? != 0 ]] ; then exit 1; fi
 
-$GS_HOME/bin/installTodeStone.sh $stoneName
+$GS_HOME/bin/installTodeStone $stoneName
 if [[ $? != 0 ]] ; then exit 1; fi
 
 # End of script

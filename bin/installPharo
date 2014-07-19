@@ -3,13 +3,13 @@
 #=========================================================================
 # Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
 #
-# Name - installPharo.sh 
+# Name - installPharo 
 #
 # Purpose - Automatically download and install a Linux, Mac or Windows
 #           Pharo VM
 #
 # Examples
-#   installPharo.sh
+#   installPharo
 #
 #=========================================================================
 

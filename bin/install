@@ -1,7 +1,9 @@
+#! /bin/bash
+
 #=========================================================================
 # Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
 #
-# Name - install.sh
+# Name - install
 #
 # Purpose - Install GemStone (specified gs-version), Pharo, build tODE client
 #           image, create a stone (specifed stone-name), start the stone
@@ -9,13 +11,13 @@
 #           client.
 #
 # Examples
-#   install.sh 3.2.1 gsDevKit
-#   install.sh 3.2.1 
+#   install 3.2.1 gsDevKit
+#   install 3.2.1 
 #
 #=========================================================================
 
 if [ "$1x" = "x" ] ; then
-  echo "install.sh <gs-version> [ <stone-name> ]"
+  echo "install <gs-version> [ <stone-name> ]"
   exit 1
 fi
 gsvers="$1"
@@ -30,25 +32,25 @@ if [ "${GS_HOME}x" = "x" ] ; then
   exit 1
 fi
 
-$GS_HOME/bin/installGemStone.sh $gsvers
+$GS_HOME/bin/installGemStone $gsvers
 if [[ $? != 0 ]] ; then exit 1; fi
 
-$GS_HOME/bin/buildTodeImage.sh
+$GS_HOME/bin/createTodeImage
 if [[ $? != 0 ]] ; then exit 1; fi
 
-$GS_HOME/bin/createStone.sh $stoneName $gsvers
+$GS_HOME/bin/createStone $stoneName $gsvers
 if [[ $? != 0 ]] ; then exit 1; fi
 
-$GS_HOME/bin/startStone.sh $stoneName
+$GS_HOME/bin/startStone $stoneName
 if [[ $? != 0 ]] ; then exit 1; fi
 
-$GS_HOME/bin/startnetldi.sh $stoneName
+$GS_HOME/bin/startNetldi $stoneName
 if [[ $? != 0 ]] ; then exit 1; fi
 
-$GS_HOME/bin/installTodeStone.sh $stoneName
+$GS_HOME/bin/installTodeStone $stoneName
 if [[ $? != 0 ]] ; then exit 1; fi
 
-$GS_HOME/bin/todeClient.sh
+$GS_HOME/bin/todeClient
 
 # End of script
 exit 0

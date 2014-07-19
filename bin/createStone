@@ -3,7 +3,7 @@
 #=========================================================================
 # Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
 #
-# Name - createStone.sh <stone-name> <gemstone-version>
+# Name - createStone <stone-name> <gemstone-version>
 #
 # Purpose - Create a Gs Dev Kit stone for the given version of GemStone/S 64
 #
@@ -12,8 +12,8 @@
 #    <stone-name> and populate directory with supporting files and directories.
 # 
 # Examples     
-#      createStone.sh --help
-#      createStone.sh gsDevKit 3.2.1
+#      createStone --help
+#      createStone gsDevKit 3.2.1
 #
 # Actions:
 #    Create the stone directory
@@ -32,7 +32,7 @@ if [ "${GS_HOME}x" = "x" ] ; then
   exit 1
 fi
 if [ ! -e "$GS_HOME/pharo/pharo" ]; then
-  $GS_HOME/bin/installPharo.sh
+  $GS_HOME/bin/installPharo
 fi
 
 echo "Creating stone $*"
