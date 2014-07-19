@@ -1,3 +1,3 @@
 actions
 installTode
-	TDShell openSessionDescription: self sessionDescription evaluate: 'script --script=installServerTode'
+	TDShell sessionDescription: self sessionDescription evaluate: 'script --script=installServerTode'
