@@ -1,19 +1,19 @@
 TDSessionDescription {
-	#name : 'gsDevKit',
+	#name : 'a_',
 	#stoneHost : 'localhost',
-	#stoneName : 'gsDevKit',
+	#stoneName : 'a_',
 	#gemHost : 'localhost',
-	#netLDI : 'gsDevKit_ldi',
+	#netLDI : 'a__ldi',
 	#gemTask : 'gemnetobject',
 	#userId : 'DataCurator',
 	#password : 'swordfish',
 	#osUserId : nil,
 	#osPassword : nil,
 	#dataDirectory : nil,
-	#backupDirectory : '',
+	#backupDirectory : '/Users/daleh/gsDevKitHome/gemstone/stones/a_/backups/',
 	#gemstoneVersion : '3.2.1',
 	#gciLibraryName : nil,
 	#adornmentColor : nil,
-	#serverGitRoot : '/Users/daleh/test/gsDevKitHome/gemstone/stones/gsDevKit/git',
-	#serverTodeRoot : '/Users/daleh/test/gsDevKitHome/dev/tode'
+	#serverGitRoot : '/Users/daleh/gsDevKitHome/gemstone/stones/a_/git',
+	#serverTodeRoot : '/Users/daleh/gsDevKitHome/dev/tode'
 }
