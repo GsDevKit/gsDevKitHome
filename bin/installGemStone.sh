@@ -236,6 +236,7 @@ else
 fi
 
 # Download GemStone
+pushd $GS_HOME/gemstone/downloads >& /dev/null
 if [ ! -e $gss_file ]; then
     echo "[Info] Downloading $gss_file using ${cmd}"
     $cmd ${ftp_address}/pub/GemStone64/$bucket/$gss_file
@@ -244,17 +245,18 @@ else
     echo "to replace it, remove or rename it and rerun this script"
 fi
 
-# Unzip the downloaded archive into /opt/gemstone/
-echo "[Info] Uncompressing GemStone archive into /opt/gemstone/"
-if [ ! -e $GS_HOME/gemstone/products/$gsvers ]
+# Unzip the downloaded archive into $GS_HOME/gemstone/products/
+echo "[Info] Uncompressing GemStone archive into $GS_HOME/gemstone/products/"
+gs_product=$GS_HOME/gemstone/products/$gsvers
+if [ ! -e $gs_product ]
     then
     unzip -q -d $GS_HOME/gemstone/products $gss_file
 else
     echo "[Warning] $GS_HOME/gemstone/products/$gsvers already exists"
     echo "to replace it, remove or rename it and rerun this script"
 fi
+popd >& /dev/null
 
-gs_product=$GS_HOME/gemstone/products/$gsvers
 pharo_vm=$GS_HOME/pharo/pharo-vm
 
 # Copy initial system.conf into the Seaside data directory
