@@ -17,6 +17,7 @@ createStone
 	self
 		createProductLn: stoneDirectory;
 		createEmptySubDirectories: stoneDirectory;
+		createEmptyStatsSubDirectories: stoneDirectory;
 		copySeasideExtent: stoneDirectory;
 		copyTemplateSystemConf: stoneDirectory;
 		copyTemplateFiles: stoneDirectory;
