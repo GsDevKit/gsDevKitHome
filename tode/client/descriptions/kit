@@ -15,5 +15,5 @@ TDSessionDescription {
 	#gciLibraryName : nil,
 	#adornmentColor : nil,
 	#serverGitRoot : '/Users/daleh/gsDevKitHome/gemstone/stones/kit/git',
-	#serverTodeRoot : '/Users/daleh/gsDevKitHome/dev/tode'
+	#serverTodeRoot : '/Users/daleh/gsDevKitHome/tode'
 }

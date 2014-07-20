@@ -5,18 +5,50 @@
 #
 # Name - startStatmonitor
 #
-# Purpose - start statmonitor for the named stone. Two statmonitors are 
+# Purpose - Start statmonitor for the named stone. Two statmonitors are 
 #           started. One that collects a sample every second and is 
 #           restarted every hour. One that collects a sample once a 
 #           minute and is restarted once a day.
 #
 # Examples
+#   startStatmonitor -h
 #   startStatmonitor kit
 #
 #=========================================================================
 
+# help function
+function display_help() {
+  echo ""
+  echo "USAGE: $(basename $0) [-h] <stone-name>"
+  echo "Start statmonitor for the named stone. Two statmonitors are"
+  echo "started. One that collects a sample every second and is"
+  echo "restarted every hour. One that collects a sample once a"
+  echo "minute and is restarted once a day."
+  echo ""
+  echo "OPTIONS"
+  echo "  -h display help"
+  echo ""
+  echo "EXAMPLES"
+  echo "  $(basename $0) -h"
+  echo "  $(basename $0) kit"
+  echo ""
+}
+
+while getopts "h" OPT ; do
+  case "$OPT" in
+    h) 
+      display_help
+      exit 1
+      ;;
+    *)
+      display_help
+      exit 1
+      ;;
+  esac
+done
+
 if [ "$1x" = "x" ] ; then
-  echo "startStatmonitor <stone-name>"
+  display_help
   exit 1
 fi
 stoneName=$1

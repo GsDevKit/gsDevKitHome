@@ -9,16 +9,46 @@
 #           backup file in the stone backups directory
 #
 # Examples
+#   backup -h
 #   backup kit home.dbf
 #
 #=========================================================================
 
+# help function
+function display_help() {
+  echo ""
+  echo "USAGE: $(basename $0) [-h] <stone-name> <backup-file>"
+  echo "Run a backup for <stone-name> saving the backup to <backup-file>"
+  echo "in the stones backups directory"
+  echo ""
+  echo "OPTIONS"
+  echo "  -h display help"
+  echo ""
+  echo "EXAMPLES"
+  echo "  $(basename $0) -h"
+  echo "  $(basename $0) kit home.dbf"
+  echo ""
+}
+
+while getopts "h" OPT ; do
+  case "$OPT" in
+    h) 
+      display_help
+      exit 1
+      ;;
+    *)
+      display_help
+      exit 1
+      ;;
+  esac
+done
+
 if [ "$1x" = "x" ] ; then
-  echo "backup <stone-name> <backup-file>"
+  display_help
   exit 1
 fi
 if [ "$2x" = "x" ] ; then
-  echo "backup <stone-name> <backup-file>"
+   display_help
   exit 1
 fi
 

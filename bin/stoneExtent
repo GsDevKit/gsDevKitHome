@@ -9,12 +9,42 @@
 #           should be shutdown before copying.
 #
 # Examples
-#   stoneExtent gsDevKit
+#   stoneExtent -h
+#   stoneExtent kit
 #
 #=========================================================================
 
+# help function
+function display_help() {
+  echo ""
+  echo "USAGE: $(basename $0) [-h] <stone-name>"
+  echo "Copy a new extent in the stone's extent directory. Stone"
+  echo "should be shutdown before copying."
+  echo ""
+  echo "OPTIONS"
+  echo "  -h display help"
+  echo ""
+  echo "EXAMPLES"
+  echo "  $(basename $0) -h"
+  echo "  $(basename $0) kit"
+  echo ""
+}
+
+while getopts "h" OPT ; do
+  case "$OPT" in
+    h) 
+      display_help
+      exit 1
+      ;;
+    *)
+      display_help
+      exit 1
+      ;;
+  esac
+done
+
 if [ "$1x" = "x" ] ; then
-  echo "stoneExtent <stone-name>"
+  display_help
   exit 1
 fi
 stoneName=$1

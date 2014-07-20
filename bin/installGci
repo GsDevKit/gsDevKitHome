@@ -9,12 +9,42 @@
 #           release into the pharo vm
 #
 # Examples
+#   installGci -h
 #   installGci <gs-version>
 #
 #=========================================================================
 
+# help function
+function display_help() {
+  echo ""
+  echo "USAGE: $(basename $0) [-h] <gemstone-version>"
+  echo "Install gemstone gci libraries from the specied gemstone"
+  echo "release into the platform dependent location in the pharo vm directory."
+  echo ""
+  echo "OPTIONS"
+  echo "  -h display help"
+  echo ""
+  echo "EXAMPLES"
+  echo "   $(basename $0) -h"
+  echo "   $(basename $0) 3.2.1"
+  echo ""
+}
+
+while getopts "h" OPT ; do
+  case "$OPT" in
+    h) 
+      display_help
+      exit 1
+      ;;
+    *)
+      display_help
+      exit 1
+      ;;
+  esac
+done
+
 if [ "$1x" = "x" ] ; then
-  echo "installGemStone <gemstone version (e.g., 3.1.0.1)>"
+  display_help
   exit 1
 fi 
 vers="$1"

@@ -5,15 +5,45 @@
 #
 # Name - stopStone
 #
-# Purpose - stop the named stone
+# Purpose - Stop the named stone
 #
 # Examples
-#   stopStone gsDevKit
+#   stopStone -h
+#   stopStone kit
 #
 #=========================================================================
 
+# help function
+function display_help() {
+  echo ""
+  echo "USAGE: $(basename $0) [-h] <stone-name>"
+  echo "Stop the named stone. The netldi is left running. Any statmonitor"
+  echo "processes associated with the stone will be stopped as well.
+  echo ""
+  echo "OPTIONS"
+  echo "  -h display help"
+  echo ""
+  echo "EXAMPLES"
+  echo "  $(basename $0) -h"
+  echo "  $(basename $0) kit"
+  echo ""
+}
+
+while getopts "h" OPT ; do
+  case "$OPT" in
+    h) 
+      display_help
+      exit 1
+      ;;
+    *)
+      display_help
+      exit 1
+      ;;
+  esac
+done
+
 if [ "$1x" = "x" ] ; then
-  echo "stopStone <stone-name>"
+  display_help
   exit 1
 fi
 stoneName=$1

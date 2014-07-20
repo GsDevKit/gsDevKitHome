@@ -11,21 +11,53 @@
 #           launch the tODE client.
 #
 # Examples
-#   install 3.2.1 gsDevKit
-#   install 3.2.1 
+#   install -h
+#   install kit 3.2.1
 #
 #=========================================================================
 
+# help function
+function display_help() {
+  echo ""
+  echo "USAGE: $(basename $0) [-h] <stone-name> <gemstone-version>"
+  echo "Install GemStone (specified gs-version), Pharo, build tODE client"
+  echo "image, create a stone (specifed stone-name), start the stone"
+  echo "start the netldi, start stamonitors, install tODE on server and" 
+  echo "launch the tODE client."
+  echo ""
+  echo "OPTIONS"
+  echo "  -h display help"
+  echo ""
+  echo "EXAMPLES"
+  echo "   $(basename $0) -h"
+  echo "   $(basename $0) kit 3.2.1"
+  echo ""
+}
+
+while getopts "h" OPT ; do
+  case "$OPT" in
+    h) 
+      display_help
+      exit 1
+      ;;
+    *)
+      display_help
+      exit 1
+      ;;
+  esac
+done
+
 if [ "$1x" = "x" ] ; then
-  echo "install <gs-version> [ <stone-name> ]"
+  display_help
   exit 1
 fi
-gsvers="$1"
-stoneName="gsDevKit"
+stoneName="$1"
 
 if [ "$2x" != "x" ] ; then
-  stoneName="$2"
+  display_help
+  exit 1
 fi
+gsvers="$2"
 
 if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"

@@ -8,12 +8,41 @@
 # Purpose - install tODE in the given stone
 #
 # Examples
-#   installTodeStone gsDevKit
+#   installTodeStone -h
+#   installTodeStone kit
 #
 #=========================================================================
 
+# help function
+function display_help() {
+  echo ""
+  echo "USAGE: $(basename $0) [-h] <stone-name>"
+  echo "Install tODE in the given stone."
+  echo ""
+  echo "OPTIONS"
+  echo "  -h display help"
+  echo ""
+  echo "EXAMPLES"
+  echo "  $(basename $0) -h"
+  echo "  $(basename $0) kit"
+  echo ""
+}
+
+while getopts "h" OPT ; do
+  case "$OPT" in
+    h) 
+      display_help
+      exit 1
+      ;;
+    *)
+      display_help
+      exit 1
+      ;;
+  esac
+done
+
 if [ "$1x" = "x" ] ; then
-  echo "installTodeStone <stone-name>"
+  display_help
   exit 1
 fi
 stoneName=$1

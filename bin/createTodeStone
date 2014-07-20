@@ -8,21 +8,51 @@
 # Purpose - Create a new stone and install tODE
 #
 # Examples
-#   createTodeStone 3.2.1 gsDevKit
-#   createTodeStone gsDevKit
+#   createTodeStone -h
+#   createTodeStone kit 3.2.1
 #
 #=========================================================================
 
+# help function
+function display_help() {
+  echo ""
+  echo "USAGE: $(basename $0) [-h] <stone-name> <gemstone-version>"
+  echo "Create a new stone (see createStone). Start the stone, netldi and"
+  echo "statmonitors and install tODE."
+  echo ""
+  echo "OPTIONS"
+  echo "  -h display help"
+  echo ""
+  echo "EXAMPLES"
+  echo "  $(basename $0) -h"
+  echo "  $(basename $0) kit 3.2.1"
+  echo ""
+}
+
+while getopts "h" OPT ; do
+  case "$OPT" in
+    h) 
+      display_help
+      exit 1
+      ;;
+    *)
+      display_help
+      exit 1
+      ;;
+  esac
+done
+
 if [ "$1x" = "x" ] ; then
-  echo "createTodeStone <gs-version> [ <stone-name> ]"
+  display_help
   exit 1
 fi
-gsvers="$1"
-stoneName="gsDevKit"
+stoneName="$1"
 
-if [ "$2x" != "x" ] ; then
-  stoneName="$2"
+if [ "$2x" = "x" ] ; then
+  display_help
+  exit 1
 fi
+gsvers="$2"
 
 if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"

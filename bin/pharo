@@ -5,13 +5,46 @@
 #
 # Name - pharo 
 #
-# Purpose - run headless pharo scripts using the Pharo image
+# Purpose - Run headless pharo scripts using the Pharo image
 #
 # Examples
+#   pharo -h
 #   pharo --help
 #   pharo --list
 #
 #=========================================================================
+
+# help function
+function display_help() {
+  echo ""
+  echo "USAGE: $(basename $0) [-h]"
+  echo "Run headless pharo scripts using the Pharo image."
+  echo ""
+  echo "OPTIONS"
+  echo "  -h display help"
+  echo ""
+  echo "EXAMPLES"
+  echo "  $(basename $0) -h"
+  echo "  $(basename $0)"
+  echo ""
+}
+
+case "$1" in
+  --*) # pass to pharo
+    ;;
+  -*) # handle single - options here
+    while getopts "h" OPT ; do
+      case "$OPT" in
+        h) 
+          display_help
+          exit 1
+          ;;
+      esac
+    done
+    ;;
+  *)  # pass everything else to pharo
+    ;;
+esac
 
 if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"

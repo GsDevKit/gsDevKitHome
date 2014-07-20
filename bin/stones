@@ -8,10 +8,41 @@
 # Purpose - Provide information about the installed and running stones
 #
 # Examples
-#   stones --help
+#   stones -h
 #   stones
 #
 #=========================================================================
+
+# help function
+function display_help() {
+  echo ""
+  echo "USAGE: $(basename $0) [-h]"
+  echo "Provide information about the installed and running stones:"
+  echo "  - list installed stones"
+  echo "  - list running stones"
+  echo "  - list running netldis"
+  echo ""
+  echo "OPTIONS"
+  echo "  -h display help"
+  echo ""
+  echo "EXAMPLES"
+  echo "  $(basename $0) -h"
+  echo "  $(basename $0)"
+  echo ""
+}
+
+while getopts "h" OPT ; do
+  case "$OPT" in
+    h) 
+      display_help
+      exit 1
+      ;;
+    *)
+      display_help
+      exit 1
+      ;;
+  esac
+done
 
 if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"
@@ -23,7 +54,7 @@ fi
 
 # Run script
 pharo=$GS_HOME/pharo
-$pharo/pharo $pharo/todeClient.image stones $*
+$pharo/pharo $pharo/todeClient.image stones
 
 # End of script
 exit 0
