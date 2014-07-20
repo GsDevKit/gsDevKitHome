@@ -1,6 +1,6 @@
 [] 1. possible missing author is key for backup and mounts (no backups either) after installServerTode
-2. statmonitor starting
+[]2. statmonitor starting
 3. -h for all scripts
 4. install -n ... basic install create stone and pharo, but don't install tode and don't start stone
-5. backup script
-6. restore from backup script? ... use tODE
+[]5. backup script
+[]6. restore from backup script? ... use tODE

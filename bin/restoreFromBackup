@@ -1,0 +1,46 @@
+#! /bin/bash
+
+#=========================================================================
+# Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
+#
+# Name - restoreFromBackup
+#
+# Purpose - Restore from backup for the given stone using the named
+#           backup file from the stone backups directory
+#
+# Examples
+#   restoreFromBackup kit home.dbf
+#
+#=========================================================================
+
+if [ "$1x" = "x" ] ; then
+  echo "restoreFromBackup <stone-name> <backup-file>"
+  exit 1
+fi
+if [ "$2x" = "x" ] ; then
+  echo "restoreFromBackup <stone-name> <backup-file>"
+  exit 1
+fi
+
+stoneName=$1
+backupFile=$2
+
+if [ "${GS_HOME}x" = "x" ] ; then
+  echo "the GS_HOME environment variable needs to be defined"
+  exit 1
+fi
+
+echo "Restoring backup for stone: $stoneName using: $backupFile"
+
+# set up stone environment
+stonePath=$GS_HOME/gemstone/stones/$stoneName
+pushd $stonePath >& /dev/null
+source $stonePath/stone.env
+popd $stonePath >& /dev/null
+
+# do restore
+$GS_HOME/bin/tode restoreFromBackup $stoneName $backupFile
+if [[ $? != 0 ]] ; then exit 1; fi
+
+# End of script
+exit 0
