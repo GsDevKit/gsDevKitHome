@@ -134,8 +134,10 @@ case "$PLATFORM" in
     totalMem="`sysctl hw.memsize | cut -f2 -d' '`"
     # Figure out the max shared memory segment size currently allowed
     shmmax="`sysctl kern.sysvmmax | cut -f2 -d' '`"
+    shmmax="`sysctl kern.sysv.shmmax | cut -f2 -d' '`"
     # Figure out the max shared memory currently allowed
     shmall="`sysctl kern.sysvmall | cut -f2 -d' '`"
+    shmall="`sysctl kern.sysv.shmall | cut -f2 -d' '`"
     ;;
     *)
     echo "[Error] Can't determine operating system. Check script."
