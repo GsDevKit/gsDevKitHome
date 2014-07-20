@@ -17,6 +17,6 @@ version001: spec
 					with: [ 
 							spec
 								loads: 'GemStone Dev';
-								repository: 'github://dalehenrich/tode:master/repository' ];
+								repository: 'github://dalehenrich/tode:dev/repository' ];
 				postLoadDoIt: #post30Load;
 				yourself ]

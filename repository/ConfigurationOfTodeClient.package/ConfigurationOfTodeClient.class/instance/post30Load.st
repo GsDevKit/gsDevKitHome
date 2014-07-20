@@ -9,7 +9,7 @@ post30Load
 	ThreadSafeTranscript open
 		extent: 245 @ 110;
 		position: 730 @ 550.
-	(Smalltalk at: #TDShell) perform: #webEditionRoot: with: gsDevKitHome pathString.
+	(Smalltalk at: #TDShell) perform: #devKitRoot: with: gsDevKitHome pathString.
 	(Smalltalk at: #PolymorphSystemSettings)
 		perform: #desktopLogoFileName:
 		with: (gsDevKitHome / 'pharo' / 'GemTalkSystemsLogo.png') pathString.
