@@ -1,3 +1,3 @@
 accessing
 todeHome
-	^ TDShell todeRoot
+	^ self gsDevKitHome / 'tode'
