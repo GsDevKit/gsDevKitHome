@@ -1,0 +1,15 @@
+{
+	"category" : "GsDevKit-CommandLine",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "dkh 7/18/2014 08:15",
+	"instvars" : [
+		"installedStones",
+		"gemstoneBin" ],
+	"name" : "GsDevKitStonesCommandLineHandler",
+	"pools" : [
+		 ],
+	"super" : "GsDevKitAbstractCommandLineHandler",
+	"type" : "normal" }

@@ -1,0 +1,69 @@
+#! /bin/bash
+
+#=========================================================================
+# Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
+#
+# Name - installPharo 
+#
+# Purpose - Download and install a Linux, Mac or Windows Pharo VM
+#
+# Examples
+#   installPharo -h
+#   installPharo
+#
+#=========================================================================
+
+# help function
+function display_help() {
+  echo ""
+  echo "USAGE: $(basename $0) [-h]"
+  echo "Download and install a Linux, Mac or Windows Pharo VM."
+  echo ""
+  echo "OPTIONS"
+  echo "  -h display help"
+  echo ""
+  echo "EXAMPLES"
+  echo "  $(basename $0) -h"
+  echo "  $(basename $0)"
+  echo ""
+}
+
+while getopts "h" OPT ; do
+  case "$OPT" in
+    h) 
+      display_help
+      exit 1
+      ;;
+    *)
+      display_help
+      exit 1
+      ;;
+  esac
+done
+
+if [ "${GS_HOME}x" = "x" ] ; then
+  echo "the GS_HOME environment variable needs to be defined"
+  exit 1
+fi
+echo "Installing Pharo"
+
+if [ -e "$pharo_vm" ]; then
+  echo "Pharo already installed. To reinstall delete Pharo directory and try again."
+  exit 0
+fi
+
+# Look for wget to download Pharo
+if [ -e "`which wget`" ]; then
+    cmd="`which wget`"
+else
+    echo "[Error] wget is not available. Install wget and rerun this script."
+    exit 1
+fi
+
+# Download Pharo
+
+cd $GS_HOME/pharo
+wget -O- get.pharo.org/30+vmLatest | bash
+
+# End of script
+exit 0

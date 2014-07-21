@@ -1,0 +1,86 @@
+#!/bin/bash
+#
+# runSeasideGems <DataCurator password> [start | stop | restart]
+#
+# The default setup is to run 4 vms ... three listening on ports 9001-9003
+# as FastCGI gems and one maintenance vm
+#
+# 
+GEMS="9001 9002 9003"
+
+echo ${GEMSTONE_LOGDIR}
+
+topaz_start()
+{
+    echo "Starting Gems...."
+    for port in $GEMS; do
+        if [ -e $GEMSTONE_DATADIR/FastCGI_server-${port}.pid ]; then
+            echo "PID file for topaz on port $port already exists (already running?), try using the stop command first."
+            continue
+        fi
+        echo "Starting FastCGI gem on port $port"
+        $GEMSTONE/seaside/bin/startSeaside_FastCGI $port >& ${GEMSTONE_LOGDIR}/FastCGI_start-${port}.log &
+    done
+
+    if [ -e $GEMSTONE_DATADIR/maintenance_gem.pid ]; then
+            echo "PID file for maintenance gem already exists (already running?), try using the stop command first."
+    else
+        echo "Starting maintenance gem"
+        $GEMSTONE/seaside/bin/startMaintenance >& ${GEMSTONE_LOGDIR}/maintenance_start.log &
+    fi
+}
+
+topaz_stop()
+{
+    echo "Stopping Gems..."
+    for port in $GEMS; do
+
+        pidfile="$GEMSTONE_DATADIR/FastCGI_server-${port}.pid"
+
+        if [ -e $pidfile ]; then
+            pid=`cat $pidfile`
+            rm $pidfile
+            echo "   Stopping topaz PID $pid running on port $port"
+            kill $pid
+        else
+            echo "   No PID file found for gem on port $port, not running?"
+        fi
+
+    done
+
+    pidfile=$GEMSTONE_DATADIR/maintenance_gem.pid
+
+    if [ -e $pidfile ]; then
+        pid=`cat $pidfile`
+        rm $pidfile
+        echo "   Stopping maintenance gem PID $pid"
+        kill $pid
+    else
+        echo "   No PID file for for the maintenance gem, not running?"
+    fi
+}
+
+topaz_restart()
+{
+    echo "Restarting Gems..."
+    topaz_stop
+    sleep 2
+    topaz_start
+}
+
+case "$1" in
+
+    start)
+           topaz_start 
+            ;;
+    restart)
+            topaz_restart
+            ;;
+    stop)
+            topaz_stop
+            ;;
+    *)
+            echo "Usage: runem (start|stop|restart)"
+            ;;
+esac
+

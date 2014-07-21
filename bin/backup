@@ -1,0 +1,76 @@
+#! /bin/bash
+
+#=========================================================================
+# Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
+#
+# Name - backup
+#
+# Purpose - Run a backup for the given stone saving the backup to the named
+#           backup file in the stone backups directory
+#
+# Examples
+#   backup -h
+#   backup kit home.dbf
+#
+#=========================================================================
+
+# help function
+function display_help() {
+  echo ""
+  echo "USAGE: $(basename $0) [-h] <stone-name> <backup-file>"
+  echo "Run a backup for <stone-name> saving the backup to <backup-file>"
+  echo "in the stones backups directory"
+  echo ""
+  echo "OPTIONS"
+  echo "  -h display help"
+  echo ""
+  echo "EXAMPLES"
+  echo "  $(basename $0) -h"
+  echo "  $(basename $0) kit home.dbf"
+  echo ""
+}
+
+while getopts "h" OPT ; do
+  case "$OPT" in
+    h) 
+      display_help
+      exit 1
+      ;;
+    *)
+      display_help
+      exit 1
+      ;;
+  esac
+done
+
+if [ "$1x" = "x" ] ; then
+  display_help
+  exit 1
+fi
+if [ "$2x" = "x" ] ; then
+   display_help
+  exit 1
+fi
+
+stoneName=$1
+backupFile=$2
+
+if [ "${GS_HOME}x" = "x" ] ; then
+  echo "the GS_HOME environment variable needs to be defined"
+  exit 1
+fi
+
+echo "Backing up stone: $stoneName using: $backupFile"
+
+# set up stone environment
+stonePath=$GS_HOME/gemstone/stones/$stoneName
+pushd $stonePath >& /dev/null
+source $stonePath/stone.env
+popd $stonePath >& /dev/null
+
+# do restore
+$GS_HOME/bin/tode backup $stoneName $backupFile
+if [[ $? != 0 ]] ; then exit 1; fi
+
+# End of script
+exit 0

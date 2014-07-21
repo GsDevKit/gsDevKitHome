@@ -1,0 +1,82 @@
+#! /bin/bash
+
+#=========================================================================
+# Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
+#
+# Name - createTodeImage
+#
+# Purpose - create the tODE client image
+#
+# Examples
+#   createTodeImage -h
+#   createTodeImage
+#
+#=========================================================================
+
+# help function
+function display_help() {
+  echo ""
+  echo "USAGE: $(basename $0) [-h]"
+  echo "Create the tODE client image. Used for running pharo-based scripts"
+  echo "and for running the tODE client UI."
+  echo ""
+  echo "OPTIONS"
+  echo "  -h display help"
+  echo ""
+  echo "EXAMPLES"
+  echo "  $(basename $0) -h"
+  echo "  $(basename $0)"
+  echo ""
+}
+
+while getopts "h" OPT ; do
+  case "$OPT" in
+    h) 
+      display_help
+      exit 1
+      ;;
+    *)
+      display_help
+      exit 1
+      ;;
+  esac
+done
+
+if [ "${GS_HOME}x" = "x" ] ; then
+  echo "the GS_HOME environment variable needs to be defined"
+  exit 1
+fi
+
+# create tODE client
+pharo=$GS_HOME/pharo
+if [ -e $pharo/todeClient.image ] ; then
+  echo "todeClent already installed"
+  exit 0
+fi
+
+echo "creating todeClient image"
+
+$pharo/pharo $pharo/Pharo.image save todeClientTmp
+$pharo/pharo $pharo/todeClientTmp.image eval --save "Gofer new package: 'ConfigurationOfTodeClient'; repository: (MCFileTreeRepository new directory: '$GS_HOME/repository' asFileReference); load"
+$pharo/pharo $pharo/todeClientTmp.image config \
+	filetree://$GS_HOME/repository \
+	ConfigurationOfTodeClient \
+	--install=release
+if [[ $? != 0 ]] ; then
+  echo "createTodeImage[Error]: failed loading tode client"
+  exit 1
+fi
+
+$pharo/pharo $pharo/todeClientTmp.image save todeClient
+if [[ $? != 0 ]] ; then
+  echo "createTodeImage[Error]: failed saving tode client"
+  rm -f todeClient*
+  exit 1
+fi
+
+rm -f todeClientTmp.*
+echo
+echo "tODE client image creation complete"
+
+# End of script
+exit 0

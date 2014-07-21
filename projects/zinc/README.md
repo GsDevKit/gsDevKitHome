@@ -6,6 +6,7 @@ Currently only the *Core* and *Tests* packages have been ported to GsDevKit:
 * Zinc-Tests
 * Zinc-Character-Encoding-Core
 * Zinc-Character-Encoding-Tests
+* Zinc-FileSystem-Legacy
 * Zinc-Resource-Meta-Core
 * Zinc-Resource-Meta-Tests
 

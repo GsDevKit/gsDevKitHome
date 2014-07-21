@@ -1,0 +1,85 @@
+#! /bin/bash
+
+#=========================================================================
+# Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
+#
+# Name - installGci 
+#
+# Purpose - Install gemstone gci libraries from the specied gemstone
+#           release into the pharo vm
+#
+# Examples
+#   installGci -h
+#   installGci <gs-version>
+#
+#=========================================================================
+
+# help function
+function display_help() {
+  echo ""
+  echo "USAGE: $(basename $0) [-h] <gemstone-version>"
+  echo "Install gemstone gci libraries from the specied gemstone"
+  echo "release into the platform dependent location in the pharo vm directory."
+  echo ""
+  echo "OPTIONS"
+  echo "  -h display help"
+  echo ""
+  echo "EXAMPLES"
+  echo "   $(basename $0) -h"
+  echo "   $(basename $0) 3.2.1"
+  echo ""
+}
+
+while getopts "h" OPT ; do
+  case "$OPT" in
+    h) 
+      display_help
+      exit 1
+      ;;
+    *)
+      display_help
+      exit 1
+      ;;
+  esac
+done
+
+if [ "$1x" = "x" ] ; then
+  display_help
+  exit 1
+fi 
+vers="$1"
+if [ "${GS_HOME}x" = "x" ] ; then
+  echo "the GS_HOME environment variable needs to be defined"
+  exit 1
+fi
+echo "Copying gci files to pharo"
+
+pharo_vm=$GS_HOME/pharo/pharo-vm
+
+
+#    Copy the gci libraries to the Pharo vm
+if [ ! -e "$pharo_vm" ]; then
+  echo "Install Pharo"
+  $GS_HOME/bin/installPharo
+fi
+
+# Detect operating system
+PLATFORM="`uname -sm | tr ' ' '-'`"
+# Macs with Core i7 use the same software as older Macs
+[ $PLATFORM = "Darwin-x86_64" ] && PLATFORM="Darwin-i386"
+
+case "$PLATFORM" in
+  Linux-x86_64)
+    gsvers="GemStone64Bit${vers}-x86_64.Linux"
+    gs_product=$GS_HOME/gemstone/products/$gsvers
+    cp $gs_product/lib32/lib* $pharo_vm
+  ;;
+  Darwin-i386)
+    gsvers="GemStone64Bit${vers}-i386.Darwin"
+    gs_product=$GS_HOME/gemstone/products/$gsvers
+    cp $gs_product/lib32/lib* $pharo_vm/Pharo.app/Contents/MacOS/Plugins
+  ;;
+esac
+
+# End of script
+exit 0

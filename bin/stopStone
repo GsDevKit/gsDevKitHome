@@ -1,0 +1,66 @@
+#! /bin/bash
+
+#=========================================================================
+# Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
+#
+# Name - stopStone
+#
+# Purpose - Stop the named stone
+#
+# Examples
+#   stopStone -h
+#   stopStone kit
+#
+#=========================================================================
+
+# help function
+function display_help() {
+  echo ""
+  echo "USAGE: $(basename $0) [-h] <stone-name>"
+  echo "Stop the named stone. The netldi is left running. Any statmonitor"
+  echo "processes associated with the stone will be stopped as well.
+  echo ""
+  echo "OPTIONS"
+  echo "  -h display help"
+  echo ""
+  echo "EXAMPLES"
+  echo "  $(basename $0) -h"
+  echo "  $(basename $0) kit"
+  echo ""
+}
+
+while getopts "h" OPT ; do
+  case "$OPT" in
+    h) 
+      display_help
+      exit 1
+      ;;
+    *)
+      display_help
+      exit 1
+      ;;
+  esac
+done
+
+if [ "$1x" = "x" ] ; then
+  display_help
+  exit 1
+fi
+stoneName=$1
+
+if [ "${GS_HOME}x" = "x" ] ; then
+  echo "the GS_HOME environment variable needs to be defined"
+  exit 1
+fi
+
+# set up stone environment
+stonePath=$GS_HOME/gemstone/stones/$stoneName
+pushd $stonePath >& /dev/null
+source $stonePath/stone.env
+popd $stonePath >& /dev/null
+
+# stop the stone
+$stonePath/product/seaside/bin/stopGemstone
+
+# End of script
+exit 0

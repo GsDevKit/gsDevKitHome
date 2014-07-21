@@ -1,0 +1,47 @@
+#!/bin/bash
+if [ -s $GEMSTONE/seaside/etc/gemstone.secret ]; then
+    . $GEMSTONE/seaside/etc/gemstone.secret
+else
+    echo 'Missing password file $GEMSTONE/seaside/etc/gemstone.secret'
+    exit 1
+fi
+
+$GEMSTONE/bin/topaz -l -T50000 << EOF
+
+set user DataCurator pass $GEMSTONE_CURATOR_PASS gems $GEMSTONE_NAME
+
+iferror where
+
+login
+
+run
+| config |
+GsFile gciLogServer: 'Starting initialization...'.
+
+[ WADispatcher resetAll ]
+  on: OBConfirmationRequest         
+  do: [:ex |
+    "cancel request"
+    GsFile gciLogServer: 'Cancel request: ', ex prompt printString.
+    ex cancel].
+
+"remove this line if Pier not installed"
+PRPierFrame registerAsApplication: 'pier' kernel: (PRKernel named: 'Pier').
+
+FSSeasideHandler dispatcher: nil.
+
+" Uncomment the following if you want to create a non-default password for admin"
+"
+config := WADispatcher default entryPoints at: 'config'.
+config preferenceAt: #password put: '$GEMSTONE_CONFIG_PASS'.
+"
+
+System commitTransaction.
+
+GsFile gciLogServer: 'Finished initialization.'.
+
+%
+
+logout
+errorCount
+EOF
