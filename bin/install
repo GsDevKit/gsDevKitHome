@@ -53,7 +53,7 @@ if [ "$1x" = "x" ] ; then
 fi
 stoneName="$1"
 
-if [ "$2x" != "x" ] ; then
+if [ "$2x" = "x" ] ; then
   display_help
   exit 1
 fi
