@@ -1,9 +1,10 @@
 accessing
 runShellCommand: shellCommandPath args: shellArgumentArray
-	| out err proc outName |
-	outName := '/tmp/gsdevkit.out'.
+	| out err proc outName pid |
+	pid := OSProcess thisOSProcess pid.
+	outName := '/tmp/gsdevkit' , pid printString , '.out'.
 	out := FileStream forceNewFileNamed: outName.
-	err := FileStream forceNewFileNamed: '/tmp/gsdevkit.err'.
+	err := FileStream forceNewFileNamed: '/tmp/gsdevkit' , pid printString , '.err'.
 	proc := OSProcess thisOSProcess
 		forkJob: shellCommandPath
 		arguments: shellArgumentArray
