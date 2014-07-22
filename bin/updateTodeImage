@@ -1,0 +1,74 @@
+#! /bin/bash
+
+#=========================================================================
+# Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
+#
+# Name - updateTodeImage
+#
+# Purpose - Update the tODE client image
+#
+# Examples
+#   updateTodeImage -h
+#   updateTodeImage
+#
+#=========================================================================
+
+# help function
+function display_help() {
+  echo ""
+  echo "USAGE: $(basename $0) [-h]"
+  echo "Update the tODE client image."
+  echo ""
+  echo "OPTIONS"
+  echo "  -h display help"
+  echo ""
+  echo "EXAMPLES"
+  echo "  $(basename $0) -h"
+  echo "  $(basename $0)"
+  echo ""
+}
+
+while getopts "h" OPT ; do
+  case "$OPT" in
+    h) 
+      display_help
+      exit 1
+      ;;
+    *)
+      display_help
+      exit 1
+      ;;
+  esac
+done
+
+if [ "${GS_HOME}x" = "x" ] ; then
+  echo "the GS_HOME environment variable needs to be defined"
+  exit 1
+fi
+
+echo "Updating todeClient image"
+
+pharo=$GS_HOME/pharo
+$pharo/pharo $pharo/todeClient.image save todeClientTmp
+$pharo/pharo $pharo/todeClientTmp.image config \
+	filetree://$GS_HOME/repository \
+	ConfigurationOfTodeClient \
+	--install=release
+if [[ $? != 0 ]] ; then
+  echo "updateTodeImage[Error]: failed loading tode client"
+  exit 1
+fi
+
+$pharo/pharo $pharo/todeClientTmp.image save todeClient
+if [[ $? != 0 ]] ; then
+  echo "updateTodeImage[Error]: failed saving tode client"
+  rm -f todeClient*
+  exit 1
+fi
+
+rm -f todeClientTmp.*
+echo
+echo "tODE client image update complete"
+
+# End of script
+exit 0
