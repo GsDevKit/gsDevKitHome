@@ -9,6 +9,7 @@
 #
 # Examples
 #   createTodeImage -h
+#   createTodeImage -p _0
 #   createTodeImage
 #
 #=========================================================================
@@ -16,24 +17,33 @@
 # help function
 function display_help() {
   echo ""
-  echo "USAGE: $(basename $0) [-h]"
+  echo "USAGE: $(basename $0) [-h] [-p <postfix]"
   echo "Create the tODE client image. Used for running pharo-based scripts"
   echo "and for running the tODE client UI."
   echo ""
   echo "OPTIONS"
-  echo "  -h display help"
+  echo "  -h "
+  echo "    display help"
+  echo "  -p <postfix>"
+  echo "    Append <postfix> to end of image name. Useful for creating"
+  echo "    multiple tode client images."
   echo ""
   echo "EXAMPLES"
   echo "  $(basename $0) -h"
+  echo "  $(basename $0) -p _0"
   echo "  $(basename $0)"
-  echo ""
+  echo ""  
 }
 
-while getopts "h" OPT ; do
+postFix=""
+while getopts "hp:" OPT ; do
   case "$OPT" in
     h) 
       display_help
       exit 1
+      ;;
+    p)
+      postFix="${OPTARG}"
       ;;
     *)
       display_help
@@ -49,12 +59,12 @@ fi
 
 # create tODE client
 pharo=$GS_HOME/pharo
-if [ -e $pharo/todeClient.image ] ; then
-  echo "todeClent already installed"
+if [ -e $pharo/todeClient${postFix}.image ] ; then
+  echo "todeClient already installed"
   exit 0
 fi
 
-echo "creating todeClient image"
+echo "creating todeClient${postFix} image"
 
 $pharo/pharo $pharo/Pharo.image save todeClientTmp
 $pharo/pharo $pharo/todeClientTmp.image eval --save "Gofer new package: 'ConfigurationOfTodeClient'; repository: (MCFileTreeRepository new directory: '$GS_HOME/repository' asFileReference); load"
@@ -67,7 +77,7 @@ if [[ $? != 0 ]] ; then
   exit 1
 fi
 
-$pharo/pharo $pharo/todeClientTmp.image save todeClient
+$pharo/pharo $pharo/todeClientTmp.image save todeClient${postFix}
 if [[ $? != 0 ]] ; then
   echo "createTodeImage[Error]: failed saving tode client"
   rm -f todeClient*
