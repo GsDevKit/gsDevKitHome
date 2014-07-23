@@ -3,14 +3,14 @@
 #=========================================================================
 # Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
 #
-# Name - updateTodeImage
+# Name - updateTodeWindowsImage
 #
-# Purpose - Update the tODE client image
+# Purpose - Update the tODE windows client image
 #
 # Examples
-#   updateTodeImage -h
-#   updateTodeImage -p _0
-#   updateTodeImage
+#   updateTodeWindowsImage -h
+#   updateTodeWindowsImage -p _0
+#   updateTodeWindowsImage
 #
 #=========================================================================
 
@@ -24,7 +24,7 @@ function display_help() {
   echo "  -h "
   echo "    display help"
   echo "  -p <postfix>"
-  echo "   Update the tode client image created with a matching postfix."
+  echo "   Update the tode windows client image created with a matching postfix."
   echo ""
   echo "EXAMPLES"
   echo "  $(basename $0) -h"
@@ -57,7 +57,7 @@ fi
 echo "Updating todeClient image"
 
 pharo=$GS_HOME/pharo
-$pharo/pharo $pharo/todeClient${postFix}.image save todeClientTmp
+$pharo/Pharo.exe $pharo/todeClient${postFix}.image save todeClientTmp
 
 cat - > $pharo/todeLoad.s << EOF
 [ | metacello |
@@ -65,19 +65,19 @@ cat - > $pharo/todeLoad.s << EOF
     configuration: 'TodeClient';
     version: #release;
     repository: 'filetree://$GS_HOME/repository'.
-  metacello copy get
+  metacello copy get.
   metacello load ]
       on: Warning
       do: [:ex | Transcript cr; show: ex description ].
 EOF
 
-$pharo/pharo $pharo/todeClientTmp.image st --save $pharo/todeLoad.st
+$pharo/Pharo.exe --headless $pharo/todeClientTmp.image st --save $pharo/todeLoad.st
 if [[ $? != 0 ]] ; then
   echo "updateTodeImage[Error]: failed loading tode client"
   exit 1
 fi
 
-$pharo/pharo $pharo/todeClientTmp.image save todeClient${postFix}
+$pharo/Pharo.exe $pharo/todeClientTmp.image save todeClient${postFix}
 if [[ $? != 0 ]] ; then
   echo "updateTodeImage[Error]: failed saving tode client"
   rm -f todeClient*

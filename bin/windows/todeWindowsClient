@@ -3,36 +3,45 @@
 #=========================================================================
 # Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
 #
-# Name - installPharo 
+# Name - todeWindowsClient 
 #
-# Purpose - Download and install a Linux or Mac Pharo VM
+# Purpose - Launch windows todeClient image
 #
 # Examples
-#   installPharo -h
-#   installPharo
+#   todeWindowsClient -h
+#   todeWindowsClient -p _0
+#   todeWindowsClient
 #
 #=========================================================================
 
 # help function
 function display_help() {
   echo ""
-  echo "USAGE: $(basename $0) [-h]"
-  echo "Download and install a Linux or Mac or Pharo VM."
+  echo "USAGE: $(basename $0) [-h] [-p <postfix]"
+  echo "Launch windows todeClient image."
   echo ""
   echo "OPTIONS"
-  echo "  -h display help"
+  echo "  -h "
+  echo "    display help"
+  echo "  -p <postfix>"
+  echo "    Launch the tode client image created with a matching postfix."
   echo ""
   echo "EXAMPLES"
   echo "  $(basename $0) -h"
+  echo "  $(basename $0) -p _0"
   echo "  $(basename $0)"
   echo ""
 }
 
-while getopts "h" OPT ; do
+postFix=""
+while getopts "hp:" OPT ; do
   case "$OPT" in
     h) 
       display_help
       exit 1
+      ;;
+    p)
+      postFix="${OPTARG}"
       ;;
     *)
       display_help
@@ -45,25 +54,14 @@ if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"
   exit 1
 fi
-echo "Installing Pharo"
-
-if [ -e "$GS_HOME/pharo/pharo-vm" ]; then
-  echo "Pharo already installed. To reinstall delete Pharo directory and try again."
-  exit 0
+if [ ! -e "$GS_HOME/pharo/Pharo.exe" ]; then
+  $GS_HOME/bin/windows/installWindowsPharo
 fi
 
-# Look for wget to download Pharo
-if [ -e "`which wget`" ]; then
-    cmd="`which wget`"
-else
-    echo "[Error] wget is not available. Install wget and rerun this script."
-    exit 1
-fi
-
-# Download Pharo
-
-cd $GS_HOME/pharo
-wget -O- get.pharo.org/30+vmLatest | bash
+# Run script
+pharo=$GS_HOME/pharo
+unset GEMSTONE_NRS_ALL
+$pharo/Pharo.exe $pharo/todeClient${postFix}.image &
 
 # End of script
 exit 0
