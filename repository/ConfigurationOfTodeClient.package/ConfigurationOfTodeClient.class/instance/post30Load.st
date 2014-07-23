@@ -1,6 +1,7 @@
 doits
 post30Load
 	| gsDevKitHome windowLayoutHome windowProperties |
+	Smalltalk at: #TODE_CLIENT_INSTALLED ifPresent: [ ^ self ].
 	gsDevKitHome := FileSystem workingDirectory parent.
 	Deprecation
 		showWarning: false;
@@ -18,4 +19,5 @@ post30Load
 	windowLayoutHome := ((Smalltalk at: #TDShell) perform: #windowLayoutHome) asFileReference.
 	windowProperties := (Smalltalk at: #TDAbstractWindowProperties)
 		importFrom: (windowLayoutHome / 'standard-small') pathString.
-	windowProperties installOn: (Smalltalk at: #TDTopezGemStoneClient)
+	windowProperties installOn: (Smalltalk at: #TDTopezGemStoneClient).
+	Smalltalk at: #TODE_CLIENT_INSTALLED put: true

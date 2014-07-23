@@ -9,6 +9,7 @@
 #
 # Examples
 #   updateTodeImage -h
+#   updateTodeImage -p _0
 #   updateTodeImage
 #
 #=========================================================================
@@ -16,11 +17,14 @@
 # help function
 function display_help() {
   echo ""
-  echo "USAGE: $(basename $0) [-h]"
+  echo "USAGE: $(basename $0) [-h]] [-p <postfix]"
   echo "Update the tODE client image."
   echo ""
   echo "OPTIONS"
-  echo "  -h display help"
+  echo "  -h "
+  echo "    display help"
+  echo "  -p <postfix>"
+  echo "   Update the tode client image created with a matching postfix."
   echo ""
   echo "EXAMPLES"
   echo "  $(basename $0) -h"
@@ -28,11 +32,15 @@ function display_help() {
   echo ""
 }
 
-while getopts "h" OPT ; do
+postFix=""
+while getopts "hp:" OPT ; do
   case "$OPT" in
     h) 
       display_help
       exit 1
+      ;;
+    p)
+      postFix="${OPTARG}"
       ;;
     *)
       display_help
@@ -49,7 +57,7 @@ fi
 echo "Updating todeClient image"
 
 pharo=$GS_HOME/pharo
-$pharo/pharo $pharo/todeClient.image save todeClientTmp
+$pharo/pharo $pharo/todeClient${postFix}.image save todeClientTmp
 $pharo/pharo $pharo/todeClientTmp.image config \
 	filetree://$GS_HOME/repository \
 	ConfigurationOfTodeClient \
@@ -59,7 +67,7 @@ if [[ $? != 0 ]] ; then
   exit 1
 fi
 
-$pharo/pharo $pharo/todeClientTmp.image save todeClient
+$pharo/pharo $pharo/todeClientTmp.image save todeClient${postFix}
 if [[ $? != 0 ]] ; then
   echo "updateTodeImage[Error]: failed saving tode client"
   rm -f todeClient*
