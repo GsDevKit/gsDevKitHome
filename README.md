@@ -50,6 +50,7 @@ The fork serves two purposes:
    installServer tode 3.2.1
    ```
 
+   Note that the script will prompt you for your password because it uses sudo to setup up your server for running GemStone.
    When the script finishes, the tode client image is opened and you should be able to log into your stone using the test login tODE menu item.
 
 
@@ -68,7 +69,7 @@ The fork serves two purposes:
 [2]: https://github.com/GsDevKit/gsDevKitHome
 [3]: https://github.com/GsDevKit/gsDevKitHome/fork
 [4]: https://help.github.com/articles/fork-a-repo#step-2-clone-your-fork
-[5]: bin/README.md
+[5]: bin/README.md#gsdevkit-scripts
 [6]: http://gemtalksystems.com/index.php/products/gemstones/
 [7]: http://pharo.org/
 [8]: https://github.com/dalehenrich/tode#tode-the-object-centric-development-environment-
