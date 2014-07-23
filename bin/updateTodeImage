@@ -58,10 +58,20 @@ echo "Updating todeClient image"
 
 pharo=$GS_HOME/pharo
 $pharo/pharo $pharo/todeClient${postFix}.image save todeClientTmp
-$pharo/pharo $pharo/todeClientTmp.image config \
-	filetree://$GS_HOME/repository \
-	ConfigurationOfTodeClient \
-	--install=release
+
+cat - > $pharo/todeLoad.st << EOF
+[ | metacello |
+  metacello := Metacello new
+    configuration: 'TodeClient';
+    version: #release;
+    repository: 'filetree://$GS_HOME/repository'.
+  metacello copy get
+  metacello load ]
+      on: Warning
+      do: [:ex | Transcript cr; show: ex description ].
+EOF
+
+$pharo/pharo $pharo/todeClientTmp.image st --quit --save $pharo/todeLoad.st
 if [[ $? != 0 ]] ; then
   echo "updateTodeImage[Error]: failed loading tode client"
   exit 1

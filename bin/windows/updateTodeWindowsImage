@@ -3,36 +3,33 @@
 #=========================================================================
 # Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
 #
-# Name - createTodeImage
+# Name - updateTodeWindowsImage
 #
-# Purpose - create the tODE client image
+# Purpose - Update the tODE windows client image
 #
 # Examples
-#   createTodeImage -h
-#   createTodeImage -p _0
-#   createTodeImage
+#   updateTodeWindowsImage -h
+#   updateTodeWindowsImage -p _0
+#   updateTodeWindowsImage
 #
 #=========================================================================
 
 # help function
 function display_help() {
   echo ""
-  echo "USAGE: $(basename $0) [-h] [-p <postfix]"
-  echo "Create the tODE client image. Used for running pharo-based scripts"
-  echo "and for running the tODE client UI."
+  echo "USAGE: $(basename $0) [-h]] [-p <postfix]"
+  echo "Update the tODE client image."
   echo ""
   echo "OPTIONS"
   echo "  -h "
   echo "    display help"
   echo "  -p <postfix>"
-  echo "    Append <postfix> to end of image name. Useful for creating"
-  echo "    multiple tode client images."
+  echo "   Update the tode windows client image created with a matching postfix."
   echo ""
   echo "EXAMPLES"
   echo "  $(basename $0) -h"
-  echo "  $(basename $0) -p _0"
   echo "  $(basename $0)"
-  echo ""  
+  echo ""
 }
 
 postFix=""
@@ -57,44 +54,39 @@ if [ "${GS_HOME}x" = "x" ] ; then
   exit 1
 fi
 
-# create tODE client
+echo "Updating todeClient image"
+
 pharo=$GS_HOME/pharo
-if [ -e $pharo/todeClient${postFix}.image ] ; then
-  echo "todeClient already installed"
-  exit 0
-fi
-
-echo "creating todeClient${postFix} image"
-
-$pharo/pharo $pharo/Pharo.image save todeClientTmp
+$pharo/Pharo.exe $pharo/todeClient${postFix}.image save todeClientTmp
 
 cat - > $pharo/todeLoad.st << EOF
-[ 
-  Metacello new
+[ | metacello |
+  metacello := Metacello new
     configuration: 'TodeClient';
     version: #release;
-    repository: 'filetree://$GS_HOME/repository';
-    load ]
+    repository: 'filetree://$GS_HOME/repository'.
+  metacello copy get.
+  metacello load ]
       on: Warning
       do: [:ex | Transcript cr; show: ex description ].
 EOF
 
-$pharo/pharo $pharo/todeClientTmp.image st --quit --save $pharo/todeLoad.st
+$pharo/Pharo.exe --headless $pharo/todeClientTmp.image st --quit --save $pharo/todeLoad.st
 if [[ $? != 0 ]] ; then
-  echo "createTodeImage[Error]: failed loading tode client"
+  echo "updateTodeImage[Error]: failed loading tode client"
   exit 1
 fi
 
-$pharo/pharo $pharo/todeClientTmp.image save todeClient${postFix}
+$pharo/Pharo.exe $pharo/todeClientTmp.image save todeClient${postFix}
 if [[ $? != 0 ]] ; then
-  echo "createTodeImage[Error]: failed saving tode client"
+  echo "updateTodeImage[Error]: failed saving tode client"
   rm -f todeClient*
   exit 1
 fi
 
 rm -f todeClientTmp.*
 echo
-echo "tODE client image creation complete"
+echo "tODE client image update complete"
 
 # End of script
 exit 0
