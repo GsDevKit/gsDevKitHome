@@ -25,7 +25,8 @@ The fork serves two purposes:
 ##Development Kit Installation
 
 1. [Fork][3] the [gsDevKitHome project][2] on [GitHub][15].
-2. Clone your fork of the [gsDevKitHome project][2] to your GemStone development server and create a unique branch for your project-specific changes (changes that you want to share with the community should be made on the master branch):
+2. Clone your fork of the [gsDevKitHome project][2] to your GemStone development server and create a unique branch for your project-specific changes.
+   Changes that you want to share with the community should be made on the master branch:
 
    ```Shell
    git clone git@github.com:<your github id>/gsDevKitHome.git
