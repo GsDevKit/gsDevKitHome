@@ -1,9 +1,9 @@
 TDSessionDescription {
 	#name : 'tode',
-	#stoneHost : 'localhost',
+	#stoneHost : 'galbadia',
 	#stoneName : 'tode',
-	#gemHost : 'localhost',
-	#netLDI : 'tode_ldi',
+	#gemHost : 'galbadia',
+	#netLDI : '44874',
 	#gemTask : 'gemnetobject',
 	#userId : 'DataCurator',
 	#password : 'swordfish',
