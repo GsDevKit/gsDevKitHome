@@ -68,7 +68,7 @@ echo "creating todeClient${postFix} image"
 
 $pharo/Pharo.exe --headless $pharo/Pharo3.0.image save todeClientTmp
 
-cat - > $pharo/todeLoad.s << EOF
+cat - > $pharo/todeLoad.st << EOF
 [ | metacello |
   metacello := Metacello new
     configuration: 'TodeClient';
@@ -81,7 +81,7 @@ cat - > $pharo/todeLoad.s << EOF
       do: [:ex | Transcript cr; show: ex description ].
 EOF
 
-$pharo/Pharo.exe --headless $pharo/todeClientTmp.image st --save $pharo/todeLoad.st
+$pharo/Pharo.exe --headless $pharo/todeClientTmp.image st --quit --save $pharo/todeLoad.st
 if [[ $? != 0 ]] ; then
   echo "createTodeImage[Error]: failed loading tode client"
   exit 1
