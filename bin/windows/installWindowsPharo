@@ -3,13 +3,13 @@
 #=========================================================================
 # Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
 #
-# Name - installPharo 
+# Name - installWindowsPharo 
 #
-# Purpose - Download and install a Linux or Mac Pharo VM
+# Purpose - Download and install a Windows Pharo VM
 #
 # Examples
-#   installPharo -h
-#   installPharo
+#   installWindowsPharo -h
+#   installWindowsPharo
 #
 #=========================================================================
 
@@ -17,7 +17,7 @@
 function display_help() {
   echo ""
   echo "USAGE: $(basename $0) [-h]"
-  echo "Download and install a Linux or Mac or Pharo VM."
+  echo "Download and install a Windows Pharo VM."
   echo ""
   echo "OPTIONS"
   echo "  -h display help"
@@ -60,10 +60,25 @@ else
     exit 1
 fi
 
-# Download Pharo
+cmd="`which wget`"
+pharo_zip=Pharo3.0-win.zip
+pushd $GS_HOME/gemstone/downloads >& /dev/null
+if [ ! -e $pharo_zip ]; then
+    echo "[Info] Downloading $pharo_zip using ${cmd}"
+    $cmd http://files.pharo.org/platform/$pharo_zip
+else
+    echo "[Info] $pharo_zip already exists"
+    echo "to replace it, remove or rename it and rerun this script"
+fi
 
-cd $GS_HOME/pharo
-wget -O- get.pharo.org/30+vmLatest | bash
+echo "[Info] Uncompressing Pharo archive into $GS_HOME/pharo"
+if [ ! -e $GS_HOME/pharo/Pharo.exe ]; then
+    unzip -q -d $GS_HOME/pharo $pharo_zip
+else
+    echo "[Warning] $GS_HOME/pharo/Pharo.exe already exists"
+    echo "to replace it, remove or rename it and rerun this script"
+fi
+popd >& /dev/null
 
 # End of script
 exit 0
