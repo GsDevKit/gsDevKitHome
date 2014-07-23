@@ -3,34 +3,30 @@
 #=========================================================================
 # Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
 #
-# Name - install
+# Name - installWindowsClient
 #
 # Purpose - Install GemStone (specified gs-version), Pharo, build tODE client
-#           image, create a stone (specifed stone-name), start the stone
-#           start the netldi, start stamonitors, install tODE on server and 
-#           launch the tODE client.
+#           image and launch the tODE client.
 #
 # Examples
-#   install -h
-#   install kit 3.2.1
+#   installWindowsClient -h
+#   installWindowsClient 3.2.1
 #
 #=========================================================================
 
 # help function
 function display_help() {
   echo ""
-  echo "USAGE: $(basename $0) [-h] <stone-name> <gemstone-version>"
+  echo "USAGE: $(basename $0) [-h] <gemstone-version>"
   echo "Install GemStone (specified gs-version), Pharo, build tODE client"
-  echo "image, create a stone (specifed stone-name), start the stone"
-  echo "start the netldi, start stamonitors, install tODE on server and" 
-  echo "launch the tODE client."
+  echo "image and launch the tODE client."
   echo ""
   echo "OPTIONS"
   echo "  -h display help"
   echo ""
   echo "EXAMPLES"
   echo "   $(basename $0) -h"
-  echo "   $(basename $0) kit 3.2.1"
+  echo "   $(basename $0) 3.2.1"
   echo ""
 }
 
@@ -51,38 +47,19 @@ if [ "$1x" = "x" ] ; then
   display_help
   exit 1
 fi
-stoneName="$1"
-
-if [ "$2x" = "x" ] ; then
-  display_help
-  exit 1
-fi
-gsvers="$2"
-
+vers="$1"
 if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"
   exit 1
 fi
 
-$GS_HOME/bin/installGemStone $gsvers
+$GS_HOME/bin/windows/installWindowsGCI
 if [[ $? != 0 ]] ; then exit 1; fi
 
-$GS_HOME/bin/createTodeImage
+$GS_HOME/bin/windows/installWindowsPharo
 if [[ $? != 0 ]] ; then exit 1; fi
 
-$GS_HOME/bin/createStone $stoneName $gsvers
-if [[ $? != 0 ]] ; then exit 1; fi
-
-$GS_HOME/bin/startStone $stoneName
-if [[ $? != 0 ]] ; then exit 1; fi
-
-$GS_HOME/bin/startNetldi $stoneName
-if [[ $? != 0 ]] ; then exit 1; fi
-
-$GS_HOME/bin/startStatmonitor $stoneName
-if [[ $? != 0 ]] ; then exit 1; fi
-
-$GS_HOME/bin/installTodeStone $stoneName
+$GS_HOME/bin/windows/createWindowsTodeImage
 if [[ $? != 0 ]] ; then exit 1; fi
 
 $GS_HOME/bin/todeClient

@@ -66,26 +66,28 @@ fi
 
 echo "creating todeClient${postFix} image"
 
-$pharo/pharo $pharo/Pharo.image save todeClientTmp
+$pharo/Pharo.exe --headless $pharo/Pharo3.0.image save todeClientTmp
 
 cat - > $pharo/todeLoad.st << EOF
-[ 
-  Metacello new
+[ | metacello |
+  metacello := Metacello new
     configuration: 'TodeClient';
     version: #release;
-    repository: 'filetree://$GS_HOME/repository';
-    load ]
+    repository: 'filetree://$GS_HOME/repository'.
+  metacello copy get.
+  metacello copy lock.
+  metacello load ]
       on: Warning
       do: [:ex | Transcript cr; show: ex description ].
 EOF
 
-$pharo/pharo $pharo/todeClientTmp.image st --quit --save $pharo/todeLoad.st
+$pharo/Pharo.exe --headless $pharo/todeClientTmp.image st --quit --save $pharo/todeLoad.st
 if [[ $? != 0 ]] ; then
   echo "createTodeImage[Error]: failed loading tode client"
   exit 1
 fi
 
-$pharo/pharo $pharo/todeClientTmp.image save todeClient${postFix}
+$pharo/Pharo.exe --headless $pharo/todeClientTmp.image save todeClient${postFix}
 if [[ $? != 0 ]] ; then
   echo "createTodeImage[Error]: failed saving tode client"
   rm -f todeClient*

@@ -3,14 +3,14 @@
 #=========================================================================
 # Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
 #
-# Name - todeClient 
+# Name - todeWindowsClient 
 #
-# Purpose - Launch todeClient image
+# Purpose - Launch windows todeClient image
 #
 # Examples
-#   todeClient -h
-#   todeClient -p _0
-#   todeClient
+#   todeWindowsClient -h
+#   todeWindowsClient -p _0
+#   todeWindowsClient
 #
 #=========================================================================
 
@@ -18,7 +18,7 @@
 function display_help() {
   echo ""
   echo "USAGE: $(basename $0) [-h] [-p <postfix]"
-  echo "Launch todeClient image."
+  echo "Launch windows todeClient image."
   echo ""
   echo "OPTIONS"
   echo "  -h "
@@ -54,14 +54,14 @@ if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"
   exit 1
 fi
-if [ ! -e "$GS_HOME/pharo/pharo" ]; then
-  $GS_HOME/bin/installPharo
+if [ ! -e "$GS_HOME/pharo/Pharo.exe" ]; then
+  $GS_HOME/bin/windows/installWindowsPharo
 fi
 
 # Run script
 pharo=$GS_HOME/pharo
 unset GEMSTONE_NRS_ALL
-$pharo/pharo-ui $pharo/todeClient${postFix}.image &> $GS_HOME/tode/logs/todeClient${postFix}.log &
+$pharo/Pharo.exe $pharo/todeClient${postFix}.image &> $GS_HOME/tode/logs/todeClient${postFix}.log &
 
 # End of script
 exit 0
