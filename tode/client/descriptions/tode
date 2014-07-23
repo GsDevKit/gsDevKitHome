@@ -1,0 +1,19 @@
+TDSessionDescription {
+	#name : 'tode',
+	#stoneHost : 'localhost',
+	#stoneName : 'tode',
+	#gemHost : 'localhost',
+	#netLDI : 'tode_ldi',
+	#gemTask : 'gemnetobject',
+	#userId : 'DataCurator',
+	#password : 'swordfish',
+	#osUserId : nil,
+	#osPassword : nil,
+	#dataDirectory : nil,
+	#backupDirectory : '/export/galbadia1/users/rsargent/gsDevKitHome/gemstone/stones/tode/backups/',
+	#gemstoneVersion : '3.2.1',
+	#gciLibraryName : nil,
+	#adornmentColor : nil,
+	#serverGitRoot : '/export/galbadia1/users/rsargent/gsDevKitHome/gemstone/stones/tode/git',
+	#serverTodeRoot : '/export/galbadia1/users/rsargent/gsDevKitHome/tode'
+}
