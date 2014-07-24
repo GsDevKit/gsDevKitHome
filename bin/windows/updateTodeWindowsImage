@@ -17,7 +17,7 @@
 # help function
 function display_help() {
   echo ""
-  echo "USAGE: $(basename $0) [-h]] [-p <postfix]"
+  echo "USAGE: $(basename $0) [-h]] [-p <postfix>]"
   echo "Update the tODE client image."
   echo ""
   echo "OPTIONS"

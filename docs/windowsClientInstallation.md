@@ -11,11 +11,11 @@
    ```Shell
    cd gsDevKitHome
    export GS_HOME=`pwd`
-   export PATH=$GS_HOME/bin:$PATH
+   export PATH=$GS_HOME/bin/windows:$PATH
    ```
 
 5. Using the bash shell, clone the [tode project][3] to your local disk to the root of your C: drive. 
-   We're manually cloning tODE to avoid hitting the 256 character path limit for Windows:
+   We're manually cloning tODE to avoid hitting the 256 character path limit for Windows and rooting the repository at the C: keeps the longest paths in tODE out of trouble:
 
    ```Shell
    cd /c
@@ -32,7 +32,7 @@
 6. Install GemStone/S (for GCI library files) and Pharo, build the tODE client image and launch the tODE client. The GemStone version that specify in the following should match the version installed on your server machine:
 
    ```Shell
-   installWindowsClient 3.2.1
+   installWindowsClient 3.2.1 c:/tode/repository
    ```
 
 4. Once the tODE client image comes up, you need to edit the session description for your stones using the `tODE edit` menu:
