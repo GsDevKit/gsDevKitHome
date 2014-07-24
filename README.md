@@ -22,7 +22,9 @@ The fork serves two purposes:
    * The fork makes it very easy to contribute bugfixes and enhancements to the parent project.
    * The fork makes it easy for you to share your project specific artifacts (primarily tODE scripts) between your development and production servers.
 
-##Development Kit Installation
+##Development Kit Server Installation
+
+The GemStone server may be installed on Linux or Mac. 
 
 1. [Fork][3] the [gsDevKitHome project][2] on [GitHub][15].
 2. Clone your fork of the [gsDevKitHome project][2] to your GemStone development server and create a unique branch for your project-specific changes.
@@ -63,7 +65,7 @@ The fork serves two purposes:
    git push origin <your branch name>  # push the changes to GitHub
    ```
 
-6. If you have a separate client machine separate from your development server, then follow the [client installation instructions][17].
+6. If you have a separate client machine separate from your development server, then follow the [tODE client installation instructions][17].
 
 [1]: https://help.github.com/articles/fork-a-repo
 [2]: https://github.com/GsDevKit/gsDevKitHome
@@ -81,5 +83,5 @@ The fork serves two purposes:
 [14]: pharo/README
 [15]: https://github.com
 [16]: http://gemtalksystems.com/index.php/news/version3-2/
-[17]: docs/macLinuxClientInstallation.md
+[17]: docs/clientInstallation.md#tode-client-installation
 
