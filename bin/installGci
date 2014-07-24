@@ -18,8 +18,8 @@
 function display_help() {
   echo ""
   echo "USAGE: $(basename $0) [-h] <gemstone-version>"
-  echo "Install gemstone gci libraries from the specied gemstone"
-  echo "release into the platform dependent location in the pharo vm directory."
+  echo "Copy the gci libraries for the given GemStone version to the"
+  echo "$GS_HOME/pharo directory."
   echo ""
   echo "OPTIONS"
   echo "  -h display help"

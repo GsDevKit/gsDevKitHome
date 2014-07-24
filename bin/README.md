@@ -22,18 +22,18 @@
 ## tODE Client
 | script | description |
 |--------|-------------|
-|[createTodeImage][14]| Create a new tODE client image.|
-|[todeClient][15]| Run the tODE client image.|
+|[createTodeImage][14]| Create the tODE client image. Used for running pharo-based tODE scripts and for running the tODE client UI.| 
+|[todeClient][15]| Launch todeClient image.|
 |[updateTodeImage][16]| Update the tODE client image.|
 ## Utility
 | script | description |
 |--------|-------------|
 |[installGci][17]| Copy the gci libraries for the given GemStone version to the $GS\_HOME/pharo directory. |
 |[installGemStone][18]| Download and install the given GemStone version. Will make sure that shared memory is correctly configuration on your server. Performs some operations as `root` using sudo. |
-|[installPhar][19]o| Download and install Pharo3.0.|
+|[installPharo][19]| Download and install a Linux or Mac or Pharo3.0 VM, image and changes file.|
 |[installTodeStone][20]| Install tODE in the given stone.|
-|[pharo][21]| Run command line version of stock Pharo3.0 image.|
-|[tode][22]| Run  command line version of tODE client image.|
+|[pharo][21]| Run headless pharo scripts using the Pharo image.|
+|[tode][22]| Run headless tode scripts using the todeClient image.|
 
 [1]: installClient
 [2]: installServer
