@@ -1,17 +1,12 @@
 # GsDevKit Scripts
-## Installation
-| script | description |
-|--------|-------------|
-|[installClient][1]| Create a todeClient image on a remote machine. Runs the [installGemstone][18], [createTodeImage][14] and [todeClient][15] scripts.|
-|[installServer][2]| Install GemStone/S, create a stone, start the stone, create a todeClient image. Runs the [installGemstone][18], [createTodeImage][14], [createStone][], [startStone][], [startNetldi][], [startStatmonitor][], [installTodeStone][] and [todeClient][15] scripts.|
-
-## Stone Management
+## Stone Server Management
 | script | description |
 |--------|-------------|
 |[backup][3]| Create a GemStone backup for the given stone.|
 |[createStone][4]| Create a new stone with the given stone name. Do not install tODE.|
 |[createTodeStone][5]| Create a new stone withe the given stone name with tODE installed.|
 |[defStone.env][6]| Define GemStone environment variables in current shell (`source $GS_HOME/bin/defStone.env`).|
+|[installServer][2]| Install GemStone/S, create a stone, start the stone, create a todeClient image. Runs the [installGemstone][18], [createTodeImage][14], [createStone][], [startStone][], [startNetldi][], [startStatmonitor][], [installTodeStone][] and [todeClient][15] scripts.|
 |[restoreFromBackup][7]|Restore a backup on the given stone.|
 |[startNetldi][8]| Start the netldi process for the given stone.|
 |[startStatmonitor][9]| Start statmonitor for the given stone. Two statmonitors are started. One that collects a sample every second and is restarted every hour. One that collects a sample once a minute and is restarted once a day. |
@@ -23,6 +18,7 @@
 | script | description |
 |--------|-------------|
 |[createTodeImage][14]| Create the tODE client image. Used for running pharo-based tODE scripts and for running the tODE client UI.| 
+|[installClient][1]| Create a todeClient image on a remote machine. Runs the [installGemstone][18], [createTodeImage][14] and [todeClient][15] scripts.|
 |[todeClient][15]| Launch todeClient image.|
 |[updateTodeImage][16]| Update the tODE client image.|
 ## Utility
