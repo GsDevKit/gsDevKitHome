@@ -52,23 +52,23 @@ The GemStone server may be installed on Linux or Mac.
    installServer tode 3.2.1
    ```
 
-   Note that the script will prompt you for your password because it uses sudo to setup up your server for running GemStone.
-   When the script finishes, the tode client image is opened and you should be able to log into your stone using the test login tODE menu item.
+   *Note that the script will prompt you for your password because it uses sudo to setup up your server for running GemStone*.
+  
 
-4. Validate your session description connectivity:
+4.  When the above script finishes, the tode client image is opened and you should be able to validate your session description by:
 
    1. Opening a tODE shell on your stone: 
    
       ![open tode shell][18]
 
-   2. Open a project list:
+   2. Opening a `project list`:
 
       ![project list][19]
 
-   If an error occurs, use the testLogin command to gather diagnostic information:
+   3. If the `project list` opens successfully, then you are done.
+      If an error occurs, use the testLogin command to gather diagnostic information:
 
       ![testLogin output][20]
-
 
 5. Once you have verified that the session description is correct, you should commit the changes that you've made and push them to GitHub:
 
@@ -80,6 +80,8 @@ The GemStone server may be installed on Linux or Mac.
    ```
 
 6. If you have a separate client machine separate from your development server, then follow the [tODE client installation instructions][17].
+
+7. **Have Fun working with GemStone and tODE!**
 
 [1]: https://help.github.com/articles/fork-a-repo
 [2]: https://github.com/GsDevKit/gsDevKitHome
