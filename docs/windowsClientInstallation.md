@@ -39,7 +39,7 @@
 
    ![edit description menu][4]
 
-   Replace the name of the netldi with the port number of the netldi obtained from the [stones][6] command:
+   Replace the name of the netldi with the port number of the netldi obtained from the [stones][6] command (run on the server):
 
    ![description workspace][5]
 
@@ -52,9 +52,13 @@
    git push origin <your branch name>       # push the changes to GitHub
    ```
 
+Here's the [list of scripts that can be used on the client machine][7].
+
 [1]: https://windows.github.com/
 [2]: https://github.com/GsDevKit/gsDevKitHome
 [3]: https://github.com/dalehenrich/tode
 [4]: images/editDescription.png
 [5]: images/descriptionWorkspace.png
 [6]: ../bin/stones
+[7]: ../bin/windows/README/md#gsdevkit-windows-client-scripts
+
