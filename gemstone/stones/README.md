@@ -17,7 +17,7 @@ Each stone directory has the following contents.
 |stone.env|Standard GemStone environment variables copied from [templates directory][1].|
 |tranlogs| Directory where tranlogs are stored.|
 
-[1]: ../templates/README.md
+[1]: ../templates
 [2]: https://github.com/svenvc/ston/blob/master/ston-paper.md
 
 

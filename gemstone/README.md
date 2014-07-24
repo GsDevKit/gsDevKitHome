@@ -7,8 +7,8 @@
 |[gemstone/stones][4]| Directory where stones are created.|
 |[gemstone/templates][5]| Standard files used when creating stones.|
 
-[1]: bin/README.md
-[2]: downloads/README.md
-[3]: products/README.md
-[4]: stones/README.md
-[5]: templates/README.md
+[1]: bin
+[2]: downloads
+[3]: products
+[4]: stones
+[5]: templates
