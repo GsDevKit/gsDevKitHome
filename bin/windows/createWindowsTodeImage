@@ -75,17 +75,13 @@ echo "creating todeClient${postFix} image"
 $pharo/Pharo.exe --headless $pharo/Pharo3.0.image save todeClientTmp
 
 cat - > $pharo/todeLoad.st << EOF
-[ | metacello string |
-  Metacello new
-    baseline: 'Tode';
-    repository: 'filetree://', '$repo_path';
-    lock.
+[ | metacello string repoPath |
   string := '$GS_HOME/repository'.
-  string := (string copyFrom: 2 to: 2), ':', (string copyFrom: 3 to: string size).
+  repoPath := (string copyFrom: 2 to: 2), ':', (string copyFrom: 3 to: string size).
   metacello := Metacello new
     configuration: 'TodeClient';
     version: #release;
-    repository: 'filetree://', string.
+    repository: 'filetree://', repoPath.
   metacello copy get.
   metacello copy lock.
   metacello 
