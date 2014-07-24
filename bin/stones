@@ -17,10 +17,8 @@
 function display_help() {
   echo ""
   echo "USAGE: $(basename $0) [-h]"
-  echo "Provide information about the installed and running stones:"
-  echo "  - list installed stones"
-  echo "  - list running stones"
-  echo "  - list running netldis"
+  echo "List information about the installed GemStone/S products, installed stones,"
+  echo "running stones and running netldis."
   echo ""
   echo "OPTIONS"
   echo "  -h display help"

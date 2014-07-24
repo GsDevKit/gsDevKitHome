@@ -18,8 +18,7 @@
 function display_help() {
   echo ""
   echo "USAGE: $(basename $0) [-h] <stone-name> <backup-file>"
-  echo "Run a backup for <stone-name> saving the backup to <backup-file>"
-  echo "in the stones backups directory"
+  echo "Create a GemStone backup for the given stone."
   echo ""
   echo "OPTIONS"
   echo "  -h display help"

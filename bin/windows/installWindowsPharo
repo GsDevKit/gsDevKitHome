@@ -52,20 +52,20 @@ if [ -e "$GS_HOME/pharo/pharo-vm" ]; then
   exit 0
 fi
 
-# Look for wget to download Pharo
-if [ -e "`which wget`" ]; then
-    cmd="`which wget`"
+# Look for curl to download Pharo
+if [ -e "`which curl`" ]; then
+    cmd="`which curl`"
 else
-    echo "[Error] wget is not available. Install wget and rerun this script."
+    echo "[Error] curl is not available. Install curl and rerun this script."
     exit 1
 fi
 
-cmd="`which wget`"
+cmd="`which curl`"
 pharo_zip=Pharo3.0-win.zip
 pushd $GS_HOME/gemstone/downloads >& /dev/null
 if [ ! -e $pharo_zip ]; then
     echo "[Info] Downloading $pharo_zip using ${cmd}"
-    $cmd http://files.pharo.org/platform/$pharo_zip
+    $cmd --output $pharo_zip http://files.pharo.org/platform/$pharo_zip
 else
     echo "[Info] $pharo_zip already exists"
     echo "to replace it, remove or rename it and rerun this script"
@@ -73,7 +73,7 @@ fi
 
 echo "[Info] Uncompressing Pharo archive into $GS_HOME/pharo"
 if [ ! -e $GS_HOME/pharo/Pharo.exe ]; then
-    unzip -q -d $GS_HOME/pharo $pharo_zip
+    unzip -j -q -d $GS_HOME/pharo $pharo_zip
 else
     echo "[Warning] $GS_HOME/pharo/Pharo.exe already exists"
     echo "to replace it, remove or rename it and rerun this script"

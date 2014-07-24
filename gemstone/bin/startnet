@@ -1,8 +1,0 @@
-#!/bin/bash
-
-export GEMSTONE_NRS_ALL='#dir:$GEMSTONE_DATADIR#log:/$GEMSTONE_LOGDIR/%N%P.log'
-
-export GEMSTONE_SYS_CONF=$GEMSTONE_DATADIR/system.conf
-export GEMSTONE_EXE_CONF=$GEMSTONE_DATADIR
-
-$GEMSTONE/bin/startnetldi -g -a $USER -n -l $GEMSTONE_LOGDIR/gs64ldi.log

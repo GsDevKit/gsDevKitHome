@@ -8,7 +8,7 @@ The Development Kit provides a [set of scripts][5] for:
 * Creating new stone instances.
 * Starting and stopping stones.
 
-The [gemstone directory][10] has predefined locations for:
+The [gemstone directory][9] has predefined locations for:
 * [Download files][10].
 * [GemStone/S product versions][11].
 * [Stone instances][12].
@@ -22,10 +22,13 @@ The fork serves two purposes:
    * The fork makes it very easy to contribute bugfixes and enhancements to the parent project.
    * The fork makes it easy for you to share your project specific artifacts (primarily tODE scripts) between your development and production servers.
 
-##Development Kit Installation
+##Development Kit Server Installation
+
+The GemStone server may be installed on Linux or Mac. 
 
 1. [Fork][3] the [gsDevKitHome project][2] on [GitHub][15].
-2. Clone your fork of the [gsDevKitHome project][2] to your GemStone development server and create a unique branch for your project-specific changes (changes that you want to share with the community should be made on the master branch):
+2. Clone your fork of the [gsDevKitHome project][2] to your GemStone development server and create a unique branch for your project-specific changes.
+   Changes that you want to share with the community should be made on the master branch:
 
    ```Shell
    git clone git@github.com:<your github id>/gsDevKitHome.git
@@ -49,19 +52,36 @@ The fork serves two purposes:
    installServer tode 3.2.1
    ```
 
-   When the script finishes, the tode client image is opened and you should be able to log into your stone using the test login tODE menu item.
+   *Note that the script will prompt you for your password because it uses sudo to setup up your server for running GemStone*.
+  
 
+4.  When the above script finishes, the tode client image is opened and you should be able to validate your session description by:
+
+   1. First, opening a tODE shell on your stone: 
+   
+      ![open tode shell][18]
+
+   2. Then, opening a `project list`:
+
+      ![project list][19]
+
+   3. If the `project list` opens successfully, then you are done.
+      If an error occurs, use the testLogin command to gather diagnostic information:
+
+      ![testLogin output][20]
 
 5. Once you have verified that the session description is correct, you should commit the changes that you've made and push them to GitHub:
 
    ```Shell
-   git status                          # to see what changes have been made
+   git status                          # see what changes have been made
    git add --all                       # stage the changed files
    git commit -m"initial installation" # commit changes
    git push origin <your branch name>  # push the changes to GitHub
    ```
 
-6. If you have a separate client machine separate from your development server, then follow the [client installation instructions][17].
+6. If you have a separate client machine separate from your development server, then follow the [tODE client installation instructions][17].
+
+7. **Have Fun working with GemStone and tODE!**
 
 [1]: https://help.github.com/articles/fork-a-repo
 [2]: https://github.com/GsDevKit/gsDevKitHome
@@ -72,12 +92,14 @@ The fork serves two purposes:
 [7]: http://pharo.org/
 [8]: https://github.com/dalehenrich/tode#tode-the-object-centric-development-environment-
 [9]: gemstone/README.md
-[10]: gemstone/downloads/README.md
-[11]: gemstone/products/README.md
-[12]: gemstone/stones/README.md
-[13]: tode/README.md
-[14]: pharo/README
+[10]: gemstone/downloads
+[11]: gemstone/products
+[12]: gemstone/stones
+[13]: tode
+[14]: pharo
 [15]: https://github.com
 [16]: http://gemtalksystems.com/index.php/news/version3-2/
-[17]: docs/macLinuxClientInstallation.md
-
+[17]: docs/clientInstallation.md#tode-client-installation
+[18]: docs/images/openTodeShell.png
+[19]: docs/images/projectList.png
+[20]: docs/images/testLoginOutput.png

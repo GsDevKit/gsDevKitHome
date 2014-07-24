@@ -18,7 +18,7 @@
 function display_help() {
   echo ""
   echo "USAGE: $(basename $0) [-h] <stone-name>"
-  echo "Copy a new extent in the stone's extent directory. Stone"
+  echo "Copy a new extent into the stone's extent directory. Stone"
   echo "should be shutdown before copying."
   echo ""
   echo "OPTIONS"

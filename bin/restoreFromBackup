@@ -18,8 +18,7 @@
 function display_help() {
   echo ""
   echo "USAGE: $(basename $0) [-h] <stone-name> <backup-file>"
-  echo "Restore from backup for the given stone using the named"
-  echo "backup file from the stone backups directory"
+  echo "Restore a backup on the given stone."
   echo ""
   echo "OPTIONS"
   echo "  -h display help"

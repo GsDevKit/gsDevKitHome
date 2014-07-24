@@ -9,17 +9,17 @@
 #
 # Examples
 #   createTodeImage -h
-#   createTodeImage -p _0
-#   createTodeImage
+#   createTodeImage -p _0 c:/tode/repository
+#   createTodeImage c:/tode/repository
 #
 #=========================================================================
 
 # help function
 function display_help() {
   echo ""
-  echo "USAGE: $(basename $0) [-h] [-p <postfix]"
-  echo "Create the tODE client image. Used for running pharo-based scripts"
-  echo "and for running the tODE client UI."
+  echo "USAGE: $(basename $0) [-h] [-p <postfix] <tode-repository-path>"
+  echo "Create the tODE client image loading tODE from the specified repository."
+  echo "Used for running pharo-based scripts and for running the tODE client UI."
   echo ""
   echo "OPTIONS"
   echo "  -h "
@@ -30,8 +30,8 @@ function display_help() {
   echo ""
   echo "EXAMPLES"
   echo "  $(basename $0) -h"
-  echo "  $(basename $0) -p _0"
-  echo "  $(basename $0)"
+  echo "  $(basename $0) -p _0 c:/tode/repository"
+  echo "  $(basename $0) c:/tode/repository"
   echo ""  
 }
 
@@ -52,6 +52,12 @@ while getopts "hp:" OPT ; do
   esac
 done
 
+if [ "$1x" = "x" ] ; then
+  echo "<tode-repository-path> missing"
+  exit 1
+fi
+repo_path="$1"
+
 if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"
   exit 1
@@ -69,14 +75,22 @@ echo "creating todeClient${postFix} image"
 $pharo/Pharo.exe --headless $pharo/Pharo3.0.image save todeClientTmp
 
 cat - > $pharo/todeLoad.st << EOF
-[ | metacello |
+[ | metacello string |
+  Metacello new
+    baseline: 'Tode';
+    repository: 'filetree://', '$repo_path';
+    lock.
+  string := '$GS_HOME/repository'.
+  string := (string copyFrom: 2 to: 2), ':', (string copyFrom: 3 to: string size).
   metacello := Metacello new
     configuration: 'TodeClient';
     version: #release;
-    repository: 'filetree://$GS_HOME/repository'.
+    repository: 'filetree://', string.
   metacello copy get.
   metacello copy lock.
-  metacello load ]
+  metacello 
+    onConflict: [:ex | ex disallow];
+    load ]
       on: Warning
       do: [:ex | Transcript cr; show: ex description ].
 EOF

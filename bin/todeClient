@@ -61,7 +61,7 @@ fi
 # Run script
 pharo=$GS_HOME/pharo
 unset GEMSTONE_NRS_ALL
-$pharo/pharo-ui $pharo/todeClient${postFix}.image &
+$pharo/pharo-ui $pharo/todeClient${postFix}.image &> $GS_HOME/tode/logs/todeClient${postFix}.log &
 
 # End of script
 exit 0

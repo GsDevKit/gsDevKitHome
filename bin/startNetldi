@@ -17,7 +17,7 @@
 function display_help() {
   echo ""
   echo "USAGE: $(basename $0) [-h] <stone-name>"
-  echo "Start the netldi process for the named stone."
+  echo " Start the netldi process for the given stone."
   echo ""
   echo "OPTIONS"
   echo "  -h display help"
