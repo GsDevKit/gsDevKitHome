@@ -29,7 +29,7 @@ Scripts that can be run on the client machine, including the server if *X Window
 |[createTodeImage][14]| Create the tODE client image. Used for running pharo-based tODE scripts and for running the tODE client UI.| 
 |[installClient][1]| Create a todeClient image on a remote machine. Runs the [installGemstone][18], [createTodeImage][14] and [todeClient][15] scripts.|
 |[installGci][17]| Copy the gci libraries for the given GemStone version to the $GS\_HOME/pharo directory. |
-|[installPharo][19]| Download and install a Linux or Mac or Pharo3.0 VM, image and changes file.|
+|[installPharo][19]| Download and install a Linux or Mac Pharo3.0 VM, image and changes file.|
 |[pharo][21]| Run headless pharo scripts using the Pharo image.|
 |[tode][22]| Run headless tode scripts using the todeClient image.|
 |[todeClient][15]| Launch todeClient image.|
