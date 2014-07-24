@@ -36,7 +36,7 @@ The GemStone server may be installed on Linux or Mac.
    git checkout -b  <your branch name>
    ```
 
-3. Define the `$GS\_HOME` environment variable and add `$GS\_HOME/bin` to your `$PATH`:
+3. Define the `$GS_HOME` environment variable and add `$GS_HOME/bin` to your `$PATH`:
 
    ```Shell
    cd gsDevKitHome
@@ -44,7 +44,7 @@ The GemStone server may be installed on Linux or Mac.
    export PATH=$GS_HOME/bin:$PATH
    ```
 
-   It's a good idea to define `$GS\_HOME` and `$PATH` in your `.bashrc` file.
+   It's a good idea to define `$GS_HOME` and `$PATH` in your `.bashrc` file.
 4. Install GemStone/S and Pharo, build the tODE client image, create a stone, start the stone, start the netldi, start the stamonitors, install tODE in stone and launch the tODE client. 
    The following creates a new stone named `tode` based on [version 3.2.1 of GemStone/S][16]:
 
@@ -57,11 +57,11 @@ The GemStone server may be installed on Linux or Mac.
 
 4.  When the above script finishes, the tode client image is opened and you should be able to validate your session description by:
 
-   1. Opening a tODE shell on your stone: 
+   1. First, opening a tODE shell on your stone: 
    
       ![open tode shell][18]
 
-   2. Opening a `project list`:
+   2. Then, opening a `project list`:
 
       ![project list][19]
 
