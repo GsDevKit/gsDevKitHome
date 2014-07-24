@@ -57,4 +57,4 @@ Here's the [list of scripts that can be used on the client machine][7].
 [4]: images/editDescription.png
 [5]: images/descriptionWorkspace.png
 [6]: ../bin/stones
-[7]: ../bin/README/md#client-scripts
+[7]: ../bin/README.md#client-scripts
