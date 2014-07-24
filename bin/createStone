@@ -31,9 +31,7 @@
 function display_help() {
   echo ""
   echo "USAGE: $(basename $0) [-h] <stone-name> <gemstone-version>"
-  echo "Create a directory under $GS_HOME/gemstone/stones using the given"
-  echo "<stone-name> and populate directory with supporting files and "
-  echo "directories."
+  echo "Create a new stone with the given stone name. Do not install tODE."
   echo ""
   echo "OPTIONS"
   echo "  -h display help"

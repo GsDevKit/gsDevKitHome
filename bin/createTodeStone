@@ -17,8 +17,7 @@
 function display_help() {
   echo ""
   echo "USAGE: $(basename $0) [-h] <stone-name> <gemstone-version>"
-  echo "Create a new stone (see createStone). Start the stone, netldi and"
-  echo "statmonitors and install tODE."
+  echo "Create a new stone withe the given stone name with tODE installed."
   echo ""
   echo "OPTIONS"
   echo "  -h display help"

@@ -20,7 +20,7 @@
 function display_help() {
   echo ""
   echo "USAGE: $(basename $0) [-h] <stone-name>"
-  echo "Start statmonitor for the named stone. Two statmonitors are"
+  echo "Start statmonitor for the given stone. Two statmonitors are"
   echo "started. One that collects a sample every second and is"
   echo "restarted every hour. One that collects a sample once a"
   echo "minute and is restarted once a day."

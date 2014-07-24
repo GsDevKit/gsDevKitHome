@@ -18,8 +18,8 @@
 function display_help() {
   echo ""
   echo "USAGE: $(basename $0) [-h] <gemstone-version>"
-  echo "Install GemStone (specified gs-version), Pharo, build tODE client"
-  echo "image and launch the tODE client."
+  echo " Create a todeClient image on a remote machine. Runs the installGemstone,"
+  echo "createTodeImage and todeClient scripts."
   echo ""
   echo "OPTIONS"
   echo "  -h display help"

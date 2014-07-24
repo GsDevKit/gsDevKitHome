@@ -2,37 +2,58 @@
 ## Installation
 | script | description |
 |--------|-------------|
-|[installClient][1]| Create a todeClient image on a remote machine. |
-|installServer| Install GemStone/S, create a stone, start the stone, create a todeClient image on the GemStone server machine.|
+|[installClient][1]| Create a todeClient image on a remote machine. Runs the [installGemstone][18], [createTodeImage][14] and [todeClient][15] scripts.|
+|[installServer][2]| Install GemStone/S, create a stone, start the stone, create a todeClient image. Runs the [installGemstone][18], [createTodeImage][14], [createStone][], [startStone][], [startNetldi][], [startStatmonitor][], [installTodeStone][] and [todeClient][15] scripts.|
 
 ## Stone Management
 | script | description |
 |--------|-------------|
-|backup| Create a GemStone backup for the given stone.|
-|createStone| Create a new stone with the given stone name. Do not install tODE.|
-|createTodeStone| Create a new stone withe the given stone name with tODE installed.|
-|defStone.env| Define GemStone environment variables in current shell (`source $GS_HOME/bin/defStone.env`).|
-|restoreFromBackup|Restore a backup on the given stone.|
-|startNetldi| Start the netldi process for the given stone.|
-|startStatmonitor| Start the statmonitor processes for the given stone.|
-|startStone| Start the stone process for the given stone.|
-|stoneExtent| Copy a fresh extent to the given stone.|
-|stones| List information about the installed GemStone/S produects, existing stones, running stones and running netldis.|
-|stopStone| Stop the stone process for the given stone|
+|[backup][3]| Create a GemStone backup for the given stone.|
+|[createStone][4]| Create a new stone with the given stone name. Do not install tODE.|
+|[createTodeStone][5]| Create a new stone withe the given stone name with tODE installed.|
+|[defStone.env][6]| Define GemStone environment variables in current shell (`source $GS_HOME/bin/defStone.env`).|
+|[restoreFromBackup][7]|Restore a backup on the given stone.|
+|[startNetldi][8]| Start the netldi process for the given stone.|
+|[startStatmonitor][9]| Start statmonitor for the given stone. Two statmonitors are started. One that collects a sample every second and is restarted every hour. One that collects a sample once a minute and is restarted once a day. |
+|[startStone][10]| Start the stone process for the given stone.|
+|[stoneExtent][11]| Copy a new extent into the stone's extent directory. Stone should be shutdown before copying. |
+|[stones][12]| List information about the installed GemStone/S produects, existing stones, running stones and running netldis.|
+|[stopStone][13]| Stop the named stone. The netldi is left running. Any statmonitor processes associated with the stone will be stopped.|
 ## tODE Client
 | script | description |
 |--------|-------------|
-|createTodeImage| Create a new tODE client image.|
-|todeClient| Run the tODE client image.|
-|updateTodeImage| Update the tODE client image.|
+|[createTodeImage][14]| Create a new tODE client image.|
+|[todeClient][15]| Run the tODE client image.|
+|[updateTodeImage][16]| Update the tODE client image.|
 ## Utility
 | script | description |
 |--------|-------------|
-|installGci| Copy the gci libraries for the given GemStone version to the $GS\_HOME/pharo directory. |
-|installGemStone| Download and install the given GemStone version. Will make sure that shared memory is correctly configuration on your server. Performs some operations as `root` using sudo. |
-|installPharo| Download and install Pharo3.0.|
-|installTodeStone| Install tODE in the given stone.|
-|pharo| Run command line version of stock Pharo3.0 image.|
-|tode| Run  command line version of tODE client image.|
+|[installGci][17]| Copy the gci libraries for the given GemStone version to the $GS\_HOME/pharo directory. |
+|[installGemStone][18]| Download and install the given GemStone version. Will make sure that shared memory is correctly configuration on your server. Performs some operations as `root` using sudo. |
+|[installPhar][19]o| Download and install Pharo3.0.|
+|[installTodeStone][20]| Install tODE in the given stone.|
+|[pharo][21]| Run command line version of stock Pharo3.0 image.|
+|[tode][22]| Run  command line version of tODE client image.|
 
 [1]: installClient
+[2]: installServer
+[3]: backup
+[4]: createStone
+[5]: createTodeStone
+[6]: defStone.env
+[7]: restoreFromBackup
+[8]: startNetldi
+[9]: startStatmonitor
+[10]: startStone
+[11]: stoneExtent
+[12]: stones
+[13]: stopStone
+[14]: createTodeImage
+[15]: todeClient
+[16]: updateTodeImage
+[17]: installGci
+[18]: installGemStone
+[19]: installPharo
+[20]: installTodeStone
+[21]: pharo
+[22]: tode

@@ -18,7 +18,7 @@ function display_help() {
   echo ""
   echo "USAGE: $(basename $0) [-h] <stone-name>"
   echo "Stop the named stone. The netldi is left running. Any statmonitor"
-  echo "processes associated with the stone will be stopped as well."
+  echo "processes associated with the stone will be stopped."
   echo ""
   echo "OPTIONS"
   echo "  -h display help"
