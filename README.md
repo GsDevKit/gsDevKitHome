@@ -8,7 +8,7 @@ The Development Kit provides a [set of scripts][5] for:
 * Creating new stone instances.
 * Starting and stopping stones.
 
-The [gemstone directory][10] has predefined locations for:
+The [gemstone directory][9] has predefined locations for:
 * [Download files][10].
 * [GemStone/S product versions][11].
 * [Stone instances][12].
@@ -73,7 +73,7 @@ The fork serves two purposes:
 [6]: http://gemtalksystems.com/index.php/products/gemstones/
 [7]: http://pharo.org/
 [8]: https://github.com/dalehenrich/tode#tode-the-object-centric-development-environment-
-[9]: gemstone/README.md
+[9]: gemstone/README.md#gemstone-directory
 [10]: gemstone/downloads/README.md
 [11]: gemstone/products/README.md
 [12]: gemstone/stones/README.md
