@@ -4,7 +4,7 @@ tODE clients may be installed on **Linux**, **Mac** or **Windows**.
 
 Before installing tODE on a client, you should complete the [install of the Development Kit on a GemStone server][2].
 
-If you are using **Windows**, please go to the separate [installation instructions for Windows][1] document.
+If you are using **Windows**, please follow the instructions on the [tODE Windows Client Installation][1] page.
 
 
 1. Clone your fork of the [gsDevKitHome project][3] to your tODE client machine and checkout your project-specific branch:
@@ -49,7 +49,7 @@ If you are using **Windows**, please go to the separate [installation instructio
    git push origin <your branch name>       # push the changes to GitHub
    ```
 
-[1]: windowsClientInstallation.md
+[1]: windowsClientInstallation.md#tode-windows-client-installation
 [2]: ../README.md#development-kit-server-installation
 [3]: https://github.com/GsDevKit/gsDevKitHome
 [4]: images/editDescription.png
