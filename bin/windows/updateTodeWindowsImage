@@ -60,13 +60,17 @@ pharo=$GS_HOME/pharo
 $pharo/Pharo.exe $pharo/todeClient${postFix}.image save todeClientTmp
 
 cat - > $pharo/todeLoad.st << EOF
-[ | metacello |
+[ | metacello string repoPath |
+  string := '$GS_HOME/repository'.
+  repoPath := (string copyFrom: 2 to: 2), ':', (string copyFrom: 3 to: string size).
   metacello := Metacello new
     configuration: 'TodeClient';
     version: #release;
-    repository: 'filetree://$GS_HOME/repository'.
+    repository: 'filetree://', repoPath.
   metacello copy get.
-  metacello load ]
+  metacello 
+    onConflict: [:ex | ex disallow];
+    load ]
       on: Warning
       do: [:ex | Transcript cr; show: ex description ].
 EOF

@@ -65,8 +65,10 @@ cat - > $pharo/todeLoad.st << EOF
     configuration: 'TodeClient';
     version: #release;
     repository: 'filetree://$GS_HOME/repository'.
-  metacello copy get
-  metacello load ]
+  metacello copy get.
+  metacello 
+    onConflict: [:ex | ex disallow];
+    load ]
       on: Warning
       do: [:ex | Transcript cr; show: ex description ].
 EOF
