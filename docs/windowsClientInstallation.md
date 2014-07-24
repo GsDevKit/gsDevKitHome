@@ -22,7 +22,7 @@
    git clone git@github.com:dalehenrich/tode.git
    ```
 
-5. Checkout your branch of the of the [gsDevKitHome project][2]:
+5. Checkout your branch of the [gsDevKitHome project][2]:
 
    ```Shell
    cd $GS_HOME/gsDevKitHome
