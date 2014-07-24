@@ -58,7 +58,7 @@ The GemStone server may be installed on Linux or Mac.
 4. Validate your session description connectivity:
 
    1. Opening a tODE shell on your stone: 
-
+   
       ![open tode shell][18]
 
    2. Open a project list:
@@ -67,7 +67,7 @@ The GemStone server may be installed on Linux or Mac.
 
    If an error occurs, use the testLogin command to gather diagnostic information:
 
-   ![testLogin output[20]
+      ![testLogin output][20]
 
 
 5. Once you have verified that the session description is correct, you should commit the changes that you've made and push them to GitHub:
@@ -98,6 +98,6 @@ The GemStone server may be installed on Linux or Mac.
 [15]: https://github.com
 [16]: http://gemtalksystems.com/index.php/news/version3-2/
 [17]: docs/clientInstallation.md#tode-client-installation
-[18] docs/images/openTodeShell.png
-[19] docs/images/projectList.png
-[20] docs/images/testLoginOutput.pngtest
+[18]: docs/images/openTodeShell.png
+[19]: docs/images/projectList.png
+[20]: docs/images/testLoginOutput.png
