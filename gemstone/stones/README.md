@@ -1,6 +1,7 @@
 Directory where stones are created.
 
-Each stone directory has the following contents:
+Each stone directory has the following contents.
+
 | stone directory | description|
 |-----------------|------------|
 |backups| Directory where backup files are stored. |
