@@ -73,7 +73,7 @@ The GemStone server may be installed on Linux or Mac.
 5. Once you have verified that the session description is correct, you should commit the changes that you've made and push them to GitHub:
 
    ```Shell
-   git status                          # to see what changes have been made
+   git status                          # see what changes have been made
    git add --all                       # stage the changed files
    git commit -m"initial installation" # commit changes
    git push origin <your branch name>  # push the changes to GitHub

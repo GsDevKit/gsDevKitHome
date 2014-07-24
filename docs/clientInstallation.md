@@ -1,9 +1,11 @@
 ##tODE Client Installation
 
-tODE clients may be installed on Linux, Mac or Windows. 
-If you are using Windows, please go to the separate [installation instructions for Windows][1] document.
+tODE clients may be installed on **Linux**, **Mac** or **Windows**. 
 
 Before installing tODE on a client, you should complete the [install of the Development Kit on a GemStone server][2].
+
+If you are using **Windows**, please go to the separate [installation instructions for Windows][1] document.
+
 
 1. Clone your fork of the [gsDevKitHome project][3] to your tODE client machine and checkout your project-specific branch:
 
@@ -32,14 +34,20 @@ Before installing tODE on a client, you should complete the [install of the Deve
 
 4. Once the tODE client image comes up, you need to edit the session description for your stones using the `tODE edit` menu:
 
-![edit description menu][4]
+   ![edit description menu][4]
 
    Replace the name of the netldi with the port number of the netldi obtained from the [stones][6] command:
 
-![description workspace][5]
+   ![description workspace][5]
 
+5. Commit the changes that you've made and push them to GitHub, so that you can share the changes with your installation on the server machine:
 
-
+   ```Shell
+   git status                               # see what changes have been made
+   git add --all                            # stage the changed files
+   git commit -m"use port number of netldi" # commit changes
+   git push origin <your branch name>       # push the changes to GitHub
+   ```
 
 [1]: windowsClientInstallation.md
 [2]: ../README.md#development-kit-server-installation
