@@ -1,6 +1,7 @@
 # GsDevKit Scripts
 ## Server Scripts
 Scripts that can be run on the server machine with or without *X Windows*.
+
 | script | description |
 |--------|-------------|
 |[backup][3]| Create a GemStone backup for the given stone.|
@@ -22,6 +23,7 @@ Scripts that can be run on the server machine with or without *X Windows*.
 |[tode][22]| Run headless tode scripts using the todeClient image.|
 ## Client Scripts
 Scripts that can be run on the client machine, including the server if *X Windows* is running.
+
 | script | description |
 |--------|-------------|
 |[createTodeImage][14]| Create the tODE client image. Used for running pharo-based tODE scripts and for running the tODE client UI.| 
