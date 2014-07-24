@@ -52,7 +52,7 @@ if [ "${GS_HOME}x" = "x" ] ; then
 fi
 
 gsvers="GemBuilderC${vers}-x86.Windows_NT"
-gbs_file="${gsvers}.zip"
+gbc_file="${gsvers}.zip"
 case "$vers" in
   2.4.4.1|2.4.4.2|2.4.4.3|2.4.4.4|2.4.4.5|2.4.4.6)
     ftp_address=ftp://ftp.gemstone.com
@@ -70,20 +70,20 @@ case "$vers" in
     ftp_address=http://ftp.gemtalksystems.com:80
     ;;
 esac
-cmd="`which wget`"
+cmd="`which curl`"
 pushd $GS_HOME/gemstone/downloads >& /dev/null
-if [ ! -e $gss_file ]; then
-    echo "[Info] Downloading $gss_file using ${cmd}"
-    $cmd ${ftp_address}/pub/GemStone64/$vers/$gss_file
+if [ ! -e $gbc_file ]; then
+    echo "[Info] Downloading $gbc_file using ${cmd}"
+    $cmd --output $gbc_file ${ftp_address}/pub/GemStone64/$vers/$gbc_file
 else
-    echo "[Info] $gss_file already exists"
+    echo "[Info] $gbc_file already exists"
     echo "to replace it, remove or rename it and rerun this script"
 fi
 echo "[Info] Uncompressing GemStone archive into $GS_HOME/gemstone/products/"
 gs_product=$GS_HOME/gemstone/products/$gsvers
 if [ ! -e $gs_product ]
     then
-    unzip -q -d $GS_HOME/gemstone/products $gss_file
+    unzip -q -d $GS_HOME/gemstone/products $gbc_file
 else
     echo "[Warning] $GS_HOME/gemstone/products/$gsvers already exists"
     echo "to replace it, remove or rename it and rerun this script"
@@ -92,9 +92,16 @@ popd >& /dev/null
 
 echo "copy gci libraries"
 if [ ! -e $pharo_vm/libgcirpc-${vers}-32.dll ] ; then
-  cp $gs_product/lib32/lib* $GS_HOME/pharo
+  cp $gs_product/bin32/lib* $GS_HOME/pharo
 else
   echo "[Warning] gci libraries already present to replace, delete them and try again"
+fi
+
+echo "copy msvcr100.dll library"
+if [ ! -e $pharo_vm/msvcr*.dll ] ; then
+  cp $gs_product/bin32/msvcr* $GS_HOME/pharo
+else
+  echo "[Warning] msvcr100.dll library already present to replace, delete it and try again"
 fi
 
 echo "[Info] Finished $gsvers installation"
