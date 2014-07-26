@@ -94,7 +94,7 @@ fi
 
 rm -f todeClientTmp.*
 echo
-echo "tODE client image creation complete"
+echo "tODEClient${postFix} image creation complete"
 
 # End of script
 exit 0
