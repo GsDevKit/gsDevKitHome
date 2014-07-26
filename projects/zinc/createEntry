@@ -1,0 +1,61 @@
+#! /bin/bash
+
+#=========================================================================
+# Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
+#
+# Name - entry
+#
+# Purpose - create project entry for Zinc
+#
+# Examples
+#  entry -h
+#  entry <stone-name> 
+#
+#=========================================================================
+
+
+# help function
+function display_help() {
+  echo ""
+  echo "USAGE: $(basename $0) [-h] <stone-name>"
+  echo "Create project entry for Zinc for the named stone"
+  echo ""
+  echo "OPTIONS"
+  echo "  -h display help"
+  echo ""
+  echo "EXAMPLES"
+  echo "  $(basename $0) -h"
+  echo "  $(basename $0) kit"
+  echo ""
+}
+
+while getopts "h" OPT ; do
+  case "$OPT" in
+    h) 
+      display_help
+      exit 1
+      ;;
+    *)
+      display_help
+      exit 1
+      ;;
+  esac
+done
+
+if [ "$1x" = "x" ] ; then
+  display_help
+  exit 1
+fi
+stoneName="$1"
+logFile="entry_zinc.log"
+
+if [ "${GS_HOME}x" = "x" ] ; then
+  echo "the GS_HOME environment variable needs to be defined"
+  exit 1
+fi
+
+$GS_HOME/bin/tode tode $stoneName 1> $GS_HOME/gemstone/stones/$stoneName/logs/$logFile << EOF
+cd /home
+eval \` | entry projectNode parentNode | entry := TDProjectSpecEntryDefinition new configuration: 'XXX' version: '2.4.3' repository: 'github://GsDevKit/zinc:gs_master/repository' loads: #('Core' 'Tests'); status: #(#'active'); locked: true; yourself.  projectNode := TDObjectGatewayNode new name: 'project'; contents: entry printString; yourself.  parentNode := self topez ensureChildrenExistIn: '/home/xxx'.  ^ parentNode addChildLeafNode: projectNode\`
+EOF
+
