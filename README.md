@@ -3,7 +3,7 @@
 The Development Kit for GemStone/S features:
 
 * [Simplified GemStone/S installation](#development-kit-server-installation).
-* [Remote Client installation](#remote-dev-kit-client-installation).
+* [Remote tODE Client installation](#remote-tode-client-installation).
 * [Scripts for controlling multiple stones](##gemstones-management-scripts).
 * [New development environment](#tode--the-object-centric-development-environment).
 * [Library of projects ported to GemStone/S](#development-kit-projects).
@@ -66,10 +66,9 @@ The Dev Kit server can be installed on Linux or Mac OS X.
    git push origin <your branch name>  # push the changes to GitHub
    ```
 
-## Remote Dev Kit Client Installation
-The Dev Kit Client can be install on Linux, Mac OS X, or Windows.
-
-If you have a separate client machine separate from your development server, then follow the [tODE client installation instructions][17]. 
+## Remote tODE Client Installation
+The tODE Client can be installed on Linux, Mac OS X, or Windows.  
+See the [tODE client installation instructions][17] for details. 
 
 ##tODE: the Object-centric Development Environment
 ##GemStone/S Management Scripts
