@@ -5,7 +5,7 @@ The [GsDevKit Seaside31 project][3] is a fork of the [Seaside project][4].
 ## Register Project
 
 ```Shell
-$GS_HOME/projects/zinc/createProjectEntry <stone-name> [ <group-name> .... ]
+$GS_HOME/projects/seaside31/createProjectEntry <stone-name> [ <group-name> .... ]
 ```
 
 Use the `-h` option for information about specifying the \<group-name\> list.
