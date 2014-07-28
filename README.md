@@ -54,7 +54,7 @@ The Development Kit for GemStone/S features:
 
       ![testLogin output][20]
 
-      If you need help, copy the result of the `testLogin` command and send mail to the [GLASS mailing list][].
+      If you need help, copy the result of the `testLogin` command and send mail to the [GLASS mailing list][28].
 
 5. Once you have verified that the session description is correct, commit the changes that you've made and push them to GitHub:
 
