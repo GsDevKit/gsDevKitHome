@@ -67,7 +67,7 @@ The Dev Kit server can be installed on Linux or Mac OS X.
    ```
 
 ## Remote tODE Client Installation
-The tODE Client can be installed on Linux, Mac OS X, or Windows.  
+The tODE Client can be installed on Linux, Mac OS X, or Windows.
 See the [tODE client installation instructions][17] for details. 
 
 ##tODE: the Object-centric Development Environment
