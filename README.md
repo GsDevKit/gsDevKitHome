@@ -72,11 +72,11 @@ See the [tODE client installation instructions][17] for details.
 
 ##tODE: the Object-centric Development Environment
 
-### Add Project to tODE
+### Add Project to tODE video
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=AlB1B0wtX8c
 " target="_blank"><img src="http://img.youtube.com/vi/AlB1B0wtX8c/0.jpg" 
-alt="topez: And Now for Something Completely Different" width="240" height="180" border="10" /></a>
+alt="topez: And Now for Something Completely Different" width="480" height="360" border="10" /></a>
 
 
 ##GemStone/S Management Scripts
