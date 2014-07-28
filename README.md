@@ -1,30 +1,14 @@
 # Open Source Development Kit for GemStone/S 64 Bit [![master branch:](https://travis-ci.org/GsDevKit/gsDevKitHome.png?branch=master)](https://travis-ci.org/GsDevKit/gsDevKitHome)
 
-This Development Kit for GemStone/S provides a framework for managing multiple GemStone stone instances across multiple machines.
+The Development Kit for GemStone/S features:
 
-The Development Kit provides a [set of scripts][5] for:
-* Downloading [GemStone/S][6] and [Pharo][7].
-* Building and maintaining the [tODE][8] development image.
-* Creating new stone instances.
-* Starting and stopping stones.
-
-The [gemstone directory][9] has predefined locations for:
-* [Download files][10].
-* [GemStone/S product versions][11].
-* [Stone instances][12].
-
-The [pharo directory][14] contains an installation of Pharo3.0 that is used for the tODE client as well as for implementing a number of the Development Kit scripts. 
-
-The [tode directory][13] provides an collection of tode scripts that are intended to be shared between your development and production servers. 
-
-The Development Kit is intended to be [forked][1] and [cloned][4].
-The fork serves two purposes:
-   * The fork makes it very easy to contribute bugfixes and enhancements to the parent project.
-   * The fork makes it easy for you to share your project specific artifacts (primarily tODE scripts) between your development and production servers.
+* [Simplified GemStone/S installation](#development-kit-server-installation).
+* [Remote Client installation](#remote-dev-kit-client-installation).
+* [Scripts for controlling multiple stones](#gemstone-s-management-scripts).
+* [New development environment](#tode--the-object-centric-development-environment).
+* [Library of projects ported to GemStone/S](#development-kit-projects).
 
 ##Development Kit Server Installation
-
-The GemStone server may be installed on Linux or Mac. 
 
 1. [Fork][3] the [gsDevKitHome project][2] on [GitHub][15].
 2. Clone your fork of the [gsDevKitHome project][2] to your GemStone development server and create a unique branch for your project-specific changes.
@@ -57,11 +41,11 @@ The GemStone server may be installed on Linux or Mac.
 
 4.  When the above script finishes, the tode client image is opened and you should be able to validate your session description by:
 
-   1. First, opening a tODE shell on your stone: 
+   1. Opening a tODE shell on your stone: 
    
       ![open tode shell][18]
 
-   2. Then, opening a `project list`:
+   2. Opening a `project list`:
 
       ![project list][19]
 
@@ -70,7 +54,9 @@ The GemStone server may be installed on Linux or Mac.
 
       ![testLogin output][20]
 
-5. Once you have verified that the session description is correct, you should commit the changes that you've made and push them to GitHub:
+      If you need help, copy the result of the `testLogin` command and send mail to the [GLASS mailing list][].
+
+5. Once you have verified that the session description is correct, commit the changes that you've made and push them to GitHub:
 
    ```Shell
    git status                          # see what changes have been made
@@ -79,11 +65,113 @@ The GemStone server may be installed on Linux or Mac.
    git push origin <your branch name>  # push the changes to GitHub
    ```
 
-6. If you have a separate client machine separate from your development server, then follow the [tODE client installation instructions][17].
+## Remote Dev Kit Client Installation
 
-7. **Have Fun working with GemStone and tODE!**
+If you have a separate client machine separate from your development server, then follow the [tODE client installation instructions][17].
 
-##Optional Development Kit Projects
+##tODE: the Object-centric Development Environment
+##GemStone/S Management Scripts
+
+* [stones](#stones)
+* [createTodeStone](#createtodestone)
+* [stopStone](#stopstone)
+* [startStone](#startstone)
+* [startNetldi](startnetldi)
+
+###stones
+The [stones][27] script produces a report listing *Installed Products*, *Installed Stones*, *Running Stones*, and *Running Netldis*: 
+
+```Shell
+stones
+```
+
+Here's a sample report:
+
+```
+Installed Products:
+	2.4.5.2
+	3.0.1
+	3.1.0.5
+	3.1.0.6
+	3.2.0
+	3.2.1
+Installed Stones:
+	2.4.5.2	c_2452
+	3.0.1	c_301
+	3.1.0.5	c_3105
+	3.2.1	gemtalk
+	3.2.2	j_
+	3.3.0	k_
+	3.2.0	m_
+Running Stones:
+	Status       Version    Owner    Pid   Port   Started     Type       Name
+	-------     --------- --------- ----- ----- ------------ ------      ----
+	exists  3.2.0     dhenrich   2074 52832 Jul 22 10:36 Stone       m_
+	exists  3.1.0.5   dhenrich   2450 46781 Jul 22 10:39 Stone       c_3105
+	exists  2.4.5.2   dhenrich   2291 45711 Jul 22 10:37 Stone       c_2452
+	exists  3.2.2     dhenrich   1980 43002 Jul 22 10:35 Stone       j_
+	exists  3.0.1     dhenrich   2365 45327 Jul 22 10:38 Stone       c_301
+	exists  3.2.1     dhenrich  18934 47480 Jul 24 10:25 Stone       gemtalk
+Running Netldis:
+	Status       Version    Owner    Pid   Port   Started     Type       Name
+	-------     --------- --------- ----- ----- ------------ ------      ----
+	exists  3.2.1     dhenrich  20901 49481 Jul 24 16:17 Netldi      gemtalk_ldi
+	exists  3.2.0     dhenrich   2196 37538 Jul 22 10:36 Netldi      m_ldi
+	exists  3.1.0.5   dhenrich   2514 38890 Jul 22 10:39 Netldi      c_ldi_3105
+	exists  3.2.2     dhenrich   2048 44409 Jul 22 10:35 Netldi      j_ldi
+	exists  3.0.1     dhenrich   2426 54616 Jul 22 10:38 Netldi      c_ldi_301
+	exists  2.4.5.2   dhenrich   2340 54731 Jul 22 10:37 Netldi      c_ldi_2452
+	exists  3.3.0     dhenrich   2274 33236 Jul 22 10:36 Netldi      k_ldi
+```
+
+###createTodeStone
+The [createTodeStone][28] script creates a new stone of the given name and GemStone/S version:
+
+```Shell
+createTodeStone devKit 3.1.0.6
+```
+
+The stone is created in the `$GS_HOME/gemstone/stones` directory. 
+After the stone is created, the stone and netldi processes are started and then tODE is installed.
+
+*Note that the GemStone/S version must be previously installed using the [installGemStone][29] script*.
+
+###stopStone
+The [stopStone][30] script is used to stop a running stone by name:
+
+```Shell
+stopStone devKit
+```
+
+Use the [stones][27] script to get a list of the running stones.
+
+###startStone
+The [startStone][31] script is used to start a stone by name:
+
+```Shell
+startStone devKit
+```
+
+###startNetldi
+The [startNetldi][32] script is used to start a netldi for the given stone:
+
+```Shell
+startNetldi devKit
+```
+
+By default, the name of the netldi is constructed by tacking `_ldi` onto the name of the stone. 
+If you want to use a different netldi name, edit the $GS_HOME/gemstone/stones/\<stone-name\>/info.ston file:
+
+```
+GsDevKitStoneInfo {
+	#stoneName : 'tode',
+	#gsVers : '3.2.1',
+	#username : nil,
+	#netldiName : nil
+}
+```
+
+##Development Kit Projects
 
 Here is a sampling of some of the open source projects that have been ported to GemStone/S:
 
@@ -123,3 +211,10 @@ For information about installing optional projects and a complete list of option
 [25]: projects/zinc
 [26]: https://github.com/svenvc/zinc/blob/master/zinc-http-components-paper.md#http
 [27]: projects/README.md#gsdevkit-projects
+[27]: http://lists.gemtalksystems.com/mailman/listinfo/glass
+[28]: bin/stones
+[29]: bin/createTodeStone
+[29]: bin/installGemStone
+[30]: bin/stopStone
+[31]: bin/startStone
+[32]: bin/startNetldi
