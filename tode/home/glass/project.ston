@@ -1,0 +1,8 @@
+TDObjectGatewayNode{#name:'project',#contents:'^ TDProjectSpecEntryDefinition new
+    baseline: \'GLASS1\'
+      repository: \'github://glassdb/glass:master/repository\'
+      loads: #( \'default\' );
+    status: #( #\'active\' );
+    locked: true;
+    yourself.
+'}

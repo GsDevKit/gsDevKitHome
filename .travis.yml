@@ -1,0 +1,65 @@
+language: erlang
+
+env:
+
+  - GS_VERSION=3.1.0.6
+  - GS_VERSION=3.2.1
+
+before_script:
+  - export GS_HOME="$(pwd)"
+  - export PATH=$GS_HOME/bin:$PATH
+  - export GS_TRAVIS=true
+  - sudo apt-get update -qq
+  - sudo apt-get -y install libpam0g:i386
+  - sudo ln -s /lib/i386-linux-gnu/libpam.so.0 /lib/libpam.so.0
+  - sudo apt-get install -qq gcc-multilib libcurl3:i386 libstdc++6:i386
+  - sudo ln -s /usr/lib/i386-linux-gnu/libstdc++.so.6 /usr/lib/i386-linux-gnu/libstdc++.so
+
+script:
+    # install server
+  - bash installServer travis $GS_VERSION
+
+  - bash stones
+
+    # help
+  - bash backup -h
+  - bash createStone -h
+  - bash createTodeImage -h
+  - bash createTodeStone -h
+  - bash installClient -h
+  - bash installGci -h
+  - bash installGemStone -h
+  - bash installPharo -h
+  - bash installServer -h
+  - bash installTodeStone -h
+  - bash $GS_HOME/bin/pharo -h  # apparently '.' is in the PATH
+  - bash restoreFromBackup -h
+  - bash startNetldi -h
+  - bash startStatmonitor -h
+  - bash startStone -h
+  - bash stoneExtent -h
+  - bash stones -h
+  - bash stopStone -h
+  - bash $GS_HOME/bin/tode -h   # apparently '.' is in the PATH
+  - bash todeClient -h
+  - bash updateTodeImage -h
+    # functions
+  - bash createTodeImage -p _small
+
+  - bash stones
+
+#  - bash backup travis travis.dbf            # nothing but trouble on travis
+#  - bash restoreFromBackup travis travis.dbf # nothing but trouble on travis
+
+  - bash stopStone travis
+  - bash updateTodeImage travis
+  - bash startStone travis
+
+  - bash stones
+
+  - bash $GS_HOME/bin/pharo --list
+  - bash $GS_HOME/bin/tode --list
+
+  - bash createStone travis_2 $GS_VERSION
+  - bash stoneExtent travis_2
+

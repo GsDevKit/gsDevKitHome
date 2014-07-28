@@ -1,15 +1,12 @@
 #!/bin/bash
 
-helpOpts() {
+getOpts_help() {
 while getopts "h" OPT ; do
   case "$OPT" in
     h) usage; exit 0;;
     *) usage; exit 1;;
   esac
 done
-if [ $# -ne 1 ]; then
-  usage; exit 0
-fi
 if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"; exit 1
 fi
