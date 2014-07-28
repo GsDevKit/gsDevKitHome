@@ -16,8 +16,6 @@ projectName="ZincHTTPComponents"
 projectLoadCommand="project load $projectName"
 logFile="projectLoad_${projectName}.log"
 
-projectLoadCommand="eval \`Transcript cr; show: 'hello'\`"
-
 usage() {
   cat <<HELP
 USAGE: $(basename $0) [-h] <stone-name>
