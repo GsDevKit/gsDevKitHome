@@ -63,3 +63,17 @@ script:
   - bash createStone travis_2 $GS_VERSION
   - bash stoneExtent travis_2
 
+    # projects
+    #   help
+  - bash $GS_HOME/projects/glass/createProjectEntry -h
+  - bash $GS_HOME/projects/zinc/createProjectEntry -h
+  - bash $GS_HOME/projects/seaside31/createProjectEntry -h
+  - bash $GS_HOME/projects/glass/loadProject -h
+  - bash $GS_HOME/projects/zinc/loadProject -h
+  - bash $GS_HOME/projects/seaside31/loadProject -h
+    #   create project entries
+  - bash $GS_HOME/projects/glass/createProjectEntry travis
+  - bash $GS_HOME/projects/zinc/createProjectEntry travis
+  - bash $GS_HOME/projects/seaside31/createProjectEntry travis Examples Zinc FastCGI
+    #   load project
+  - bash $GS_HOME/projects/seaside31/loadProject travis 
