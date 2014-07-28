@@ -83,6 +83,19 @@ The GemStone server may be installed on Linux or Mac.
 
 7. **Have Fun working with GemStone and tODE!**
 
+##Optional Development Kit Projects
+
+Here is a sampling of some of the open source projects that have been ported to GemStone/S:
+
+| Project | Description|
+|---------|------------|
+| Magritte| [Dynamic Meta-Description Framework][21]   |
+| Pier|[Content Management System][22] |
+|[Seaside31][23]| [Dynamic Web Development Framework][24] |
+|[ZincHTTPComponents][25]| [Web Server/Client][26] |
+
+For information about installing optional projects and a complete list of optional projects, visit the [GsDevKit Projects][27] page.
+
 [1]: https://help.github.com/articles/fork-a-repo
 [2]: https://github.com/GsDevKit/gsDevKitHome
 [3]: https://github.com/GsDevKit/gsDevKitHome/fork
@@ -103,3 +116,10 @@ The GemStone server may be installed on Linux or Mac.
 [18]: docs/images/openTodeShell.png
 [19]: docs/images/projectList.png
 [20]: docs/images/testLoginOutput.png
+[21]: https://code.google.com/p/magritte-metamodel/
+[22]: http://www.piercms.com/
+[23]: projects/seaside31
+[24]: http://www.seaside.st/
+[25]: projects/zinc
+[26]: https://github.com/svenvc/zinc/blob/master/zinc-http-components-paper.md#http
+[27]: projects/README.md#gsdevkit-projects

@@ -23,6 +23,7 @@
 #    Add shared memory setup to /etc/sysctl.conf
 #    Add GemStone netldi service port to /etc/services
 #    Download the GemStone product zipfile
+#    Create /opt/gemstone and required subdirectories
 #    Uncompress the GemStone zipfile into $GS_HOME/products
 #    Copy the initial GsDevKit repository to data directory
 #    Copy the gci libraries to the Pharo vm (install Pharo if necessary)
@@ -30,37 +31,33 @@
 #=========================================================================
 
 # help function
-function display_help() {
-  echo ""
-  echo "USAGE: $(basename $0) [-h] <gemstone-version>"
-  echo "Download and install the given GemStone version. Will make sure that"
-  echo "shared memory is correctly configuration on your server. Performs some"
-  echo "operations as `root` using sudo."
-  echo ""
-  echo "OPTIONS"
-  echo "  -h display help"
-  echo ""
-  echo "EXAMPLES"
-  echo "  $(basename $0) -h"
-  echo "  $(basename $0) 3.2.0"
-  echo ""
+usage() {
+ cat <<HELP
+USAGE: $(basename $0) [-h] <gemstone-version>
+Download and install the given GemStone version. Will make sure that
+shared memory is correctly configuration on your server. Performs some
+operations as `root` using sudo.
+
+OPTIONS
+  -h display help
+
+EXAMPLES
+  $(basename $0) -h
+  $(basename $0) 3.2.0
+
+HELP
 }
 
+set -e # exit on error
 while getopts "h" OPT ; do
   case "$OPT" in
-    h) 
-      display_help
-      exit 1
-      ;;
-    *)
-      display_help
-      exit 1
-      ;;
+    h) usage ; exit 0 ;;
+    *) usage ; exit 1 ;;
   esac
 done
 
 if [ "$1x" = "x" ] ; then
-  display_help
+  usage
   exit 1
 fi 
 vers="$1"
@@ -276,6 +273,18 @@ else
     echo "to replace it, remove or rename it and rerun this script"
 fi
 
+# Create some directories that GemStone expects; make them writable
+echo "[Info] Creating /opt/gemstone directory"
+if [ ! -e /opt/gemstone ]
+    then
+    sudo mkdir -p /opt/gemstone /opt/gemstone/log /opt/gemstone/locks
+    sudo chown $USER:${GROUPS[0]} /opt/gemstone /opt/gemstone/log /opt/gemstone/locks
+    sudo chmod 770 /opt/gemstone /opt/gemstone/log /opt/gemstone/locks
+else
+    echo "[Warning] /opt/gemstone directory already exists"
+    echo "to replace it, remove or rename it and rerun this script"
+fi
+
 # Unzip the downloaded archive into $GS_HOME/gemstone/products/
 echo "[Info] Uncompressing GemStone archive into $GS_HOME/gemstone/products/"
 gs_product=$GS_HOME/gemstone/products/$gsvers
@@ -342,6 +351,20 @@ echo "[Info] Finished $gsvers installation on $machine_name"
 echo ""
 echo "[Info] GemStone version information:"
 cat $gs_product/version.txt
+
+if [ "${GS_TRAVIS}x" != "x" ] ; then
+  # running on travis server - have to use a custom key file
+  case "$vers" in
+    2.4.*) keyName="GemStone64Bit2.4.0-x86_64.Linux.key" ;;
+    3.0.1) keyName="GemStone64Bit3.0.0-x86_64.Linux.key" ;;
+    3.1.*) keyName="GemStone64Bit3.1.0-x86_64.Linux.key" ;;
+    3.2.*) keyName="GemStone64Bit3.2.0-x86_64.Linux.key" ;;
+    *) echo "No travis license for GemStone $vers"; exit 1;;
+  esac
+  chmod +w  $gs_product/seaside/etc/gemstone.key
+  echo "Copying $GS_HOME/travis/$keyName to $gs_product/seaside/etc/gemstone.key"
+  cp $GS_HOME/travis/$keyName $gs_product/seaside/etc/gemstone.key
+fi
 
 # If we can determine any IPv4 addresses, print them out. Otherwise be silent.
 if [[ -x /sbin/ifconfig && `/sbin/ifconfig -a | grep -sc " inet addr:.*Bcast"` -gt 0 ]]
