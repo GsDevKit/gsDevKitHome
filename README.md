@@ -4,7 +4,7 @@ The Development Kit for GemStone/S features:
 
 * [Simplified GemStone/S installation](#development-kit-server-installation).
 * [Remote Client installation](#remote-dev-kit-client-installation).
-* [Scripts for controlling multiple stones](#gemstone-s-management-scripts).
+* [Scripts for controlling multiple stones](##gemstones-management-scripts).
 * [New development environment](#tode--the-object-centric-development-environment).
 * [Library of projects ported to GemStone/S](#development-kit-projects).
 
@@ -76,10 +76,10 @@ If you have a separate client machine separate from your development server, the
 * [createTodeStone](#createtodestone)
 * [stopStone](#stopstone)
 * [startStone](#startstone)
-* [startNetldi](startnetldi)
+* [startNetldi](#startnetldi)
 
 ###stones
-The [stones][27] script produces a report listing *Installed Products*, *Installed Stones*, *Running Stones*, and *Running Netldis*: 
+The [stones][33] script produces a report listing *Installed Products*, *Installed Stones*, *Running Stones*, and *Running Netldis*: 
 
 ```Shell
 stones
@@ -125,7 +125,7 @@ Running Netldis:
 ```
 
 ###createTodeStone
-The [createTodeStone][28] script creates a new stone of the given name and GemStone/S version:
+The [createTodeStone][29] script creates a new stone of the given name and GemStone/S version:
 
 ```Shell
 createTodeStone devKit 3.1.0.6
@@ -134,7 +134,7 @@ createTodeStone devKit 3.1.0.6
 The stone is created in the `$GS_HOME/gemstone/stones` directory. 
 After the stone is created, the stone and netldi processes are started and then tODE is installed.
 
-*Note that the GemStone/S version must be previously installed using the [installGemStone][29] script*.
+*Note that the GemStone/S version must be previously installed using the [installGemStone][34] script*.
 
 ###stopStone
 The [stopStone][30] script is used to stop a running stone by name:
@@ -143,7 +143,7 @@ The [stopStone][30] script is used to stop a running stone by name:
 stopStone devKit
 ```
 
-Use the [stones][27] script to get a list of the running stones.
+Use the [stones][33] script to get a list of the running stones.
 
 ###startStone
 The [startStone][31] script is used to start a stone by name:
@@ -182,7 +182,7 @@ Here is a sampling of some of the open source projects that have been ported to 
 |[Seaside31][23]| [Dynamic Web Development Framework][24] |
 |[ZincHTTPComponents][25]| [Web Server/Client][26] |
 
-For information about installing optional projects and a complete list of optional projects, visit the [GsDevKit Projects][27] page.
+For information about installing optional projects and a complete list of optional projects, visit the [GsDevKit Projects][28] page.
 
 [1]: https://help.github.com/articles/fork-a-repo
 [2]: https://github.com/GsDevKit/gsDevKitHome
@@ -211,10 +211,10 @@ For information about installing optional projects and a complete list of option
 [25]: projects/zinc
 [26]: https://github.com/svenvc/zinc/blob/master/zinc-http-components-paper.md#http
 [27]: projects/README.md#gsdevkit-projects
-[27]: http://lists.gemtalksystems.com/mailman/listinfo/glass
-[28]: bin/stones
+[28]: http://lists.gemtalksystems.com/mailman/listinfo/glass
 [29]: bin/createTodeStone
-[29]: bin/installGemStone
 [30]: bin/stopStone
 [31]: bin/startStone
 [32]: bin/startNetldi
+[33]: bin/stones
+[34]: bin/installGemStone
