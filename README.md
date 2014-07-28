@@ -184,7 +184,7 @@ Here is a sampling of some of the open source projects that have been ported to 
 |[Seaside31][23]| [Dynamic Web Development Framework][24] |
 |[ZincHTTPComponents][25]| [Web Server/Client][26] |
 
-For information about installing optional projects and a complete list of optional projects, visit the [GsDevKit Projects][28] page.
+For information about installing optional projects and a complete list of optional projects, visit the [GsDevKit Projects][27] page.
 
 [1]: https://help.github.com/articles/fork-a-repo
 [2]: https://github.com/GsDevKit/gsDevKitHome
