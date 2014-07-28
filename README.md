@@ -9,6 +9,7 @@ The Development Kit for GemStone/S features:
 * [Library of projects ported to GemStone/S](#development-kit-projects).
 
 ##Development Kit Server Installation
+The Dev Kit server can be installed on Linux or Mac OS X.
 
 1. [Fork][3] the [gsDevKitHome project][2] on [GitHub][15].
 2. Clone your fork of the [gsDevKitHome project][2] to your GemStone development server and create a unique branch for your project-specific changes.
@@ -66,8 +67,9 @@ The Development Kit for GemStone/S features:
    ```
 
 ## Remote Dev Kit Client Installation
+The Dev Kit Client can be install on Linux, Mac OS X, or Windows.
 
-If you have a separate client machine separate from your development server, then follow the [tODE client installation instructions][17].
+If you have a separate client machine separate from your development server, then follow the [tODE client installation instructions][17]. 
 
 ##tODE: the Object-centric Development Environment
 ##GemStone/S Management Scripts
