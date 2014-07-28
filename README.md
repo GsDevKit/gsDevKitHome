@@ -70,15 +70,6 @@ The Dev Kit server can be installed on Linux or Mac OS X.
 The tODE Client can be installed on Linux, Mac OS X, or Windows.
 See the [tODE client installation instructions][17] for details. 
 
-##tODE: the Object-centric Development Environment
-
-### Add Project to tODE video
-
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=AlB1B0wtX8c
-" target="_blank"><img src="http://img.youtube.com/vi/AlB1B0wtX8c/0.jpg" 
-alt="topez: And Now for Something Completely Different" width="480" height="360" border="10" /></a>
-
-
 ##GemStone/S Management Scripts
 
 * [stones](#stones)
@@ -179,6 +170,15 @@ GsDevKitStoneInfo {
 	#netldiName : nil
 }
 ```
+
+##tODE: the Object-centric Development Environment
+
+### Add Project to tODE video
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=AlB1B0wtX8c
+" target="_blank"><img src="http://img.youtube.com/vi/AlB1B0wtX8c/0.jpg" 
+alt="topez: And Now for Something Completely Different" width="480" height="360" border="10" /></a>
+
 
 ##Development Kit Projects
 
