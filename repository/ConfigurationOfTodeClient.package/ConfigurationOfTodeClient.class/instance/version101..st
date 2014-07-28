@@ -1,6 +1,6 @@
 versions
-version001: spec
-	<version: '0.0.1'>
+version101: spec
+	<version: '1.0.1'>
 	spec
 		for: #'pharo3.x'
 		do: [ 
