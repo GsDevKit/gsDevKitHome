@@ -187,6 +187,8 @@ and use the `tODE Shell` menu to select the stone to log into:
 
 ### Add Project to tODE video
 
+This short video describes how to add your own project to tODE. It also serves as an introduction to the tODE development environment:
+
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=AlB1B0wtX8c
 " target="_blank"><img src="http://img.youtube.com/vi/AlB1B0wtX8c/0.jpg" 
 alt="topez: And Now for Something Completely Different" width="480" height="360" border="10" /></a>
