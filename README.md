@@ -1,4 +1,6 @@
-# Open Source Development Kit for GemStone/S 64 Bit
+# Open Source Development Kit for GemStone/S 64 Bit [![master branch:](https://travis-ci.org/GsDevKit/gsDevKitHome.png?branch=master)](https://travis-ci.org/GsDevKit/gsDevKitHome)
+
+The [GsDevKit Seaside31 project][3] is a fork of the [Seaside project][4]
 
 This Development Kit for GemStone/S provides a framework for managing multiple GemStone stone instances across multiple machines.
 
