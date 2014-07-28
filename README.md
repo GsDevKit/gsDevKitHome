@@ -173,6 +173,18 @@ GsDevKitStoneInfo {
 
 ##tODE: the Object-centric Development Environment
 
+Use the [todeClient][35] script to start up a tODE client image:
+
+```Shell
+todeClient
+```
+
+and use the `tODE Shell` menu to select the stone to log into:
+
+![tode Shell menu][36]
+
+*Note: the `-p` option allows you maintain and run multiple client images*.
+
 ### Add Project to tODE video
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=AlB1B0wtX8c
@@ -227,3 +239,5 @@ For information about installing optional projects and a complete list of option
 [32]: bin/startNetldi
 [33]: bin/stones
 [34]: bin/installGemStone
+[35]: bin/todeClient
+[36]: docs/images/todeShell.png
