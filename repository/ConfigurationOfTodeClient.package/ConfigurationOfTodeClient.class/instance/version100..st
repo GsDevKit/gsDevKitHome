@@ -1,10 +1,10 @@
 versions
-version001: spec
-	<version: '0.0.1'>
+version100: spec
+	<version: '1.0.0'>
 	spec
 		for: #'pharo3.x'
 		do: [ 
-			spec blessing: #development.
+			spec blessing: #release.
 			spec repository: 'filetree://' , (FileSystem workingDirectory parent / 'repository') pathString.
 			spec
 				package: 'GsDevKit-CommandLine' with: [ spec requires: #('Tode' 'OSProcess') ];
@@ -18,6 +18,6 @@ version001: spec
 					with: [ 
 							spec
 								loads: 'GemStone Dev';
-								repository: 'github://dalehenrich/tode:dev/repository' ];
+								repository: 'github://dalehenrich/tode:master/repository' ];
 				postLoadDoIt: #post30Load;
 				yourself ]

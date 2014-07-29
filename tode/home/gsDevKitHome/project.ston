@@ -1,5 +1,5 @@
 TDObjectGatewayNode{#name:'project',#contents:'^ TDGitRepositoryEntryDefinition new
-    projectName: \'Home\';
+    projectName: \'gsDevKitHome\';
     status: #(#\'active\');
     gitRepoDirectoryPath: \'$GS_HOME\';
     yourself'}
