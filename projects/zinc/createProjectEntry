@@ -51,10 +51,9 @@ $GS_HOME/bin/tode serverDoIt $stoneName 1> $GS_HOME/gemstone/stones/$stoneName/l
   entry := TDProjectSpecEntryDefinition new
     configuration: '${projectName}'
       version: '2.4.3'
-      repository: 'github://GsDevKit/zinc:gs_master/repository'
+      repository: 'http://mc.stfx.eu/ZincHTTPComponents'
       loads: #('Core' 'Tests');
     status: #(#'active');
-    locked: true;
     yourself.
   result := entry createProjectEntryNode: '/home/${projectDirectoryName}'.
   ^result printString
