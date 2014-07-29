@@ -214,7 +214,7 @@ $GS_HOME/projects/seaside31/createProjectEntry travis Examples Zinc FastCGI
 
 you can ensure that the projects will be loaded exactly the same way whether you use a shell script:
 
-``Shell
+```Shell
 $GS_HOME/projects/seaside31/loadProject travis
 ```
 
