@@ -21,6 +21,7 @@ createStone
 		copySeasideExtent: stoneDirectory;
 		copyTemplateSystemConf: stoneDirectory;
 		copyTemplateFiles: stoneDirectory;
+		createTopaziniFile: stoneDirectory;
 		yourself.
 	(stoneInfo := GsDevKitStoneInfo new
 		stoneName: self stoneName;
