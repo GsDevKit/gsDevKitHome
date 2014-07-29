@@ -15,9 +15,7 @@
 #=========================================================================
 
 projectName="ZincHTTPComponents"
-projectDirectoryName="Zinc"
-projectName="XXXHTTPComponents"
-projectDirectoryName="XXX"
+projectDirectoryName="zinc"
 logFile="projectLoad_${projectName}.log"
 
 usage() {

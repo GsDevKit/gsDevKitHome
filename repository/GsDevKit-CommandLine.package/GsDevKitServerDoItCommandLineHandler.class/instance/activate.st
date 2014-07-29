@@ -6,10 +6,5 @@ activate
 		ifTrue: [ 
 			self printHelp.
 			^ self exitFailure: 'Missing arguments' ].
-	Author
-		useAuthor: 'gsDevKit'
-		during: [ 
-			[ self evaluate ]
-				on: Error
-				do: [ :ex | self exitFailure: ex description ] ].
+	Author useAuthor: 'gsDevKit' during: [ self evaluate ].
 	self exitSuccess

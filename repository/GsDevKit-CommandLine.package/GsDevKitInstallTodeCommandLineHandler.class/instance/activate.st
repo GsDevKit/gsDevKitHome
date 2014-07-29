@@ -9,10 +9,8 @@ activate
 	Author
 		useAuthor: 'gsDevKit'
 		during: [ 
-			[ 
 			self installTode.
-			(Smalltalk os environment at: 'GS_TRAVIS') ~= 'true'
-				ifTrue: [ self installTode2 ] ]
-				on: Error
-				do: [ :ex | self exitFailure: ex description ] ].
+			(Smalltalk os environment at: 'GS_TRAVIS') = 'true'
+				ifTrue: [ self installTravisTode2 ] 
+				ifFalse: [ self installTode2 ]].
 	self exitSuccess

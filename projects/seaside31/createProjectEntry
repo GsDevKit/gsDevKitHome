@@ -14,10 +14,8 @@
 #  
 #=========================================================================
 
-projectName="Seasid3"
-projectDirectoryName="seaside3"
-projectName="seas"
-projectDirectoryName="seas"
+projectName="Seaside3"
+projectDirectoryName="seaside"
 logFile="projectLoad_${projectName}.log"
 
 usage() {

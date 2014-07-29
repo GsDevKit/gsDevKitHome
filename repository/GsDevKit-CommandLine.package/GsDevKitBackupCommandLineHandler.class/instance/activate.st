@@ -8,9 +8,6 @@ activate
 			^ self exitFailure: 'Missing arguments' ].
 	Author
 		useAuthor: 'gsDevKit'
-		during: [ 
-			[ self backup ]
-				on: Error
-				do: [ :ex | self exitFailure: ex description ] ].
+		during: [ self backup  ].
 	Transcript cr.
 	self exitSuccess
