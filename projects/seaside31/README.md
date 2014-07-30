@@ -63,36 +63,18 @@ The following options can be used to control the registered adaptor:
 ./webServer --restart  # stop/start adaptor
 ```
 
-####webServer script help (/home/seaside/webServer -h)
+The script launches a separate GemStone vm to serve as a web server independent of your tODE gem.
 
-````
-NAME
-  webServer - start/stop/restart seaside web servers
+Once you've started the webServer, you can use your web browser to connect to the server:
 
-SYNOPSIS
-  webServer [-h|--help] [--register=zinc|fastcgi|swazoo] [--port=<port-number>]
-  webServer [--start] [--stop] [--restart]
+![seaside web browser][6]
 
-DESCRIPTION
-  First register the type of web server that you want to use along with a port
-  number (multiple port numbers not supported ...yet).
+##Developing with Seaside
 
-  Then start/start/stop the web server as desired.
-
-EXAMPLES
-  ./webServer --help
-  ./webServer --register=zinc --port=8383 --start
-
-  ./webServer --restart
-  ./webServer --start
-  ./webServer --stop
-
-  NOTE - use the `tode it` menu item to run the examples directly from this window.
-```
 
 [1]: ../../docs/images/browseProjectEntry.png
 [2]: ../../docs/images/projectListMenu.png
 [3]: https://github.com/GsDevKit/Seaside31
 [4]: http://seaside.st/
 [5]: ../../docs/images/editProjectEntry.png
-
+[6]: ../../docs/images/seasideBrowser.png
