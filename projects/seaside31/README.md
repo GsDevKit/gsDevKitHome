@@ -3,7 +3,7 @@ The [GsDevKit Seaside31 project][3] is a fork of the [Seaside project][4].
 
 
 ## Register Project
-If you using Seaside for the first time, then you should use the following project registration script:
+If you are using Seaside for the first time, use the following project registration script:
 
 ```Shell
 $GS_HOME/projects/seaside31/createProjectEntry <stone-name> Examples Zinc
@@ -11,7 +11,7 @@ $GS_HOME/projects/seaside31/createProjectEntry <stone-name> Examples Zinc
 
 Along with the basic development environment, you'll get a full complement of example components and the Zinc adaptor for running a web server.
 
-If you are familiar with Seaside, then use the items from the Metacello `load:` message.
+If you are familiar with Seaside, use the items from the Metacello `load:` message.
 
 Ater installing Seaside (and an web server adaptor: Zinc, Swazoo, of FastCGI), you can use the [webServer tODE script](#webserver-script) for starting/stopping the chosen Seaside adaptor.
 
@@ -37,7 +37,7 @@ Within tODE:
 
      ![project list menu][2]
 
-You can change your project load list by using the `Browse >> project entry` menu from the `project list`:
+You can change your project load list by using the `Browse >> project entry` menu in the `project list` window:
 
 ![browse project entry][1]
 
@@ -45,7 +45,7 @@ to open a project entry editor:
 
 ![edit project entry][5]
 
-For already loaded projects, only the load list will affect the project load.
+Once a project is loaded, only changes to the `loads:` arguments will have an impact.
 
 ###webServer script
 Within tODE:
