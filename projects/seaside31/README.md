@@ -20,7 +20,7 @@ Ater installing Seaside (and an web server adaptor: Zinc, Swazoo, of FastCGI), y
 From the shell:
 
 ```Shell
-$GS_HOME/projects/seaside31/loadProject <stone-name>
+$GS_HOME/projects/seaside/loadProject <stone-name>
 ```
 
 ###Interactive Install/Update
@@ -48,13 +48,22 @@ to open a project entry editor:
 Once a project is loaded, only changes to the `loads:` arguments will have an impact.
 
 ###webServer script
-Within tODE:
+Within tODE, register the zinc adaptor (swazoo and fastcgi are also options):
 
-  ```Shell
-  /home/seaside31/webServer --register=zinc --port=8383 --start
-  ```
+```Shell
+cd /home/seaside
+./webServer --register=zinc --port=8383
+```
 
-webServer script help text:
+The following options can be used to control the registered adaptor:
+
+```Shell
+./webServer --start    # start adaptor
+./webServer --stop     # stop adaptor
+./webServer --restart  # stop/start adaptor
+```
+
+####webServer script help (/home/seaside/webServer -h)
 
 ````
 NAME
