@@ -79,6 +79,6 @@ script:
   - bash $GS_HOME/projects/seaside31/loadProject travis
 
     # defStone.env 
-  - bash source $GS_HOME/bin/defStone.env travis
+  - . $GS_HOME/bin/defStone.env travis
   - cd $GS_HOME/gemstone/stones/travis
-  - bash source defStone.env
+  - . defStone.env
