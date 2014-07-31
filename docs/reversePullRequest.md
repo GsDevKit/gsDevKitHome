@@ -10,24 +10,33 @@ In my example I'm going to update *dalehenrich/gsDevKitHome* from *GsDevKit/gsDe
    ![step 1][2]
    
    ---
+   ---
 
 2. Press that funky green button ![step 1.5][8] in the main screen to bring up the *compare screen*:
 
    ![step 2][3]
    
+   --- 
    ---
 
 3. Click on the *compare across forks* link ![step 2.5][9] in the *compare screen* to bring up the *branch selection screen* :
 
    ![step 3][4]
+   
+   ---
 
 4. Using the **base fork:** drop down, select your clone:
 
    ![step 4][5]
+   
+   ---
 
 5. Press the **Create pull request** button:
 
    ![step 5][6]
+   
+   ---
+   ---
 
 From here you can folow the steps for [Sending the pull request][7] from the [Using pull requests][1] article.
 
