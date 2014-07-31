@@ -1,6 +1,5 @@
-#GsDevKit Installation instructions for Zinc
+# ZincHTTPComponents [![Build Status](https://travis-ci.org/GsDevKit/zinc.png?branch=gs_master)](https://travis-ci.org/gs_master/zinc)
 The [GsDevKit Zinc project][3] is a fork of [Sven Van Caekenberghe's Zinc project][4]. 
-
 Currently only the *Core* and *Tests* packages have been ported to GsDevKit:
 * Zinc-HTTP
 * Zinc-Tests
@@ -10,59 +9,33 @@ Currently only the *Core* and *Tests* packages have been ported to GsDevKit:
 * Zinc-Resource-Meta-Core
 * Zinc-Resource-Meta-Tests
 
-## Zinc 2.4.3 for GemStone 2.4 and 3.x [![Build Status](https://travis-ci.org/GsDevKit/zinc.png?branch=gs_master)](https://travis-ci.org/gs_master/zinc)
-This is the version of Zinc that is currently recommended for use. 
-This version of Zinc depends upon GLASS1 for proper operation.
+## Register Project
 
-To install:
+```Shell
+$GS_HOME/projects/zinc/createProjectEntry <stone-name>
+```
 
-1. [Upgrade to GLASS 1.0-beta.9.3][1]
-2. Execute:
+###Batch Install/Update
+From the shell:
 
-   ```Smalltalk
-   GsDeployer deploy: [
-     Metacello new
-       baseline: 'Zinc';
-       repository: 'github://GsDevKit/zinc:gs_master/repository';
-       load: 'Tests' ].
-   ```
+```Shell
+$GS_HOME/projects/zinc/loadProject <stone-name>
+```
 
-## Zinc 2.4.3 for GemStone 2.4 only [![Build Status](https://travis-ci.org/GsDevKit/zinc.png?branch=gemstone2.4)](https://travis-ci.org/glassdb/zinc)
-This is the version that has been most heavily used, but 
-[Zinc 2.4.3 for both GemStone 2.4.x and 3.x][5] has a number of bugfixes and stability 
-improvements.
+###Interactive Install/Update
+Within tODE:
 
-To install:
+   * from tODE command line:
 
-1. [Upgrade to GLASS 1.0-beta.9.1][2]
-2. Execute:
 
-   ```Smalltalk
-   GsDeployer deploy: [
-     Metacello new
-       baseline: 'Zinc';
-       repository: 'github://glass/glassdb:gemstone2.4/repository';
-       load: 'Tests' ].
-   ```
+      ```Shell
+      project load ZincHTTPComponents
+      ```
 
-## Zinc 1.7 for GemStone 3.x only [![Build Status](https://travis-ci.org/GsDevKit/zinc.png?branch=gemstone3.1)](https://travis-ci.org/glassdb/zinc)
-This version has some stability issues and using [Zinc 2.4.3][5] is higly recommended.
+   * from tODE project list:
 
-To install:
+     ![project list menu][2]
 
-1. [Upgrade to GLASS 1.0-beta.9.1][2]
-2. Execute:
-
-   ```Smalltalk
-   GsDeployer deploy: [
-     Metacello new
-       baseline: 'Zinc';
-       repository: 'github://glass/glassdb:gemstone3.1/repository';
-       load: 'Tests' ].
-   ```
-
-[1]: ../glass/upgradeTo1.0-beta9.3.md
-[2]: ../glass/upgradeTo1.0-beta9.1.md
+[2]: ../../docs/images/projectListMenu.png
 [3]: https://github.com/GsDevKit/zinc
 [4]: https://github.com/svenvc/zinc
-[5]: #zinc-243-for-gemstone-24-and-3x

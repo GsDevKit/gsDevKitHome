@@ -10,23 +10,25 @@
 #
 # Examples
 #   installWindowsClient -h
-#   installWindowsClient 3.2.1
+#   installWindowsClient 3.2.1 c:/tode/repository
 #
 #=========================================================================
 
 # help function
 function display_help() {
   echo ""
-  echo "USAGE: $(basename $0) [-h] <gemstone-version>"
+  echo "USAGE: $(basename $0) [-h] <gemstone-version> <tode-repository-path>"
   echo "Install GemStone (specified gs-version), Pharo, build tODE client"
   echo "image and launch the tODE client."
+  echo "<tode-repository-path> must be explicitly specified to circumvent"
+  echo "several problems."
   echo ""
   echo "OPTIONS"
   echo "  -h display help"
   echo ""
   echo "EXAMPLES"
   echo "   $(basename $0) -h"
-  echo "   $(basename $0) 3.2.1"
+  echo "   $(basename $0) 3.2.1 c:/tode/repository"
   echo ""
 }
 
@@ -48,21 +50,28 @@ if [ "$1x" = "x" ] ; then
   exit 1
 fi
 vers="$1"
+
+if [ "$2x" = "x" ] ; then
+  display_help
+  exit 1
+fi
+repo_path=$2
+
 if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"
   exit 1
 fi
 
-$GS_HOME/bin/windows/installWindowsGCI
+$GS_HOME/bin/windows/installWindowsGCI $vers
 if [[ $? != 0 ]] ; then exit 1; fi
 
 $GS_HOME/bin/windows/installWindowsPharo
 if [[ $? != 0 ]] ; then exit 1; fi
 
-$GS_HOME/bin/windows/createWindowsTodeImage
+$GS_HOME/bin/windows/createWindowsTodeImage $repo_path
 if [[ $? != 0 ]] ; then exit 1; fi
 
-$GS_HOME/bin/todeClient
+$GS_HOME/bin/windows/todeWindowsClient
 
 # End of script
 exit 0

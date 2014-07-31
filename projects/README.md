@@ -1,44 +1,32 @@
-#GsDevKit
-GsDevKit is an *Open Source Development Kit for GemStone/S 64 Bit*.
-* [Getting Started with GsDevKit](#getting-started-with-gsdevkit)
-* [MIT license](#mit-license)
+#GsDevKit Projects
 
-### GemStone/S 64 
-### tODE - GUI-based Development Environment
-#### Monticello and Metacello for Package Management
-#### Git - Distributed Version Control
-#### GitHub - Collaboration and Source Code Hosting
-### Open Source Application and Project 
-#### Open Source Applications 
-| Application | General Info | GsDevKit Info  |
-----------|----------|-----------------------|
-| [Seaside][1] | [Web Development with Seaside][2], [Mailing list][3] | |
-| [Magritte][4]| [Mailing list][5] | |
-| [Pier][6]|[Documentation][7], [Mailing list][5] | |
-| [Zinc][8] |[Documentation][9] | [installation][10] |
+## Pre-installed GsDevKit Projects
 
-#### Open Source Infrascture and Development Environments
-| Project | General Info | GsDevKit Info  |
-----------|----------|-----------------------|
-|Metacello| | |
-|FileTree| | |
-|tODE| | |
-|Jade| | | 
-|GemTools| | |
+| Project | Description|
+|---------|------------|
+|[GLASS1][1]| [Squeak/Pharo compatiblity layer for GemStone/S 64][6]|
+|FileTree||
+|Gofer||
+|Grease||
+|Metacello||
+|RB||
+|STON||
 
-### Pharo/Squeak Compatability Layer
+## Optional GsDevKit Projecs
 
-## Getting Started with GsDevKit
+| Project | Description|
+|---------|------------|
+| Magritte| [Dynamic Meta-Description Framework][8]   |
+| Pier|[Content Management System][7] |
+|[Seaside31][2]| [Dynamic Web Development Framework][4] |
+|[ZincHTTPComponents][3]| [Web Server/Client][5] |
 
-## MIT license
+[1]: glass
+[2]: seaside31
+[3]: zinc
+[4]: http://www.seaside.st/
+[5]: https://github.com/svenvc/zinc/blob/master/zinc-http-components-paper.md#http
+[6]: https://github.com/glassdb/glass
+[7]: http://www.piercms.com/
+[8]: https://code.google.com/p/magritte-metamodel/
 
-[1]: http://www.seaside.st/
-[2]: http://book.seaside.st/book
-[3]: http://www.seaside.st/community/mailinglist
-[4]: https://code.google.com/p/magritte-metamodel/
-[5]: https://www.iam.unibe.ch/mailman/listinfo/smallwiki
-[6]: http://www.piercms.com/
-[7]: http://www.piercms.com/doc
-[8]: http://zn.stfx.eu/zn/index.html
-[9]: https://github.com/svenvc/zinc/blob/master/zinc-http-components-paper.md#http
-[10]: projects/zinc/README.md#zinc-243-for-gemstone-24-and-3x-
