@@ -76,6 +76,11 @@ $pharo/Pharo.exe --headless $pharo/Pharo3.0.image save todeClientTmp
 
 cat - > $pharo/todeLoad.st << EOF
 [ | metacello string repoPath |
+  "Windows path limitations force us to put Tode outside GS_HOME."
+  Metacello new
+    baseline: 'Tode';
+    repository: 'filetree://', '$repo_path';
+    lock.
   string := '$GS_HOME/repository'.
   repoPath := (string copyFrom: 2 to: 2), ':', (string copyFrom: 3 to: string size).
   metacello := Metacello new
@@ -83,7 +88,6 @@ cat - > $pharo/todeLoad.st << EOF
     version: #release;
     repository: 'filetree://', repoPath.
   metacello copy get.
-  metacello copy lock.
   metacello 
     onConflict: [:ex | ex disallow];
     load ]
@@ -110,3 +114,4 @@ echo "tODE client image creation complete"
 
 # End of script
 exit 0
+
