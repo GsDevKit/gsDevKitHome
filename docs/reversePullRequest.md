@@ -7,14 +7,20 @@ In my example I'm going to update *dalehenrich/gsDevKitHome* from *GsDevKit/gsDe
 
 1. The basic trick is to **initiate the pull request from the master repository:**
 
-   ![step 1][2]
+   ---
+   ---
+   
+      ![step 1][2]
    
    ---
    ---
 
 2. Press that funky green button ![step 1.5][8] in the main screen to bring up the *compare screen*:
 
-   ![step 2][3]
+   ---
+   ---
+   
+      ![step 2][3]
    
    --- 
    ---
