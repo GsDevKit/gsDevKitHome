@@ -9,11 +9,11 @@ In my example I'm going to update *dalehenrich/gsDevKitHome* from *GsDevKit/gsDe
 
    ![step 1][2]
 
-2. Press that funky green button to bring up the *compare screen*:
+2. Press that funky green button ![step 1.5][8] to bring up the *compare screen*:
 
    ![step 2][3]
 
-3. Click on the *compare across forks* link:
+3. Click on the *compare across forks* link ![step 2.5][9] to bring up the *branch selection screen* :
 
    ![step 3][4]
 
@@ -34,4 +34,5 @@ From here you can folow the steps for [Sending the pull request][7] from the [Us
 [5]: images/reversePR_04.png
 [6]: images/reversePR_05.png
 [7]: https://help.github.com/articles/using-pull-requests#sending-the-pull-request
-
+[8]: images/greenPRButton.png
+[9]: images/compareAcrossForks.png
