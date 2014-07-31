@@ -22,6 +22,7 @@ createStone
 		copyTemplateSystemConf: stoneDirectory;
 		copyTemplateFiles: stoneDirectory;
 		createTopaziniFile: stoneDirectory;
+		createDefStoneLn: stoneDirectory;
 		yourself.
 	(stoneInfo := GsDevKitStoneInfo new
 		stoneName: self stoneName;
