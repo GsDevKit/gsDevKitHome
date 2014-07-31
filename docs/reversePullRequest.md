@@ -27,18 +27,28 @@ In my example I'm going to update *dalehenrich/gsDevKitHome* from *GsDevKit/gsDe
 
 3. Click on the *compare across forks* link ![step 2.5][9] in the *compare screen* to bring up the *branch selection screen* :
 
+   ---
+   ---
    ![step 3][4]
    
+   ---
    ---
 
 4. Using the **base fork:** drop down, select your clone:
 
+   ---
+   ---
+   
    ![step 4][5]
    
+   ---
    ---
 
 5. Press the **Create pull request** button:
 
+   ---
+   ---
+   
    ![step 5][6]
    
    ---
