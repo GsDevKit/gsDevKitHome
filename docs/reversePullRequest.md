@@ -1,7 +1,7 @@
 # *Reverse* Pull Request
-The [Using pull requests][1] article on GitHub gives a very good description of using a pull request to share code from your clone with a master repository.
+The [Using pull requests][1] article on GitHub gives a very good description of using a pull request to share code from your fork with a master repository.
 
-A *reverse pull request* is where you use a pull request to **update your clone from a master**.
+A *reverse pull request* is where you use a pull request to **update your fork from a master**.
 
 In my example I'm going to update *dalehenrich/gsDevKitHome* from *GsDevKit/gsDevKitHome*:
 
@@ -34,7 +34,7 @@ In my example I'm going to update *dalehenrich/gsDevKitHome* from *GsDevKit/gsDe
    ---
    ---
 
-4. Using the **base fork:** drop down, select your clone:
+4. Using the **base fork:** drop down, select your fork:
 
    ---
    ---
