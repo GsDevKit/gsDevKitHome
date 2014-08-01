@@ -77,3 +77,8 @@ script:
   - bash $GS_HOME/projects/seaside31/createProjectEntry travis Examples Zinc FastCGI
     #   load project
   - bash $GS_HOME/projects/seaside31/loadProject travis
+
+    # defStone.env 
+  - . $GS_HOME/bin/defStone.env travis
+  - cd $GS_HOME/gemstone/stones/travis
+  - . defStone.env

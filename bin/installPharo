@@ -52,4 +52,4 @@ else
   # running on travis server
   wget -O- get.pharo.org/travis+vmLatest | bash
 fi
-wget -O- get.pharo.org/30 | bash
+wget -O- get.pharo.org/stable | bash
