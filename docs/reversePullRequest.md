@@ -54,7 +54,7 @@ In my example I'm going to update *dalehenrich/gsDevKitHome* from *GsDevKit/gsDe
    ---
    ---
 
-From here you can folow the steps for [Sending the pull request][7] from the [Using pull requests][1] article.
+From here you can follow the steps for [Sending the pull request][7] from the [Using pull requests][1] article.
 
 [1]: https://help.github.com/articles/using-pull-requests
 [2]: images/reversePR_01.png
