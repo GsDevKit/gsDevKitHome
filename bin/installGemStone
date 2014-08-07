@@ -197,7 +197,7 @@ shmallNewMB=$(($shmallNew / 256))
 # Increase shmmax if appropriate
 if [ $shmmaxNew -gt $shmmax ]; then
     echo "[Info] Increasing max shared memory segment size to $shmmaxNewMB MB"
-    [ $PLATFORM = "Darwin-i386" ] && sudo sysctl -w kern.sysvmmax=$shmmaxNew
+    [ $PLATFORM = "Darwin-i386" ] && sudo sysctl -w kern.sysv.shmmax=$shmmaxNew
     [ $PLATFORM = "Linux-x86_64" ] && sudo bash -c "echo $shmmaxNew > /proc/sys/kernel/shmmax"
 else
     echo "[Info] No need to increase max shared memory segment size"
@@ -206,7 +206,7 @@ fi
 # Increase shmall if appropriate
 if [ $shmallNew -gt $shmall ]; then
     echo "[Info] Increasing max shared memory allowed to $shmallNewMB MB"
-    [ $PLATFORM = "Darwin-i386" ] && sudo sysctl -w kern.sysvmall=$shmallNew
+    [ $PLATFORM = "Darwin-i386" ] && sudo sysctl -w kern.sysv.shmall=$shmallNew
     [ $PLATFORM = "Linux-x86_64" ] && sudo bash -c "echo $shmallNew > /proc/sys/kernel/shmall"
 else
     echo "[Info] No need to increase max shared memory allowed"
@@ -217,16 +217,16 @@ fi
 if [[ ! -f /etc/sysctl.conf || `grep -sc "kern.*m" /etc/sysctl.conf` -eq 0 ]]; then
     case "$PLATFORM" in
         Linux-x86_64)
-        echo "# kernelm* settings added by MagLev installation" > /tmp/sysctl.conf.$$
+        echo "# kernelm* settings added by GsDevKit installation" > /tmp/sysctl.conf.$$
         echo "kernelmmax=`cat /proc/sys/kernel/shmmax`" >> /tmp/sysctl.conf.$$
         echo "kernelmall=`cat /proc/sys/kernel/shmall`" >> /tmp/sysctl.conf.$$
         ;;
         Darwin-i386)
         # On Mac OS X Leopard, you must have all five settings in sysctl.conf
         # before they will take effect.
-        echo "# kern.sysvm* settings added by MagLev installation" > /tmp/sysctl.conf.$$
-        sysctl kern.sysvmmax kern.sysv.shmall kern.sysv.shmmin kern.sysv.shmmni \
-        kern.sysvmseg  | tr ":" "=" | tr -d " " >> /tmp/sysctl.conf.$$
+        echo "# kern.sysv.shm* settings added by GsDevKit installation" > /tmp/sysctl.conf.$$
+        sysctl kern.sysv.shmmax kern.sysv.shmall kern.sysv.shmmin kern.sysv.shmmni \
+        kern.sysv.mseg  | tr ":" "=" | tr -d " " >> /tmp/sysctl.conf.$$
         ;;
         *)
         echo "[Error] Can't determine operating system. Check script."
