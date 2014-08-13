@@ -315,11 +315,20 @@ The server-side load scripts can be found in the `$GS_HOME/tode/server/scripts` 
 
 **You are encouraged to use the `project load Tode` command in the tODE shell to perform updates of the tODE project.**
 ####tODE Window Layout
+Use the `tODE Window Layout` menu item to choose a window layout for your client image:
+
+![tode window layout menu][52]
+
+The window layout is scaled based on the size of the Pharo client window, so you need to re-select a window layout whenever you change the size of the Pharo client window.
+
+Here are samples of three of the available window layouts:
 
 standard-small:
 ![standard-small][49]
-standdard-medium:
+
+standard-medium:
 ![standard-medium][50]
+
 standard-large:
 ![standard-large][51]
 
@@ -419,3 +428,4 @@ For more information about installing optional projects and a complete list of o
 [49]: docs/images/standardSmallLayout.png
 [50]: docs/images/standardMediumLayout.png
 [51]: docs/images/standardLargeLayout.png
+[52]: docs/images/todeWindowLayoutMenu.png
