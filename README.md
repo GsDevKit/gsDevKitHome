@@ -34,7 +34,7 @@ The Dev Kit server can be installed on Linux or Mac OS X.
    The following creates a new stone named `tode` based on [version 3.2.1 of GemStone/S][16]:
 
    ```Shell
-   installServer tode 3.2.1
+   installServer devKit 3.2.1
    ```
 
    *Note that the script will prompt you for your password because it uses sudo to setup up your server for running GemStone*.
@@ -167,7 +167,7 @@ Use the [stones][33] script to get a list of the running stones.
 The [startStone][31] script is used to start a stone by name:
 
 ```Shell
-startStone devKit
+startStone devKit 
 ```
 
 ###startNetldi
@@ -182,7 +182,7 @@ If you want to use a different netldi name, edit the $GS_HOME/gemstone/stones/\<
 
 ```
 GsDevKitStoneInfo {
-	#stoneName : 'tode',
+	#stoneName : 'devKit',
 	#gsVers : '3.2.1',
 	#username : nil,
 	#netldiName : nil
@@ -238,7 +238,7 @@ The menu item brings up a client workspace:
 
 ![tode edit workspace][43]
 
-*Note that the workspace is **not** a file editor, so you need to execute the workspace to update the session disk.* 
+*Note that the workspace is not a file editor, so you need to execute the workspace to update the session disk.* 
 
 The name of the session description file is derived from the `name` of the session description. 
 If you change the name of the description you are effectively creating a new description.
@@ -264,7 +264,7 @@ This is an example of a successful test login:
 
 ![successful test login][42]
 
-*Note that while there was a successful test, the message does indicate that tODE is not installed. See the [tODE Install](#tode-install) section for installing tODE on a server.*
+*Note that while there was a successful test, the message does indicate that tODE is not installed. See the [tODE installTodeStone script][46] for installing tODE on a server.*
 
 Here's an example of an error message:
 
@@ -274,7 +274,7 @@ If the test login error message does not give you enough information for you to 
 
 ####tODE Install
 Use the `tODE Install` menu item to install tODE on the selected stone. 
-Use this menu item if you did not use the [createTodeStone](#createTodeStone) script to create the stone:
+Use this menu item if you did not use the [createTodeStone](#createtodestone) script to create the stone:
 
 ![tode Install menu][44]
 
@@ -371,14 +371,14 @@ Here is a sampling of some of the open source projects that have been ported to 
 By registering projects with tODE:
 
 ```Shell
-$GS_HOME/projects/zinc/createProjectEntry travis
-$GS_HOME/projects/seaside31/createProjectEntry travis Examples Zinc FastCGI
+$GS_HOME/projects/zinc/createProjectEntry devKit
+$GS_HOME/projects/seaside31/createProjectEntry devKit Examples Zinc FastCGI
 ```
 
 you can ensure that the projects will be loaded exactly the same way whether you use a shell script:
 
 ```Shell
-$GS_HOME/projects/seaside31/loadProject travis
+$GS_HOME/projects/seaside31/loadProject devKit
 ```
 
 or a tODE command:
