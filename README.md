@@ -316,9 +316,10 @@ The server-side load scripts can be found in the `$GS_HOME/tode/server/scripts` 
 **You are encouraged to use the `project load Tode` command in the tODE shell to perform updates of the tODE project.**
 ####tODE Window Layout
 
-Smal:
+Small:
 
 ![standard-small][49]
+
 Medium:
 
 ![standard-medium][50]
