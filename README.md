@@ -318,15 +318,14 @@ The server-side load scripts can be found in the `$GS_HOME/tode/server/scripts` 
 
 Smal:
 
-<img src="docs/images/standardSmallLayout.png" alt="standard-small" style="width: 320x; height: 191px"/>
-
+![standard-small][49]
 Medium:
 
-<img src="docs/images/standardMediumLayout.png" alt="standard-small" style="width: 320x; height: 191px"/>
+![standard-medium][50]
 
 Large:
 
-<img src="docs/images/standardLargeLayout.png" alt="standard-small" style="width: 320x; height: 191px"/>
+![standard-large][51]
 
 ####Update tODE Client
 ####Define Web Edition Root
@@ -421,3 +420,6 @@ For more information about installing optional projects and a complete list of o
 [46]: bin/installTodeStone
 [47]: docs/images/pharoSystemSettingsMenu.png
 [48]: docs/images/pharoSystemSettingsDialog.png
+[49]: docs/images/standardSmallLayout.png
+[50]: docs/images/standardMediumLayout.png
+[51]: docs/images/standardLargeLayout.png
