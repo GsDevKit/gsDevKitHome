@@ -324,12 +324,15 @@ The window layout is scaled based on the size of the Pharo client window, so you
 Here are samples of three of the available window layouts:
 
 standard-small:
+
 ![standard-small][49]
 
 standard-medium:
+
 ![standard-medium][50]
 
 standard-large:
+
 ![standard-large][51]
 
 ####Update tODE Client
