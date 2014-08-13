@@ -11,15 +11,15 @@ The Development Kit for GemStone/S features:
 ##Development Kit Server Installation
 The Dev Kit server can be installed on Linux or Mac OS X.
 
-1. [Fork][3] the [gsDevKitHome project][2] on [GitHub][15].
-2. Clone your fork of the [gsDevKitHome project][2] to your GemStone development server and create a unique branch for your project-specific changes.
-   Changes that you want to share with the community should be made on the master branch:
+2. Clone the [gsDevKitHome project][2] to your GemStone development server and create a unique branch to keep any changes you make for your project isolated from the Dev Kit master branch:
 
    ```Shell
-   git clone git@github.com:<your github id>/gsDevKitHome.git
+   git clone git@github.com:GsDevKit/gsDevKitHome.git
    cd gsDevKitHome
-   git checkout -b  <your branch name>
+   git checkout -b  <your project branch name>
    ```
+
+**Note: If you already have a [GitHub][15] account, you should consider [forking the Dev Kit project][3] first, as that will make sharing corrections you find much easier.**
 
 3. Define the `$GS_HOME` environment variable and add `$GS_HOME/bin` to your `$PATH`:
 
@@ -57,13 +57,13 @@ The Dev Kit server can be installed on Linux or Mac OS X.
 
       If you need help, copy the result of the `testLogin` command and send mail to the [GLASS mailing list][28].
 
-5. Once you have verified that the session description is correct, commit the changes that you've made and push them to GitHub:
+5. Once you have verified that the session description is correct, commit the changes that you've made.
+(If you've forked the GitHub project, you should push the changes to your GitHub repository as well):
 
    ```Shell
    git status                          # see what changes have been made
    git add --all                       # stage the changed files
    git commit -m"initial installation" # commit changes
-   git push origin <your branch name>  # push the changes to GitHub
    ```
 
 ## Remote tODE Client Installation
