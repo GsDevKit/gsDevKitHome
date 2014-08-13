@@ -214,8 +214,9 @@ is your entry point for setting up and controlling tODE.
 4. [tODE Update](#tode-update)
 5. tODE Workspaces
 6. [tODE Window Layout](#tode-window-layout)
-7. [Update tODE Client](#update-tode-client)
-8. [Define Web Edition Root](#define-web-edition-root)
+7. Update tODE Client
+8. Define Web Edition Root
+8. [Define Dev Kit Root](#define-dev-kit-root)
 9. [Refresh tODE menu](#refresh-tode-menu)
 
 ####tODE Shell
@@ -329,9 +330,23 @@ Here are samples of three of the available window layouts:
 |standard-medium|![standard-medium][50]|
 |standard-large|![standard-large][51]|
 
-####Update tODE Client
-####Define Web Edition Root
+####Define Dev Kit Root
+The `Define Dev Kit Root` menu item:
+
+![dev kit root menu][53]
+
+tells the Pharo client where to find the `$GS_HOME/tode` directory.
+The scripts and session descriptions used by the pharo client are found in the `$GS_HOME/tode` directory.
+
+A `todeClientImage` can be retargeted to a different GsDevKit installation by changing the directory.
+
 ####Refresh tODE menu
+The `Refresh tODE menu` menu item:
+
+![refresh tode menu menu][54]
+
+rebuilds the tODE system menu. The menu should automatically update.
+
 
 ### Add Project to tODE video
 
@@ -426,3 +441,5 @@ For more information about installing optional projects and a complete list of o
 [50]: docs/images/standardMediumLayout.png
 [51]: docs/images/standardLargeLayout.png
 [52]: docs/images/todeWindowLayoutMenu.png
+[53]: docs/images/todeDefineDevKitRootMenu.png
+[54]: docs/images/todeRefreshTodeMenu.png
