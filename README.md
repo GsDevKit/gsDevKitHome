@@ -318,9 +318,9 @@ The server-side load scripts can be found in the `$GS_HOME/tode/server/scripts` 
 
 <img src="docs/images/standardSmallLayout.png" alt="standard-small" style="width: 320x; height: 191px"/>
 
-<img src="docs/images/standardMediumLayout.png" alt="standard-small" style="width: 640px; height: 382px"/>
+<img src="docs/images/standardMediumLayout.png" alt="standard-small" style="width: 160; height: 96px"/>
 
-<img src="docs/images/standardLargeLayout.png" alt="standard-small" style="width: 640px; height: 382px"/>
+<img src="docs/images/standardLargeLayout.png" alt="standard-small" style="width: 80px; height: 48px"/>
 
 ####Update tODE Client
 ####Define Web Edition Root
