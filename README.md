@@ -14,7 +14,7 @@ The Dev Kit server can be installed on Linux or Mac OS X.
 2. Clone the [gsDevKitHome project][2] to your GemStone development server and create a unique branch to keep any changes you make for your project isolated from the Dev Kit master branch:
 
    ```Shell
-   git clone git@github.com:GsDevKit/gsDevKitHome.git
+   git clone https://github.com/GsDevKit/gsDevKitHome.git
    cd gsDevKitHome
    git checkout -b  <your project branch name>
    ```
