@@ -1,6 +1,9 @@
 #Upgrade To GLASS 1.0-beta9.3
 
-This is the expression to use when upgrading a GLASS extent into which GLASS1 has not been loaded:
+1. [GemStone install or repository into which GLASS1 has not been loaded](#glass1-not-loaded)
+2. [GemStone repository into which GLASS1 has been loaded](#glass1-loaded)
+
+# GLASS1 not loaded
 
 ```Smalltalk
 | glassVersion |
@@ -40,7 +43,7 @@ glassVersion versionNumber < '1.0-beta.9.3' asMetacelloVersionNumber
       show: '-----GLASS already upgraded to 1.0-beta.9.3' ].
 ```
 
-If you have loaded GLASS1 before upgrading to GLASS 1.0-beta.9.3, then use the following expression:
+# GLASS1 loaded
 
 ```Smalltalk
 "Load the Preview version of Metacello from GitHub"
