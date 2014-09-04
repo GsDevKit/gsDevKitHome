@@ -1,9 +1,13 @@
 #Upgrade To GLASS 1.0-beta9.3
 
-1. [GemStone install or repository into which GLASS1 has not been loaded](#glass1-not-loaded)
-2. [GemStone repository into which GLASS1 has been loaded](#glass1-loaded)
+
+
+1. [GLASS1 not loaded](#glass1-not-loaded)
+2. [GLASS1 loaded](#glass1-loaded)
 
 # GLASS1 not loaded
+
+If you have not loaded GLASS1, then the following expression should be used to bring the GLASS version up to 1.0-beta9.3:
 
 ```Smalltalk
 | glassVersion |
@@ -44,6 +48,10 @@ glassVersion versionNumber < '1.0-beta.9.3' asMetacelloVersionNumber
 ```
 
 # GLASS1 loaded
+
+If GLASS1 has already been loaded, then one should not attempt to use the ConfigurationOfGLASS for anything else, however, it is important that you have the latest version of the Metacello Preview loaded. 
+
+The following expression should be used to load the latest version of Metacello:
 
 ```Smalltalk
 "Load the Preview version of Metacello from GitHub"
