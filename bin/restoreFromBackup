@@ -37,7 +37,7 @@ echo "Restoring backup for stone: $stoneName using: $backupFile"
 stonePath=$GS_HOME/gemstone/stones/$stoneName
 pushd $stonePath >& /dev/null
 source $stonePath/stone.env
-popd $stonePath >& /dev/null
+popd >& /dev/null
 
 # do restore
 $GS_HOME/bin/tode restoreFromBackup $stoneName $backupFile
