@@ -19,7 +19,7 @@
 
    ```Shell
    cd /c
-   git clone git@github.com:dalehenrich/tode.git
+   git clone https://github.com/GsDevKit/gsDevKitHome.git
    ```
 
 5. Checkout your branch of the [gsDevKitHome project][2]:
