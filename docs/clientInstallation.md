@@ -10,7 +10,7 @@ If you are using **Windows**, please follow the instructions on the [tODE Window
 1. Clone your fork of the [gsDevKitHome project][3] to your tODE client machine and checkout your project-specific branch:
 
    ```Shell
-   git clone git@github.com:<your github id>/gsDevKitHome.git
+   git clone https://github.com/GsDevKit/gsDevKitHome.git
    cd gsDevKitHome
    git checkout -b  <your branch name>
    ```
