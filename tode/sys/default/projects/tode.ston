@@ -1,4 +1,4 @@
-TDObjectGatewayNode{#name:'project',#contents:'| project |
+TDObjectGatewayNode{#name:'tode',#contents:'| project |
 project := TDProjectSpecEntryDefinition new
   baseline: \'Tode\'
     repository: \'github://dalehenrich/tode:master/repository\'

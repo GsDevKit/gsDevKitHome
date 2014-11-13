@@ -1,4 +1,4 @@
-TDObjectGatewayNode{#name:'project',#contents:'^ true
+TDObjectGatewayNode{#name:'zinc',#contents:'^ true
     ifTrue: [ 
       TDProjectSpecEntryDefinition new
         configuration: \'ZincHTTPComponents\'
