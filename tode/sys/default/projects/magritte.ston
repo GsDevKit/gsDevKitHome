@@ -3,6 +3,6 @@ TDObjectGatewayNode{#name:'magritte',#contents:'^ TDProjectSpecEntryDefinition n
       version: #\'release3.2\'
       repository: \'http://smalltalkhub.com/mc/Magritte/Magritte3/main\'
       loads: #(\'Seaside\');
-    status: #(#\'active\');
+    status: #(#\'inactive\');
     locked: false;
     yourself'}
