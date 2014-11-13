@@ -3,6 +3,6 @@ TDRawGatewayNode{#name:'projectComposition',#contents:'TDComposedDirectoryNode
      {(\'/sys/stone/projects\' -> #()).
       (\'/sys/local/projects\' -> #()).
       (\'/sys/default/projects\'
-        -> #( \'grease\' 'gsDevKitHome\' \'GsDevKit\' \'magritte\' \'metacello\' \'seaside\' \'tode\' \'zinc\' \))}
+        -> #( \'grease\' \'gsDevKitHome\' \'GsDevKit\' \'magritte\' \'metacello\' \'seaside\' \'tode\' \'zinc\' ))}
     named: \'project\'
     topez: self topez'}
