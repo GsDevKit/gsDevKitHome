@@ -1,19 +1,7 @@
-TDObjectGatewayNode{#name:'project',#contents:'^ true
-    ifTrue: [ 
-      TDProjectSpecEntryDefinition new
-        configuration: \'ZincHTTPComponents\'
-          version: \'2.4.3\'
-          repository: \'http://mc.stfx.eu/ZincHTTPComponents\'
-          loads: #(\'Core\' \'Tests\');
-        status: #(#\'active\');
-        locked: false;
-        yourself ]
-    ifFalse: [ 
-      TDProjectSpecEntryDefinition new
-        baseline: \'ZincHTTPComponents\'
-          repository:
-            \'filetree:///export/foos1/users/dhenrich/gsDevKitHome/gemstone/stones/yyy/git/zinc/repository\'
-          loads: #(\'Core\' \'Tests\');
-        status: #(#\'active\');
-        locked: true;
-        yourself ]'}
+TDObjectGatewayNode{#name:'zinc',#contents:'^ TDProjectSpecEntryDefinition new
+    baseline: \'ZincHTTPComponents\'
+      repository: \'github://GsDevKit/zinc:2.?/repository\'
+      loads: #(\'Core\' \'Tests\');
+    status: #(#\'active\');
+    locked: true;
+    yourself '}

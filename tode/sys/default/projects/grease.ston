@@ -1,7 +1,7 @@
-TDObjectGatewayNode{#name:'project',#contents:'^ TDProjectSpecEntryDefinition new
+TDObjectGatewayNode{#name:'grease',#contents:'^ TDProjectSpecEntryDefinition new
     baseline: \'Grease\'
-      repository: \'github://GsDevKit/Grease:master/repository\'
+      repository: \'github://GsDevKit/Grease:1.1.?/repository\'
       loads: #(\'default\');
-    status: #(#\'active\');
+    status: #(#\'inactive\');
     locked: true;
     yourself'}

@@ -1,8 +1,8 @@
-TDObjectGatewayNode{#name:'project',#contents:'^ TDProjectSpecEntryDefinition new
+TDObjectGatewayNode{#name:'metacello',#contents:'^ TDProjectSpecEntryDefinition new
     baseline: \'Metacello\'
       repository:
-        \'filetree:///export/foos1/users/dhenrich/gsDevKitHome/gemstone/stones/metacello/git/metacello-work/repository\'
-      loads: #(\'Tests\');
-    status: #(#\'active\');
+        \'github://dalehenrich/metacello-work:1.0.?/repository\'
+      loads: #(\'default\');
+    status: #(#\'inactive\');
     locked: false;
     yourself'}
