@@ -4,6 +4,7 @@ TDScriptLeafNode{#name:'validateStoneSysNodes',#contents:'[ :topez :objIn :token
   command
     getOptsMixedLongShort:
       {#(\'help\' $h #\'none\').
+      #(\'files\' nil #\'none\').
       #(\'repair\' nil #\'none\')}
     optionsAndArguments: [ :options :operands | 
       opts := options.
@@ -42,14 +43,17 @@ TDScriptLeafNode{#name:'validateStoneSysNodes',#contents:'[ :topez :objIn :token
       validateDirBlock value: dir.
       dir := rootDir directoryNamed: \'projects\'.
       validateDirBlock value: dir.
-      validateFileBlock
-        value: rootDir
-        value: \'homeComposition.ston\'
-        value: \'homeComposition\'.
-      validateFileBlock
-        value: rootDir
-        value: \'projectComposition.ston\'
-        value: \'projectComposition\'.
+      opts
+        at: \'files\'
+        ifPresent: [ :ignored | 
+          validateFileBlock
+            value: rootDir
+            value: \'homeComposition.ston\'
+            value: \'homeComposition\'.
+          validateFileBlock
+            value: rootDir
+            value: \'projectComposition.ston\'
+            value: \'projectComposition\' ].
       true ]
     ifPresent: [ :ignored | 
       TDManPage
@@ -57,7 +61,7 @@ TDScriptLeafNode{#name:'validateStoneSysNodes',#contents:'[ :topez :objIn :token
           \'NAME
   validateStoneSysNodes - validateStoneSysNodes sript utility template
 SYNOPSIS
-  validateStoneSysNodes [-h|--help] [--repair]
+  validateStoneSysNodes [-h|--help] [--files] [--repair]
 DESCRIPTION
   Verifies that the minimal per-stone directory structure exists. In the following
   the minimal per-stone directory structure is shown at <stone-name> and below:
@@ -78,16 +82,23 @@ DESCRIPTION
             +-projectComposition.ston
 
   The home and projects directories are empty and the homeComposition.ston and
-  projectComposition.ston files are copied from $GS_HOME/tode/sys/stones/templates.
+  projectComposition.ston files are copies of the files in 
+  $GS_HOME/tode/sys/stones/templates.
 
-  If the --repair option is present, the minimal structure will be created. Otherwise
-  an error is thrown indicating the first missing component.
+  With no options, and error is thrown if the directories are missing.
+
+  With the --files option an error is also thrown if either of the files are missing.
+
+  If the --repair option is present, missing directories are created and missing
+  files are copied from $GS_HOME/tode/sys/stones/templates.
 
 EXAMPLES
   /sys/default/bin/validateStoneSysNodes --help
   /sys/default/bin/validateStoneSysNodes -h
 
   /sys/default/bin/validateStoneSysNodes 
+  /sys/default/bin/validateStoneSysNodes --files
   /sys/default/bin/validateStoneSysNodes --repair
+  /sys/default/bin/validateStoneSysNodes --files --repair
 \'
-        topez: topez ] ]',#creationTime:DateAndTime['2014-11-14T16:19:26.4569790363311-08:00'],#modificationTime:DateAndTime['2014-11-14T17:37:50.6578350067138-08:00']}
+        topez: topez ] ]',#creationTime:DateAndTime['2014-11-14T16:19:26.4569790363311-08:00'],#modificationTime:DateAndTime['2014-11-15T16:05:37.0675010681152-08:00']}
