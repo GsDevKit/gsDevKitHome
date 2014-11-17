@@ -4,10 +4,8 @@ mount --todeRoot sys/default /sys default
 mount --todeRoot sys/local /sys local
 mount --todeRoot sys/stones /sys stones
 # ensure that --stoneRoot directory structure is present
-/sys/default/bin/validateStoneSysNodes --repair
-mount --stoneRoot root /sys stone
-# ensure that --stoneRoot file structure is present
 /sys/default/bin/validateStoneSysNodes --files --repair
+mount --stoneRoot root /sys stone
 # Define /home and /projects based on a composition of the /sys nodes
 mount --stoneRoot root/homeComposition.ston / home
 mount --stoneRoot root/projectComposition.ston / projects
