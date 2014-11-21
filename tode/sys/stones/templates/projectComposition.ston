@@ -1,4 +1,4 @@
-TDRawGatewayNode{#name:'projectComposition',#contents:'(TDComposedDirectoryNode
+TDRawGatewayNode{#name:'projects',#contents:'(TDComposedDirectoryNode
     pathComposedDirectoryNodeNamed: \'home\'
     topez: self topez)
     addPathNode: \'/sys/stone/projects\';
