@@ -197,8 +197,11 @@ shmallNewMB=$(($shmallNew / 256))
 # Increase shmmax if appropriate
 if [ $shmmaxNew -gt $shmmax ]; then
     echo "[Info] Increasing max shared memory segment size to $shmmaxNewMB MB"
-    [ $PLATFORM = "Darwin-i386" ] && sudo sysctl -w kern.sysv.shmmax=$shmmaxNew
-    [ $PLATFORM = "Linux-x86_64" ] && sudo bash -c "echo $shmmaxNew > /proc/sys/kernel/shmmax"
+    [ $PLATFORM = "Darwin-i386" ] \
+	    && sudo sysctl -w kern.sysv.shmmax=$shmmaxNew
+    [ $PLATFORM = "Linux-x86_64" ] \
+	    && sudo bash -c "echo $shmmaxNew > /proc/sys/kernel/shmmax" \
+	    && sudo /bin/su -c "echo 'kernel.shmmax=$shmmaxNew' >>/etc/sysctl.conf"
 else
     echo "[Info] No need to increase max shared memory segment size"
 fi
