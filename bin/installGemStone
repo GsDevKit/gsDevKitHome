@@ -23,6 +23,7 @@
 #    Add shared memory setup to /etc/sysctl.conf
 #    Add GemStone netldi service port to /etc/services
 #    Download the GemStone product zipfile
+#    Create /opt/gemstone and required subdirectories
 #    Uncompress the GemStone zipfile into $GS_HOME/products
 #    Copy the initial GsDevKit repository to data directory
 #    Copy the gci libraries to the Pharo vm (install Pharo if necessary)
@@ -30,36 +31,33 @@
 #=========================================================================
 
 # help function
-function display_help() {
-  echo ""
-  echo "USAGE: $(basename $0) [-h] <gemstone-version>"
-  echo "Download and install a Linux or Mac version of GemStone. GemStone"
-  echo "will be installed in the $GS_HOME/gemstone/products directory."
-  echo ""
-  echo "OPTIONS"
-  echo "  -h display help"
-  echo ""
-  echo "EXAMPLES"
-  echo "  $(basename $0) -h"
-  echo "  $(basename $0) 3.2.0"
-  echo ""
+usage() {
+ cat <<HELP
+USAGE: $(basename $0) [-h] <gemstone-version>
+Download and install the given GemStone version. Will make sure that
+shared memory is correctly configuration on your server. Performs some
+operations as `root` using sudo.
+
+OPTIONS
+  -h display help
+
+EXAMPLES
+  $(basename $0) -h
+  $(basename $0) 3.2.0
+
+HELP
 }
 
+set -e # exit on error
 while getopts "h" OPT ; do
   case "$OPT" in
-    h) 
-      display_help
-      exit 1
-      ;;
-    *)
-      display_help
-      exit 1
-      ;;
+    h) usage ; exit 0 ;;
+    *) usage ; exit 1 ;;
   esac
 done
 
 if [ "$1x" = "x" ] ; then
-  display_help
+  usage
   exit 1
 fi 
 vers="$1"
@@ -199,8 +197,11 @@ shmallNewMB=$(($shmallNew / 256))
 # Increase shmmax if appropriate
 if [ $shmmaxNew -gt $shmmax ]; then
     echo "[Info] Increasing max shared memory segment size to $shmmaxNewMB MB"
-    [ $PLATFORM = "Darwin-i386" ] && sudo sysctl -w kern.sysvmmax=$shmmaxNew
-    [ $PLATFORM = "Linux-x86_64" ] && sudo bash -c "echo $shmmaxNew > /proc/sys/kernel/shmmax"
+    [ $PLATFORM = "Darwin-i386" ] \
+	    && sudo sysctl -w kern.sysv.shmmax=$shmmaxNew
+    [ $PLATFORM = "Linux-x86_64" ] \
+	    && sudo bash -c "echo $shmmaxNew > /proc/sys/kernel/shmmax" \
+	    && sudo /bin/su -c "echo 'kernel.shmmax=$shmmaxNew' >>/etc/sysctl.conf"
 else
     echo "[Info] No need to increase max shared memory segment size"
 fi
@@ -208,7 +209,7 @@ fi
 # Increase shmall if appropriate
 if [ $shmallNew -gt $shmall ]; then
     echo "[Info] Increasing max shared memory allowed to $shmallNewMB MB"
-    [ $PLATFORM = "Darwin-i386" ] && sudo sysctl -w kern.sysvmall=$shmallNew
+    [ $PLATFORM = "Darwin-i386" ] && sudo sysctl -w kern.sysv.shmall=$shmallNew
     [ $PLATFORM = "Linux-x86_64" ] && sudo bash -c "echo $shmallNew > /proc/sys/kernel/shmall"
 else
     echo "[Info] No need to increase max shared memory allowed"
@@ -219,16 +220,16 @@ fi
 if [[ ! -f /etc/sysctl.conf || `grep -sc "kern.*m" /etc/sysctl.conf` -eq 0 ]]; then
     case "$PLATFORM" in
         Linux-x86_64)
-        echo "# kernelm* settings added by MagLev installation" > /tmp/sysctl.conf.$$
+        echo "# kernelm* settings added by GsDevKit installation" > /tmp/sysctl.conf.$$
         echo "kernelmmax=`cat /proc/sys/kernel/shmmax`" >> /tmp/sysctl.conf.$$
         echo "kernelmall=`cat /proc/sys/kernel/shmall`" >> /tmp/sysctl.conf.$$
         ;;
         Darwin-i386)
         # On Mac OS X Leopard, you must have all five settings in sysctl.conf
         # before they will take effect.
-        echo "# kern.sysvm* settings added by MagLev installation" > /tmp/sysctl.conf.$$
-        sysctl kern.sysvmmax kern.sysv.shmall kern.sysv.shmmin kern.sysv.shmmni \
-        kern.sysvmseg  | tr ":" "=" | tr -d " " >> /tmp/sysctl.conf.$$
+        echo "# kern.sysv.shm* settings added by GsDevKit installation" > /tmp/sysctl.conf.$$
+        sysctl kern.sysv.shmmax kern.sysv.shmall kern.sysv.shmmin kern.sysv.shmmni \
+        kern.sysv.mseg  | tr ":" "=" | tr -d " " >> /tmp/sysctl.conf.$$
         ;;
         *)
         echo "[Error] Can't determine operating system. Check script."
@@ -272,6 +273,18 @@ if [ ! -e $gss_file ]; then
     $cmd ${ftp_address}/pub/GemStone64/$bucket/$gss_file
 else
     echo "[Info] $gss_file already exists"
+    echo "to replace it, remove or rename it and rerun this script"
+fi
+
+# Create some directories that GemStone expects; make them writable
+echo "[Info] Creating /opt/gemstone directory"
+if [ ! -e /opt/gemstone ]
+    then
+    sudo mkdir -p /opt/gemstone /opt/gemstone/log /opt/gemstone/locks
+    sudo chown $USER:${GROUPS[0]} /opt/gemstone /opt/gemstone/log /opt/gemstone/locks
+    sudo chmod 770 /opt/gemstone /opt/gemstone/log /opt/gemstone/locks
+else
+    echo "[Warning] /opt/gemstone directory already exists"
     echo "to replace it, remove or rename it and rerun this script"
 fi
 
@@ -341,6 +354,20 @@ echo "[Info] Finished $gsvers installation on $machine_name"
 echo ""
 echo "[Info] GemStone version information:"
 cat $gs_product/version.txt
+
+if [ "${GS_TRAVIS}x" != "x" ] ; then
+  # running on travis server - have to use a custom key file
+  case "$vers" in
+    2.4.*) keyName="GemStone64Bit2.4.0-x86_64.Linux.key" ;;
+    3.0.1) keyName="GemStone64Bit3.0.0-x86_64.Linux.key" ;;
+    3.1.*) keyName="GemStone64Bit3.1.0-x86_64.Linux.key" ;;
+    3.2.*) keyName="GemStone64Bit3.2.0-x86_64.Linux.key" ;;
+    *) echo "No travis license for GemStone $vers"; exit 1;;
+  esac
+  chmod +w  $gs_product/seaside/etc/gemstone.key
+  echo "Copying $GS_HOME/travis/$keyName to $gs_product/seaside/etc/gemstone.key"
+  cp $GS_HOME/travis/$keyName $gs_product/seaside/etc/gemstone.key
+fi
 
 # If we can determine any IPv4 addresses, print them out. Otherwise be silent.
 if [[ -x /sbin/ifconfig && `/sbin/ifconfig -a | grep -sc " inet addr:.*Bcast"` -gt 0 ]]

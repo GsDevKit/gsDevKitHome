@@ -1,32 +1,21 @@
 #! /bin/bash
-
 #=========================================================================
 # Copyright (c) 2014 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
-#
-# Name - tode 
-#
-# Purpose - Run headless tode scripts using the todeClient image
-#
-# Examples
-#   tode -h
-#   tode --help
-#   tode createStone --help
-#
 #=========================================================================
 
-# help function
-function display_help() {
-  echo ""
-  echo "USAGE: $(basename $0) [-h]"
-  echo "Run headless tode scripts using the todeClient image."
-  echo ""
-  echo "OPTIONS"
-  echo "  -h display help"
-  echo ""
-  echo "EXAMPLES"
-  echo "  $(basename $0) -h"
-  echo "  $(basename $0)"
-  echo ""
+usage() {
+  cat <<HELP
+USAGE: $(basename $0) [-h]
+Run headless tode scripts using the todeClient image.
+
+OPTIONS
+  -h display help
+
+EXAMPLES
+  $(basename $0) -h
+  $(basename $0)
+
+HELP
 }
 
 case "$1" in
@@ -35,10 +24,7 @@ case "$1" in
   -*) # handle single - options here
     while getopts "h" OPT ; do
       case "$OPT" in
-        h) 
-          display_help
-          exit 1
-          ;;
+        h) usage; exit 0 ;;
       esac
     done
     ;;
@@ -50,13 +36,13 @@ if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"
   exit 1
 fi
+
+#set -e # exit on error
 if [ ! -e "$GS_HOME/pharo/pharo" ]; then
   $GS_HOME/bin/installPharo
 fi
 
 # Run script
 pharo=$GS_HOME/pharo
+#unset GEMSTONE_NRS_ALL
 $pharo/pharo $pharo/todeClient.image $*
-
-# End of script
-exit 0

@@ -9,7 +9,8 @@ activate
 	Author
 		useAuthor: 'gsDevKit'
 		during: [ 
-			self
-				installTode;
-				installTode2 ].
+			self installTode.
+			(Smalltalk os environment at: 'GS_TRAVIS' ifAbsent: [  ]) = 'true'
+				ifTrue: [ self installTravisTode2 ]
+				ifFalse: [ self installTode2 ] ].
 	self exitSuccess
