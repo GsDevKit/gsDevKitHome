@@ -37,6 +37,6 @@ echo "Backing up stone: $stoneName using: $backupFile"
 stonePath=$GS_HOME/gemstone/stones/$stoneName
 pushd $stonePath >& /dev/null
 source $stonePath/stone.env
-popd $stonePath >& /dev/null
+popd >& /dev/null
 
 $GS_HOME/bin/tode backup $stoneName $backupFile

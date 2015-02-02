@@ -37,7 +37,7 @@ echo "starting copy"
 stonePath=$GS_HOME/gemstone/stones/$stoneName
 pushd $stonePath >& /dev/null
 source $stonePath/stone.env
-popd $stonePath >& /dev/null
+popd >& /dev/null
 
 # copy the extent
 $GS_HOME/bin/tode newExtent $stoneName

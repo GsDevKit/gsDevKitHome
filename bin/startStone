@@ -33,7 +33,7 @@ stonePath=$GS_HOME/gemstone/stones/$1
 # set up stone environment
 pushd $stonePath >& /dev/null
 source $stonePath/stone.env
-popd $stonePath >& /dev/null
+popd >& /dev/null
 
 # start the stone
 $stonePath/product/seaside/bin/startGemstone

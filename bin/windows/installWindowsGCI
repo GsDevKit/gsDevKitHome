@@ -92,16 +92,30 @@ popd >& /dev/null
 
 echo "copy gci libraries"
 if [ ! -e $pharo_vm/libgcirpc-${vers}-32.dll ] ; then
-  cp $gs_product/bin32/lib* $GS_HOME/pharo
+  case "$vers" in
+    2.4.*|3.0.*|3.1.*)
+      cp $gs_product/bin/lib* $GS_HOME/pharo
+      ;;
+    *)
+      cp $gs_product/bin32/lib* $GS_HOME/pharo
+      ;;
+  esac
 else
   echo "[Warning] gci libraries already present to replace, delete them and try again"
 fi
 
 echo "copy msvcr100.dll library"
 if [ ! -e $pharo_vm/msvcr*.dll ] ; then
-  cp $gs_product/bin32/msvcr* $GS_HOME/pharo
+  case "$vers" in
+    2.4.*|3.0.*|3.1.*)
+      cp $gs_product/bin/msvcr* $GS_HOME/pharo
+      ;;
+    *)
+      cp $gs_product/bin32/msvcr* $GS_HOME/pharo
+      ;;
+  esac
 else
-  echo "[Warning] msvcr100.dll library already present to replace, delete it and try again"
+  echo "[Warning] msvcr library already present to replace, delete it and try again"
 fi
 
 echo "[Info] Finished $gsvers installation"

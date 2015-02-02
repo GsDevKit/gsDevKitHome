@@ -36,7 +36,7 @@ echo "Install tODE on server: $stoneName"
 stonePath=$GS_HOME/gemstone/stones/$stoneName
 pushd $stonePath >& /dev/null
 source $stonePath/stone.env
-popd $stonePath >& /dev/null
+popd >& /dev/null
 
 # install tode
 $GS_HOME/bin/tode installTode $stoneName

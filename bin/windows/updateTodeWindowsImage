@@ -57,7 +57,7 @@ fi
 echo "Updating todeClient image"
 
 pharo=$GS_HOME/pharo
-$pharo/Pharo.exe $pharo/todeClient${postFix}.image save todeClientTmp
+$pharo/Pharo.exe --headless $pharo/todeClient${postFix}.image save todeClientTmp
 
 cat - > $pharo/todeLoad.st << EOF
 [ | metacello string repoPath |
@@ -81,7 +81,7 @@ if [[ $? != 0 ]] ; then
   exit 1
 fi
 
-$pharo/Pharo.exe $pharo/todeClientTmp.image save todeClient${postFix}
+$pharo/Pharo.exe --headless $pharo/todeClientTmp.image save todeClient${postFix}
 if [[ $? != 0 ]] ; then
   echo "updateTodeImage[Error]: failed saving tode client"
   rm -f todeClient*
@@ -94,3 +94,4 @@ echo "tODE client image update complete"
 
 # End of script
 exit 0
+
