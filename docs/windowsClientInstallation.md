@@ -38,7 +38,7 @@
 6. Install GemStone/S (for GCI library files) and Pharo, build the tODE client image and launch the tODE client. The GemStone version that specify in the following should match the version installed on your server machine:
 
    ```Shell
-   installWindowsClient 3.2.3 c:/tode/repository c:/ston/repository
+   installWindowsClient 3.2.3 c:/tode c:/ston
    ```
 
 4. Once the tODE client image comes up, you need to edit the session description for your stones using the `tODE edit` menu:
