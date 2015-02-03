@@ -1,12 +1,13 @@
 actions
 createTodeDescription: stoneInfo
-	| sessionDescription |
+	| sessionDescription localHostName|
+	localHostName := NetNameResolver localHostName.
 	sessionDescription := TDSessionDescription new
 		name: stoneInfo stoneName;
 		gemstoneVersion: stoneInfo gsVers;
-		stoneHost: 'localhost';
+		stoneHost: localHostName;
 		stoneName: stoneInfo stoneName;
-		gemHost: 'localhost';
+		gemHost: localHostName;
 		netLDI: stoneInfo netldiName;
 		gemTask: 'gemnetobject';
 		userId: 'DataCurator';

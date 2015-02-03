@@ -1,3 +1,0 @@
-3. -h for all scripts
-4. install -n ... basic install create stone and pharo, but don't install tode and don't start stone
-5. startTopaz <stone> ... prime the pipe with stonename and username from secrets?
