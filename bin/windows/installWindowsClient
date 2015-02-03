@@ -10,7 +10,7 @@
 #
 # Examples
 #   installWindowsClient -h
-#   installWindowsClient 3.2.1 c:/tode/repository
+#   installWindowsClient 3.2.1 c:/tode c:/ston
 #
 #=========================================================================
 
