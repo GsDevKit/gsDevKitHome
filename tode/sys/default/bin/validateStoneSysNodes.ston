@@ -30,7 +30,7 @@ TDScriptLeafNode{#name:'validateStoneSysNodes',#contents:'[ :topez :objIn :token
         ifFalse: [ 
           repair
             ifTrue: [ dir assureExistence ]
-            ifFalse: [ self error: \'Missing directory: \' , dir pathName printString ] ] ].
+            ifFalse: [ nil error: \'Missing directory: \' , dir pathName printString ] ] ].
       validateFileBlock := [ :dir :filename :nodename | 
       (dir fileExists: filename)
         ifFalse: [ 
@@ -38,30 +38,38 @@ TDScriptLeafNode{#name:'validateStoneSysNodes',#contents:'[ :topez :objIn :token
             ifTrue: [ 
               cpTool
                 cp: \'/sys/stones/templates/\' , nodename
-                to: \'/sys/stones/stones/\' , stoneName, \'/root/\' ]
+                to: \'/sys/stones/stones/\' , stoneName ]
             ifFalse: [ 
-              self
+              nil
                 error:
                   \'Missing file: \' , filename printString , \' in path: \'
                     , dir pathName printString ] ] ].
       validateDirBlock value: stoneRootDir.
-      rootDir := stoneRootDir directoryNamed: \'root\'.
-      validateDirBlock value: rootDir.
-      dir := rootDir directoryNamed: \'home\'.
+      validateDirBlock value: stoneRootDir.
+      dir := stoneRootDir directoryNamed: \'home\'.
       validateDirBlock value: dir.
-      dir := rootDir directoryNamed: \'projects\'.
+      dir := stoneRootDir directoryNamed: \'projects\'.
       validateDirBlock value: dir.
       opts
         at: \'files\'
         ifPresent: [ :ignored | 
           validateFileBlock
-            value: rootDir
+            value: stoneRootDir
             value: \'homeComposition.ston\'
             value: \'homeComposition\'.
           validateFileBlock
-            value: rootDir
+            value: stoneRootDir
             value: \'projectComposition.ston\'
-            value: \'projectComposition\' ].
+            value: \'projectComposition\'.
+          validateFileBlock value: stoneRootDir value: \'dirs.ston\' value: \'dirs\'.
+          validateFileBlock
+            value: stoneRootDir
+            value: \'packages.ston\'
+            value: \'packages\'.
+          validateFileBlock
+            value: stoneRootDir
+            value: \'repos.ston\'
+            value: \'repos\' ].
       true ]
     ifPresent: [ :ignored | 
       TDManPage
@@ -84,11 +92,10 @@ DESCRIPTION
         +-stones\\
           +-stones\\
           | +-<stone-name>\\
-          |   +-root\\
-          |     +-home\\
-          |     +-projects\\
-          |     +-homeComposition.ston
-          |     +-projectComposition.ston
+          |   +-home\\
+          |   +-projects\\
+          |   +-homeComposition.ston
+          |   +-projectComposition.ston
           +-templates\\
             +-homeComposition.ston
             +-projectComposition.ston
@@ -115,4 +122,4 @@ EXAMPLES
   /sys/default/bin/validateStoneSysNodes --stone=gsDevKit --repair
   /sys/default/bin/validateStoneSysNodes --stone=gsDevKit --files --repair
 \'
-        topez: topez ] ]',#creationTime:DateAndTime['2014-11-14T16:19:26.4569790363311-08:00'],#modificationTime:DateAndTime['2014-11-17T09:31:25.0474090576171-08:00']}
+        topez: topez ] ]',#creationTime:DateAndTime['2014-11-14T16:19:26.4569790363311-08:00'],#modificationTime:DateAndTime['2015-02-03T16:39:19.3684349060058-08:00']}
