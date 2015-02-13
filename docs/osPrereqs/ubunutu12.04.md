@@ -4,6 +4,7 @@
 2. [X Server](#x-server)
 3. [sshd](#sshd)
 
+NOTE: CONSIDER CREATING A BASH SCRIPT FOR THESE OPERATONS
 
 ##Basic prerequisites
 
