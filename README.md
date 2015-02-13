@@ -11,7 +11,19 @@ The Development Kit for GemStone/S features:
 ##Development Kit Server Installation
 
 1. The Dev Kit server can be installed on Linux or Mac OS X.
-   Install Prererequisites
+   The following packages are required for GsDevKit:
+     - 32 bit libraries - needed to run Pharo
+     - curl             - needed by FileTree
+     - git
+     - PAM              - needed by GemStone server
+     - ssl              - needed by GemStone server
+     - unzip            - needed by FileTree
+
+   The following packages are optional:
+     - X11
+     - ssh
+ 
+   If these packages are not already installed on your machine, then see the [GsDevKit OS Prerequisites][55] for more information.
 
 2. Clone the [gsDevKitHome project][2] to your GemStone development server and create a unique branch to keep any changes you make for your project isolated from the Dev Kit master branch:
 
@@ -445,3 +457,4 @@ For more information about installing optional projects and a complete list of o
 [52]: docs/images/todeWindowLayoutMenu.png
 [53]: docs/images/todeDefineDevKitRootMenu.png
 [54]: docs/images/todeRefreshTodeMenu.png
+[55]: docs/osPrereqs/osPrereqs.md
