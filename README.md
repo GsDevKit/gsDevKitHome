@@ -9,7 +9,9 @@ The Development Kit for GemStone/S features:
 * [Library of projects ported to GemStone/S](#development-kit-projects).
 
 ##Development Kit Server Installation
-The Dev Kit server can be installed on Linux or Mac OS X.
+
+1. The Dev Kit server can be installed on Linux or Mac OS X.
+   Install Prererequisites
 
 2. Clone the [gsDevKitHome project][2] to your GemStone development server and create a unique branch to keep any changes you make for your project isolated from the Dev Kit master branch:
 
