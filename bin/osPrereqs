@@ -1,0 +1,83 @@
+#! /bin/bash
+#=========================================================================
+# Copyright (c) 2015 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
+#=========================================================================
+
+set -e # exit on error
+
+usage() {
+  cat <<HELP
+USAGE: $(basename $0) [-h] -o [OSX10.9.5|ubuntu12.04|ubuntu14.04] [-X] [-s]
+
+Install os-specific required packages:
+  - 32 bit libraries
+  - git 
+  - curl
+  - unzip
+  - ssl
+  - PAM
+
+and os-specific optional packages:
+  - X11
+  - ssh
+
+OPTIONS
+  -h display help
+  -o select os
+  -X if present, X11 server installed
+  -s if present, sshd client and server installed
+  
+
+EXAMPLES
+  $(basename $0) -h
+  $(basename $0) -o ubuntu12.04
+  $(basename $0) -X -o ubuntu12.04
+  $(basename $0) -s -o ubuntu12.04
+  $(basename $0) -X -s -o ubuntu12.04
+
+HELP
+}
+
+os=""
+X11=""
+sshd=""
+
+while getopts "ho:X" OPT ; do
+  case "$OPT" in
+    h) usage; exit 0 ;;
+    o) os="${OPTARG}" ;;
+    s) sshd="1";;
+    X) X11="1";;
+    *) usage; exit 1 ;;
+  esac
+done
+
+case "$os" in
+  OSX10.9.5)
+  ;;
+  ubuntu12.04)
+    sudo apt-get -y update
+    sudo apt-get -y install git
+    sudo apt-get -y install unzip
+    sudo apt-get -y install libpam0g:i386
+    sudo apt-get -y install libssl1.0.0
+    sudo apt-get -y install libssl1.0.0:i386
+    sudo ln -s /lib/i386-linux-gnu/libpam.so.0 /lib/libpam.so.0
+    sudo apt-get -y install -qq gcc-multilib libstdc++6:i386
+    sudo ln -s /usr/lib/i386-lin-gnu/libstdc++.so.6 /usr/lib/i386-linux-gnu/libstdc++.so
+    if [ "${X11}x" != "1x" ] ; then
+      sudo apt-get -y install xorg
+      sudo apt-get -y install openbox
+      sudo apt-get -y install libx11-6:i386
+      sudo apt-get -y install libgl1-mesa-dev:i386
+      sudo apt-get -y install libxcb-dri2-0:i386
+    fi
+    if [ "${sshd}x" != "1x" ] ; then
+      sudo apt-get -y install openssh-client
+      sudo apt-get -y install openssh-server
+    fi
+  ;;
+  ubuntu14.04)
+  ;;
+  *) usage; exit 1;;
+esac
