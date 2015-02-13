@@ -20,8 +20,8 @@ The Development Kit for GemStone/S features:
    - unzip            - needed by FileTree
 
    The following packages are optional:
-   - X11
-   - ssh
+   - X11              - needed to run Pharo client on server
+   - ssh              - X11 forwarding and ease of access to server
  
    If these packages are not already installed on your machine, then see the [GsDevKit OS Prerequisites][55] for more information.
 
@@ -48,7 +48,7 @@ The Development Kit for GemStone/S features:
    The following creates a new stone named `tode` based on [version 3.2.1 of GemStone/S][16]:
 
    ```Shell
-   installServer devKit 3.2.1
+   installServer devKit 3.2.4
    ```
 
    *Note that the script will prompt you for your password because it uses sudo to setup up your server for running GemStone*.
