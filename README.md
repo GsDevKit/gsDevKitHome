@@ -33,7 +33,7 @@ The Development Kit for GemStone/S features:
    git checkout -b  <your project branch name>
    ```
 
-*Note: If you already have a [GitHub][15] account, you should consider [forking the Dev Kit project][3] first, as that will make sharing corrections you find much easier.*
+   *Note: If you already have a [GitHub][15] account, you should consider [forking the Dev Kit project][3] first, as that will make sharing corrections you find much easier.*
 
 3. Define the `$GS_HOME` environment variable and add `$GS_HOME/bin` to your `$PATH`:
 
