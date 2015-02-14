@@ -12,7 +12,7 @@ The Development Kit for GemStone/S features:
 
 1. The Dev Kit server can be installed on Linux or Mac OS X.
    The following packages are required for GsDevKit:
-   - 32 bit libraries - needed to run Pharo
+   - 32 bit libraries - needed to run Pharo (headless)
    - curl             - needed by FileTree
    - git
    - PAM              - needed by GemStone server
@@ -20,8 +20,8 @@ The Development Kit for GemStone/S features:
    - unzip            - needed by FileTree
 
    The following packages are optional:
-   - X11              - needed to run Pharo client on server
-   - ssh              - X11 forwarding and ease of access to server
+   - X11              - needed to run Pharo with X11 forwarding (`ssh -X`)
+   - ssh              - needed to run Pharo with X11 forwarding and ease of access to server
  
    If these packages are not already installed on your machine, then see the [GsDevKit OS Prerequisites][55] for more information.
 
