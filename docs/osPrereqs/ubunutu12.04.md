@@ -1,6 +1,10 @@
 # GsDevKit prerequisites for Ubuntu 12.04 
+It is recommended that you [Install ssh (optional)](#install-ssh-optional), since you can [run a script to the install prerequisite packages](#osPrereqs-bash-script).
+
+If you decide not to [run the script](#osPrereqs-bash-script), then following the manual instrructions in each section:
 
 3. [Install ssh (optional)](#install-ssh-optional)
+   - [osPrereqs bash script](#osPrereqs-bash-script)
 1. [Install Basic Prerequisites (required)](#install-basic-prerequisites-required)
 2. [Install X11 Client (optional)](#install-x11-client-optional)
 
@@ -17,6 +21,7 @@ sudo apt-get -y install openssh-server
 
 If you have installed `ssh`, you can log into your server with `ssh` and continue with the installation steps.
 
+###osPrereqs bash script
 If you have installed `ssh` and you've got a checkout of gsDevKit on your server, you can use scp to copy the [osPrereqs script][3] from your server to the Ubunutu 12.04 box and save copy and pasting.
 
 The following script copys `osPrereqs`, logs into your vm and installs the [basic prerequisites](#install-basic-prerequisites) and the [X11 client](#install-x11-client):

@@ -18,12 +18,17 @@ The Development Kit for GemStone/S features:
    - PAM              - needed by GemStone server
    - ssl              - needed by GemStone server
    - unzip            - needed by FileTree
+   - wget             - needed by bin/installGemStone script
 
    The following packages are optional:
-   - X11              - needed to run Pharo with X11 forwarding (`ssh -X`)
+   - X11              - needed to run [VSD][58] and Pharo (on Linux) with X11 forwarding (`ssh -X`)
    - ssh              - needed to run Pharo with X11 forwarding and ease of access to server
  
-   If these packages are not already installed on your machine, then see the [GsDevKit OS Prerequisites][55] for more information.
+   If these packages are not already installed on your machine, then see the prerequisite installation guide for your platform:
+   - [GsDevKit prerequisites for Ubuntu 12.04][55]
+   - [GsDevKit prerequisites for Ubuntu 14.04][56]
+   - [GsDevKit prerequisites for OS X10.9][57]
+   
 
 2. Clone the [gsDevKitHome project][2] to your GemStone development server and create a unique branch to keep any changes you make for your project isolated from the Dev Kit master branch:
 
@@ -457,4 +462,7 @@ For more information about installing optional projects and a complete list of o
 [52]: docs/images/todeWindowLayoutMenu.png
 [53]: docs/images/todeDefineDevKitRootMenu.png
 [54]: docs/images/todeRefreshTodeMenu.png
-[55]: docs/osPrereqs/osPrereqs.md
+[55]: docs/osPrereqs/ubuntu12.04.md
+[56]: docs/osPrereqs/ubuntu14.04.md
+[57]: docs/osPrereqs/OSX10.9.md
+[58]: http://gemtalksystems.com/products/vsd/
