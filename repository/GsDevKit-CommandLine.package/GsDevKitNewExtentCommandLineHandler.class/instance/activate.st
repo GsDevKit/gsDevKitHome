@@ -6,4 +6,5 @@ activate
 		ifTrue: [ 
 			self printHelp.
 			^ self exitFailure: 'Missing stone name' ].
-	self newExtent
+	self newExtent.
+	Transcript cr

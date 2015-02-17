@@ -6,4 +6,5 @@ activate
 		ifTrue: [ 
 			self printHelp.
 			^ self exitFailure: 'Missing arguments' ].
+	Transcript cr.
 	self createStone
