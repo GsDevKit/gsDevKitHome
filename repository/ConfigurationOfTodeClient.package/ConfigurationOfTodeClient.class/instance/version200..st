@@ -1,0 +1,24 @@
+as yet unclassified
+version200: spec
+	<version: '2.0.0'>
+	spec
+		for: #'pharo3.x'
+		do: [ 
+			spec blessing: #development.	"warning tode repository need to be fixed before release"
+			spec description: 'Changes in support of https://github.com/GsDevKit/gsDevKitHome/issues/32'.
+			spec repository: 'filetree://' , (FileSystem workingDirectory parent / 'repository') pathString.
+			spec
+				package: 'GsDevKit-CommandLine' with: [ spec requires: #('Tode' 'OSProcess') ];
+				configuration: 'OSProcess'
+					with: [ 
+							spec
+								loads: 'Core';
+								version: #stable;
+								repository: 'http://smalltalkhub.com/mc/Pharo/MetaRepoForPharo30/main' ];
+				baseline: 'Tode'
+					with: [ 
+							spec
+								loads: 'GemStone Dev';
+								repository: 'github://dalehenrich/tode:dev/repository' ];
+				postLoadDoIt: #post30Load;
+				yourself ]

@@ -1,7 +1,7 @@
 TDObjectGatewayNode{#name:'neojson',#contents:'^ TDProjectSpecEntryDefinition new
     baseline: \'NeoJSON\'
       repository:
-        \'github://GsDevKit/NeoJSON/repository\'
+        \'github://GsDevKit/NeoJSON:gs_master/repository\'
       loads: #(\'Core\');
     status: #(#\'inactive\');
     locked: false;
