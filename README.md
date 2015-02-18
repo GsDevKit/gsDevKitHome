@@ -134,10 +134,11 @@ commit the changes that you've made.
 Here is a sampling of some of the open source projects that have been ported to GemStone/S:
 
 ```
-		gsApplicationTools.ston	metacello.ston		sixx.ston
-		gsDevKitHome.ston	neojson.ston		tode.ston
-		magritte.ston		seaside.ston		zinc.ston
-		mapless.ston		serviceVM.ston
+					pier.ston???
+                                        sixx.ston
+					tode.ston
+						zinc.ston
+				
 ```
 
 | Project | Description|
@@ -145,17 +146,26 @@ Here is a sampling of some of the open source projects that have been ported to 
 | Cryptography|[Squeak Cryptography Project][66]|
 | Flow| [A living full-stack framework for the web][67]|
 | Grease| [The Grease Portability Library][68]|
+| gsApplicationTools| [Convenient setup of Gemstone server applications][69]|
+| gsDevKitHome| [Open Source Development Kit for GemStone/S 64 Bit][70]|
 | Magritte| [Dynamic Meta-Description Framework][21]   |
-| Pier|[Content Management System][22] |
+| Mapless| [Obscenely simple persistence for Smalltalk][71]|
+| Metacello| [Package Management for Smalltalk][72]|
+| NeoJSON | [An elegant and efficient standalone Smalltalk framework to read and write JSON ][73]|
+| Pier ????|[Content Management System][22] |
 |[Seaside31][23]| [Dynamic Web Development Framework][24] |
+|SIXX| [][]|
+| tODE| [][]|
 |[ZincHTTPComponents][25]| [Web Server/Client][26] |
 
-By registering projects with tODE:
+These projects are registered by default in the [$GS_HOME/tode/sys/default/projects directory][74].
 
-```Shell
-$GS_HOME/projects/zinc/createProjectEntry devKit
-$GS_HOME/projects/seaside31/createProjectEntry devKit Examples Zinc FastCGI
-```
+----
+
+EDITTING REQUIRED
+
+----
+----
 
 you can ensure that the projects will be loaded exactly the same way whether you use a shell script:
 
@@ -334,3 +344,9 @@ GsDevKitStoneInfo {
 [66]: http://www.squeaksource.com/Cryptography.html
 [67]: https://github.com/flow-stack/flow#flow
 [68]: https://github.com/GsDevKit/Grease#the-grease-portability-library--
+[69]: https://github.com/GsDevKit/gsApplicationTools#gsapplicationtools--
+[70]: https://github.com/GsDevKit/gsDevKitHome#open-source-development-kit-for-gemstones-64-bit-
+[71]: https://github.com/GsDevKit/Mapless#mapless
+[72]: https://github.com/dalehenrich/metacello-work/blob/master/docs/MetacelloUserGuide.md#metacello-user-guide
+[73]: https://github.com/GsDevKit/NeoJSON#neojson-
+[74]: tode/sys/default/projects
