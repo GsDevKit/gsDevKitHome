@@ -83,8 +83,6 @@ The Development Kit for GemStone/S features:
       If an error occurs, see the [tODE Test Login](#tode-test-login) section for collecting diagnostics.
    4. [Getting Started with tODE][62]
 
-5. For further information on working with tODE see [Getting Started with tODE][62]
-
 7. Once you have verified that the session description is correct, commit the changes that you've made.
 (If you've forked the GitHub project, you should push the changes to your GitHub repository as well):
 
@@ -198,6 +196,10 @@ GsDevKitStoneInfo {
 	#netldiName : nil
 }
 ```
+
+##tODE: the Object-centric Development Environment
+
+For further information on working with tODE see [Getting Started with tODE][62].
 
 ##Development Kit Projects
 
