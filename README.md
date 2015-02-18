@@ -135,9 +135,8 @@ Here is a sampling of some of the open source projects that have been ported to 
 
 ```
 					pier.ston???
-                                        sixx.ston
-					tode.ston
-						zinc.ston
+                                        ston.ston???
+				
 				
 ```
 
@@ -152,13 +151,15 @@ Here is a sampling of some of the open source projects that have been ported to 
 | Mapless| [Obscenely simple persistence for Smalltalk][71]|
 | Metacello| [Package Management for Smalltalk][72]|
 | NeoJSON | [An elegant and efficient standalone Smalltalk framework to read and write JSON ][73]|
-| Pier ????|[Content Management System][22] |
-|[Seaside31][23]| [Dynamic Web Development Framework][24] |
-|SIXX| [][]|
-| tODE| [][]|
-|[ZincHTTPComponents][25]| [Web Server/Client][26] |
+| Pier ????|[A Content Management System][22] |
+|[Seaside31][23]| [A Dynamic Web Development Framework][24] |
+| SIXX| [Store and load Smalltalk objects in a portable, dialect-independent XML format][78]|
+| STON ???| [A lightweight text-based, human-readable data interchange format for Smalltalk][77]|
+| tODE| [the Object-centric Development Environment][79]|
+|[ZincHTTPComponents][25]| [An open-source Smalltalk framework to deal with the HTTP networking protocol][26] |
 
-These projects are registered by default in the [$GS_HOME/tode/sys/default/projects directory][74].
+These projects and others are registered by default in the [$GS_HOME/tode/sys/default/projects directory][74].
+If you know of a project that has been ported to GemStone that is not included in the *default projects directory*, please submit a [pull request][75] with a [project entry][76] for the project.
 
 ----
 
@@ -350,3 +351,8 @@ GsDevKitStoneInfo {
 [72]: https://github.com/dalehenrich/metacello-work/blob/master/docs/MetacelloUserGuide.md#metacello-user-guide
 [73]: https://github.com/GsDevKit/NeoJSON#neojson-
 [74]: tode/sys/default/projects
+[75]: https://help.github.com/articles/using-pull-requests/
+[76]: https://github.com/dalehenrich/tode/blob/master/docs/releaseNotes/releaseNotes0.0.3.md#project-entry
+[77]: https://github.com/GsDevKit/ston#ston---smalltalk-object-notation
+[78]: https://github.com/glassdb/SIXX#sixx-
+[79]: https://github.com/dalehenrich/tode#tode-the-object-centric-development-environment-
