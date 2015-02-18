@@ -69,20 +69,24 @@ The Development Kit for GemStone/S features:
    ```
    *Note that the script will prompt you for your password because it uses sudo to setup up your server for running GemStone*.
   
-4. When the `installServer` script finishes, the tode client image is opened and you should be able to validate your session description by:
+4. When the `installServer` script finishes, the tode client image is opened:
 
-   1. Opening a tODE shell on your stone: 
+   ![tode image][63]
+
+   You should be able to validate your installation by:
+
+   - Opening a tODE shell on your stone: 
    
       ![open tode shell][18]
 
-   2. Opening a `project list`:
+     *If an error occurs while attempting to open the tODE shell, see the [tODE Test Login](#tode-test-login) section of the [Getting Started with tODE][62] document for getting help diagnosing the problem.*
+
+   - Opening a `project list`:
 
       ![project list][19]
 
-   3. If the `project list` opens successfully, then you are done.
-      If an error occurs, see the [tODE Test Login](#tode-test-login) section for collecting diagnostics.
-   4. [Getting Started with tODE][62]
-
+   - See the [Getting Started with tODE][62] document for more information on using tODE.
+  
 7. Once you have verified that the session description is correct, commit the changes that you've made.
 (If you've forked the GitHub project, you should push the changes to your GitHub repository as well):
 
@@ -271,3 +275,5 @@ For more information about installing optional projects and a complete list of o
 [60]: bin/createStone
 [61]: bin/startStatmonitor
 [62]: https://github.com/dalehenrich/tode/blob/master/docs/GettingStarted.md#getting-started-with-tode
+[63]: docs/images/todeClient.png
+[65]: https://github.com/dalehenrich/tode/blob/master/docs/GettingStarted.md#tode-test-login
