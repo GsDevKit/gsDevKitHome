@@ -123,9 +123,15 @@ commit the changes that you've made.
    git commit -m"initial installation" # commit the changes
    ```
 
+---
+---
+
 ## Remote tODE Client Installation
 The tODE Client can be installed on Linux, Mac OS X, or Windows.
 See the [tODE client installation instructions][17] for details. 
+
+---
+---
 
 ##GemStone/S Management Scripts
 
@@ -228,6 +234,9 @@ GsDevKitStoneInfo {
 }
 ```
 
+---
+---
+
 ##Development Kit Projects
 
 Here is a sampling of some of the open source projects that have been ported to GemStone/S:
@@ -259,6 +268,9 @@ project load Seaside3
 ```
 
 For more information about installing optional projects and a complete list of optional projects, visit the [GsDevKit Projects][27] page.
+
+---
+---
 
 [1]: https://help.github.com/articles/fork-a-repo
 [2]: https://github.com/GsDevKit/gsDevKitHome
