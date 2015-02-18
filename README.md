@@ -5,7 +5,7 @@ The Development Kit for GemStone/S features:
 * [Simplified GemStone/S installation](#development-kit-server-installation).
 * [Remote tODE Client installation](#remote-tode-client-installation).
 * [Scripts for controlling multiple stones](#gemstones-management-scripts).
-* [tODE development environment](#tode-the-object-centric-development-environment).
+* [tODE development environment][62]
 * [Library of projects ported to GemStone/S](#development-kit-projects).
 
 ##Development Kit Server Installation
@@ -196,10 +196,6 @@ GsDevKitStoneInfo {
 	#netldiName : nil
 }
 ```
-
-##tODE: the Object-centric Development Environment
-
-For further information on working with tODE see [Getting Started with tODE][62].
 
 ##Development Kit Projects
 
