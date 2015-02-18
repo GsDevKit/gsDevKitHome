@@ -159,7 +159,7 @@ Here is a sampling of some of the open source projects that have been ported to 
 |[ZincHTTPComponents][25]| [An open-source Smalltalk framework to deal with the HTTP networking protocol][26] |
 
 These projects and others are registered by default in the [$GS_HOME/tode/sys/default/projects directory][74].
-If you know of a project that has been ported to GemStone that is not included in the *default projects directory*, please submit a [pull request][75] with a [project entry][76] for the project.
+If you know of a project that has been ported to GemStone that is not included in the [*default projects directory*][74], please submit a [pull request][75] with a [project entry][76] for the project.
 
 ----
 
