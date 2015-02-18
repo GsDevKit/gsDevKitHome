@@ -9,91 +9,111 @@ The Development Kit for GemStone/S features:
 * [Library of projects ported to GemStone/S](#development-kit-projects).
 
 ##Development Kit Server Installation
+1. [Operating System Prerequisites](#operating-system-prerequisites)
+2. [Clone gsDevKitHome](#clone-gsdevkithome)
+3. [Define gsDevKitHome Environment Variables](#define-gsdevkithome-environment-variables)
+4. [Install a GemStone stone](#install-a-gemstone-stone)
+5. [Open a tODE client image](#open-a-tode-client-image)
+   1. [Open a tODE shell](#open-a-tode-shell)
+   2. [Open a tODE project list](#open-a-tode=project-list)
+6. [Commit gsDevKitHome configuration changes to git](#commit-gsdevkithome-configuration-changes-to-git)
 
-0. **Do not use `sudo` when running any of the commands in this document, unless explicitly instructed to do so.**
+**NOTE:** *Do not use `sudo` when running any of the commands in this document, unless explicitly instructed to do so.*
 
-1. The Dev Kit server can be installed on Linux or Mac OS X.
-   The following packages are required for GsDevKit:
-   - 32 bit libraries - needed to run Pharo (headless)
-   - curl             - needed by FileTree
-   - git              - needed by GsDevKit and tODE
-   - PAM              - needed by GemStone server
-   - ssl              - needed by GemStone server
-   - unzip            - needed by FileTree
-   - wget             - needed by bin/installGemStone script
+###Operating System Prerequisites
+The Dev Kit server can be installed on Linux or Mac OS X.
+The following packages are required for GsDevKit:
+- 32 bit libraries - needed to run Pharo (headless)
+- curl             - needed by FileTree
+- git              - needed by GsDevKit and tODE
+- PAM              - needed by GemStone server
+- ssl              - needed by GemStone server
+- unzip            - needed by FileTree
+- wget             - needed by bin/installGemStone script
 
-   The following packages are optional:
-   - X11              - needed to run [VSD][58] and Pharo (on Linux) with X11 forwarding (`ssh -X`)
-   - ssh              - needed to run Pharo with X11 forwarding and ease of access to server
+The following packages are optional:
+- X11              - needed to run [VSD][58] and Pharo (on Linux) with X11 forwarding (`ssh -X`)
+- ssh              - needed to run Pharo with X11 forwarding and ease of access to server
  
-   If these packages are **NOT** already installed on your machine, then see the prerequisite installation guide for your platform:
-   - [GsDevKit prerequisites for Ubuntu 12.04][55]
-   - [GsDevKit prerequisites for Ubuntu 14.04][56]
-   - [GsDevKit prerequisites for OS X10.9][57]
+If these packages are **NOT** already installed on your machine, then see the prerequisite installation guide for your platform:
+- [GsDevKit prerequisites for Ubuntu 12.04][55]
+- [GsDevKit prerequisites for Ubuntu 14.04][56]
+- [GsDevKit prerequisites for OS X10.9][57]
    
+###Clone gsDevKitHome
+Clone the [gsDevKitHome project][2] to your GemStone development server and create a unique branch to keep any changes you make for your project isolated from the Dev Kit master branch:
 
-2. Clone the [gsDevKitHome project][2] to your GemStone development server and create a unique branch to keep any changes you make for your project isolated from the Dev Kit master branch:
+```Shell
+git clone https://github.com/GsDevKit/gsDevKitHome.git
+cd gsDevKitHome
+git checkout -b  <your project branch name>
+```
 
-   ```Shell
-   git clone https://github.com/GsDevKit/gsDevKitHome.git
-   cd gsDevKitHome
-   git checkout -b  <your project branch name>
-   ```
+*Note, if you already have a [GitHub][15] account, you should consider [forking the Dev Kit project][3] first, as that will make sharing corrections you find much easier.*
 
-   *Note, if you already have a [GitHub][15] account, you should consider [forking the Dev Kit project][3] first, as that will make sharing corrections you find much easier.*
+###Define gsDevKitHome Environment Variables
+Define the `$GS_HOME` environment variable and add `$GS_HOME/bin` to your `$PATH`:
 
-3. Define the `$GS_HOME` environment variable and add `$GS_HOME/bin` to your `$PATH`:
+```Shell
+cd gsDevKitHome
+export GS_HOME=`pwd`
+export PATH=$GS_HOME/bin:$PATH
+```
 
-   ```Shell
-   cd gsDevKitHome
-   export GS_HOME=`pwd`
-   export PATH=$GS_HOME/bin:$PATH
-   ```
+It's a good idea to define `$GS_HOME` and `$PATH` in your `.bashrc` file.
 
-   It's a good idea to define `$GS_HOME` and `$PATH` in your `.bashrc` file.
+###Install a GemStone stone
+The `[$GS_HOME/bin/installServer` script: 
+- installs GemStone and Pharo, if not already installed, using the [$GS_HOME/bin/installGemStone][34] script.
+- builds a tODE client image, using the [$GS_HOME/bin/createTodeImage][59] script.
+- creates a stone, using the [$GS_HOME/bin/createStone][60] script.
+- starts the stone, using the [$GS_HOME/bin/startStone][31] script.
+- starts the netldi, using the [$GS_HOME/bin/startNetldi][32] script.
+- starts the statmonitor, using the [$GS_HOME/bin/startStatmonitor][61] script.
+- installs tODE in the stone, using the [$GS_HOME/bin/installTodeStone][46] script.
+- launches the Pharo tODE client, using the [$GS_HOME/bin/todeClient][35] script. 
 
-4. The `[$GS_HOME/bin/installServer` script: 
-   - installs GemStone and Pharo, if not already installed, using the [$GS_HOME/bin/installGemStone][34] script.
-   - builds a tODE client image, using the [$GS_HOME/bin/createTodeImage][59] script.
-   - creates a stone, using the [$GS_HOME/bin/createStone][60] script.
-   - starts the stone, using the [$GS_HOME/bin/startStone][31] script.
-   - starts the netldi, using the [$GS_HOME/bin/startNetldi][32] script.
-   - starts the statmonitor, using the [$GS_HOME/bin/startStatmonitor][61] script.
-   - installs tODE in the stone, using the [$GS_HOME/bin/installTodeStone][46] script.
-   - launches the Pharo tODE client, using the [$GS_HOME/bin/todeClient][35] script. 
+The following creates a new stone named `devKit` based on [version 3.2.4 of GemStone/S][16]:
 
-   The following creates a new stone named `devKit` based on [version 3.2.4 of GemStone/S][16]:
+```Shell
+installServer devKit 3.2.4
+```
+*Note that the script will prompt you for your password because it uses sudo to setup up your server for running GemStone*.
 
-   ```Shell
-   installServer devKit 3.2.4
-   ```
-   *Note that the script will prompt you for your password because it uses sudo to setup up your server for running GemStone*.
-  
-4. When the `installServer` script finishes, the tode client image is opened:
+###Open a tODE client image
+When the `installServer` script finishes, the tode client image is opened:
 
-   ![tode image][63]
+![tode image][63]
 
-   You should be able to validate your installation by:
+To manually open a tode client image, use the [$GS_HOME/bin/todeClient][35] script:
 
-   - Opening a tODE shell on your stone: 
+```
+todeClient
+```
+
+####Open a tODE shell
+Once a tode client image is open, use the following menu to open a tode shell:  
    
-      ![open tode shell][18]
+![open tode shell][18]
 
-     *If an error occurs while attempting to open the tODE shell, see the [tODE Test Login](#tode-test-login) section of the [Getting Started with tODE][62] document for getting help diagnosing the problem.*
+*If an error occurs while attempting to open the tODE shell, see the [tODE Test Login][64] section of the [Getting Started with tODE][62] document for getting help diagnosing the problem.*
 
-   - Opening a `project list`:
+####Open a tODE project list
+
+Open a tODE a *Project List Browser* using the `project list` tODE command:
 
       ![project list][19]
 
-   - See the [Getting Started with tODE][62] document for more information on using tODE.
-  
-7. Once you have verified that the session description is correct, commit the changes that you've made.
+For additional information on using tODE see the [Getting Started with tODE][62] document.
+
+###Commit gsDevKitHome configuration changes to git
+commit the changes that you've made.
 (If you've forked the GitHub project, you should push the changes to your GitHub repository as well):
 
    ```Shell
-   git status                          # see what changes have been made
+   git status                          # see the changes that have been made
    git add --all                       # stage the changed files
-   git commit -m"initial installation" # commit changes
+   git commit -m"initial installation" # commit the changes
    ```
 
 ## Remote tODE Client Installation
@@ -276,4 +296,4 @@ For more information about installing optional projects and a complete list of o
 [61]: bin/startStatmonitor
 [62]: https://github.com/dalehenrich/tode/blob/master/docs/GettingStarted.md#getting-started-with-tode
 [63]: docs/images/todeClient.png
-[65]: https://github.com/dalehenrich/tode/blob/master/docs/GettingStarted.md#tode-test-login
+[64]: https://github.com/dalehenrich/tode/blob/master/docs/GettingStarted.md#tode-test-login
