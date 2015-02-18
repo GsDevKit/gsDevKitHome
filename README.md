@@ -10,11 +10,13 @@ The Development Kit for GemStone/S features:
 
 ##Development Kit Server Installation
 
+0. **Do not use `sudo` when running any of the commands in this document, unless explicitly instructed to do so.**
+
 1. The Dev Kit server can be installed on Linux or Mac OS X.
    The following packages are required for GsDevKit:
    - 32 bit libraries - needed to run Pharo (headless)
    - curl             - needed by FileTree
-   - git
+   - git              - needed by GsDevKit and tODE
    - PAM              - needed by GemStone server
    - ssl              - needed by GemStone server
    - unzip            - needed by FileTree
@@ -24,7 +26,7 @@ The Development Kit for GemStone/S features:
    - X11              - needed to run [VSD][58] and Pharo (on Linux) with X11 forwarding (`ssh -X`)
    - ssh              - needed to run Pharo with X11 forwarding and ease of access to server
  
-   If these packages are not already installed on your machine, then see the prerequisite installation guide for your platform:
+   If these packages are **NOT** already installed on your machine, then see the prerequisite installation guide for your platform:
    - [GsDevKit prerequisites for Ubuntu 12.04][55]
    - [GsDevKit prerequisites for Ubuntu 14.04][56]
    - [GsDevKit prerequisites for OS X10.9][57]
@@ -38,7 +40,7 @@ The Development Kit for GemStone/S features:
    git checkout -b  <your project branch name>
    ```
 
-   *Note: If you already have a [GitHub][15] account, you should consider [forking the Dev Kit project][3] first, as that will make sharing corrections you find much easier.*
+   *Note, if you already have a [GitHub][15] account, you should consider [forking the Dev Kit project][3] first, as that will make sharing corrections you find much easier.*
 
 3. Define the `$GS_HOME` environment variable and add `$GS_HOME/bin` to your `$PATH`:
 
@@ -49,15 +51,25 @@ The Development Kit for GemStone/S features:
    ```
 
    It's a good idea to define `$GS_HOME` and `$PATH` in your `.bashrc` file.
-4. Install GemStone/S and Pharo, build the tODE client image, create a stone, start the stone, start the netldi, start the stamonitors, install tODE in stone and launch the tODE client. 
-   The following creates a new stone named `tode` based on [version 3.2.1 of GemStone/S][16]:
+
+4. The `[$GS_HOME/bin/installServer` script: 
+   1. installs GemStone and Pharo, if not already installed, using the [$GS_HOME/bin/installGemStone][34] script.
+   2. builds a tODE client image, using the [$GS_HOME/bin/createTodeImage][59] script.
+   3. creates a stone, using the [$GS_HOME/bin/createStone][60] script.
+   4. starts the stone, using the [$GS_HOME/bin/startStone][31] script.
+   5. starts the netldi, using the [$GS_HOME/bin/startNetldi][32] script.
+   6. starts the statmonitor, using the [$GS_HOME/bin/startStatmonitor][61] script.
+   7. installs tODE in the stone, using the [$GS_HOME/bin/installTodeStone][46] script.
+   8. launches the Pharo tODE client, using the [$GS_HOME/bin/todeClient][35] script. 
+
+   The following creates a new stone named `devKit` based on [version 3.2.4 of GemStone/S][16]:
 
    ```Shell
    installServer devKit 3.2.4
    ```
    *Note that the script will prompt you for your password because it uses sudo to setup up your server for running GemStone*.
   
-4. When the above script finishes, the tode client image is opened and you should be able to validate your session description by:
+4. When the `installServer` script finishes, the tode client image is opened and you should be able to validate your session description by:
 
    1. Opening a tODE shell on your stone: 
    
@@ -421,7 +433,7 @@ For more information about installing optional projects and a complete list of o
 [13]: tode
 [14]: pharo
 [15]: https://github.com
-[16]: http://gemtalksystems.com/index.php/news/version3-2/
+[16]: http://gemtalksystems.com/products/gs64/versions32x/
 [17]: docs/clientInstallation.md#tode-client-installation
 [18]: docs/images/openTodeShell.png
 [19]: docs/images/projectList.png
@@ -464,3 +476,6 @@ For more information about installing optional projects and a complete list of o
 [56]: docs/osPrereqs/ubuntu14.04.md
 [57]: docs/osPrereqs/OSX10.9.md
 [58]: http://gemtalksystems.com/products/vsd/
+[59]: bin/createTodeImage
+[60]: bin/createStone
+[61]: bin/startStatmonitor
