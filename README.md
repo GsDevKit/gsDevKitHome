@@ -133,8 +133,18 @@ commit the changes that you've made.
 
 Here is a sampling of some of the open source projects that have been ported to GemStone/S:
 
+```
+		gsApplicationTools.ston	metacello.ston		sixx.ston
+		gsDevKitHome.ston	neojson.ston		tode.ston
+		magritte.ston		seaside.ston		zinc.ston
+		mapless.ston		serviceVM.ston
+```
+
 | Project | Description|
 |---------|------------|
+| Cryptography|[Squeak Cryptography Project][66]|
+| Flow| [A living full-stack framework for the web][67]|
+| Grease| [The Grease Portability Library][68]|
 | Magritte| [Dynamic Meta-Description Framework][21]   |
 | Pier|[Content Management System][22] |
 |[Seaside31][23]| [Dynamic Web Development Framework][24] |
@@ -320,3 +330,7 @@ GsDevKitStoneInfo {
 [62]: https://github.com/dalehenrich/tode/blob/master/docs/GettingStarted.md#getting-started-with-tode
 [63]: docs/images/todeClient.png
 [64]: https://github.com/dalehenrich/tode/blob/master/docs/GettingStarted.md#tode-test-login
+[65]: https://github.com/dalehenrich/tode/blob/master/docs/releaseNotes/releaseNotes0.0.3.md#project-loading-with-tode
+[66]: http://www.squeaksource.com/Cryptography.html
+[67]: https://github.com/flow-stack/flow#flow
+[68]: https://github.com/GsDevKit/Grease#the-grease-portability-library--
