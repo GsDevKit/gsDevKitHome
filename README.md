@@ -9,10 +9,10 @@ The Development Kit for GemStone/S features:
   - [Install a GemStone stone](#install-a-gemstone-stone)
   - [Open a tODE client image](#open-a-tode-client-image)
   - [Commit gsDevKitHome configuration changes to git](#commit-gsdevkithome-configuration-changes-to-git)
-* [Remote tODE Client installation](#remote-tode-client-installation).
-* [Scripts for controlling multiple stones](#gemstones-management-scripts).
 * [tODE development environment][62]
-* [Library of projects ported to GemStone/S](#development-kit-projects).
+* [GsDevKit projects](#gsdevkit-projects).
+* [Remote tODE Client installation](#remote-tode-client-installation).
+* [Scripts for controlling stones](#gemstones-management-scripts).
 
 ---
 ---
@@ -129,6 +129,41 @@ commit the changes that you've made.
 ---
 ---
 
+##GsDevKit Projects
+
+Here is a sampling of some of the open source projects that have been ported to GemStone/S:
+
+| Project | Description|
+|---------|------------|
+| Magritte| [Dynamic Meta-Description Framework][21]   |
+| Pier|[Content Management System][22] |
+|[Seaside31][23]| [Dynamic Web Development Framework][24] |
+|[ZincHTTPComponents][25]| [Web Server/Client][26] |
+
+By registering projects with tODE:
+
+```Shell
+$GS_HOME/projects/zinc/createProjectEntry devKit
+$GS_HOME/projects/seaside31/createProjectEntry devKit Examples Zinc FastCGI
+```
+
+you can ensure that the projects will be loaded exactly the same way whether you use a shell script:
+
+```Shell
+$GS_HOME/projects/seaside31/loadProject devKit
+```
+
+or a tODE command:
+
+```Shell
+project load Seaside3
+```
+
+For more information about installing optional projects and a complete list of optional projects, visit the [GsDevKit Projects][27] page.
+
+---
+---
+
 ## Remote tODE Client Installation
 The tODE Client can be installed on Linux, Mac OS X, or Windows.
 See the [tODE client installation instructions][17] for details. 
@@ -240,40 +275,6 @@ GsDevKitStoneInfo {
 ---
 ---
 
-##Development Kit Projects
-
-Here is a sampling of some of the open source projects that have been ported to GemStone/S:
-
-| Project | Description|
-|---------|------------|
-| Magritte| [Dynamic Meta-Description Framework][21]   |
-| Pier|[Content Management System][22] |
-|[Seaside31][23]| [Dynamic Web Development Framework][24] |
-|[ZincHTTPComponents][25]| [Web Server/Client][26] |
-
-By registering projects with tODE:
-
-```Shell
-$GS_HOME/projects/zinc/createProjectEntry devKit
-$GS_HOME/projects/seaside31/createProjectEntry devKit Examples Zinc FastCGI
-```
-
-you can ensure that the projects will be loaded exactly the same way whether you use a shell script:
-
-```Shell
-$GS_HOME/projects/seaside31/loadProject devKit
-```
-
-or a tODE command:
-
-```Shell
-project load Seaside3
-```
-
-For more information about installing optional projects and a complete list of optional projects, visit the [GsDevKit Projects][27] page.
-
----
----
 
 [1]: https://help.github.com/articles/fork-a-repo
 [2]: https://github.com/GsDevKit/gsDevKitHome
