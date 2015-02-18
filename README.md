@@ -14,6 +14,9 @@ The Development Kit for GemStone/S features:
 * [tODE development environment][62]
 * [Library of projects ported to GemStone/S](#development-kit-projects).
 
+---
+---
+
 ##Development Kit Server Installation
 
 1. [Operating System Prerequisites](#operating-system-prerequisites)
