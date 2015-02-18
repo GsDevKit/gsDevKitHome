@@ -112,7 +112,7 @@ Once a tode client image is open, use the following menu to open a tode shell:
 
 Open a tODE a *Project List Browser* using the `project list` tODE command:
 
-      ![project list][19]
+![project list][19]
 
 For additional information on using tODE see the [Getting Started with tODE][62] document.
 
