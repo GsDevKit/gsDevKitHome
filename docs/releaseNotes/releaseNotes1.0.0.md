@@ -43,7 +43,7 @@ To support the new `/sys` node structure in tODE, a `$GS_HOME/tode/sys` director
           +-descriptions\
           +-scripts\
           +-windowLayout\
-         +-home\
+        +-home\
         +-projects\
         +-server\
           +-scripts\

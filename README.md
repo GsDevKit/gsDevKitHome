@@ -55,10 +55,8 @@ The Development Kit for GemStone/S features:
    ```Shell
    installServer devKit 3.2.4
    ```
-
    *Note that the script will prompt you for your password because it uses sudo to setup up your server for running GemStone*.
   
-
 4. When the above script finishes, the tode client image is opened and you should be able to validate your session description by:
 
    1. Opening a tODE shell on your stone: 
