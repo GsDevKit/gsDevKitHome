@@ -3,19 +3,28 @@
 The Development Kit for GemStone/S features:
 
 * [Simplified GemStone/S installation](#development-kit-server-installation).
+  1. [Operating System Prerequisites](#operating-system-prerequisites)
+  2. [Clone gsDevKitHome](#clone-gsdevkithome)
+  3. [Define gsDevKitHome Environment Variables](#define-gsdevkithome-environment-variables)
+  4. [Install a GemStone stone](#install-a-gemstone-stone)
+  5. [Open a tODE client image](#open-a-tode-client-image)
+     - [Open a tODE shell](#open-a-tode-shell)
+     - [Open a tODE project list](#open-a-tode=project-list)
+  6. [Commit gsDevKitHome configuration changes to git](#commit-gsdevkithome-configuration-changes-to-git)
 * [Remote tODE Client installation](#remote-tode-client-installation).
 * [Scripts for controlling multiple stones](#gemstones-management-scripts).
 * [tODE development environment][62]
 * [Library of projects ported to GemStone/S](#development-kit-projects).
 
 ##Development Kit Server Installation
+
 1. [Operating System Prerequisites](#operating-system-prerequisites)
 2. [Clone gsDevKitHome](#clone-gsdevkithome)
 3. [Define gsDevKitHome Environment Variables](#define-gsdevkithome-environment-variables)
 4. [Install a GemStone stone](#install-a-gemstone-stone)
 5. [Open a tODE client image](#open-a-tode-client-image)
-   1. [Open a tODE shell](#open-a-tode-shell)
-   2. [Open a tODE project list](#open-a-tode=project-list)
+   - [Open a tODE shell](#open-a-tode-shell)
+   - [Open a tODE project list](#open-a-tode=project-list)
 6. [Commit gsDevKitHome configuration changes to git](#commit-gsdevkithome-configuration-changes-to-git)
 
 **NOTE:** *Do not use `sudo` when running any of the commands in this document, unless explicitly instructed to do so.*
