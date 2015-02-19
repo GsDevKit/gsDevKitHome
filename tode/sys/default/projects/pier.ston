@@ -1,8 +1,0 @@
-TDObjectGatewayNode{#name:'pier',#contents:'^ TDProjectSpecEntryDefinition new
-    configuration: \'Pier3AddOns\'
-      version: #\'3.0.3\'
-      repository: \'http://www.squeaksource.com/MetacelloRepository\'
-      loads: #(\'default\');
-    status: #(#\'inactive\');
-    locked: false;
-    yourself'}

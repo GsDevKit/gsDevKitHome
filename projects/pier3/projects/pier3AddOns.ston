@@ -1,0 +1,8 @@
+TDObjectGatewayNode{#name:'pier3AddOns',#contents:'^ TDProjectSpecEntryDefinition new
+    configuration: \'Pier3AddOns\'
+      version: #\'release3.0\'
+      repository: \'http://smalltalkhub.com/mc/Pier/Pier3Addons/main\'
+      loads: #(\'default\');
+    status: #(#\'inactive\');
+    locked: true;
+    yourself'}

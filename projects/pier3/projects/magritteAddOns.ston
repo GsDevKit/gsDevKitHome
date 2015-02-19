@@ -1,0 +1,8 @@
+TDObjectGatewayNode{#name:'magritteAddOns',#contents:'^ TDProjectSpecEntryDefinition new
+    configuration: \'Magritte3AddOns\'
+      version: #\'release3.0\'
+      repository: \'http://smalltalkhub.com/mc/Magritte/Magritte3Addons/main\'
+      loads: #(\'Magritte-Json\');
+    status: #(#\'inactive\');
+    locked: true;
+    yourself'}
