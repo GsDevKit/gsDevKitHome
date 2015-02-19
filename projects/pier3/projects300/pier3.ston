@@ -1,7 +1,7 @@
 TDObjectGatewayNode{#name:'pier3',#contents:'^ TDProjectSpecEntryDefinition new
     configuration: \'Pier3\'
-      version: #\'release3.0\'
-      repository: \'http://smalltalkhub.com/mc/Pier/Pier3/main\'
+      version: #\'stable\'
+      repository: \'http://www.squeaksource.com/MetacelloRepository\'
       loads: #(\'default\');
     status: #(#\'inactive\');
     locked: true;
