@@ -3,7 +3,7 @@ TDObjectGatewayNode{#name:'seaside',#contents:'^ TDProjectSpecEntryDefinition ne
       version: #\'release3.0\'
       repository:
         \'http://smalltalkhub.com/mc/Seaside/MetacelloConfigurations/main\'
-      loads: #(\'Development\' \'Zinc\' \'Examples\' \'Tests\');
+      loads: #(\'Development\' \'Core\');
     status: #(#\'inactive\');
     locked: true;
     yourself'}
