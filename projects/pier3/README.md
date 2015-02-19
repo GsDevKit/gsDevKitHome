@@ -2,13 +2,15 @@
 
 **Work in Progress**
 
-Pier 3.0.1 is the latest version of Pier that is know to load into GemStone.
+Pier 3.0.0 is the latest version of Pier that is know to load into GemStone.
+Pier 3.0.0 uses Seaside 3.0.
 I've tested the following load steps in GemStone 3.1.0.6, but I expect them to work in later versions of GemStone.
+
 The following tODE shell commands prepares tODE for loading Pier3.0.0 into your stone.
 
 ```
 mount @/sys/stone/dirs/gsDevKitHome/projects/pier3 /home pier
-cd /home/pier/projects
+cd /home/pier/projects300
 cp magritte /sys/stone/projects
 cp magritteAddOns /sys/stone/projects
 cp pier3 /sys/stone/projects
