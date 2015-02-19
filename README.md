@@ -133,29 +133,24 @@ commit the changes that you've made.
 
 Here is a sampling of some of the open source projects that have been ported to GemStone/S:
 
-```
-					pier.ston???
-                                        ston.ston???
-				
-				
-```
-
 | Project | Description|
 |---------|------------|
-| Cryptography|[Squeak Cryptography Project][66]|
-| Flow| [A living full-stack framework for the web][67]|
-| Grease| [The Grease Portability Library][68]|
-| gsApplicationTools| [Convenient setup of Gemstone server applications][69]|
-| gsDevKitHome| [Open Source Development Kit for GemStone/S 64 Bit][70]|
-| Magritte| [Dynamic Meta-Description Framework][21]   |
-| Mapless| [Obscenely simple persistence for Smalltalk][71]|
-| Metacello| [Package Management for Smalltalk][72]|
-| NeoJSON | [An elegant and efficient standalone Smalltalk framework to read and write JSON ][73]|
+| [Cryptography][81]|[Squeak Cryptography Project][66]|
+| FileTree||
+| [Flow][82]| [A living full-stack framework for the web][67]|
+| [Grease][83]| [The Grease Portability Library][68]|
+| [gsApplicationTools][84]| [Convenient setup of Gemstone server applications][69]|
+| [gsDevKitHome][85]| [Open Source Development Kit for GemStone/S 64 Bit][70]|
+| Magritte???| [Dynamic Meta-Description Framework][21]   |
+| [Maples][86]| [Obscenely simple persistence for Smalltalk][71]|
+| [Metacello][87]| [Package Management for Smalltalk][72]|
+| [NeoJSON][88] | [An elegant and efficient standalone Smalltalk framework to read and write JSON ][73]|
 |[Pier][80]|[A Content Management System][22] |
+|RB||
 |[Seaside31][23]| [A Dynamic Web Development Framework][24] |
-| SIXX| [Store and load Smalltalk objects in a portable, dialect-independent XML format][78]|
-| STON| [A lightweight text-based, human-readable data interchange format for Smalltalk][77]|
-| tODE| [the Object-centric Development Environment][79]|
+| [SIXX][89]| [Store and load Smalltalk objects in a portable, dialect-independent XML format][78]|
+| [STON][90]| [A lightweight text-based, human-readable data interchange format for Smalltalk][77]|
+| [tODE][91]| [the Object-centric Development Environment][79]|
 |[ZincHTTPComponents][25]| [An open-source Smalltalk framework to deal with the HTTP networking protocol][26] |
 
 These projects and others are registered by default in the [$GS_HOME/tode/sys/default/projects directory][74].
@@ -357,3 +352,14 @@ GsDevKitStoneInfo {
 [78]: https://github.com/glassdb/SIXX#sixx-
 [79]: https://github.com/dalehenrich/tode#tode-the-object-centric-development-environment-
 [80]: projects/pier3
+[81]: tode/sys/default/projects/crypto.ston
+[82]: tode/sys/default/projects/flow.ston
+[83]: tode/sys/default/projects/grease.ston
+[84]: tode/sys/default/projects/gsApplicationTools.ston
+[85]: tode/sys/default/projects/gsDevKitHome.ston
+[86]: tode/sys/default/projects/mapless.ston
+[87]: tode/sys/default/projects/metacello.ston
+[88]: tode/sys/default/projects/neojson.ston
+[89]: tode/sys/default/projects/sixx.ston
+[90]: tode/sys/default/projects/ston.ston
+[91]: tode/sys/default/projects/tode.ston
