@@ -17,7 +17,7 @@
 | Project | Description|
 |---------|------------|
 | Magritte| [Dynamic Meta-Description Framework][8]   |
-| Pier|[Content Management System][7] |
+| [Pier][9]|[Content Management System][7] |
 |[Seaside31][2]| [Dynamic Web Development Framework][4] |
 |[ZincHTTPComponents][3]| [Web Server/Client][5] |
 
@@ -29,4 +29,4 @@
 [6]: https://github.com/glassdb/glass
 [7]: http://www.piercms.com/
 [8]: https://code.google.com/p/magritte-metamodel/
-
+[9]: pier3

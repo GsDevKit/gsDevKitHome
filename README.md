@@ -151,10 +151,10 @@ Here is a sampling of some of the open source projects that have been ported to 
 | Mapless| [Obscenely simple persistence for Smalltalk][71]|
 | Metacello| [Package Management for Smalltalk][72]|
 | NeoJSON | [An elegant and efficient standalone Smalltalk framework to read and write JSON ][73]|
-| Pier ????|[A Content Management System][22] |
+|[Pier][80]|[A Content Management System][22] |
 |[Seaside31][23]| [A Dynamic Web Development Framework][24] |
 | SIXX| [Store and load Smalltalk objects in a portable, dialect-independent XML format][78]|
-| STON ???| [A lightweight text-based, human-readable data interchange format for Smalltalk][77]|
+| STON| [A lightweight text-based, human-readable data interchange format for Smalltalk][77]|
 | tODE| [the Object-centric Development Environment][79]|
 |[ZincHTTPComponents][25]| [An open-source Smalltalk framework to deal with the HTTP networking protocol][26] |
 
@@ -356,3 +356,4 @@ GsDevKitStoneInfo {
 [77]: https://github.com/GsDevKit/ston#ston---smalltalk-object-notation
 [78]: https://github.com/glassdb/SIXX#sixx-
 [79]: https://github.com/dalehenrich/tode#tode-the-object-centric-development-environment-
+[80]: projects/pier3

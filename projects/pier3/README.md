@@ -29,7 +29,6 @@ bu backup pier3.0.0.dbf
 project list
 ```
 
-Unfortunately, the zinc web server for GemStone, does not work with Seaside 3.0.
 To run a swazoo web server for Pier:
 
 ```
