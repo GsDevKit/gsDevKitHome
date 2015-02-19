@@ -29,9 +29,9 @@
 [7]: http://www.piercms.com/
 [8]: https://code.google.com/p/magritte-metamodel/
 [9]: pier3
-[10]: ../todesys/default/projects/grease.ston
-[11]: ../todesys/default/projects/metacello.ston
-[12]: ../todesys/default/projects/ston.ston
+[10]: ../tode/sys/default/projects/grease.ston
+[11]: ../tode/sys/default/projects/metacello.ston
+[12]: ../tode/sys/default/projects/ston.ston
 [68]: https://github.com/GsDevKit/Grease#the-grease-portability-library--
 [72]: https://github.com/dalehenrich/metacello-work/blob/master/docs/MetacelloUserGuide.md#metacello-user-guide
 [77]: https://github.com/GsDevKit/ston#ston---smalltalk-object-notation
