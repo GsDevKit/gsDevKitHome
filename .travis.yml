@@ -11,7 +11,7 @@ notifications:
 env:
 
   - GS_VERSION=3.1.0.6
-  - GS_VERSION=3.2.3
+  - GS_VERSION=3.2.4
 
 before_script:
   - export GS_HOME="$(pwd)"
@@ -73,18 +73,19 @@ script:
 
     # projects
     #   help
-  - bash $GS_HOME/projects/glass/createProjectEntry -h
-  - bash $GS_HOME/projects/zinc/createProjectEntry -h
-  - bash $GS_HOME/projects/seaside31/createProjectEntry -h
-  - bash $GS_HOME/projects/glass/loadProject -h
-  - bash $GS_HOME/projects/zinc/loadProject -h
-  - bash $GS_HOME/projects/seaside31/loadProject -h
-    #   create project entries
-  - bash $GS_HOME/projects/glass/createProjectEntry travis
-  - bash $GS_HOME/projects/zinc/createProjectEntry travis
-  - bash $GS_HOME/projects/seaside31/createProjectEntry travis Examples Zinc FastCGI
-    #   load project
-  - bash $GS_HOME/projects/seaside31/loadProject travis
+  - bash $GS_HOME/bin/tode todeIt travis_2 < $GS_HOME/projects/magritte3/tests/todeCmds
+#  - bash $GS_HOME/projects/glass/createProjectEntry -h
+#  - bash $GS_HOME/projects/zinc/createProjectEntry -h
+#  - bash $GS_HOME/projects/seaside31/createProjectEntry -h
+#  - bash $GS_HOME/projects/glass/loadProject -h
+#  - bash $GS_HOME/projects/zinc/loadProject -h
+#  - bash $GS_HOME/projects/seaside31/loadProject -h
+#    #   create project entries
+#  - bash $GS_HOME/projects/glass/createProjectEntry travis
+#  - bash $GS_HOME/projects/zinc/createProjectEntry travis
+#  - bash $GS_HOME/projects/seaside31/createProjectEntry travis Examples Zinc FastCGI
+#    #   load project
+#  - bash $GS_HOME/projects/seaside31/loadProject travis
 
     # defStone.env 
   - . $GS_HOME/bin/defStone.env travis
