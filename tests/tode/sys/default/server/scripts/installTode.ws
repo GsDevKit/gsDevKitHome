@@ -1,14 +1,14 @@
 "Fourth and final step in tODE installation process: install tODE."
 Transcript
   cr;
-  show: '-----Upgrading tODE to latest master branch version'.
+  show: '-----Upgrading tODE to latest dev branch version'.
 GsDeployer bulkMigrate: [ 
   Metacello new
     baseline: 'Tode';
-    repository: 'github://dalehenrich/tode:master/repository';
+    repository: 'github://dalehenrich/tode:dev/repository';
     get.
   Metacello new
     baseline: 'Tode';
-    repository: 'github://dalehenrich/tode:master/repository';
+    repository: 'github://dalehenrich/tode:dev/repository';
     onConflict: [ :ex | ex allow ];
     load: 'GemStone Dev' ].

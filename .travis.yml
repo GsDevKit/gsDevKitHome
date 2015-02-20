@@ -24,6 +24,9 @@ before_script:
   - sudo ln -s /usr/lib/i386-linux-gnu/libstdc++.so.6 /usr/lib/i386-linux-gnu/libstdc++.so
 
 script:
+    # Uncomment to use alternate versoin of tODE for tests
+  - bash cp $GS_HOME/tests/tode/sys/default/server/scripts/installTode.ws $GS_HOME/tode/sys/default/server/scripts
+
     # install server
   - bash installServer travis $GS_VERSION
 
@@ -56,8 +59,8 @@ script:
 
   - bash stones
 
-#  - bash backup travis travis.dbf            # nothing but trouble on travis
-#  - bash restoreFromBackup travis travis.dbf # nothing but trouble on travis
+  - bash backup travis travis.dbf
+  - bash restoreFromBackup travis travis.dbf
 
   - bash stopStone travis
   - bash updateTodeImage travis
@@ -72,33 +75,17 @@ script:
 
   - bash createStone travis_2 $GS_VERSION
   - bash stoneExtent travis_2
-  - bash startStone travis_2
-  - bash startNetldi travis_2
-  - bash installTodeStone travis_2
-
-  - bash stones
 
     # projects
+    #   flow
+  - bash $GS_HOME/bin/createTodeProjectStone flow $GS_VERSION Flow
+  - bash stopStone flow
+
     #   magritte3
-  - bash $GS_HOME/bin/tode todeIt travis_2 < $GS_HOME/projects/magritte3/tests/todeCmds
+  - bash $GS_HOME/projects/magritte3/bin/createMagritteStone magritte  $GS_VERSION
+  - bash stones
+  - bash stopStone magritte
 
-  - bash backup travis_3 tode.dbf
-  - bash restoreFromBackup travis_2 tode.dbf
-
-#  - bash $GS_HOME/projects/glass/createProjectEntry -h
-#  - bash $GS_HOME/projects/zinc/createProjectEntry -h
-#  - bash $GS_HOME/projects/seaside31/createProjectEntry -h
-#  - bash $GS_HOME/projects/glass/loadProject -h
-#  - bash $GS_HOME/projects/zinc/loadProject -h
-#  - bash $GS_HOME/projects/seaside31/loadProject -h
-#    #   create project entries
-#  - bash $GS_HOME/projects/glass/createProjectEntry travis
-#  - bash $GS_HOME/projects/zinc/createProjectEntry travis
-#  - bash $GS_HOME/projects/seaside31/createProjectEntry travis Examples Zinc FastCGI
-#    #   load project
-#  - bash $GS_HOME/projects/seaside31/loadProject travis
-
-    # defStone.env 
   - . $GS_HOME/bin/defStone.env travis
   - cd $GS_HOME/gemstone/stones/travis
   - . defStone.env

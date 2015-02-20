@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/bash -x
 #=========================================================================
 # Copyright (c) 2015 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
 #=========================================================================
@@ -13,7 +13,7 @@ OPTIONS
 
 EXAMPLES
   $(basename $0) -h
-  $(basename $0) kit 3.2.4 Flow
+  $(basename $0) magritte 3.2.4
 "
 HELP
 }
