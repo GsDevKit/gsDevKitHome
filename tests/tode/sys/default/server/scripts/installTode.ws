@@ -6,9 +6,7 @@ GsDeployer bulkMigrate: [
   Metacello new
     baseline: 'Tode';
     repository: 'github://dalehenrich/tode:dev/repository';
-    get.
-  Metacello new
-    baseline: 'Tode';
-    repository: 'github://dalehenrich/tode:dev/repository';
     onConflict: [ :ex | ex allow ];
-    load: 'GemStone Dev' ].
+    get;
+    load: 'GemStone Dev';
+    lock ]
