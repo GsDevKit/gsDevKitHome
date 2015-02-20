@@ -1,6 +1,6 @@
 versions
-version200: spec
-	<version: '2.0.0'>
+version201: spec
+	<version: '2.0.1'>
 	spec
 		for: #'pharo3.x'
 		do: [ 
@@ -19,6 +19,6 @@ version200: spec
 					with: [ 
 							spec
 								loads: 'GemStone Dev';
-								repository: 'github://dalehenrich/tode:master/repository' ];
+								repository: 'github://dalehenrich/tode:dev/repository' ];
 				postLoadDoIt: #post30Load;
 				yourself ]
