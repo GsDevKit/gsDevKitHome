@@ -72,13 +72,17 @@ script:
 
   - bash createStone travis_2 $GS_VERSION
   - bash stoneExtent travis_2
+  - bash startStone travis_2
   - bash startNetldi travis_2
 
   - bash stones
 
     # projects
-    #   help
+    #   magritte3
   - bash $GS_HOME/bin/tode todeIt travis_2 < $GS_HOME/projects/magritte3/tests/todeCmds
+  - bash stopStone travis_2
+  - bash stoneExtent travis_2
+
 #  - bash $GS_HOME/projects/glass/createProjectEntry -h
 #  - bash $GS_HOME/projects/zinc/createProjectEntry -h
 #  - bash $GS_HOME/projects/seaside31/createProjectEntry -h
