@@ -334,7 +334,6 @@ GsDevKitStoneInfo {
 [62]: https://github.com/dalehenrich/tode/blob/master/docs/GettingStarted.md#getting-started-with-tode
 [63]: docs/images/todeClient.png
 [64]: https://github.com/dalehenrich/tode/blob/master/docs/GettingStarted.md#tode-test-login
-[65]: https://github.com/dalehenrich/tode/blob/master/docs/releaseNotes/releaseNotes0.0.3.md#project-loading-with-tode
 [66]: http://www.squeaksource.com/Cryptography.html
 [67]: https://github.com/flow-stack/flow#flow
 [68]: https://github.com/GsDevKit/Grease#the-grease-portability-library--
@@ -345,7 +344,7 @@ GsDevKitStoneInfo {
 [73]: https://github.com/GsDevKit/NeoJSON#neojson-
 [74]: tode/sys/default/projects
 [75]: https://help.github.com/articles/using-pull-requests/
-[76]: https://github.com/dalehenrich/tode/blob/master/docs/releaseNotes/releaseNotes0.0.3.md#project-entry
+[76]: https://github.com/dalehenrich/tode/blob/master/docs/releaseNotes/releaseNotes0.1.0.md#project-entry
 [77]: https://github.com/GsDevKit/ston#ston---smalltalk-object-notation
 [78]: https://github.com/glassdb/SIXX#sixx-
 [79]: https://github.com/dalehenrich/tode#tode-the-object-centric-development-environment-
