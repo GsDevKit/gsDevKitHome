@@ -25,7 +25,8 @@ before_script:
 
 script:
     # Uncomment to use alternate versoin of tODE for tests
-  - bash cp $GS_HOME/tests/tode/sys/default/server/scripts/installTode.ws $GS_HOME/tode/sys/default/server/scripts
+  - cp $GS_HOME/tests/tode/sys/default/server/scripts/installTode.ws $GS_HOME/tode/sys/default/server/scripts
+  - cp $GS_HOME/tests/tode/sys/default/projects/tode.ston $GS_HOME/tode/sys/default/projects
 
     # install server
   - bash installServer travis $GS_VERSION
