@@ -49,17 +49,6 @@ echo "creating todeClient${postFix} image"
 
 $pharo/pharo $pharo/Pharo.image save todeClientTmp
 
-cat - > $pharo/todeLoad.st << EOF
-[ 
-  Metacello new
-    configuration: 'TodeClient';
-    version: #release;
-    repository: 'filetree://$GS_HOME/repository';
-    load ]
-      on: Warning
-      do: [:ex | Transcript cr; show: ex description ].
-EOF
-
 $pharo/pharo $pharo/todeClientTmp.image st --quit --save $pharo/todeLoad.st
 
 $pharo/pharo $pharo/todeClientTmp.image save todeClient${postFix}

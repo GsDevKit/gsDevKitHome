@@ -66,7 +66,7 @@ git checkout -b  <your project branch name>
 Define the `$GS_HOME` environment variable and add `$GS_HOME/bin` to your `$PATH`:
 
 ```Shell
-cd gsDevKitHome
+cd gsDevKitHome                # if you are not already located there
 export GS_HOME=`pwd`
 export PATH=$GS_HOME/bin:$PATH
 ```
@@ -74,7 +74,7 @@ export PATH=$GS_HOME/bin:$PATH
 It's a good idea to define `$GS_HOME` and `$PATH` in your `.bashrc` file.
 
 ###Install a GemStone stone
-The `[$GS_HOME/bin/installServer` script: 
+The `$GS_HOME/bin/installServer` script: 
 - installs GemStone and Pharo, if not already installed, using the [$GS_HOME/bin/installGemStone][34] script.
 - builds a tODE client image, using the [$GS_HOME/bin/createTodeImage][59] script.
 - creates a stone, using the [$GS_HOME/bin/createStone][60] script.
