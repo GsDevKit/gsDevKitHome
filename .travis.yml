@@ -25,12 +25,6 @@ before_script:
 
 script:
     # Uncomment to use alternate versoin of tODE for tests
-  - echo "X${GS_HOME}X"
-  - ls $GS_HOME/tests/tode/sys/default/server/scripts/installTode.ws 
-  - ls $GS_HOME/tode/sys/default/server/scripts
-  - ls $GS_HOME/tests/tode/sys/default/projects/tode.ston 
-  - ls $GS_HOME/tode/sys/default/projects
-
   - cp $GS_HOME/tests/tode/sys/default/server/scripts/installTode.ws $GS_HOME/tode/sys/default/server/scripts
   - cp $GS_HOME/tests/tode/sys/default/projects/tode.ston $GS_HOME/tode/sys/default/projects
 
