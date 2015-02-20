@@ -74,14 +74,16 @@ script:
   - bash stoneExtent travis_2
   - bash startStone travis_2
   - bash startNetldi travis_2
+  - bash installTodeStone travis_2
 
   - bash stones
 
     # projects
     #   magritte3
   - bash $GS_HOME/bin/tode todeIt travis_2 < $GS_HOME/projects/magritte3/tests/todeCmds
-  - bash stopStone travis_2
-  - bash stoneExtent travis_2
+
+  - bash backup travis_3 tode.dbf
+  - bash restoreFromBackup travis_2 tode.dbf
 
 #  - bash $GS_HOME/projects/glass/createProjectEntry -h
 #  - bash $GS_HOME/projects/zinc/createProjectEntry -h
