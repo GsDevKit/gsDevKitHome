@@ -93,7 +93,7 @@ installServer devKit 3.2.4
 
 ####GemStone *Free for Commercial Use* Licenses
 GemStone 3.2, ships with a *free for commercial use* [Starter license][93].
-You can upgrade to a *free for commerical use* [Limited license][93] via email. 
+You can upgrade to a *free for commercial use* [Limited license][93] via email. 
 
 For GemStone versions prior to 3.2, license details can be found in the `$GEMSTONE/seaside/etc/gemstone.key` file.
 
@@ -368,4 +368,4 @@ GsDevKitStoneInfo {
 [90]: tode/sys/default/projects/ston.ston
 [91]: tode/sys/default/projects/tode.ston
 [92]: projects/magritte3
-[93]: http://gemtalksystems.com/licensing/
+[93]: http://gemtalksystems.com/licensing/#CWELicensing
