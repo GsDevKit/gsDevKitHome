@@ -136,17 +136,15 @@ Here is a sampling of some of the open source projects that have been ported to 
 | Project | Description|
 |---------|------------|
 | [Cryptography][81]|[Squeak Cryptography Project][66]|
-| FileTree||
 | [Flow][82]| [A living full-stack framework for the web][67]|
 | [Grease][83]| [The Grease Portability Library][68]|
 | [gsApplicationTools][84]| [Convenient setup of Gemstone server applications][69]|
 | [gsDevKitHome][85]| [Open Source Development Kit for GemStone/S 64 Bit][70]|
-| Magritte???| [Dynamic Meta-Description Framework][21]   |
+| [Magritte][92]| [Dynamic Meta-Description Framework][21]   |
 | [Maples][86]| [Obscenely simple persistence for Smalltalk][71]|
 | [Metacello][87]| [Package Management for Smalltalk][72]|
 | [NeoJSON][88] | [An elegant and efficient standalone Smalltalk framework to read and write JSON ][73]|
 |[Pier][80]|[A Content Management System][22] |
-|RB||
 |[Seaside31][23]| [A Dynamic Web Development Framework][24] |
 | [SIXX][89]| [Store and load Smalltalk objects in a portable, dialect-independent XML format][78]|
 | [STON][90]| [A lightweight text-based, human-readable data interchange format for Smalltalk][77]|
@@ -363,3 +361,4 @@ GsDevKitStoneInfo {
 [89]: tode/sys/default/projects/sixx.ston
 [90]: tode/sys/default/projects/ston.ston
 [91]: tode/sys/default/projects/tode.ston
+[92]: projects/magritte3
