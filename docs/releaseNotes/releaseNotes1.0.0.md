@@ -5,7 +5,7 @@ Release notes for changes between [GsDevKitHome v0.0.1][4] and [GsDevKitHome v1.
 
 ##$GS_HOME/tode structural changes
 
-In [tODE v0.0.3][3], the directories: `client/`, `home/`, and `server/` under tODE:
+In [tODE v0.1.0][3], the directories: `client/`, `home/`, and `server/` under tODE:
 
 ```
 +-$GS_HOME\
@@ -73,14 +73,14 @@ The old directory structure maps to the new directory structure as follows:
 ###tode
 1. set tode root
 2. mount and setups scripts
-3. tODE 0.0.3 release notes
+3. tODE 0.1.0 release notes
 
 ## -branch arg to scripts
 
 Consider an argument that allows alternate brancht o be used when loading tODE ... perhaps script components can be found in the tODE checkout?
 
-[1]: https://github.com/dalehenrich/tode/tree/master/docs/releaseNotes0.0.3.md
-[3]: https://github.com/dalehenrich/tode/releases/tag/v0.0.3
+[1]: https://github.com/dalehenrich/tode/tree/master/docs/releaseNotes0.1.0.md
+[3]: https://github.com/dalehenrich/tode/releases/tag/v0.1.0
 [4]: https://github.com/GsDevKit/gsDevKitHome/releases/tag/v0.0.1
 [5]: https://github.com/GsDevKit/gsDevKitHome/releases/tag/v1.0.0
-[6]: https://github.com/dalehenrich/tode/tree/master/docs/releaseNotes0.0.3.md#sys-node-structure
+[6]: https://github.com/dalehenrich/tode/tree/master/docs/releaseNotes0.1.0.md#sys-node-structure
