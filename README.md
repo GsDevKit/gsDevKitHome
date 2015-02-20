@@ -23,6 +23,7 @@ The Development Kit for GemStone/S features:
 2. [Clone gsDevKitHome](#clone-gsdevkithome)
 3. [Define gsDevKitHome Environment Variables](#define-gsdevkithome-environment-variables)
 4. [Install a GemStone stone](#install-a-gemstone-stone)
+   - [GemStone *Free for Commercial Use* Licenses](#gemstone-free-for-commercial-use-licenses)
 5. [Open a tODE client image](#open-a-tode-client-image)
    - [Open a tODE shell](#open-a-tode-shell)
    - [Open a tODE project list](#open-a-tode=project-list)
@@ -89,6 +90,12 @@ The following creates a new stone named `devKit` based on [version 3.2.4 of GemS
 installServer devKit 3.2.4
 ```
 *Note that the script will prompt you for your password because it uses sudo to setup up your server for running GemStone*.
+
+####GemStone *Free for Commercial Use* Licenses
+GemStone 3.2, ships with a *free for commercial use* [Starter license][93].
+You can upgrade to a *free for commerical use* [Limited license][93] via email. 
+
+For GemStone versions prior to 3.2, license details can be found in the `$GEMSTONE/seaside/etc/gemstone.key` file.
 
 ###Open a tODE client image
 When the `installServer` script finishes, the tode client image is opened:
@@ -361,3 +368,4 @@ GsDevKitStoneInfo {
 [90]: tode/sys/default/projects/ston.ston
 [91]: tode/sys/default/projects/tode.ston
 [92]: projects/magritte3
+[93]: http://gemtalksystems.com/licensing/
