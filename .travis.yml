@@ -68,8 +68,13 @@ script:
   - bash $GS_HOME/bin/pharo --list
   - bash $GS_HOME/bin/tode --list
 
+  - bash stopStone travis
+
   - bash createStone travis_2 $GS_VERSION
   - bash stoneExtent travis_2
+  - bash startNetldi travis_2
+
+  - bash stones
 
     # projects
     #   help
