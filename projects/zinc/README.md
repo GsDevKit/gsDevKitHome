@@ -1,4 +1,7 @@
 # ZincHTTPComponents [![Build Status](https://travis-ci.org/GsDevKit/zinc.png?branch=gs_master)](https://travis-ci.org/gs_master/zinc)
+
+**Talk about webSockets and rest and gem servers.**
+
 The [GsDevKit Zinc project][3] is a fork of [Sven Van Caekenberghe's Zinc project][4]. 
 Currently only the *Core* and *Tests* packages have been ported to GsDevKit:
 * Zinc-HTTP
