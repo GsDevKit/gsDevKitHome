@@ -93,9 +93,9 @@ script:
   - bash stopStone flow
 
     #   magritte3
-  - bash $GS_HOME/projects/magritte3/bin/createMagritteStone magritte  $GS_VERSION
-  - bash stones
-  - bash stopStone magritte
+#  - bash $GS_HOME/projects/magritte3/bin/createMagritteStone magritte  $GS_VERSION
+#  - bash stones
+#  - bash stopStone magritte
 
   - . $GS_HOME/bin/defStone.env travis
   - cd $GS_HOME/gemstone/stones/travis
