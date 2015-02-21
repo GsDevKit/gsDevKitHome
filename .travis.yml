@@ -31,6 +31,7 @@ script:
 
     # install server
   - bash installServer travis $GS_VERSION
+  - cat $GS_HOME/gemstone/stones/travis/logs/travis.log
 
   - bash stones
 
