@@ -1,4 +1,2 @@
 #no backups on travis
 script --script=setUpSys
-commit
-cd 
