@@ -78,6 +78,9 @@ script:
 #  - bash createStone travis_2 $GS_VERSION
 #  - bash stoneExtent travis_2
 
+  - bash $GS_HOME/bin/installGemStone  $GS_VERSION
+  - bash $GS_HOME/bin/createTodeImage
+
     # projects
     #   flow
   - bash $GS_HOME/bin/createTodeProjectStone flow $GS_VERSION Flow
