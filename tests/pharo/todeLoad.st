@@ -1,5 +1,4 @@
 [ 
-  "Load OSProcess, so we can resolve $GS_HOME"
   | gs_home |
   gs_home := Smalltalk os environment at: 'GS_HOME'.
   Metacello new

@@ -80,6 +80,7 @@ script:
 
     # projects
     #   flow
+  - tode eval TDShell devKitRoot
   - bash createTodeStonea flow $GS_VERSION
   - ls $GS_HOME/tode/sys/stones/stones
   - ls $GS_HOME/tode/sys/stones/stones/flow
