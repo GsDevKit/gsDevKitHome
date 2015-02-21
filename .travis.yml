@@ -83,11 +83,17 @@ script:
 
     # projects
     #   flow
-  - bash $GS_HOME/bin/createTodeProjectStone flow $GS_VERSION Flow
+  - bash $GS_HOME/bin/createTodeStone flow $GS_VERSION
+  - ls $GS_HOME/tode/sys/stones/stones/flow
+  - bash $GS_HOME/bin/installTodeProjectStone flow $GS_VERSION
+#  - bash $GS_HOME/bin/createTodeProjectStone flow $GS_VERSION Flow
   - bash stopStone flow
 
     #   magritte3
-  - bash $GS_HOME/projects/magritte3/bin/createMagritteStone magritte  $GS_VERSION
+  - bash $GS_HOME/bin/createTodeStone magritte $GS_VERSION
+  - ls $GS_HOME/tode/sys/stones/stones/magritte
+  - bash $GS_HOME/projects/magritte3/bin/installMagritteStone magritte
+#  - bash $GS_HOME/projects/magritte3/bin/createMagritteStone magritte  $GS_VERSION
   - bash stones
   - bash stopStone magritte
 
