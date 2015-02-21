@@ -36,8 +36,6 @@ stoneName="$1"
 
 $GS_HOME/bin/tode todeIt $stoneName << EOF
 mount @/sys/stone/dirs/gsDevKitHome/projects/magritte3 /home magritte # mount the magritte directory in tODE
-ls /home/magritte
-ls /home/magritte/projects
 cp /home/magritte/projects/zinc /sys/stone/projects                   # Use  Zinc 2.4.3.1 and get gem servers
 project load Magritte3                                                # load Magritte3 project
 project load Seaside3                                                 # load Seaside3 adaptors

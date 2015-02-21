@@ -29,71 +29,65 @@ script:
   - cp $GS_HOME/tests/tode/sys/default/projects/tode.ston $GS_HOME/tode/sys/default/projects
   - cp $GS_HOME/tests/pharo/todeLoad.st $GS_HOME/pharo
 
-#    # install server
-#  - bash installServer travis $GS_VERSION
-#
-#  - bash stones
-#
-#    # help
-#  - bash backup -h
-#  - bash createStone -h
-#  - bash createTodeImage -h
-#  - bash createTodeStone -h
-#  - bash installClient -h
-#  - bash installGci -h
-#  - bash installGemStone -h
-#  - bash installPharo -h
-#  - bash installServer -h
-#  - bash installTodeStone -h
-#  - bash $GS_HOME/bin/pharo -h  # apparently '.' is in the PATH
-#  - bash restoreFromBackup -h
-#  - bash startNetldi -h
-#  - bash startStatmonitor -h
-#  - bash startStone -h
-#  - bash stoneExtent -h
-#  - bash stones -h
-#  - bash stopStone -h
-#  - bash $GS_HOME/bin/tode -h   # apparently '.' is in the PATH
-#  - bash todeClient -h
-#  - bash updateTodeImage -h
-#    # functions
-#  - bash createTodeImage -p _small
-#
-#  - bash stones
-#
-#  - bash backup travis travis.dbf
-#  - bash restoreFromBackup travis travis.dbf
-#
-#  - bash stopStone travis
-#  - bash updateTodeImage travis
-#  - bash startStone travis
-#
-#  - bash stones
-#
-#  - bash $GS_HOME/bin/pharo --list
-#  - bash $GS_HOME/bin/tode --list
-#
-#  - bash stopStone travis
-#
-#  - bash createStone travis_2 $GS_VERSION
-#  - bash stoneExtent travis_2
+    # install server
+  - bash installServer travis $GS_VERSION
+
+  - bash stones
+
+    # help
+  - bash backup -h
+  - bash createStone -h
+  - bash createTodeImage -h
+  - bash createTodeStone -h
+  - bash installClient -h
+  - bash installGci -h
+  - bash installGemStone -h
+  - bash installPharo -h
+  - bash installServer -h
+  - bash installTodeStone -h
+  - bash $GS_HOME/bin/pharo -h  # apparently '.' is in the PATH
+  - bash restoreFromBackup -h
+  - bash startNetldi -h
+  - bash startStatmonitor -h
+  - bash startStone -h
+  - bash stoneExtent -h
+  - bash stones -h
+  - bash stopStone -h
+  - bash $GS_HOME/bin/tode -h   # apparently '.' is in the PATH
+  - bash todeClient -h
+  - bash updateTodeImage -h
+    # functions
+  - bash createTodeImage -p _small
+
+  - bash stones
+
+  - bash backup travis travis.dbf
+  - bash restoreFromBackup travis travis.dbf
+
+  - bash stopStone travis
+  - bash updateTodeImage travis
+  - bash startStone travis
+
+  - bash stones
+
+  - bash $GS_HOME/bin/pharo --list
+  - bash $GS_HOME/bin/tode --list
+
+  - bash stopStone travis
+
+  - bash createStone travis_2 $GS_VERSION
+  - bash stoneExtent travis_2
 
   - bash $GS_HOME/bin/installGemStone  $GS_VERSION
   - bash $GS_HOME/bin/createTodeImage
 
     # projects
     #   flow
-  - bash $GS_HOME/bin/createTodeStone flow $GS_VERSION
-  - ls $GS_HOME/tode/sys/stones/stones/flow
-  - bash $GS_HOME/bin/installTodeProjectStone flow $GS_VERSION
-#  - bash $GS_HOME/bin/createTodeProjectStone flow $GS_VERSION Flow
+  - bash $GS_HOME/bin/createTodeProjectStone flow $GS_VERSION Flow
   - bash stopStone flow
 
     #   magritte3
-  - bash $GS_HOME/bin/createTodeStone magritte $GS_VERSION
-  - ls $GS_HOME/tode/sys/stones/stones/magritte
-  - bash $GS_HOME/projects/magritte3/bin/installMagritteStone magritte
-#  - bash $GS_HOME/projects/magritte3/bin/createMagritteStone magritte  $GS_VERSION
+  - bash $GS_HOME/projects/magritte3/bin/createMagritteStone magritte  $GS_VERSION
   - bash stones
   - bash stopStone magritte
 

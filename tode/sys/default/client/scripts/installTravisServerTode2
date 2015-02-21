@@ -1,4 +1,4 @@
 #no backups on travis
-mount --todeRoot home /
+script --script=setUpSys
 commit
 cd 
