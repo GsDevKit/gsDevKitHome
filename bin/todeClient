@@ -5,7 +5,7 @@
 
 usage() {
   cat <<HELP
-USAGE: $(basename $0) [-h] [-p <postfix]
+USAGE: $(basename $0) [-h] [-p <postfix>]
 Launch todeClient image.
 
 OPTIONS

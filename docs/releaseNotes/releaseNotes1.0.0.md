@@ -18,6 +18,7 @@
 3. [Issue #58: 0.0.1 to 1.0.0 todo items][9]
 4. [Issue #59: `/sys/stone/dirs` and `/sys/stone/repos` should be based on loaded projects only?][16]
 4. [Issue #60: what's up with the `logs` entries in the `/sys` structure?][15]
+5. [Issue #62: add waitstone option to startstone][20]
 
 ##Pull Requests
 1. [Pull Request #57: v1.0.0][17]
@@ -98,3 +99,5 @@ The old directory structure maps to the new directory structure as follows:
 [17]: https://github.com/GsDevKit/gsDevKitHome/pull/57
 [18]: https://github.com/GsDevKit/gsDevKitHome/pull/43
 [19]: https://github.com/dalehenrich/tode/tree/master/docs/releaseNotes0.1.0.md#construction-of-project-entry-and-script-sharing-structures
+[20]: https://github.com/GsDevKit/gsDevKitHome/pull/62
+

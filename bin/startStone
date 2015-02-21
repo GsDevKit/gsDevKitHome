@@ -5,25 +5,37 @@
 
 usage() {
   cat <<HELP
-USAGE: $(basename $0) [-h] <stone-name>
+USAGE: $(basename $0) [-h] [-w <waitstone-timeout>] <stone-name>
  Start the stone process for the given stone.
 
 OPTIONS
-  -h display help
+  -h 
+     display help
+  -w <waitstone-timeout>
+     if present wait up to <waitstone-timeout> minutes for the stone to 
+     properly start
 
 EXAMPLES
   $(basename $0) -h
   $(basename $0) kit
+  $(basename $0) -w 5 kit 
 
 HELP
 }
 
 set -e # exit on error
+waitTime=""
+while getopts "hw:" OPT ; do
+  case "$OPT" in
+    h) usage; exit 0 ;;
+    w) waitTime="${OPTARG}" ;;
+    *) usage; exit 1 ;;
+  esac
+done
+
 if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"; exit 1
 fi
-source ${GS_HOME}/bin/shFunctions
-getOpts_help $@
 
 if [ $# -ne 1 ]; then
   usage; exit 1
@@ -37,3 +49,11 @@ popd >& /dev/null
 
 # start the stone
 $stonePath/product/seaside/bin/startGemstone
+
+if [ "${waitTime}x" = "x" ] ; then
+  if [ "${GS_TRAVIS}x" != "x" ] ; then
+    $stonePath/product/bin/waitstone $GEMSTONE_NAME 2
+  fi
+else
+  $stonePath/product/bin/waitstone $GEMSTONE_NAME $waitTime
+fi
