@@ -6,7 +6,7 @@
     configuration: 'TodeClient';
     version: #dev;
     repository: 'filetree://', gs_home, '/repository';
-    yourself
+    yourself.
   metacello copy get. "cannot count on Pharo3.0 having latest Metacello loaded"
   metacello 
     onConflict: [:ex | ex disallow];
