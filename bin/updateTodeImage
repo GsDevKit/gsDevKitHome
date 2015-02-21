@@ -41,20 +41,6 @@ echo "Updating todeClient${postFix} image"
 pharo=$GS_HOME/pharo
 $pharo/pharo $pharo/todeClient${postFix}.image save todeClientTmp
 
-cat - > $pharo/todeLoad.st << EOF
-[ | metacello |
-  metacello := Metacello new
-    configuration: 'TodeClient';
-    version: #release;
-    repository: 'filetree://$GS_HOME/repository'.
-  metacello copy get.
-  metacello 
-    onConflict: [:ex | ex disallow];
-    load ]
-      on: Warning
-      do: [:ex | Transcript cr; show: ex description ].
-EOF
-
 $pharo/pharo $pharo/todeClientTmp.image st --quit --save $pharo/todeLoad.st
 
 $pharo/pharo $pharo/todeClientTmp.image save todeClient${postFix}
