@@ -28,12 +28,13 @@ script:
   - cp $GS_HOME/tests/tode/sys/default/server/scripts/installTode.ws $GS_HOME/tode/sys/default/server/scripts
   - cp $GS_HOME/tests/tode/sys/default/projects/tode.ston $GS_HOME/tode/sys/default/projects
   - cp $GS_HOME/tests/pharo/todeLoad.st $GS_HOME/pharo
+  - cp $GS_HOME/tests/projects/magritte3/bin/installMagritteCommands.tode $GS_HOME/projects/magritte3/bin
 
     # install server
   - bash installServer travis $GS_VERSION
-  - cat $GS_HOME/gemstone/stones/travis/logs/*.log
-  - ps -efw | grep topaz
-  - ps -efw | grep gem
+##  - cat $GS_HOME/gemstone/stones/travis/logs/*.log
+##  - ps -efw | grep topaz
+##  - ps -efw | grep gem
 
   - bash stones
 
@@ -83,14 +84,8 @@ script:
 
     # projects
     #   flow
-  - tode eval TDShell devKitRoot
-  - bash createTodeStone flow $GS_VERSION
-  - cat $GS_HOME/tode/sys/local/client/descriptions/*
-  - ls $GS_HOME/tode/sys/stones/stones
-  - ls $GS_HOME/tode/sys/stones/stones/flow
-  - $GS_HOME/bin/installTodeProjectStone flow Flow
-  - ps -efw | grep gem    # https://github.com/dalehenrich/tode/issues/156
-
+##  - bash createTodeStone flow $GS_VERSION
+##  - $GS_HOME/bin/installTodeProjectStone flow Flow
   - bash $GS_HOME/bin/createTodeProjectStone flow $GS_VERSION Flow
   - bash stopStone flow
 
