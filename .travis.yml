@@ -80,7 +80,12 @@ script:
 
     # projects
     #   flow
-  - bash $GS_HOME/bin/createTodeProjectStone flow $GS_VERSION Flow
+  - bash createTodeStonea flow $GS_VERSION
+  - ls $GS_HOME/tode/sys/stones/stones
+  - ls $GS_HOME/tode/sys/stones/stones/flow
+  - $GS_HOME/bin/installTodeProjectStone flow Flow
+
+#  - bash $GS_HOME/bin/createTodeProjectStone flow $GS_VERSION Flow
   - bash stopStone flow
 
     #   magritte3
