@@ -35,34 +35,34 @@ script:
   - bash stones
 
     # help
-  - bash backup -h
-  - bash createStone -h
-  - bash createTodeImage -h
-  - bash createTodeStone -h
-  - bash installClient -h
-  - bash installGci -h
-  - bash installGemStone -h
-  - bash installPharo -h
-  - bash installServer -h
-  - bash installTodeStone -h
-  - bash $GS_HOME/bin/pharo -h  # apparently '.' is in the PATH
-  - bash restoreFromBackup -h
-  - bash startNetldi -h
-  - bash startStatmonitor -h
-  - bash startStone -h
-  - bash stoneExtent -h
-  - bash stones -h
-  - bash stopStone -h
-  - bash $GS_HOME/bin/tode -h   # apparently '.' is in the PATH
-  - bash todeClient -h
-  - bash updateTodeImage -h
+#  - bash backup -h
+#  - bash createStone -h
+#  - bash createTodeImage -h
+#  - bash createTodeStone -h
+#  - bash installClient -h
+#  - bash installGci -h
+#  - bash installGemStone -h
+#  - bash installPharo -h
+#  - bash installServer -h
+#  - bash installTodeStone -h
+#  - bash $GS_HOME/bin/pharo -h  # apparently '.' is in the PATH
+#  - bash restoreFromBackup -h
+#  - bash startNetldi -h
+#  - bash startStatmonitor -h
+#  - bash startStone -h
+#  - bash stoneExtent -h
+#  - bash stones -h
+#  - bash stopStone -h
+#  - bash $GS_HOME/bin/tode -h   # apparently '.' is in the PATH
+#  - bash todeClient -h
+#  - bash updateTodeImage -h
     # functions
   - bash createTodeImage -p _small
 
   - bash stones
 
-  - bash backup travis travis.dbf
-  - bash restoreFromBackup travis travis.dbf
+#  - bash backup travis travis.dbf
+#  - bash restoreFromBackup travis travis.dbf
 
   - bash stopStone travis
   - bash updateTodeImage travis
@@ -70,8 +70,8 @@ script:
 
   - bash stones
 
-  - bash $GS_HOME/bin/pharo --list
-  - bash $GS_HOME/bin/tode --list
+#  - bash $GS_HOME/bin/pharo --list
+#  - bash $GS_HOME/bin/tode --list
 
   - bash stopStone travis
 
@@ -81,9 +81,9 @@ script:
     # projects
     #   flow
   - tode eval TDShell devKitRoot
-  - tode eval TDShell clientScriptsHome: 'travis'
+  - tode eval TDShell clientScriptsHome\: 'travis'
   - bash createTodeStone flow $GS_VERSION
-  - tode eval TDShell clientScriptsHome: 'flow'
+  - tode eval TDShell clientScriptsHome\: 'flow'
   - ls $GS_HOME/tode/sys/stones/stones
   - ls $GS_HOME/tode/sys/stones/stones/flow
   - $GS_HOME/bin/installTodeProjectStone flow Flow
