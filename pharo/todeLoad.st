@@ -9,7 +9,7 @@
   gs_home := (Smalltalk at: #OSProcess) thisOSProcess environmentAt: #'GS_HOME'.
   Metacello new
     configuration: 'TodeClient';
-    version: #dev;
+    version: #release;
     repository: 'filetree://', gs_home, '/repository';
     load ]
       on: Warning
