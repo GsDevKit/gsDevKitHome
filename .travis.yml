@@ -80,8 +80,10 @@ script:
 
     # projects
     #   flow
-  - tode eval TDShell devKitRoot
+  - bash tode eval TDShell devKitRoot
+  - bash tode eval TDShell clientScriptsHome: 'travis'
   - bash createTodeStone flow $GS_VERSION
+  - bash tode eval TDShell clientScriptsHome: 'flow'
   - ls $GS_HOME/tode/sys/stones/stones
   - ls $GS_HOME/tode/sys/stones/stones/flow
   - $GS_HOME/bin/installTodeProjectStone flow Flow
