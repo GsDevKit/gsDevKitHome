@@ -12,6 +12,10 @@ env:
 
   - GS_VERSION=3.1.0.6 TEST=Basic
   - GS_VERSION=3.2.4   TEST=Basic
+  - GS_VERSION=3.1.0.6 TEST=Projects
+  - GS_VERSION=3.2.4   TEST=Projects
+  - GS_VERSION=3.1.0.6 TEST=Magritte
+  - GS_VERSION=3.2.4   TEST=Magritte
 
 before_script:
   - export GS_HOME="$(pwd)"
