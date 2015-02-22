@@ -1,6 +1,0 @@
-# test the magritte load instructions
-mount @/sys/stone/dirs/gsDevKitHome/projects/magritte3 /home magritte # mount the magritte directory in tODE
-cp /home/magritte/projects/zinc /sys/stone/projects                   # Use  Zinc 2.4.3.1 and get gem servers
-project load Magritte3                                                # load Magritte3 project
-project load Seaside3                                                 # load Seaside3 adaptors
-

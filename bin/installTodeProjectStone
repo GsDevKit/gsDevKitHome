@@ -37,7 +37,5 @@ stoneName="$1"
 projectName="$2"
 
 $GS_HOME/bin/tode todeIt $stoneName << EOF
-ls /
-ls /projects
 project load $projectName
 EOF
