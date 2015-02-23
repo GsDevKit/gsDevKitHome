@@ -26,7 +26,7 @@ case $TEST in
     $GS_HOME/bin/createTodeProjectStone projects $GS_VERSION ZincHTTPComponents
     $GS_HOME/bin/installTodeProjectStone projects Seaside3
     $GS_HOME/bin/installTodeProjectStone projects ServiceVM
-    $GS_HOME/bin/installTodeProjectStone projects Magritte
+    $GS_HOME/bin/installTodeProjectStone projects Magritte3
     ;;
   *)
     echo "Unknown Projects test: $TEST"
