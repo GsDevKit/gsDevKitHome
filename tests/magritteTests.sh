@@ -14,5 +14,5 @@ $GS_HOME/projects/magritte3/bin/createMagritteStone magritte  $GS_VERSION
 # Run Magritte unit tests
 $GS_HOME/bin/tode todeIt magritte << EOF
 test --batch project Magritte3
-eval `self hasPassed ifFalse: [ System logout ].`
+eval \`self hasPassed ifFalse: [ System logout ].\`
 EOF
