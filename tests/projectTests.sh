@@ -17,6 +17,7 @@ case $TEST in
     $GS_HOME/bin/installTodeProjectStone projects Mapless
     $GS_HOME/bin/installTodeProjectStone projects Metacello
     $GS_HOME/bin/installTodeProjectStone projects NeoJSON
+    $GS_HOME/bin/installTodeProjectStone projects PharoCompatibility
     $GS_HOME/bin/installTodeProjectStone projects Ston
     $GS_HOME/bin/installTodeProjectStone projects SIXX
     $GS_HOME/bin/installTodeProjectStone projects Tode
