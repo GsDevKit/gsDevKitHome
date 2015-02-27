@@ -29,6 +29,9 @@ case $TEST in
   Seaside3)
     $GS_HOME/tests/seaside3Tests.sh
     ;;
+  Zinc)
+    $GS_HOME/tests/zincTests.sh
+    ;;
   *)
     echo "Unknown test: $TEST"
     exit 1

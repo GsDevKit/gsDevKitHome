@@ -9,10 +9,10 @@ $GS_HOME/bin/installGemStone $GS_VERSION
 
 $GS_HOME/bin/createTodeImage
 
-$GS_HOME/projects/seaside31/bin/createSeasideStone seaside  $GS_VERSION
+$GS_HOME/projects/zinc/bin/createZincStone zinc  $GS_VERSION
 
 # Run Magritte unit tests
-$GS_HOME/bin/tode todeIt seaside << EOF
-test --batch project Seaside3
+$GS_HOME/bin/tode todeIt zinc << EOF
+test --batch project ZincHTTPComponents
 eval \`self hasPassed ifFalse: [ System logout ].\`
 EOF
