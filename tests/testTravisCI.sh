@@ -18,6 +18,9 @@ case $TEST in
   Magritte)
     $GS_HOME/tests/magritteTests.sh
     ;;
+  Pier300)
+    $GS_HOME/tests/pier300Tests.sh
+    ;;
   Projects1|Projects2)
     $GS_HOME/tests/projectTests.sh
     ;;
