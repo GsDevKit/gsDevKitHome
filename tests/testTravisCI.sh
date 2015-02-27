@@ -10,6 +10,8 @@ cp $GS_HOME/tests/tode/sys/default/server/scripts/installTode.ws $GS_HOME/tode/s
 cp $GS_HOME/tests/tode/sys/default/projects/*.ston $GS_HOME/tode/sys/default/projects
 cp $GS_HOME/tests/pharo/todeLoad.st $GS_HOME/pharo
 cp $GS_HOME/tests/projects/magritte3/install.ston $GS_HOME/projects/magritte3
+cp $GS_HOME/tests/projects/pier3/install300.ston $GS_HOME/projects/pier3
+cp $GS_HOME/tests/projects/seaside31/install.ston $GS_HOME/projects/seaside31
 
 case $TEST in
   Basic)
@@ -23,6 +25,9 @@ case $TEST in
     ;;
   Projects1|Projects2)
     $GS_HOME/tests/projectTests.sh
+    ;;
+  Seaside3)
+    $GS_HOME/tests/seaside3Tests.sh
     ;;
   *)
     echo "Unknown test: $TEST"

@@ -20,7 +20,8 @@ env:
 #  - GS_VERSION=3.2.4   TEST=Magritte
   - GS_VERSION=3.1.0.6 TEST=Pier300
   - GS_VERSION=3.2.4   TEST=Pier300
-
+  - GS_VERSION=3.1.0.6 TEST=Seaside3
+  - GS_VERSION=3.2.4   TEST=Seaside3
 
 before_script:
   - export GS_HOME="$(pwd)"
