@@ -9,10 +9,14 @@ The Development Kit for GemStone/S features:
   - [Install a GemStone stone](#install-a-gemstone-stone)
   - [Open a tODE client image](#open-a-tode-client-image)
   - [Commit gsDevKitHome configuration changes to git](#commit-gsdevkithome-configuration-changes-to-git)
-* [tODE development environment][62]
-* [GsDevKit projects](#gsdevkit-projects).
-* [Remote tODE Client installation](#remote-tode-client-installation).
-* [Scripts for controlling stones](#gemstones-management-scripts).
+
+Additional supporting documentation:
+
+* [tODE development environment][62].
+* [Featured GsDevKit projects][94].
+* [GsDevKit projects][95].
+* [Remote tODE Client installation][17].
+* [Scripts for controlling stones][96].
 
 ---
 ---
@@ -136,167 +140,6 @@ commit the changes that you've made.
 ---
 ---
 
-##GsDevKit Projects
-
-Here is a sampling of some of the open source projects that have been ported to GemStone/S:
-
-| Project | Description|
-|---------|------------|
-| [Cryptography][81]|[Squeak Cryptography Project][66]|
-| [Flow][82]| [A living full-stack framework for the web][67]|
-| [Grease][83]| [The Grease Portability Library][68]|
-| [gsApplicationTools][84]| [Convenient setup of Gemstone server applications][69]|
-| [gsDevKitHome][85]| [Open Source Development Kit for GemStone/S 64 Bit][70]|
-| [Magritte][92]| [Dynamic Meta-Description Framework][21]   |
-| [Maples][86]| [Obscenely simple persistence for Smalltalk][71]|
-| [Metacello][87]| [Package Management for Smalltalk][72]|
-| [NeoJSON][88] | [An elegant and efficient standalone Smalltalk framework to read and write JSON ][73]|
-|[Pier][80]|[A Content Management System][22] |
-|[Seaside31][23]| [A Dynamic Web Development Framework][24] |
-| [SIXX][89]| [Store and load Smalltalk objects in a portable, dialect-independent XML format][78]|
-| [STON][90]| [A lightweight text-based, human-readable data interchange format for Smalltalk][77]|
-| [tODE][91]| [the Object-centric Development Environment][79]|
-|[ZincHTTPComponents][25]| [An open-source Smalltalk framework to deal with the HTTP networking protocol][26] |
-
-These projects and others are registered by default in the [$GS_HOME/tode/sys/default/projects directory][74].
-If you know of a project that has been ported to GemStone that is not included in the [*default projects directory*][74], please submit a [pull request][75] with a [project entry][76] for the project.
-
-----
-
-EDITTING REQUIRED
-
-----
-----
-
-you can ensure that the projects will be loaded exactly the same way whether you use a shell script:
-
-```Shell
-$GS_HOME/projects/seaside31/loadProject devKit
-```
-
-or a tODE command:
-
-```Shell
-project load Seaside3
-```
-
-For more information about installing optional projects and a complete list of optional projects, visit the [GsDevKit Projects][27] page.
-
----
----
-
-## Remote tODE Client Installation
-The tODE Client can be installed on Linux, Mac OS X, or Windows.
-See the [tODE client installation instructions][17] for details. 
-
----
----
-
-##GemStone/S Management Scripts
-
-* [stones](#stones)
-* [createTodeStone](#createtodestone)
-* [stopStone](#stopstone)
-* [startStone](#startstone)
-* [startNetldi](#startnetldi)
-
-###stones
-The [stones][33] script produces a report listing *Installed Products*, *Installed Stones*, *Running Stones*, and *Running Netldis*: 
-
-```Shell
-stones
-```
-
-Here's a sample report:
-
-```
-Installed Products:
-	2.4.5.2
-	3.0.1
-	3.1.0.5
-	3.1.0.6
-	3.2.0
-	3.2.1
-Installed Stones:
-	2.4.5.2	c_2452
-	3.0.1	c_301
-	3.1.0.5	c_3105
-	3.2.1	gemtalk
-	3.2.2	j_
-	3.3.0	k_
-	3.2.0	m_
-Running Stones:
-	Status       Version    Owner    Pid   Port   Started     Type       Name
-	-------     --------- --------- ----- ----- ------------ ------      ----
-	exists  3.2.0     dhenrich   2074 52832 Jul 22 10:36 Stone       m_
-	exists  3.1.0.5   dhenrich   2450 46781 Jul 22 10:39 Stone       c_3105
-	exists  2.4.5.2   dhenrich   2291 45711 Jul 22 10:37 Stone       c_2452
-	exists  3.2.2     dhenrich   1980 43002 Jul 22 10:35 Stone       j_
-	exists  3.0.1     dhenrich   2365 45327 Jul 22 10:38 Stone       c_301
-	exists  3.2.1     dhenrich  18934 47480 Jul 24 10:25 Stone       gemtalk
-Running Netldis:
-	Status       Version    Owner    Pid   Port   Started     Type       Name
-	-------     --------- --------- ----- ----- ------------ ------      ----
-	exists  3.2.1     dhenrich  20901 49481 Jul 24 16:17 Netldi      gemtalk_ldi
-	exists  3.2.0     dhenrich   2196 37538 Jul 22 10:36 Netldi      m_ldi
-	exists  3.1.0.5   dhenrich   2514 38890 Jul 22 10:39 Netldi      c_ldi_3105
-	exists  3.2.2     dhenrich   2048 44409 Jul 22 10:35 Netldi      j_ldi
-	exists  3.0.1     dhenrich   2426 54616 Jul 22 10:38 Netldi      c_ldi_301
-	exists  2.4.5.2   dhenrich   2340 54731 Jul 22 10:37 Netldi      c_ldi_2452
-	exists  3.3.0     dhenrich   2274 33236 Jul 22 10:36 Netldi      k_ldi
-```
-
-###createTodeStone
-The [createTodeStone][29] script creates a new stone of the given name and GemStone/S version:
-
-```Shell
-createTodeStone devKit 3.1.0.6
-```
-
-The stone is created in the `$GS_HOME/gemstone/stones` directory. 
-After the stone is created, the stone and netldi processes are started and then tODE is installed.
-
-*Note that the GemStone/S version must be previously installed using the [installGemStone][34] script*.
-
-###stopStone
-The [stopStone][30] script is used to stop a running stone by name:
-
-```Shell
-stopStone devKit
-```
-
-Use the [stones][33] script to get a list of the running stones.
-
-###startStone
-The [startStone][31] script is used to start a stone by name:
-
-```Shell
-startStone devKit 
-```
-
-###startNetldi
-The [startNetldi][32] script is used to start a netldi for the given stone:
-
-```Shell
-startNetldi devKit
-```
-
-By default, the name of the netldi is constructed by tacking `_ldi` onto the name of the stone. 
-If you want to use a different netldi name, edit the $GS_HOME/gemstone/stones/\<stone-name\>/info.ston file:
-
-```
-GsDevKitStoneInfo {
-	#stoneName : 'devKit',
-	#gsVers : '3.2.1',
-	#username : nil,
-	#netldiName : nil
-}
-```
-
----
----
-
-
 [1]: https://help.github.com/articles/fork-a-repo
 [2]: https://github.com/GsDevKit/gsDevKitHome
 [3]: https://github.com/GsDevKit/gsDevKitHome/fork
@@ -341,31 +184,9 @@ GsDevKitStoneInfo {
 [62]: https://github.com/dalehenrich/tode/blob/master/docs/GettingStarted.md#getting-started-with-tode
 [63]: docs/images/todeClient.png
 [64]: https://github.com/dalehenrich/tode/blob/master/docs/GettingStarted.md#tode-test-login
-[66]: http://www.squeaksource.com/Cryptography.html
-[67]: https://github.com/flow-stack/flow#flow
-[68]: https://github.com/GsDevKit/Grease#the-grease-portability-library--
-[69]: https://github.com/GsDevKit/gsApplicationTools#gsapplicationtools--
-[70]: https://github.com/GsDevKit/gsDevKitHome#open-source-development-kit-for-gemstones-64-bit-
-[71]: https://github.com/GsDevKit/Mapless#mapless
-[72]: https://github.com/dalehenrich/metacello-work/blob/master/docs/MetacelloUserGuide.md#metacello-user-guide
-[73]: https://github.com/GsDevKit/NeoJSON#neojson-
 [74]: tode/sys/default/projects
 [75]: https://help.github.com/articles/using-pull-requests/
 [76]: https://github.com/dalehenrich/tode/blob/master/docs/releaseNotes/releaseNotes0.1.0.md#project-entry
-[77]: https://github.com/GsDevKit/ston#ston---smalltalk-object-notation
-[78]: https://github.com/glassdb/SIXX#sixx-
-[79]: https://github.com/dalehenrich/tode#tode-the-object-centric-development-environment-
-[80]: projects/pier3
-[81]: tode/sys/default/projects/crypto.ston
-[82]: tode/sys/default/projects/flow.ston
-[83]: tode/sys/default/projects/grease.ston
-[84]: tode/sys/default/projects/gsApplicationTools.ston
-[85]: tode/sys/default/projects/gsDevKitHome.ston
-[86]: tode/sys/default/projects/mapless.ston
-[87]: tode/sys/default/projects/metacello.ston
-[88]: tode/sys/default/projects/neojson.ston
-[89]: tode/sys/default/projects/sixx.ston
-[90]: tode/sys/default/projects/ston.ston
-[91]: tode/sys/default/projects/tode.ston
-[92]: projects/magritte3
-[93]: http://gemtalksystems.com/licensing/#CWELicensing
+[94]: projects/README.md#featured-gsdevkit-projects
+[95]: projects/README.md#gsdevkit-projects
+[96]: bin/README.md

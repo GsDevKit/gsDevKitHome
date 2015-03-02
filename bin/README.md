@@ -1,4 +1,8 @@
 # GsDevKit Scripts
+
+- [Server Scripts]#(server-scripts)
+- [Client Scripts]#(client-scripts)
+
 ## Server Scripts
 Scripts that can be run on the server machine with or without *X Windows*.
 
@@ -36,6 +40,7 @@ Scripts that can be run on the client machine, including the server if *X Window
 |[tode][22]| Run headless tode scripts using the todeClient image.|
 |[todeClient][15]| Launch todeClient image.|
 |[updateTodeImage][16]| Update the tODE client image.|
+
 
 [1]: installClient
 [2]: installServer
