@@ -5,9 +5,6 @@ TDScriptLeafNode{#name:'webServer',#contents:'[ :topez :objIn :tokens :command :
   command
     getOptsMixedLongShort:
       {#(\'help\' $h #\'none\').
-      #(\'debug\' nil #\'required\').
-      #(\'breakpoints\' nil #\'required\').
-      #(\'errorHandler\' nil #\'required\').
       #(\'register\' nil #\'required\').
       #(\'port\' nil #\'required\').
       #(\'start\' nil #\'none\').
@@ -22,58 +19,14 @@ TDScriptLeafNode{#name:'webServer',#contents:'[ :topez :objIn :tokens :command :
       | handled |
       handled := false.
       opts
-        at: \'breakpoints\'
-        ifPresent: [ :breakOption | 
-          breakOption = \'set\'
-            ifTrue: [ WABasicDevelopment setBreakPoints ]
-            ifFalse: [ 
-              breakOption = \'clear\'
-                ifTrue: [ WABasicDevelopment clearBreakPoints ]
-                ifFalse: [ self error: \'Unknown breakpoints option \' , breakOption printString ] ].
-          handled := true ].
-      opts
-        at: \'errorHandler\'
-        ifPresent: [ :handler | 
-          | errorHandlerClass dps |
-          errorHandlerClass := Smalltalk at: handler asSymbol.
-          WAAdmin applicationExceptionHandlingDefaults
-            at: #\'exceptionHandler\'
-            put: errorHandlerClass.
-          dps := OrderedCollection with: WADispatcher default.
-          [ dps isEmpty ]
-            whileFalse: [ 
-              | dp |
-              dp := dps removeFirst.
-              dp isApplication
-                ifTrue: [ 
-                  | exceptionFilter |
-                  exceptionFilter := dp filters
-                    detect: [ :each | each isExceptionFilter ]
-                    ifNone: [ nil ].
-                  exceptionFilter
-                    ifNotNil: [ 
-                      | attribute |
-                      attribute := exceptionFilter configuration
-                        attributeAt: #\'exceptionHandler\'.
-                      exceptionFilter configuration
-                        takeValue: errorHandlerClass
-                        forAttribute: attribute ] ]
-                ifFalse: [ 
-                  dp isDispatcher
-                    ifTrue: [ dps addAll: dp handlers ] ] ].
-          handled := true ].
-      opts
         at: \'register\'
         ifPresent: [ :serverType | 
           | serverClass ports |
-          serverType = \'zinc\'
-            ifTrue: [ serverClass := Smalltalk at: #\'WAGsZincAdaptor\' ]
+          serverType = \'fastcgi\'
+            ifTrue: [ serverClass := Smalltalk at: #\'WAFastCGIAdaptor\' ]
             ifFalse: [ 
-              serverType = \'fastcgi\'
-                ifTrue: [ serverClass := Smalltalk at: #\'WAFastCGIAdaptor\' ]
-                ifFalse: [ 
-                  serverType = \'swazoo\'
-                    ifTrue: [ serverClass := Smalltalk at: #\'WAGsSwazooAdaptor\' ] ] ].
+              serverType = \'swazoo\'
+                ifTrue: [ serverClass := Smalltalk at: #\'WAGsSwazooAdaptor\' ] ].
           serverClass
             ifNil: [ nil error: \'No serverClass defined for service \' , serverType printString ].
           opts
@@ -97,26 +50,16 @@ TDScriptLeafNode{#name:'webServer',#contents:'[ :topez :objIn :tokens :command :
                 at: \'stop\'
                 ifPresent: [ :ignored | WAGemStoneRunSeasideGems stopGems ]
                 ifAbsent: [ 
-                  opts
-                    at: \'debug\'
-                    ifPresent: [ :debugPort | 
-                      WAGemStoneRunSeasideGems default adaptorClass
-                        stop;
-                        startOn: debugPort asNumber ]
-                    ifAbsent: [ 
-                      handled
-                        ifFalse: [ nil error: \'No action (start/stop/restart) specified\' ] ] ] ] ] ]
+                  handled
+                    ifFalse: [ nil error: \'No action (start/stop/restart) specified\' ] ] ] ] ]
     ifPresent: [ :ignored | 
       TDManPage
         viewManPage:
           \'NAME
   webServer - start/stop/restart seaside web servers
 SYNOPSIS
-  webServer [-h|--help] [--register=zinc|fastcgi|swazoo] [--port=<port-number>]
+  webServer [-h|--help] [--register=fastcgi|swazoo] [--port=<port-number>]
   webServer [--start] [--stop] [--restart]
-  webServer [--debug=<port-number>]
-  webServer [--errorHandler=WARemoteDebuggingWalkbackErrorHandler|WAGemStoneProductionErrorHandler]
-  webServer [--breakpoints=set|clear]
 
 
 DESCRIPTION
@@ -125,28 +68,12 @@ DESCRIPTION
 
   Then start/start/stop the web server as desired.
 
-  --debug starts the web server on the given port in the current gem instead of 
-  a separate gem.
-
-  --errorHandler resets the class of default error handler and changes handler for
-  all installed applications
-
-  --breakpoints sets or clears useful seaside breakpoints.
-
 EXAMPLES
   ./webServer --help
-  ./webServer --register=zinc --port=8383 --start
+  ./webServer --register=swazoo --port=8383 --start
 
   ./webServer --restart
   ./webServer --start
   ./webServer --stop
-
-  ./webServer --debug=8181
-
-  ./webServer --breakpoints=set
-  ./webServer --breakpoints=clear
-
-  ./webServer --errorHandler=WARemoteDebuggingWalkbackErrorHandler
-  ./webServer --errorHandler=WAGemStoneProductionErrorHandler
 \'
-        topez: topez ] ]',#creationTime:DateAndTime['2014-06-19T10:09:47.03463697433472-07:00'],#modificationTime:DateAndTime['2014-08-27T12:02:16.509927034378-07:00']}
+        topez: topez ] ]',#creationTime:DateAndTime['2014-06-19T10:09:47.03463697433472-07:00'],#modificationTime:DateAndTime['2015-03-05T15:27:52.76299905776978-08:00']}
