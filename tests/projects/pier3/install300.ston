@@ -11,7 +11,7 @@ eval `Transcript cr; show: \'Starting Pier3 load\'`
 project load Pier3AddOns                                      # load Pier3AddOns project
 eval `Transcript cr; show: \'Starting Seaside3 load\'`
 project load Seaside3                                         # load Seaside3 adaptors
-eval `Transcript cr; show:\ 'Loading COMPLETE\'`
+eval `Transcript cr; show: \'Loading COMPLETE\'`
 project list                                                  # refresh the project list
 eval `Transcript cr; show: \'FINISHED\'`
 ',#creationTime:DateAndTime['2015-02-22T17:16:42.70123791694641-08:00'],#modificationTime:DateAndTime['2015-02-26T16:07:05.12517404556274-08:00']}
