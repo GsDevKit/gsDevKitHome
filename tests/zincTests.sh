@@ -11,7 +11,7 @@ $GS_HOME/bin/createTodeImage
 
 $GS_HOME/projects/zinc/bin/createZincStone zinc  $GS_VERSION
 
-# Run Magritte unit tests
+# Run Zinc unit tests
 $GS_HOME/bin/tode todeIt zinc << EOF
 test --batch project ZincHTTPComponents
 eval \`self hasPassed ifFalse: [ System logout ].\`

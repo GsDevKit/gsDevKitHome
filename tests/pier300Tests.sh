@@ -11,7 +11,7 @@ $GS_HOME/bin/createTodeImage
 
 $GS_HOME/projects/pier3/bin/createPier300Stone pier $GS_VERSION
 
-# Run Magritte unit tests
+# Run Pier unit tests
 $GS_HOME/bin/tode todeIt pier << EOF
 test --batch project Pier3
 eval \`self hasPassed ifFalse: [ System logout ].\`
