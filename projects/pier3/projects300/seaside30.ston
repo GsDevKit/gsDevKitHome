@@ -1,8 +1,8 @@
 TDObjectGatewayNode{#name:'seaside',#contents:'^ TDProjectSpecEntryDefinition new
-    configuration: \'Seaside3\'
-      version: #\'release3.0\'
+    configuration: \'Seaside30\'
+      version: \'3.0.8\'
       repository:
-        \'http://smalltalkhub.com/mc/Seaside/MetacelloConfigurations/main\'
+        \'http://www.squeaksource.com/MetacelloRepository\'
       loads: #(\'Development\' \'Core\');
     status: #(#\'inactive\');
     locked: true;

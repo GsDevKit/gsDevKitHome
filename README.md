@@ -12,7 +12,7 @@ The Development Kit for GemStone/S features:
 
 Additional supporting documentation:
 
-* [tODE development environment][62].
+* [Getting Started with tODE][62].
 * [Featured GsDevKit projects][94].
 * [GsDevKit projects][95].
 * [Remote tODE Client installation][17].
@@ -63,6 +63,15 @@ git clone https://github.com/GsDevKit/gsDevKitHome.git
 cd gsDevKitHome
 git checkout -b  <your project branch name>
 ```
+
+If you have registered an SSH keypair with GitHub, then clone using SSH:
+```Shell
+git clone git@github.com:GsDevKit/gsDevKitHome.git
+cd gsDevKitHome
+git checkout -b  <your project branch name>
+```
+
+See the documentation on [Git Credentials and tODE][97] for more information.
 
 *Note, if you already have a [GitHub][15] account, you should consider [forking the Dev Kit project][3] first, as that will make sharing corrections you find much easier.*
 
@@ -190,3 +199,4 @@ commit the changes that you've made.
 [94]: projects/README.md#featured-gsdevkit-projects
 [95]: projects/README.md#gsdevkit-projects
 [96]: bin/README.md
+[97]: https://github.com/dalehenrich/tode/blob/master/docs/releaseNotes/releaseNotes0.1.0.md#git-credentials-and-tode

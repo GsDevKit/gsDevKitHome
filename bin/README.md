@@ -1,7 +1,7 @@
 # GsDevKit Scripts
 
-- [Server Scripts]#(server-scripts)
-- [Client Scripts]#(client-scripts)
+- [Server Scripts](#server-scripts)
+- [Client Scripts](#client-scripts)
 
 ## Server Scripts
 Scripts that can be run on the server machine with or without *X Windows*.
