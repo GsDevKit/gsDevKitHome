@@ -20,7 +20,13 @@ I've tested the following load steps in GemStone 3.1.0.6.
 ###Batch Install
 
 ```
-$GS_HOME/projects/pier3/bin/createPier3000Stone pier 3.2.4
+$GS_HOME/bin/installGemStone 3.1.0.6
+
+$GS_HOME/bin/createTodeImage
+```
+
+```
+$GS_HOME/projects/pier3/bin/createPier3000Stone pier 3.1.0.6
 ```
 
 ```
