@@ -22,11 +22,14 @@ TDScriptLeafNode{#name:'webServer',#contents:'[ :topez :objIn :tokens :command :
         at: \'register\'
         ifPresent: [ :serverType | 
           | serverClass ports |
-          serverType = \'fastcgi\'
-            ifTrue: [ serverClass := Smalltalk at: #\'WAFastCGIAdaptor\' ]
+          serverType = \'zinc\'
+            ifTrue: [ serverClass := Smalltalk at: #\'WAGsZincAdaptor\' ]
             ifFalse: [ 
-              serverType = \'swazoo\'
-                ifTrue: [ serverClass := Smalltalk at: #\'WAGsSwazooAdaptor\' ] ].
+              serverType = \'fastcgi\'
+                ifTrue: [ serverClass := Smalltalk at: #\'WAFastCGIAdaptor\' ]
+                ifFalse: [ 
+                  serverType = \'swazoo\'
+                    ifTrue: [ serverClass := Smalltalk at: #\'WAGsSwazooAdaptor\' ] ] ].
           serverClass
             ifNil: [ nil error: \'No serverClass defined for service \' , serverType printString ].
           opts
@@ -58,7 +61,7 @@ TDScriptLeafNode{#name:'webServer',#contents:'[ :topez :objIn :tokens :command :
           \'NAME
   webServer - start/stop/restart seaside web servers
 SYNOPSIS
-  webServer [-h|--help] [--register=fastcgi|swazoo] [--port=<port-number>]
+  webServer [-h|--help] [--register=zinc|fastcgi|swazoo] [--port=<port-number>]
   webServer [--start] [--stop] [--restart]
 
 
@@ -70,10 +73,10 @@ DESCRIPTION
 
 EXAMPLES
   ./webServer --help
-  ./webServer --register=swazoo --port=8383 --start
+  ./webServer --register=zinc --port=8585 --start
 
   ./webServer --restart
   ./webServer --start
   ./webServer --stop
 \'
-        topez: topez ] ]',#creationTime:DateAndTime['2014-06-19T10:09:47.03463697433472-07:00'],#modificationTime:DateAndTime['2015-03-05T15:27:52.76299905776978-08:00']}
+        topez: topez ] ]',#creationTime:DateAndTime['2014-06-19T10:09:47.03463697433472-07:00'],#modificationTime:DateAndTime['2015-03-06T12:42:17.4488730430603-08:00']}
