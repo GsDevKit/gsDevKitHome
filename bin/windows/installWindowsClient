@@ -10,25 +10,25 @@
 #
 # Examples
 #   installWindowsClient -h
-#   installWindowsClient 3.2.1 c:/tode/repository
+#   installWindowsClient 3.2.1 c:/tode c:/ston
 #
 #=========================================================================
 
 # help function
 function display_help() {
   echo ""
-  echo "USAGE: $(basename $0) [-h] <gemstone-version> <tode-repository-path>"
+  echo "USAGE: $(basename $0) [-h] <gemstone-version> <tode-repository-path> <ston-repository-path>"
   echo "Install GemStone (specified gs-version), Pharo, build tODE client"
   echo "image and launch the tODE client."
-  echo "<tode-repository-path> must be explicitly specified to circumvent"
-  echo "several problems."
+  echo "<tode-repository-path> and <ston-repository-path> must be explicitly"
+  echo "specified to circumvent several problems."
   echo ""
   echo "OPTIONS"
   echo "  -h display help"
   echo ""
   echo "EXAMPLES"
   echo "   $(basename $0) -h"
-  echo "   $(basename $0) 3.2.1 c:/tode/repository"
+  echo "   $(basename $0) 3.2.3 c:/tode c:/ston"
   echo ""
 }
 
@@ -55,7 +55,14 @@ if [ "$2x" = "x" ] ; then
   display_help
   exit 1
 fi
-repo_path=$2
+
+if [ "$3x" = "x" ] ; then
+  display_help
+  exit 1
+fi
+
+tode_path="$2"
+ston_path="$3"
 
 if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"
@@ -68,7 +75,7 @@ if [[ $? != 0 ]] ; then exit 1; fi
 $GS_HOME/bin/windows/installWindowsPharo
 if [[ $? != 0 ]] ; then exit 1; fi
 
-$GS_HOME/bin/windows/createWindowsTodeImage $repo_path
+$GS_HOME/bin/windows/createWindowsTodeImage "$tode_path" "$ston_path"
 if [[ $? != 0 ]] ; then exit 1; fi
 
 $GS_HOME/bin/windows/todeWindowsClient

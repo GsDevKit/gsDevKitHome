@@ -14,25 +14,31 @@
    export PATH=$GS_HOME/bin/windows:$PATH
    ```
 
-5. Using the bash shell, clone the [tode project][3] to your local disk to the root of your C: drive. 
-   We're manually cloning tODE to avoid hitting the 256 character path limit for Windows and rooting the repository at the C: keeps the longest paths in tODE out of trouble:
+5. Using the bash shell, clone the [tode][3] and [ston][8] projects to the root of your C: drive. 
+   We're manually cloning `tODE` to avoid hitting the 256 character path limit for Windows and rooting the repository at the C: keeps the longest paths in tODE out of trouble. The `ston` project needs to be cloned, because the version of Metacello ppresent in the standard Pharo3.0 image, cannot download projects directly from **GitHub**:
 
    ```Shell
    cd /c
-   git clone https://github.com/GsDevKit/gsDevKitHome.git
+   git clone https://github.com/dalehenrich/tode.git
+   cd tode
+   git checkout master
+   cd /c
+   git clone https://github.com/dalehenrich/ston.git
+   cd ston
+   git checkout pharo
    ```
 
 5. Checkout your branch of the [gsDevKitHome project][2]:
 
    ```Shell
-   cd $GS_HOME/gsDevKitHome
+   cd $GS_HOME
    git checkout -b  <your branch name>
    ```
 
 6. Install GemStone/S (for GCI library files) and Pharo, build the tODE client image and launch the tODE client. The GemStone version that specify in the following should match the version installed on your server machine:
 
    ```Shell
-   installWindowsClient 3.2.1 c:/tode/repository
+   installWindowsClient 3.2.3 c:/tode c:/ston
    ```
 
 4. Once the tODE client image comes up, you need to edit the session description for your stones using the `tODE edit` menu:
@@ -61,4 +67,4 @@ Here's the [list of scripts that can be used on the client machine][7].
 [5]: images/descriptionWorkspace.png
 [6]: ../bin/stones
 [7]: ../bin/windows/README.md#gsdevkit-windows-client-scripts
-
+[8]: https://github.com/dalehenrich/ston

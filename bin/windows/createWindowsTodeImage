@@ -9,17 +9,18 @@
 #
 # Examples
 #   createTodeImage -h
-#   createTodeImage -p _0 c:/tode/repository
-#   createTodeImage c:/tode/repository
+#   createTodeImage -p _0 c:/tode c:/ston
+#   createTodeImage c:/tode c:/ston
 #
 #=========================================================================
 
 # help function
 function display_help() {
   echo ""
-  echo "USAGE: $(basename $0) [-h] [-p <postfix] <tode-repository-path>"
-  echo "Create the tODE client image loading tODE from the specified repository."
-  echo "Used for running pharo-based scripts and for running the tODE client UI."
+  echo "USAGE: $(basename $0) [-h] [-p <postfix] <tode-repository-path> <ston-repository-path>"
+  echo "Create the tODE client image loading tODE and ston from the specified"
+  echo "repositories. Used for running pharo-based scripts and for running the"
+  echo "tODE client UI."
   echo ""
   echo "OPTIONS"
   echo "  -h "
@@ -30,8 +31,8 @@ function display_help() {
   echo ""
   echo "EXAMPLES"
   echo "  $(basename $0) -h"
-  echo "  $(basename $0) -p _0 c:/tode/repository"
-  echo "  $(basename $0) c:/tode/repository"
+  echo "  $(basename $0) -p _0 c:/tode c:/ston"
+  echo "  $(basename $0) c:/tode c:/ston"
   echo ""  
 }
 
@@ -56,7 +57,13 @@ if [ "$1x" = "x" ] ; then
   echo "<tode-repository-path> missing"
   exit 1
 fi
-repo_path="$1"
+tode_path="$1"
+
+if [ "$2x" = "x" ] ; then
+  echo "<ston-repository-path> missing"
+  exit 1
+fi
+ston_path="$2"
 
 if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"
@@ -76,10 +83,14 @@ $pharo/Pharo.exe --headless $pharo/Pharo3.0.image save todeClientTmp
 
 cat - > $pharo/todeLoad.st << EOF
 [ | metacello string repoPath |
-  "Windows path limitations force us to put Tode outside GS_HOME."
+  "Windows path limitations force us to put Tode and ston outside GS_HOME."
   Metacello new
     baseline: 'Tode';
-    repository: 'filetree://', '$repo_path';
+    repository: 'filetree://', '${tode_path}/repository';
+    lock.
+  Metacello new
+    baseline: 'Ston';
+    repository: 'filetree://', '${ston_path}/repository';
     lock.
   string := '$GS_HOME/repository'.
   repoPath := (string copyFrom: 2 to: 2), ':', (string copyFrom: 3 to: string size).
