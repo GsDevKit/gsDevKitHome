@@ -1,7 +1,7 @@
 "Fourth and final step in tODE installation process: install tODE."
 Transcript
   cr;
-  show: '-----Upgrading tODE to latest dev branch version'.
+: '-----Upgrading tODE to latest 0.0.? tag'.
 GsDeployer bulkMigrate: [ 
   Metacello new
     baseline: 'Tode';
