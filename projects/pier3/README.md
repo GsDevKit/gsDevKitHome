@@ -31,8 +31,7 @@ To run a swazoo web server for Pier:
 
 ```
 /home/pier/webServer --register=swazoo --port=8383 --start
-/home/pier/webServer --register=swazoo --port=8383 --stop
-/home/pier/webServer --register=swazoo --port=8383 --restart
+/home/pier/webServer --stop
+/home/pier/webServer --restart
 ```
 
-**Stay tuned for further information about loading and using Pier in GemStone**
