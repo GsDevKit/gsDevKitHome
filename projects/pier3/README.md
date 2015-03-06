@@ -1,5 +1,14 @@
 # Pier 3.0.0
 
+As of this writing Pier 3.1.1 is the most recent release of Pier, but this version of Pier has not been ported to Gemstone, yet.
+Pier 3.0.0 is the latest version of Pier that is known to work in GemStone.
+The Pier 3.0.0 project depends upon older versions of Magritte (Magritte 3.0), Seaside (Seaside 3.0.15), and XMLSupport (XMLSupport 1.2.2).
+
+1. [Installation](#installation)
+   - [Batch Install](#batch-install)
+   - [tODE Install](#tode-install)
+2. [Swazoo Seaside Server](#swazoo-seaside-server)
+
 **Work in Progress**
 
 Pier 3.0.0 is the latest version of Pier that is know to load into GemStone.
@@ -26,7 +35,7 @@ mount @/sys/stone/dirs/gsDevKitHome/projects/pier3 /home pier # mount the pier d
 install300                                                    # install Pier
 ```
 
-##Running Web Server
+##Swazoo Seaside Server
 To run a swazoo web server for Pier:
 
 ```
