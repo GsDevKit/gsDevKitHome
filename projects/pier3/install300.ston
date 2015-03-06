@@ -1,5 +1,4 @@
-TDTopezLeafNode{#name:'install300',#contents:'
-cp /home/pier/projects300/magritte /sys/stone/projects        # use #stable from http://www.squeaksource.com/MetacelloRepository
+TDTopezLeafNode{#name:'install300',#contents:'cp /home/pier/projects300/magritte /sys/stone/projects        # use #stable from http://www.squeaksource.com/MetacelloRepository
 cp /home/pier/projects300/magritteAddOns /sys/stone/projects  # use #stable from http://www.squeaksource.com/MetacelloRepository
 cp /home/pier/projects300/pier3 /sys/stone/projects           # use #stable from http://www.squeaksource.com/MetacelloRepository
 cp /home/pier/projects300/pier3AddOns /sys/stone/projects     # use #stable from http://www.squeaksource.com/MetacelloRepository
