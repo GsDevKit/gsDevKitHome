@@ -67,6 +67,6 @@ To run a Swazoo Seaside web server for Pier:
 [1]: http://www.piercms.com/
 [2]: http://www.swazoo.org/
 [3]: images/pier_admin_setup.png
-[4]: image/pier_blog_template.png
-[5]: image/pier_blog_template1.png
+[4]: images/pier_blog_template.png
+[5]: images/pier_blog_template1.png
 [6]: https://vimeo.com/32749535
