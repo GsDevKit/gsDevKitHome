@@ -33,7 +33,11 @@ Click on the `New from template` tab, select the `Blog Template` and then press 
 
 ![pier blog template][4]
 
-Fill out the `Create an admin user information` and press `Register admin user`; press `ok` to create the site; press the `Create kernel` button (you can leave the fields blank); answer `yes` to create `Pier Admin instance`; press`'ok` to `Continue to login`; and finally press the `Login` button:
+Fill out the `Create an admin user information` and press `Register admin user`; press `ok` to create the site, which brings us to the `Customize blog Template` screen:
+
+![pier customize blog template][7] 
+
+Click on the `add sample content` check box; press the `Create kernel` button (you can leave the other fields blank); answer `yes` to create `Pier Admin instance`; press`'ok` to `Continue to login`; and finally press the `Login` button:
 
 ![pier blog template1][5]
 
@@ -70,3 +74,4 @@ To run a Swazoo Seaside web server for Pier:
 [4]: images/pier_blog_template.png
 [5]: images/pier_blog_template1.png
 [6]: https://vimeo.com/32749535
+[7]: images/pier_customize_blog_template.png
