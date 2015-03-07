@@ -11,8 +11,8 @@ project load Pier3AddOns                                      # load Pier3AddOns
 project load Seaside3                                         # load Seaside3 Swazoo and FastCGI adaptors
 project load --loads=`#(\'Seaside\')` ZincHTTPComponents      # load Zinc 1.1 adaptor adaptor for Seaside3
 /home/pier/patchExecBlock                                     # patch ExecBlock for GemStone3.0 and Zinc 1.1
-bu backup pier3.0.0.dbf                                       # make a backup after load completes
 project list                                                  # refresh the project list
-/home/pier/webServer --register=zinc --port=8585 --restart    # start Zinc Seaside server
+/home/pier/webServer --register=swazoo --port=8585 --restart  # start Swazoo Seaside server
+bu backup pier3.0.0.dbf                                       # make a backup after load completes
 ',#creationTime:DateAndTime['2015-02-22T17:16:42.70123791694641-08:00'],#modificationTime:DateAndTime['2015-02-26T16:07:05.12517404556274-08:00']}
 

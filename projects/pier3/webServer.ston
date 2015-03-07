@@ -73,7 +73,7 @@ DESCRIPTION
 
 EXAMPLES
   ./webServer --help
-  ./webServer --register=zinc --port=8585 --start
+  ./webServer --register=swazoo --port=8585 --start
 
   ./webServer --restart
   ./webServer --start
