@@ -13,7 +13,7 @@ Scripts that can be run on the server machine with or without *X Windows*.
 |[createTodeProjectStone][23]| Create a new stone with the given stone name. tODE and the given project are installed.|
 |[createTodeStone][5]| Create a new stone with the given stone name. tODE installed.|
 |[defStone.env][6]| Define GemStone environment variables in current shell (`source $GS_HOME/bin/defStone.env`).|
-|[<a name="installGemStone"></a>installGemStone][18]| Download and install the given GemStone version. Will make sure that shared memory is correctly configuration on your server. Performs some operations as `root` using sudo. |
+|<a name="installGemStone"></a>[installGemStone][18]| Download and install the given GemStone version. Will make sure that shared memory is correctly configuration on your server. Performs some operations as `root` using sudo. |
 |[installPharo][19]| Download and install a Linux or Mac or Pharo3.0 VM, image and changes file.|
 |[installServer][2]| Install GemStone/S, create a stone, start the stone, create a todeClient image. Runs the [installGemstone][18], [createTodeImage][14], [createStone][4], [startStone][10], [startNetldi][8], [startStatmonitor][9], [installTodeStone][20] and [todeClient][15] scripts.|
 |[installTodeProjectStone][24]| Install tODE and the given project in the given stone.|
