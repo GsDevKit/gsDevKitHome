@@ -4,7 +4,7 @@ version200: spec
 	spec
 		for: #'pharo3.x'
 		do: [ 
-			spec blessing: #development.	
+			spec blessing: #release.	
 			spec description: 'Changes in support of https://github.com/GsDevKit/gsDevKitHome/issues/32'.
 			spec repository: 'filetree://' , (FileSystem workingDirectory parent / 'repository') pathString.
 			spec
@@ -19,6 +19,6 @@ version200: spec
 					with: [ 
 							spec
 								loads: 'GemStone Dev';
-								repository: 'github://dalehenrich/tode:v0.0.2/repository' ];
+								repository: 'github://dalehenrich/tode:v0.?/repository' ];
 				postLoadDoIt: #post30Load;
 				yourself ]

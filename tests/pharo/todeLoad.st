@@ -2,15 +2,21 @@
   "Tests pharo todeLoad.st"
   | gs_home metacello |
   gs_home := Smalltalk os environment at: 'GS_HOME'.
-  metacello := Metacello new
+  Metacello new
+    baseline: 'Metacello';
+    repository: 'github://dalehenrich/metacello-work:master/repository';
+    get.
+  Metacello new
+    baseline: 'Metacello';
+    repository: 'github://dalehenrich/metacello-work:master/repository';
+    onConflict: [:ex | ex allow];
+    load.
+  Metacello new
     configuration: 'TodeClient';
     version: #dev;
     repository: 'filetree://', gs_home, '/repository';
-    yourself.
-  metacello copy get. "cannot count on Pharo3.0 having latest Metacello loaded"
-  metacello 
-    onConflict: [:ex | ex disallow];
-    load ]
+    get;
+    load  ]
       on: Warning
       do: [:ex | Transcript cr; show: ex description ].
 
