@@ -18,6 +18,7 @@ $GS_HOME/bin/createTodeImage                                # Create the tODE cl
 $GS_HOME/projects/pier3/bin/createPier300Stone pier 3.1.0.6 # Create a pier stone
 ```
 
+The [installGemStone] script
 The scripts:
 - Create a stone named `pier` based on GemStone 3.1.0.6.
 - Install Pier3.0.0 and Seaside3.0.
@@ -75,3 +76,4 @@ To run a Swazoo Seaside web server for Pier:
 [5]: images/pier_blog_template1.png
 [6]: https://vimeo.com/32749535
 [7]: images/pier_customize_blog_template.png
+[8]: ../../bin/README.md#installGemStone

@@ -26,14 +26,14 @@ Here is a sampling of some of the open source projects that have been ported to 
 | [tODE][91]| [the Object-centric Development Environment][79]|
 
 
-[2]: seaside31
-[3]: zinc
+[2]: seaside31#seaside31-
+[3]: zinc#zinchttpcomponents-
 [4]: http://www.seaside.st/
 [5]: https://github.com/svenvc/zinc/blob/master/zinc-http-components-paper.md#http
 [7]: http://www.piercms.com/
 [8]: https://code.google.com/p/magritte-metamodel/
-[9]: pier3
-[10]: magritte3
+[9]: pier3#pier-300
+[10]: magritte3#magritte-320
 
 [66]: http://www.squeaksource.com/Cryptography.html
 [67]: https://github.com/flow-stack/flow#flow
