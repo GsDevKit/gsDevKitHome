@@ -20,32 +20,41 @@ $GS_HOME/projects/pier3/bin/createPier300Stone pier 3.1.0.6 # Create a pier ston
 
 The [installGemStone][8] script GemStone 3.1.0.6 and only needs to be run if you haven't already installed 3.1.0.6.
 
-The [createTodeImage][9] script creates the tODE client image and only needs to be run if you haven't run the [installServer][10] script.
+The [createTodeImage][9] script creates the tODE client image and only needs to be run if you haven't run the [installServer][10] script before.
 
 The `createPier300Stone` script:
-- Creates a stone named `pier` based on GemStone 3.1.0.6.
+- Creates a stone named `pier` based on GemStone 3.1.0.6, [starts the stone][11] and [starts a netLdi][12].
 - Installs Pier3.0.0 and Seaside3.0.
 - Creates a backup named `pier3.0.0.dbf`.
-- Starst a [Swazoo web server](#swazoo-web-server).
+- Starts a [Swazoo web server](#swazoo-web-server).
+
+See the [GsDevKit Server Scripts][13] for further information about the Bash commands that can be used to control the GemStone processes.
 
 ##Getting Started with Pier
-When the script finishes running, bring up a web browse and type in the following url `http://<server-host-name-or-ip-address>:8585/piersetup` and you should see the following screen:
+Nic Ager's [demo of the Pier Administration interface][6] is a good introduction to [Pier][1].
+When the script finishes running, you only need to do a few things to bring your Pier installation up to the point where the video starts.
+
+Open a web browse and type in the following url `http://<server-host-name-or-ip-address>:8585/piersetup` to bring up the `Pier admin setup` screen:
 
 ![pier admin setup][3]
 
-Click on the `New from template` tab, select the `Blog Template` and then press the `Create kernel from template` button at bottom of screen:
+Click on the `New from template` tab to bring up a list of pre-defined Pier templates:
 
 ![pier blog template][4]
 
-Fill out the `Create an admin user information` and press `Register admin user`; press `ok` to create the site, which brings us to the `Customize blog Template` screen:
+select the `Blog Template` and press the `Create kernel from template` button to bring up the `Create an admin user` screen:
+
+![pier create admin user][14]
+
+Fill in the `Name` and `Password` fields, press `Register admin user` and then press `ok` to create the site and bring up the `Customize blog Template` screen:
 
 ![pier customize blog template][7] 
 
-Click on the `add sample content` check box; press the `Create kernel` button (you can leave the other fields blank); answer `yes` to create `Pier Admin instance`; press`'ok` to `Continue to login`; and finally press the `Login` button:
+Make sure that you click on the `add sample content` check box, then press the `Create kernel` button; answer `yes` to create `Pier Admin instance`; press`'ok` to `Continue to login`; and press the `Login` button to bring up the  `Blog Template` screen:
 
 ![pier blog template1][5]
 
-At this point you are ready to follow [Nic Ager's Demo of the Pier Administration interface video][6].
+[Nick Ager's video][6] will take you on a tour of the rest of Pier.
 
 ---
 ---
@@ -82,3 +91,7 @@ To run a Swazoo Seaside web server for Pier:
 [8]: ../../bin/README.md#installGemStone
 [9]: ../../bin/README.md#createTodeImage
 [10]: ../../bin/README.md#installServer
+[11]: ../../bin/README.md#startStone
+[12]: ../../bin/README.md#startNetldi
+[13]: ../../bin/README.md#server-scripts
+[14]: images/pier_create_admin_user.png

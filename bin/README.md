@@ -22,9 +22,11 @@ Scripts that can be run on the server machine with or without *X Windows*.
 |[installTodeStone][20]| Install tODE in the given stone.|
 |[pharo][21]| Run headless pharo scripts using the Pharo image.|
 |[restoreFromBackup][7]|Restore a backup on the given stone.|
-|[startNetldi][8]| Start the netldi process for the given stone.|
+|<a name="startNetldi"></a>
+[startNetldi][8]| Start the netldi process for the given stone.|
 |[startStatmonitor][9]| Start statmonitor for the given stone. Two statmonitors are started. One that collects a sample every second and is restarted every hour. One that collects a sample once a minute and is restarted once a day. |
-|[startStone][10]| Start the stone process for the given stone.|
+|<a name="startStone"></a>
+[startStone][10]| Start the stone process for the given stone.|
 |[stoneExtent][11]| Copy a new extent into the stone's extent directory. Stone should be shutdown before copying. |
 |[stones][12]| List information about the installed GemStone/S produects, existing stones, running stones and running netldis.|
 |[stopStone][13]| Stop the named stone. The netldi is left running. Any statmonitor processes associated with the stone will be stopped.|
