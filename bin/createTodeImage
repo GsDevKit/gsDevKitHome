@@ -52,6 +52,15 @@ $pharo/pharo $pharo/Pharo.image save todeClientTmp
 cat - > $pharo/todeLoad.st << EOF
 [ 
   Metacello new
+    baseline: 'Metacello';
+    repository: 'github://dalehenrich/metacello-work:master/repository';
+    get.
+  Metacello new
+    baseline: 'Metacello';
+    repository: 'github://dalehenrich/metacello-work:master/repository';
+    onConflict: [:ex | ex allow];
+    load.
+  Metacello new
     configuration: 'TodeClient';
     version: #release;
     repository: 'filetree://$GS_HOME/repository';
