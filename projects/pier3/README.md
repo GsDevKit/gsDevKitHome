@@ -18,12 +18,15 @@ $GS_HOME/bin/createTodeImage                                # Create the tODE cl
 $GS_HOME/projects/pier3/bin/createPier300Stone pier 3.1.0.6 # Create a pier stone
 ```
 
-The [installGemStone][8] script
-The scripts:
-- Create a stone named `pier` based on GemStone 3.1.0.6.
-- Install Pier3.0.0 and Seaside3.0.
-- Create a backup named `pier3.0.0.dbf`.
-- Start a [Swazoo web server](#swazoo-web-server).
+The [installGemStone][8] script GemStone 3.1.0.6 and only needs to be run if you haven't already installed 3.1.0.6.
+
+The [createTodeImage][9] script creates the tODE client image and only needs to be run if you haven't run the [installServer][10] script.
+
+The `createPier300Stone` script:
+- Creates a stone named `pier` based on GemStone 3.1.0.6.
+- Installs Pier3.0.0 and Seaside3.0.
+- Creates a backup named `pier3.0.0.dbf`.
+- Starst a [Swazoo web server](#swazoo-web-server).
 
 ##Getting Started with Pier
 When the script finishes running, bring up a web browse and type in the following url `http://<server-host-name-or-ip-address>:8585/piersetup` and you should see the following screen:
@@ -77,3 +80,5 @@ To run a Swazoo Seaside web server for Pier:
 [6]: https://vimeo.com/32749535
 [7]: images/pier_customize_blog_template.png
 [8]: ../../bin/README.md#installGemStone
+[9]: ../../bin/README.md#createTodeImage
+[10]: ../../bin/README.md#installServer

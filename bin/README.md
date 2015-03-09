@@ -14,9 +14,10 @@ Scripts that can be run on the server machine with or without *X Windows*.
 |[createTodeStone][5]| Create a new stone with the given stone name. tODE installed.|
 |[defStone.env][6]| Define GemStone environment variables in current shell (`source $GS_HOME/bin/defStone.env`).|
 |<a name="installGemStone"></a>
-[installGemStone][18]| Download and install the given GemStone version. Will make sure that shared memory is correctly configuration on your server. Performs some operations as `root` using sudo. |
+[installGemStone][18]| Download and install the given GemStone version. Will make sure that shared memory is correctly configuration on your server. Performs some operations as `root` using `sudo`. Only needs to be run once per GemStone version. |
 |[installPharo][19]| Download and install a Linux or Mac or Pharo3.0 VM, image and changes file.|
-|[installServer][2]| Install GemStone/S, create a stone, start the stone, create a todeClient image. Runs the [installGemstone][18], [createTodeImage][14], [createStone][4], [startStone][10], [startNetldi][8], [startStatmonitor][9], [installTodeStone][20] and [todeClient][15] scripts.|
+|<a name="installServer"></a>
+[installServer][2]| Install GemStone/S, create a stone, start the stone, create a todeClient image. Runs the [installGemstone][18], [createTodeImage][14], [createStone][4], [startStone][10], [startNetldi][8], [startStatmonitor][9], [installTodeStone][20] and [todeClient][15] scripts.|
 |[installTodeProjectStone][24]| Install tODE and the given project in the given stone.|
 |[installTodeStone][20]| Install tODE in the given stone.|
 |[pharo][21]| Run headless pharo scripts using the Pharo image.|
@@ -33,7 +34,8 @@ Scripts that can be run on the client machine, including the server if *X Window
 
 | script | description |
 |--------|-------------|
-|[createTodeImage][14]| Create the tODE client image. Used for running pharo-based tODE scripts and for running the tODE client UI.| 
+|<a name="createTodeImage"></a>
+[createTodeImage][14]| Create the tODE client image. Used for running pharo-based tODE scripts and for running the tODE client UI. Only needs to be run once.| 
 |[installClient][1]| Create a todeClient image on a remote machine. Runs the [installGemstone][18], [createTodeImage][14] and [todeClient][15] scripts.|
 |[installGci][17]| Copy the gci libraries for the given GemStone version to the $GS\_HOME/pharo directory. |
 |[installPharo][19]| Download and install a Linux or Mac Pharo3.0 VM, image and changes file.|
