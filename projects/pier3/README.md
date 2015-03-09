@@ -18,7 +18,7 @@ $GS_HOME/bin/createTodeImage                                # Create the tODE cl
 $GS_HOME/projects/pier3/bin/createPier300Stone pier 3.1.0.6 # Create a pier stone
 ```
 
-The [installGemStone] script
+The [installGemStone][8] script
 The scripts:
 - Create a stone named `pier` based on GemStone 3.1.0.6.
 - Install Pier3.0.0 and Seaside3.0.
