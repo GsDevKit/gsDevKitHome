@@ -190,6 +190,38 @@ project list                                                  # refresh the proj
 ```
 
 ####tODE web server script
+1. [Register `pier` web server (tODE)](#register-pier-web-server-tode)
+2. [Start `pier` web server (tODE)](#start-pier-web-server-tode)
+3. [Stop `pier` web server (tODE)](#stop-pier-web-server-tode)
+
+Here's the help text for the tODE `/home/pier/webServer` script:
+
+```
+NAME
+  webServer - start/stop/restart seaside web servers
+
+SYNOPSIS
+  webServer [-h|--help] [--register=zinc|fastcgi|swazoo] [--port=<port-number>]
+  webServer [--start] [--stop] [--restart]
+
+DESCRIPTION
+  First register the type of web server that you want to use along with a port
+  number (multiple port numbers not supported ...yet).
+
+  Then start/start/stop the web server as desired.
+
+EXAMPLES
+  ./webServer --help
+  ./webServer --register=swazoo --port=8585 --start
+
+  ./webServer --restart
+  ./webServer --start
+  ./webServer --stop
+
+  NOTE - use the `tode it` menu item to run the examples directly from this window.
+```
+
+
 #####Register `pier` web server (tODE)
 To register a `pier` web server use the following tODE script:
 
