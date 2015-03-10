@@ -82,21 +82,29 @@ $GS_HOME/projects/pier3/bin/webServer pier --stop # Stop the Swazoo web server
    - [Stop `pier` web server](#stop-pier-web-server-tode)
 
 ###Stone control
+1. [Install `pier` (bash)](#install-pier-bash)
 1. [Start `pier` stone](#start-pier-stone)
 2. [Stop `pier` stone](#stop-pier-stone)
+
+####Install `pier` (bash)
+To install `pier` into an existing stone, use the following Bash scirpt:
+
+```
+$GS_HOME/projects/pier3/bin/installPier300Ston <stone-name>
+```
 
 ####Start `pier` stone
 To start the `pier` stone use the following Bash script:
 
 ```
-$GS_HOME/bin/startStone pier
+$GS_HOME/bin/startStone <stone-name>
 ```
 
 ####Stop `pier` stone
 To stop the `pier` stone use the following Bash script:
 
 ```
-$GS_HOME/bin/stopStone pier
+$GS_HOME/bin/stopStone <stone-name>
 ```
 
 ###Web server control
@@ -108,21 +116,21 @@ $GS_HOME/bin/stopStone pier
 To register a `pier` web server use the following Bash script:
 
 ```
-$GS_HOME/projects/pier3/bin/webServer pier --register=swazoo --port=8585
+$GS_HOME/projects/pier3/bin/webServer <stone-name> --register=swazoo --port=8585
 ```
 
 ####Start `pier` web server (Bash)
 To start the `pier` web server use the following Bash script:
 
 ```
-$GS_HOME/projects/pier3/bin/webServer pier --restart
+$GS_HOME/projects/pier3/bin/webServer <stone-name> --restart
 ```
 
 ####Stop `pier` web server (Bash)
 To stop the `pier` stone use the following Bash script:
 
 ```
-$GS_HOME/projects/pier3/bin/webServer pier --stop
+$GS_HOME/projects/pier3/bin/webServer <stone-name> --stop
 ```
 
 ###tODE scripts
@@ -180,33 +188,6 @@ To stop the `pier` stone use the following Bash script:
 ```
 /home/pier/webServer --stop
 ```
-
----
----
-##Working with your Pier stone
-
-
-```
-$GS_HOME/projects/pier3/bin/installPier300Ston pier
-```
-
-###tODE Script Install
-
-```
-mount @/sys/stone/dirs/gsDevKitHome/projects/pier3 /home pier # mount the pier directory in tODE
-install300                                                    # install Pier
-```
-
-
-##Swazoo Web Server
-To run a Swazoo Seaside web server for Pier:
-
-```
-/home/pier/webServer --register=swazoo --port=8585 --start
-/home/pier/webServer --stop
-/home/pier/webServer --restart
-```
-
 
 [1]: http://www.piercms.com/
 [2]: http://www.swazoo.org/
