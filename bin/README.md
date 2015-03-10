@@ -4,7 +4,7 @@
 - [Client Scripts](#client-scripts)
 
 ## Server Scripts
-Scripts that can be run on the server machine with or without *X Windows*.
+Scripts that run on the server machine only.
 
 | script | description |
 |--------|-------------|
@@ -33,8 +33,9 @@ Scripts that can be run on the server machine with or without *X Windows*.
 |<a name="stopStone"></a>
 [stopStone][13]| Stop the named stone. The netldi is left running. Any statmonitor processes associated with the stone will be stopped.|
 |[tode][22]| Run headless tode scripts using the todeClient image.|
+
 ## Client Scripts
-Scripts that can be run on the client machine, including the server if *X Windows* is running.
+Scripts that can be run on the client machine or the server.
 
 | script | description |
 |--------|-------------|
@@ -43,11 +44,18 @@ Scripts that can be run on the client machine, including the server if *X Window
 |[installClient][1]| Create a todeClient image on a remote machine. Runs the [installGemstone][18], [createTodeImage][14] and [todeClient][15] scripts.|
 |[installGci][17]| Copy the gci libraries for the given GemStone version to the $GS\_HOME/pharo directory. |
 |[installPharo][19]| Download and install a Linux or Mac Pharo3.0 VM, image and changes file.|
+|[performTodeCommand][25]| Pass tODE command to be executed as command line.|
 |[pharo][21]| Run headless pharo scripts using the Pharo image.|
 |[tode][22]| Run headless tode scripts using the todeClient image.|
-|[todeClient][15]| Launch todeClient image.|
+|[todeClient][15]| Launch todeClient image. Requires X11 client.|
 |[updateTodeImage][16]| Update the tODE client image.|
 
+##Utility Scripts
+Special purpose utility scripts.
+
+| script | description |
+|--------|-------------|
+|[osPrereqs][26]|Utility script installing os-specific prerequisites|
 
 [1]: installClient
 [2]: installServer
@@ -73,3 +81,5 @@ Scripts that can be run on the client machine, including the server if *X Window
 [22]: tode
 [23]: createTodeProjectStone
 [24]: installTodeProjectStone
+[25]: performTodeCommand
+[26]: osPrereqs
