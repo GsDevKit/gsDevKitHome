@@ -5,7 +5,7 @@ cp /home/pier/projects300/pier3AddOns /sys/stone/projects     # use #stable from
 cp /home/pier/projects300/seaside30 /sys/stone/projects       # Use Seaside30 3.0.8
 cp /home/pier/projects300/seaside /sys/stone/projects         # Use Seaside3 release3.0
 cp /home/pier/projects300/zinc /sys/stone/projects            # Zinc 1.1
-cp /home/pier/projects300/xml /sys/stone/projects             # XMLSupport 1.2.2
+cp /home/pier/projects300/xml /sys/stone/projects             # XMLSupport 1.2.2.1
 project refresh --locked                                      # ensure that new project entries are used
 project load Pier3AddOns                                      # load Pier3AddOns project
 project load Seaside3                                         # load Seaside3 Swazoo and FastCGI adaptors

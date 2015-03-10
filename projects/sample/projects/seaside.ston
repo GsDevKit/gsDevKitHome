@@ -2,6 +2,6 @@ TDObjectGatewayNode{#name:'seaside',#contents:'^ TDProjectSpecEntryDefinition ne
     baseline: \'Seaside3\'
       repository: \'filetree:///opt/git/Seaside31/repository\'
       loads: #(\'Development\' \'Zinc\' \'FastCGI\' \'Examples\' \'Tests\');
-    status: #(#\'active\');
+    status: #(#\'inactive\');
     locked: true;
     yourself'}
