@@ -26,7 +26,7 @@ The [installGemStone][8] script GemStone 3.1.0.6 and only needs to be run if you
 
 The [createTodeImage][9] script creates the tODE client image and only needs to be run if you haven't run the [installServer][10] script before.
 
-The [createPier300Stone](#createPier300Stone) script:
+The [createPier300Stone](#create-pier-stone-bash) script:
 - Creates a stone named `pier` based on GemStone 3.1.0.6, [starts the stone][11] and [starts a netLdi][12].
 - Installs Pier3.0.0 and Seaside3.0.
 - Registers a [Swazoo web server](#web-server-control).
@@ -69,55 +69,71 @@ $GS_HOME/projects/pier3/bin/webServer pier --stop # Stop the Swazoo web server
 
 ##Operating
 1. [Stone control](#stone-control)
+   - [Create `pier` stone (Bash)](#create-pier-stone-bash)
+   - [Install `pier` (Bash)](#install-pier-bash)
    - [Start `pier` stone](#start-pier-stone)
    - [Stop `pier` stone](#stop-pier-stone)
 2. [Web Server control](#web-server-control)
-   - [Register `pier` web server](#register-pier-web-server-bash)
-   - [Start `pier` web server](#start-pier-web-server-bash)
-   - [Stop `pier` web server](#stop-pier-web-server-bash)
+   - [Register `pier` web server (Bash)](#register-pier-web-server-bash)
+   - [Start `pier` web server (Bash)](#start-pier-web-server-bash)
+   - [Stop `pier` web server (Bash)](#stop-pier-web-server-bash)
 3. [tODE scripts](#tode-scripts)
-   - [Install `pier`](#install-pier-tode)
-   - [Register `pier` web server](#register-pier-web-server-tode)
-   - [Start `pier` web server](#start-pier-web-server-tode)
-   - [Stop `pier` web server](#stop-pier-web-server-tode)
+   - [Install `pier` (tODE)](#install-pier-tode)
+   - [Register `pier` web server (tODE)](#register-pier-web-server-tode)
+   - [Start `pier` web server (tODE)](#start-pier-web-server-tode)
+   - [Stop `pier` web server (tODE)](#stop-pier-web-server-tode)
 
 ###Stone control
-1. [Install `pier` (bash)](#install-pier-bash)
+1. [Create `pier` stone (Bash)](#create-pier-stone-bash)
+1. [Install `pier` (Bash)](#install-pier-bash)
 1. [Start `pier` stone](#start-pier-stone)
 2. [Stop `pier` stone](#stop-pier-stone)
 
-####Install `pier` (bash)
-To install `pier` into an existing stone, use the following Bash scirpt:
+####Create `pier` stone (bash)
+To create a `pier` stone, use the [createPier300Stone][16] script:
 
 ```
-$GS_HOME/projects/pier3/bin/installPier300Ston <stone-name>
+$GS_HOME/projects/pier3/bin/createPier300Stone <stone-name> <gemstone-version>
 ```
+
+This script calls the [createTodeStone][15] and [installPier300Stone](#install-pier-bash) Bash scripts.
+
+####Install `pier` (bash)
+To install `pier` into an existing stone, use the [installPier300Stone][17] script:
+
+```
+$GS_HOME/projects/pier3/bin/installPier300Stone <stone-name>
+```
+
+This script executes the [install `pier` tODE commands](#install-pier-tode).
 
 ####Start `pier` stone
-To start the `pier` stone use the following Bash script:
+To start the `pier` stone use the [startStone][11] script:
 
 ```
 $GS_HOME/bin/startStone <stone-name>
 ```
 
 ####Stop `pier` stone
-To stop the `pier` stone use the following Bash script:
+To stop the `pier` stone use the [stopStone][18] script:
 
 ```
 $GS_HOME/bin/stopStone <stone-name>
 ```
 
 ###Web server control
-1. [Register `pier` web server](#register-pier-web-server-bash)
-2. [Start `pier` web server](#start-pier-web-server-bash)
-3. [Stop `pier` web server](#stop-pier-web-server-bash)
+1. [Register `pier` web server (Bash)](#register-pier-web-server-bash)
+2. [Start `pier` web server (Bash)](#start-pier-web-server-bash)
+3. [Stop `pier` web server (Bash)](#stop-pier-web-server-bash)
 
 ####Register `pier` web server (Bash)
-To register a `pier` web server use the following Bash script:
+To register a `pier` web server use the [webServer][19] script:
 
 ```
 $GS_HOME/projects/pier3/bin/webServer <stone-name> --register=swazoo --port=8585
 ```
+
+See the [tode web server script](#tode-web-server-script) for more information.
 
 ####Start `pier` web server (Bash)
 To start the `pier` web server use the following Bash script:
@@ -126,6 +142,8 @@ To start the `pier` web server use the following Bash script:
 $GS_HOME/projects/pier3/bin/webServer <stone-name> --restart
 ```
 
+See the [tode web server script](#tode-web-server-script) for more information.
+
 ####Stop `pier` web server (Bash)
 To stop the `pier` stone use the following Bash script:
 
@@ -133,11 +151,14 @@ To stop the `pier` stone use the following Bash script:
 $GS_HOME/projects/pier3/bin/webServer <stone-name> --stop
 ```
 
+See the [tode web server script](#tode-web-server-script) for more information.
+
 ###tODE scripts
-1. [Install `pier`](#install-pier-tode)
-2. [Register `pier` web server](#register-pier-web-server-tode)
-3. [Start `pier` web server](#start-pier-web-server-tode)
-4. [Stop `pier` web server](#stop-pier-web-server-tode)
+1. [Install `pier` (tODE)](#install-pier-tode)
+2. [tODE web server script](#tode-web-server-script)
+   - [Register `pier` web server (tODE)](#register-pier-web-server-tode)
+   - [Start `pier` web server (tODE)](#start-pier-web-server-tode)
+   - [Stop `pier` web server (tODE)](#stop-pier-web-server-tode)
 
 ####Install `pier` (tODE)
 To install `pier` use the following tODE script:
@@ -168,21 +189,22 @@ project list                                                  # refresh the proj
 /home/pier/webServer --register=zinc --port=8585 --restart    # start Zinc Seaside server
 ```
 
-####Register `pier` web server (tODE)
+####tODE web server script
+#####Register `pier` web server (tODE)
 To register a `pier` web server use the following tODE script:
 
 ```
 /home/pier/webServer --register=swazoo --port=8585
 ```
 
-####Start `pier` web server (tODE)
+#####Start `pier` web server (tODE)
 To start the `pier` web server use the following Bash script:
 
 ```
 /home/pier/webServer --restart
 ```
 
-####Stop `pier` web server (tODE)
+#####Stop `pier` web server (tODE)
 To stop the `pier` stone use the following Bash script:
 
 ```
@@ -203,3 +225,9 @@ To stop the `pier` stone use the following Bash script:
 [12]: ../../bin/README.md#startNetldi
 [13]: ../../bin/README.md#server-scripts
 [14]: images/pier_create_admin_user.png
+[15]: ../../bin/README.md#createTodeStone
+[16]: bin/createPier300Stone
+[17]: bin/installPier300Stone
+[18]: ../../bin/README.md#stopStone
+[19]: bin/webServer
+
