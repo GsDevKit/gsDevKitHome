@@ -29,10 +29,10 @@ The [createTodeImage][9] script creates the tODE client image and only needs to 
 The [createPier300Stone](#create-pier-stone-bash) script:
 - Creates a stone named `pier` based on GemStone 3.1.0.6, [starts the stone][11] and [starts a netLdi][12].
 - Installs Pier3.0.0 and Seaside3.0.
-- Registers a [Swazoo web server](#web-server-control).
+- Registers a [Swazoo web server](#register-pier-web-server-tode).
 - Creates a backup named `pier3.0.0.dbf`.
 
-See the [GsDevKit Server Scripts][13] for further information about the Bash commands that can be used to control the GemStone processes.
+See the [Stone control](#stone-control) for further information about Bash commands that can be used to control the GemStone product.
 
 ##Getting Started with Pier
 Nic Ager's [demo of the Pier Administration interface][6] is a good introduction to [Pier][1].
