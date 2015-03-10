@@ -1,0 +1,7 @@
+TDObjectGatewayNode{#name:'grease',#contents:'^ TDProjectSpecEntryDefinition new
+    baseline: \'Grease\'
+      repository: \'filetree:///opt/git/Grease/repository\'
+      loads: #(\'default\');
+    status: #(#\'inactive\');
+    locked: true;
+    yourself'}
