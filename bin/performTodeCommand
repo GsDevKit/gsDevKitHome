@@ -13,7 +13,9 @@ OPTIONS
 
 EXAMPLES
   $(basename $0) -h
-  $(basename $0) devkit "project load Seaside3"
+  $(basename $0) devkit project load Seaside3
+  $(basename $0) devkit eval \`3+4\`
+  $(basename $0) devkit eval \`3+4\`\; eval \`self == 7 ifFalse: [ System logout ]\`
 
 HELP
 }
@@ -29,6 +31,7 @@ getOpts_help $@ #parse standard (-h) options
 stoneName="$1"
 shift
 
+echo "performing: __$*__"
 $GS_HOME/bin/tode todeIt $stoneName << EOF
 $*
 EOF
