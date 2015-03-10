@@ -2,8 +2,9 @@
 
 | Project | Description|
 |---------|------------|
-| [Magritte][10]| [Dynamic Meta-Description Framework][8]   |
-| [Pier][9]|[Content Management System][7] |
+|[Magritte][10]| [Dynamic Meta-Description Framework][8]   |
+|[Pier][9]|[Content Management System][7] |
+|[Sample application][11] | Example gsDevKit project|
 |[Seaside31][2]| [Dynamic Web Development Framework][4] |
 |[ZincHTTPComponents][3]| [Web Server/Client][5] |
 
@@ -34,6 +35,7 @@ Here is a sampling of some of the open source projects that have been ported to 
 [8]: https://code.google.com/p/magritte-metamodel/
 [9]: pier3#pier-300
 [10]: magritte3#magritte-320
+[11]: sample/#sample-project
 
 [66]: http://www.squeaksource.com/Cryptography.html
 [67]: https://github.com/flow-stack/flow#flow
