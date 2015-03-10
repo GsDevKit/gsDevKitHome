@@ -82,6 +82,9 @@ $GS_HOME/projects/pier3/bin/webServer pier --stop # Stop the Swazoo web server
    - [Stop `pier` web server](#stop-pier-web-server-tode)
 
 ###Stone control
+1. [Start `pier` stone](#start-pier-stone)
+2. [Stop `pier` stone](#stop-pier-stone)
+
 ####Start `pier` stone
 To start the `pier` stone use the following Bash script:
 
@@ -97,6 +100,10 @@ $GS_HOME/bin/stopStone pier
 ```
 
 ###Web server control
+1. [Register `pier` web server](#register-pier-web-server-bash)
+2. [Start `pier` web server](#start-pier-web-server-bash)
+3. [Stop `pier` web server](#stop-pier-web-server-bash)
+
 ####Register `pier` web server (Bash)
 To register a `pier` web server use the following Bash script:
 
@@ -119,6 +126,11 @@ $GS_HOME/projects/pier3/bin/webServer pier --stop
 ```
 
 ###tODE scripts
+1. [Install `pier`](#install-pier-tode)
+2. [Register `pier` web server](#register-pier-web-server-tode)
+3. [Start `pier` web server](#start-pier-web-server-tode)
+4. [Stop `pier` web server](#stop-pier-web-server-tode)
+
 ####Install `pier` (tODE)
 To install `pier` use the following tODE script:
 
