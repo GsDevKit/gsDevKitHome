@@ -96,8 +96,8 @@ The `$GS_HOME/bin/installServer` script:
 - installs tODE in the stone, using the [$GS_HOME/bin/installTodeStone][46] script.
 - launches the Pharo tODE client, using the [$GS_HOME/bin/todeClient][35] script. 
 
-Before running the `installServer` script, please check on the [GemStone/S 64 Bit product page for latest versions, licensing and terms of use][98].
-It is recommended that you download and use the latest version of GemStone.
+Before running the `installServer` script, please check on the [GemStone/S 64 Bit product page for the latest versions][98] and visit [the Community and Web Edition Licensing page for information on the license included with the download and other options][98].
+It is recommended that you download and use the latest version of the GemStone/S 64 Bit product.
 The following creates a new stone named `devKit` based on [version 3.2.4 of GemStone/S][16]:
 
 ```Shell
@@ -196,3 +196,4 @@ commit the changes that you've made.
 [96]: bin/README.md
 [97]: https://github.com/dalehenrich/tode/blob/master/docs/releaseNotes/releaseNotes0.1.0.md#git-credentials-and-tode
 [98]: http://gemtalksystems.com/products/gs64/
+[99]: http://gemtalksystems.com/licensing/#CWELicensing

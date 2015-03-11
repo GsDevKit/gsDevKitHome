@@ -7,7 +7,7 @@ set -e  # exit on error
 
 # install server
 installServer travis $GS_VERSION
-cd $GS_HOME/tode/sys/stones/stones/travis
+cd $GS_HOME/tode/sys/stones/travis
 ls dirs.ston  home  homeComposition.ston  packages.ston  projectComposition.ston  projects  repos.ston
 
 stones
@@ -58,7 +58,7 @@ createStone travis_2 $GS_VERSION
 stoneExtent travis_2
 
 installServer travis_3 $GS_VERSION
-cd $GS_HOME/tode/sys/stones/stones/travis_3
+cd $GS_HOME/tode/sys/stones/travis_3
 ls dirs.ston  home  homeComposition.ston  packages.ston  projectComposition.ston  projects  repos.ston
 performTodeCommand travis_3 eval \`3+4\`\; eval \`self == 7 ifFalse: [ System logout ]\`
 performTodeCommand travis_3 ls /home
