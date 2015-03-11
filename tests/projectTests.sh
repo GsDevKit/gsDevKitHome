@@ -22,6 +22,7 @@ case $TEST in
     $GS_HOME/bin/installTodeProjectStone projects SIXX
     $GS_HOME/bin/installTodeProjectStone projects Tode
     $GS_HOME/bin/installTodeProjectStone projects Flow
+    $GS_HOME/bin/installTodeProjectStone projects XMLSupport
     ;;
   Projects2)
     $GS_HOME/bin/createTodeProjectStone projects $GS_VERSION ZincHTTPComponents
