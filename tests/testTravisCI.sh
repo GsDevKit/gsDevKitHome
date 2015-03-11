@@ -17,6 +17,9 @@ case $TEST in
   Basic)
     $GS_HOME/tests/basicTests.sh
     ;;
+  BasicTodeClient)
+    $GS_HOME/tests/basicTodeClientTests.sh
+    ;;
   Magritte)
     $GS_HOME/tests/magritteTests.sh
     ;;
