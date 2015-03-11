@@ -8,5 +8,4 @@ GsDeployer bulkMigrate: [
     repository: 'github://dalehenrich/tode:0.0.?/repository';
     onConflict: [ :ex | ex allow ];
     get;
-    load: 'GemStone Dev';
-    lock ]
+    load: 'GemStone Dev' ]

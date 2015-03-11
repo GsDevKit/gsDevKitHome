@@ -1,2 +1,2 @@
-updateClient --clientRepo=github://dalehenrich/tode:master/repository
-updateServer --clientScriptPath=scripts
+updateClient
+updateServer

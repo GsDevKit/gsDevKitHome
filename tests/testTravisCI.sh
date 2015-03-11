@@ -6,8 +6,8 @@
 set -e  # exit on error
 
 # Uncomment to use alternate version of tODE for tests
-cp $GS_HOME/tests/tode/sys/default/server/scripts/installTode.ws $GS_HOME/tode/sys/default/server/scripts
-cp $GS_HOME/tests/tode/sys/default/projects/*.ston $GS_HOME/tode/sys/default/projects
+cp $GS_HOME/tests/tode/sys/local/server/scripts/installTode.ws $GS_HOME/tode/sys/local/server/scripts
+cp $GS_HOME/tests/tode/sys/local/projects/*.ston $GS_HOME/tode/sys/local/projects
 cp $GS_HOME/tests/pharo/todeLoad.st $GS_HOME/pharo
 cp $GS_HOME/tests/projects/magritte3/install.ston $GS_HOME/projects/magritte3
 cp $GS_HOME/tests/projects/pier3/install300.ston $GS_HOME/projects/pier3

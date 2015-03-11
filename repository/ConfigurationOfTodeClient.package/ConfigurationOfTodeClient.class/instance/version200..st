@@ -20,5 +20,5 @@ version200: spec
 							spec
 								loads: 'GemStone Dev';
 								repository: 'github://dalehenrich/tode:v0.?/repository' ];
-				postLoadDoIt: #post30Load;
+				postLoadDoIt: #post30Load2x;
 				yourself ]
