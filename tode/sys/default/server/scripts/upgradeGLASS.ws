@@ -2,7 +2,7 @@
  Let GsUpgrader make the decisions."
 Transcript
   cr;
-  show: '-----Upgrading GLASS using gsUpgrader'.
+  show: '-----Upgrade GLASS using gsUpgrader'.
 Gofer new
   package: 'GsUpgrader-Core';
   url: 'http://ss3.gemtalksystems.com/ss/gsUpgrader';

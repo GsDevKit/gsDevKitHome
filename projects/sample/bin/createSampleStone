@@ -6,7 +6,7 @@
 usage() {
   cat <<HELP
 USAGE: $(basename $0) [-h] <stone-name> <gemstone-version> 
-Create a new stone named <stone-name> with tODE and Pier300 installed.
+Create a new stone named <stone-name> with tODE and Sample project installed.
 
 OPTIONS
   -h display help
@@ -33,4 +33,4 @@ gsvers="$2"
 
 $GS_HOME/bin/createTodeStone $stoneName $gsvers
 
-$GS_HOME/projects/pier3/bin/installPier300Stone $stoneName
+$GS_HOME/projects/sample/bin/installSampleStone $stoneName

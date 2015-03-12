@@ -10,6 +10,10 @@ Bootstrap the Sample project. Clone the set of GitHub projects used by the
 Sample project. Set up the tODe and GsDevKitHome infrastructure for the
 Sample project.
 
+This script should be run after cloning the gsDevKitHome repository and 
+checking out your project branch (see 
+https://github.com/GsDevKit/gsDevKitHome/tree/master#clone-gsdevkithome).
+
 OPTIONS
   -h show usage
 
@@ -40,24 +44,23 @@ if [ ! -d metacello-work ]; then
   git clone git@github.com:dalehenrich/metacello-work.git
 fi
 if [ ! -d sample ]; then
-  git clone git@github.com:dalehenrich/sample.git
-  cd sample
-  git checkout gsDevKitHome
-  cd ..
+  git clone --branch gsDevKitHome git@github.com:dalehenrich/sample.git
 fi
 if [ ! -d Seaside31 ]; then
   git clone git@github.com:GsDevKit/Seaside31.git
 fi
 if [ ! -d tode ]; then
-  git clone git@github.com:dalehenrich/tode.git
-  cd tode
-  git checkout dev
-  cd ..
+  git clone --branch dev git@github.com:dalehenrich/tode.git
 fi
 if [ ! -d zinc ]; then
   git clone git@github.com:GsDevKit/zinc.git
 fi
 
-# copy project entries to /sys/local/projects directory
+# copy project entries to /sys/local/projects directory - referencing local git clones
 cp $GS_HOME/projects/sample/tode/sys/local/projects/* $GS_HOME/tode/sys/local/projects
 
+# Setting things up to bootstrap GemStone and Pharo from local git clones
+#   Copy GemStone bootstrap scripts to $GS_HOME/tode/sys/local/server/scripts and 
+#   Pharo client bootstrap script to $GS_HOME/pharo
+cp $GS_HOME/projects/sample/tode/sys/local/server/scripts/* $GS_HOME/tode/sys/local/server/scripts
+cp $GS_HOME/projects/sample/pharo/todeLode.st $GS_HOME/pharo

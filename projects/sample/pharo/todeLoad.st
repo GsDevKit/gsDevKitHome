@@ -1,16 +1,20 @@
 [ 
-  "Tests pharo todeLoad.st"
+  "Sample project pharo todeLoad.st, lock and load Metacello using local git clone"
   | gs_home metacello |
-  gs_home := Smalltalk os environment at: 'GS_HOME'.
   Metacello new
     baseline: 'Metacello';
-    repository: 'github://dalehenrich/metacello-work:master/repository';
+    repository: 'filetree:///opt/git/metacello-work/repository';
     get.
   Metacello new
     baseline: 'Metacello';
-    repository: 'github://dalehenrich/metacello-work:master/repository';
+    repository: 'filetree:///opt/git/metacello-work/repository';
+    lock.
+  Metacello new
+    baseline: 'Metacello';
+    repository: 'filetree:///opt/git/metacello-work/repository';
     onConflict: [:ex | ex allow];
     load.
+  gs_home := Smalltalk os environment at: 'GS_HOME'.
   Metacello new
     configuration: 'TodeClient';
     version: #dev;
