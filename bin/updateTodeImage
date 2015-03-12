@@ -36,12 +36,18 @@ if [ "${GS_HOME}x" = "x" ] ; then
   exit 1
 fi
 
-echo "Updating todeClient${postFix} image"
+todeLoadPath=$GS_HOME/tode/sys/default/pharo/todeLoad.st
+if [ -e $GS_HOME/tode/sys/local/pharo/todeLoad.st ] ; then
+  todeLoadPath=$GS_HOME/tode/sys/local/pharo/todeLoad.st
+fi
+
+echo "updating todeClient${postFix} image using $todeLoadPath"
+
 
 pharo=$GS_HOME/pharo
 $pharo/pharo $pharo/todeClient${postFix}.image save todeClientTmp
 
-$pharo/pharo $pharo/todeClientTmp.image st --quit --save $pharo/todeLoad.st
+$pharo/pharo $pharo/todeClientTmp.image st --quit --save $todeLoadPath
 
 $pharo/pharo $pharo/todeClientTmp.image save todeClient${postFix}
 

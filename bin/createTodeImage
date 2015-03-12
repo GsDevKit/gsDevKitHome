@@ -45,11 +45,16 @@ if [ -e $pharo/todeClient${postFix}.image ] ; then
   exit 0
 fi
 
-echo "creating todeClient${postFix} image"
+todeLoadPath=$GS_HOME/tode/sys/default/pharo/todeLoad.st
+if [ -e $GS_HOME/tode/sys/local/pharo/todeLoad.st ] ; then
+  todeLoadPath=$GS_HOME/tode/sys/local/pharo/todeLoad.st
+fi
+
+echo "creating todeClient${postFix} image using $todeLoadPath"
 
 $pharo/pharo $pharo/Pharo.image save todeClientTmp
 
-$pharo/pharo $pharo/todeClientTmp.image st --quit --save $pharo/todeLoad.st
+$pharo/pharo $pharo/todeClientTmp.image st --quit --save $todeLoadPath
 
 $pharo/pharo $pharo/todeClientTmp.image save todeClient${postFix}
 
