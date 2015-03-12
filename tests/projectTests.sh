@@ -21,7 +21,7 @@ case $TEST in
     $GS_HOME/bin/installTodeProjectStone projects Ston
     $GS_HOME/bin/installTodeProjectStone projects SIXX
     $GS_HOME/bin/installTodeProjectStone projects Tode
-    $GS_HOME/bin/installTodeProjectStone projects Flow
+#    $GS_HOME/bin/installTodeProjectStone projects Flow  # Error: GemStone Server error: a UserDefinedError occurred (error 2318), reason:halt, filetree:// repository '/opt/git/ta/Mapless/src' does not exist.
     $GS_HOME/bin/installTodeProjectStone projects XMLSupport
     ;;
   Projects2)
