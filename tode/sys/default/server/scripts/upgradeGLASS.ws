@@ -1,11 +1,13 @@
 "First step in tODE installation process: upgrade GLASS (if necessary).
- Let GsUpgrader make the decisions."
+ Should not change this script as GsUpgrader upgrades GLASS correctly."
+
 Transcript cr; show: '---Step 1 of tODE bootstrap process: execute upgradeGlass.ws'.
 [
   | monticelloDir gofer |
   Transcript
     cr;
-    show: '-----Upgrade GLASS using gsUpgrader'.
+    show: '-----Install GsUpgrader-Core package '.
+
   monticelloDir := ServerFileDirectory on: '$GS_HOME/tode/sys/local/monticello'.
   gofer := Gofer new
         package: 'GsUpgrader-Core';
@@ -20,6 +22,11 @@ Transcript cr; show: '---Step 1 of tODE bootstrap process: execute upgradeGlass.
       Transcript show: ' from http://ss3.gemtalksystems.com/ss/gsUpgrader'.
       gofer url: 'http://ss3.gemtalksystems.com/ss/gsUpgrader' ].
   gofer load.
+
+  Transcript
+    cr;
+    show: '-----Upgrade GLASS using gsUpgrader'.
+
   (Smalltalk at: #GsUpgrader) upgradeGLASS ]
     on: Error, Halt do: [:ex |
       Transcript
