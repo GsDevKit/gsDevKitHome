@@ -9,7 +9,7 @@ newExtent
 	extentFile exists
 		ifTrue: [ extentFile delete ].
 	self
-		copySeasideExtent: stoneDirectory;
+		copySnapshotExtent: stoneDirectory;
 		yourself.
 	Transcript
 		cr;

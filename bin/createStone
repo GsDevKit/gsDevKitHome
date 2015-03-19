@@ -5,15 +5,18 @@
 
 usage() {
   cat <<HELP
-USAGE: $(basename $0) [-h] <stone-name> <gemstone-version>
+USAGE: $(basename $0) [-h] [-s <snapshot-file-path>] <stone-name> <gemstone-version>
 Create a new stone with the given stone name. Do not install tODE.
 
 OPTIONS
-  -h display help
+  -h                      display help
+  -s <snapshot-file-path> path to snapshot file used to create stone. If not present
+                          $GEMSTONE/bin/extent0.seaside.dbf is used.
 
 EXAMPLES
   $(basename $0) -h
   $(basename $0) kit 3.2.1
+  $(basename $0) -s $GS_HOME/gemstone/snapshots/extent0.tode.3.2.4.dbf kit 3.2.4
 
 HELP
 }
@@ -22,8 +25,15 @@ set -e # exit on error
 if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"; exit 1
 fi
-source ${GS_HOME}/bin/shFunctions
-getOpts_help $@
+
+snapshotFile=""
+while getopts "hs:" OPT ; do
+  case "$OPT" in
+    h) usage; exit 0;;
+    p) snapshotFile="${OPTARG}";;
+    *) usage; exit 1;;
+  esac
+done
 
 if [ $# -ne 2 ]; then
   usage; exit 1
@@ -37,4 +47,4 @@ fi
 
 echo "Creating stone $stoneName"
 pharo=$GS_HOME/pharo
-$pharo/pharo $pharo/todeClient.image createStone $stoneName $gsvers
+$pharo/pharo $pharo/todeClient.image createStone $stoneName $gsvers $snapshotFile

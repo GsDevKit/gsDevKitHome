@@ -5,16 +5,21 @@
 
 usage() {
   cat <<HELP
-USAGE: $(basename $0) [-h] <stone-name>
+USAGE: $(basename $0) [-h] [-s <snapshot-file-path>] <stone-name>
 Copy a new extent into the stone's extent directory. Stone
 should be shutdown before copying.
 
 OPTIONS
-  -h display help
-
+  -h                      display help
+  -s <snapshot-file-path> path to snapshot file used to create stone. If not present
+                          $GEMSTONE/bin/extent0.seaside.dbf is used. If you specify
+			  a <snapshot-file-path>, the version must match the verion
+			  of the produce install.
+i
 EXAMPLES
   $(basename $0) -h
   $(basename $0) kit
+  $(basename $0) -s $GS_HOME/gemstone/snapshots/extent0.tode.3.2.4.dbf kit
 
 HELP
 }
@@ -23,8 +28,15 @@ set -e # exit on error
 if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"; exit 1
 fi
-source ${GS_HOME}/bin/shFunctions
-getOpts_help $@
+
+snapshotFile=""
+while getopts "hs:" OPT ; do
+  case "$OPT" in
+    h) usage; exit 0;;
+    p) snapshotFile="${OPTARG}";;
+    *) usage; exit 1;;
+  esac
+done
 
 if [ $# -ne 1 ]; then
   usage; exit 1
@@ -40,4 +52,4 @@ source $stonePath/stone.env
 popd >& /dev/null
 
 # copy the extent
-$GS_HOME/bin/tode newExtent $stoneName
+$GS_HOME/bin/tode newExtent $stoneName $snapshotFile

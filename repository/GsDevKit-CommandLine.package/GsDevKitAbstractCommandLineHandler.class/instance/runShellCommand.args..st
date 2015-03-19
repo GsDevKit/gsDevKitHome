@@ -1,6 +1,6 @@
 accessing
 runShellCommand: shellCommandPath args: shellArgumentArray
-	| out err proc outName pid |
+	| out err proc outName pid success output |
 	pid := OSProcess thisOSProcess pid.
 	outName := '/tmp/gsdevkit' , pid printString , '.out'.
 	out := FileStream forceNewFileNamed: outName.
@@ -12,6 +12,10 @@ runShellCommand: shellCommandPath args: shellArgumentArray
 		descriptors: (Array with: nil with: out with: err).
 	proc ifNil: [ OSProcess noAccessorAvailable ].
 	[ proc isRunning ] whileTrue: [ (Delay forMilliseconds: 100) wait ].
+	success := proc succeeded.
 	out close.
 	err close.
-	FileStream readOnlyFileNamed: outName do: [ :fileStream | ^ fileStream contents ]
+	FileStream readOnlyFileNamed: outName do: [ :fileStream | output := fileStream contents ].
+	success
+		ifFalse: [ self error: 'Shell command: ' , shellCommandPath printString , ' failed. ' , output printString ].
+	^ output
