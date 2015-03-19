@@ -6,6 +6,7 @@
 usage() {
   cat <<HELP
 USAGE: $(basename $0) [-h] <stone-name> <backup-file>
+
 Restore a backup on the given stone.
 
 OPTIONS

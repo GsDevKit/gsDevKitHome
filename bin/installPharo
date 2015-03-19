@@ -6,6 +6,7 @@
 usage() {
   cat <<HELP
 USAGE: $(basename $0) [-h]
+
 Download and install a Linux or Mac or Pharo3.0 VM, image and changes file.
 
 OPTIONS

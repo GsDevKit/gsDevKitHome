@@ -6,6 +6,7 @@
 usage() {
   cat <<HELP
 USAGE: $(basename $0) [-h] <stone-name> <backup-file>
+
 Create a GemStone backup for the given stone.
 
 OPTIONS

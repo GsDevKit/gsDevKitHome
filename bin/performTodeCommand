@@ -6,6 +6,7 @@
 usage() {
   cat <<HELP
 USAGE: $(basename $0) [-h] <stone-name> <tode-command-line>
+
 Execute the <tode-command-line> as a tODE command 
 
 OPTIONS

@@ -6,6 +6,7 @@
 usage() {
   cat <<HELP
 USAGE: $(basename $0) [-h] <stone-name>
+
 Start statmonitor for the given stone. Two statmonitors are
 started. One that collects a sample every second and is
 restarted every hour. One that collects a sample once a

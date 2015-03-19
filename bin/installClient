@@ -5,9 +5,9 @@
 
 usage() {
   cat <<HELP
-
 USAGE: $(basename $0) [-h] <gemstone-version>
- Create a todeClient image on a remote machine. Runs the installGemstone (to acquire gci
+
+Create a todeClient image on a remote machine. Runs the installGemstone (to acquire gci
 libraries), createTodeImage and todeClient scripts.
 
 OPTIONS

@@ -6,6 +6,7 @@
 usage() {
   cat <<HELP
 USAGE: $(basename $0) [-h]
+
 List information about the installed GemStone/S products, installed stones,
 running stones and running netldis.
 

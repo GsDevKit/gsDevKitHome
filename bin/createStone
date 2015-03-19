@@ -6,12 +6,18 @@
 usage() {
   cat <<HELP
 USAGE: $(basename $0) [-h] [-s <snapshot-file-path>] <stone-name> <gemstone-version>
+
 Create a new stone with the given stone name. Do not install tODE.
 
+If you create a stone from an extent snapshot, you should use the -N
+option to start the stone, the first time.
+
 OPTIONS
-  -h                      display help
-  -s <snapshot-file-path> path to snapshot file used to create stone. If not present
-                          $GEMSTONE/bin/extent0.seaside.dbf is used.
+  -h
+     display help
+  -s <snapshot-file-path> 
+     path to snapshot file used to create stone. If not present
+     $GEMSTONE/bin/extent0.seaside.dbf is used.
 
 EXAMPLES
   $(basename $0) -h

@@ -6,18 +6,19 @@
 usage() {
   cat <<HELP
 USAGE: $(basename $0) [-h] [-p <postfix>]
+
 Launch todeClient image.
 
 OPTIONS
   -h 
-    display help
+     display help
   -p <postfix>
-    Launch the tode client image created with a matching postfix.
+     Launch the tode client image created with a matching postfix.
 
 EXAMPLES
   $(basename $0) -h
-  $(basename $0) -p _0
   $(basename $0)
+  $(basename $0) -p _0  # Launches the image named todeClient_0.image
 
 HELP
 }

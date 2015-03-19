@@ -6,6 +6,7 @@
 usage() {
   cat <<HELP
 USAGE: $(basename $0) [-h] <stone-name> <gemstone-version> <project-name> 
+
 Create a new stone <stone-name> with tODE and the <project-name> project 
 installed. The installation of <project-name> is based upon the informaton in 
 the tODE project entry for the project.

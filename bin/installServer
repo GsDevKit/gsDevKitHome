@@ -6,6 +6,7 @@
 usage() {
   cat <<HELP
 USAGE: $(basename $0) [-h] <stone-name> <gemstone-version>
+
 Install GemStone/S, create a stone, start the stone, create a todeClient
 image. Runs the installGemstone, createTodeImage, createStone,
 startStone, startNetldi, startStatmonitor, installTodeStone and

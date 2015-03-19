@@ -6,15 +6,16 @@
 usage() {
   cat <<HELP
 USAGE: $(basename $0) [-h] [-p <postfix]
+
 Create the tODE client image. Used for running pharo-based scripts
 and for running the tODE client UI.
 
 OPTIONS
   -h 
-    display help
+     display help
   -p <postfix>
-    Append <postfix> to end of image name. Useful for creating
-    multiple tode client images.
+     Append <postfix> to end of image name. Useful for creating
+     multiple tode client images.
 
 EXAMPLES
   $(basename $0) -h

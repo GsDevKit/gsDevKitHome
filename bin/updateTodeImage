@@ -6,17 +6,19 @@
 usage() {
   cat <<HELP
 USAGE: $(basename $0) [-h]] [-p <postfix>]
+
 Update the tODE client image.
 
 OPTIONS
   -h 
-    display help
+     display help
   -p <postfix>
-   Update the tode client image created with a matching postfix.
+     Update the tode client image created with a matching postfix.
 
 EXAMPLES
   $(basename $0) -h
   $(basename $0)
+  $(basename $0) -p _0   # Updates the image named todeClient_0.image
 
 HELP
 }

@@ -5,12 +5,19 @@
 
 usage() {
   cat <<HELP
-USAGE: $(basename $0) [-h] [-w <waitstone-timeout>] <stone-name>
+USAGE: $(basename $0) [-h] [-C] [-N] [-R] [-w <waitstone-timeout>] <stone-name>
+
  Start the stone process for the given stone.
 
 OPTIONS
+  -C 
+     Startup for conversion.
   -h 
      display help
+  -N
+     Startup without transaction logs.
+  -R
+     Startup for restore 
   -w <waitstone-timeout>
      if present wait up to <waitstone-timeout> minutes for the stone to 
      properly start
@@ -25,9 +32,31 @@ HELP
 
 set -e # exit on error
 waitTime=""
-while getopts "hw:" OPT ; do
+ARGS=""
+while getopts "hw:CNR" OPT ; do
   case "$OPT" in
+    C) 
+      if [ "${ARGS}x" != "x" ] ; then 
+        echo "Only one of -C -N or -R options may be specified"
+        exit 1
+      fi
+      ARGS="${OPTARG}"
+    ;;
     h) usage; exit 0 ;;
+    N)
+      if [ "${ARGS}x" != "x" ] ; then 
+        echo "Only one of -C -N or -R options may be specified"
+        exit 1
+      fi
+      ARGS="${OPTARG}"
+    ;;
+    R)
+      if [ "${ARGS}x" != "x" ] ; then 
+        echo "Only one of -C -N or -R options may be specified"
+        exit 1
+      fi
+      ARGS="${OPTARG}"
+    ;;
     w) waitTime="${OPTARG}" ;;
     *) usage; exit 1 ;;
   esac
@@ -48,7 +77,7 @@ source $stonePath/stone.env
 popd >& /dev/null
 
 # start the stone
-$stonePath/product/seaside/bin/startGemstone
+$GS_HOME/bin/gs/startGemstone $ARGS
 
 if [ "${waitTime}x" = "x" ] ; then
   if [ "${GS_TRAVIS}x" != "x" ] ; then

@@ -6,6 +6,7 @@
 usage() {
   cat <<HELP
 USAGE: $(basename $0) [-h] <gemstone-version>
+
 Copy the gci libraries for the given GemStone version to the
 $GS_HOME/pharo directory.
 

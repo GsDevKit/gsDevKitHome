@@ -6,6 +6,7 @@
 usage() {
   cat <<HELP
 USAGE: $(basename $0) [-h] <stone-name> <gemstone-version>
+
 Create a new stone with the the given stone name with tODE installed.
 
 OPTIONS

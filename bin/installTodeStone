@@ -6,6 +6,7 @@
 usage() {
   cat <<HELP
 USAGE: $(basename $0) [-h] <stone-name>
+
 Install tODE in the given stone. The stone <stone-name> should already be started.
 
 OPTIONS

@@ -6,6 +6,7 @@
 usage() {
   cat <<HELP
 USAGE: $(basename $0) [-h]
+
 Run headless pharo scripts using the Pharo image.
 
 OPTIONS

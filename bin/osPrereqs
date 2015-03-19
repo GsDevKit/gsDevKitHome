@@ -21,9 +21,12 @@ and os-specific optional packages:
   - X11
 
 OPTIONS
-  -h display help
-  -o select os
-  -X if present, X11 client installed
+  -h 
+     display help
+  -o 
+     select os
+  -X 
+     if present, X11 client installed
   
 
 EXAMPLES

@@ -5,17 +5,25 @@
 
 usage() {
   cat <<HELP
-USAGE: $(basename $0) [-h] [-s <snapshot-file-path>] <stone-name>
-Copy a new extent into the stone's extent directory. Stone
-should be shutdown before copying.
+USAGE: $(basename $0) [-h] [-n] [-s <snapshot-file-path>] <stone-name>
+
+Copy a new extent into the stone's extent directory. The stone
+will be stopped before doing the copy and after the copy is complete,
+the stone will be restarted with the -N option.
+
+If you've specified the -n option, then the stone is not restarted.
 
 OPTIONS
-  -h                      display help
-  -s <snapshot-file-path> path to snapshot file used to create stone. If not present
-                          $GEMSTONE/bin/extent0.seaside.dbf is used. If you specify
-			  a <snapshot-file-path>, the version must match the verion
-			  of the produce install.
-i
+  -h
+     display help
+  -n
+     No stone restart.
+  -s <snapshot-file-path> 
+     path to snapshot file used to create stone. If not present
+     $GEMSTONE/bin/extent0.seaside.dbf is used. If you specify
+     a <snapshot-file-path>, the version must match the verion
+     of the gemstone product installed for the named stone.
+
 EXAMPLES
   $(basename $0) -h
   $(basename $0) kit
@@ -30,10 +38,12 @@ if [ "${GS_HOME}x" = "x" ] ; then
 fi
 
 snapshotFile=""
+noRestart="false"
 while getopts "hs:" OPT ; do
   case "$OPT" in
     h) usage; exit 0;;
-    p) snapshotFile="${OPTARG}";;
+    n) noRestart="true"
+    s) snapshotFile="${OPTARG}";;
     *) usage; exit 1;;
   esac
 done
@@ -43,7 +53,6 @@ if [ $# -ne 1 ]; then
 fi
 stoneName=$1
 
-echo "starting copy"
 
 # set up stone environment
 stonePath=$GS_HOME/gemstone/stones/$stoneName
@@ -51,5 +60,14 @@ pushd $stonePath >& /dev/null
 source $stonePath/stone.env
 popd >& /dev/null
 
-# copy the extent
+echo "Shutdown stone"
+$GS_HOME/bin/stopStone $stoneName
+
+echo "Copy snapshot"
 $GS_HOME/bin/tode newExtent $stoneName $snapshotFile
+
+echo "Restarting stone"
+if [ "${noRestart}" = "false" ] ; then
+  # -N option used to ignore the tranlog files during restart
+  $GS_HOME/bin/startStone -N $stoneName
+fi

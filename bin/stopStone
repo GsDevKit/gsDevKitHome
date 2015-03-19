@@ -6,6 +6,7 @@
 usage() {
   cat <<HELP
 USAGE: $(basename $0) [-h] <stone-name>
+
 Stop the named stone. The netldi is left running. Any statmonitor
 processes associated with the stone will be stopped.
 
@@ -43,4 +44,4 @@ source $stonePath/stone.env
 popd >& /dev/null
 
 # stop the stone
-$stonePath/product/seaside/bin/stopGemstone
+$GS_HOME/bin/gs/stopGemstone
