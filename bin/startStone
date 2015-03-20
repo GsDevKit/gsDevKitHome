@@ -44,7 +44,7 @@ while getopts "hw:CNR" OPT ; do
         echo "Only one of -C -N or -R options may be specified"
         exit 1
       fi
-      ARGS="${OPTARG}"
+      ARGS="${OPT}"
     ;;
     h) usage; exit 0 ;;
     N)
@@ -52,14 +52,14 @@ while getopts "hw:CNR" OPT ; do
         echo "Only one of -C -N or -R options may be specified"
         exit 1
       fi
-      ARGS="${OPTARG}"
+      ARGS="${OPT}"
     ;;
     R)
       if [ "${ARGS}x" != "x" ] ; then 
         echo "Only one of -C -N or -R options may be specified"
         exit 1
       fi
-      ARGS="${OPTARG}"
+      ARGS="${OPT}"
     ;;
     w) waitTime="${OPTARG}" ;;
     *) usage; exit 1 ;;
