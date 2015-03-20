@@ -4,7 +4,7 @@
 #=========================================================================
 
 echo "================="
-echo "   GsDevKit GemStone script: $(basename $0)"
+echo "   GsDevKit GemStone script: $(basename $0) $*"
 echo "================="
 
 if [ -s $GEMSTONE/seaside/etc/gemstone.secret ]; then

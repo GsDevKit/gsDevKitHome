@@ -4,7 +4,7 @@
 #=========================================================================
 
 echo "================="
-echo "   GsDevKit script: $(basename $0)"
+echo "   GsDevKit script: $(basename $0) $*"
 echo "================="
 
 usage() {

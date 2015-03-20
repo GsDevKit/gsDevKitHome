@@ -4,7 +4,8 @@
 #=========================================================================
 
 echo "================="
-echo "   GsDevKit script: $(basename $0)"
+echo "   GsDevKit script: $(basename $0) $*"
+echo "     Pharo STDOUT routed to: $GS_HOME/pharo/logs/todeClient${postFix}.log"
 echo "================="
 
 usage() {
