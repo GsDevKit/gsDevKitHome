@@ -5,14 +5,26 @@
 
 usage() {
   cat <<HELP
-USAGE: $(basename $0) [-h] <stone-name> <gemstone-version> <project-name> 
+USAGE: $(basename $0) [-h] [-n] [-s <snapshot-file-path>] <stone-name> <gemstone-version> <project-name> 
 
 Create a new stone <stone-name> with tODE and the <project-name> project 
 installed. The installation of <project-name> is based upon the informaton in 
 the tODE project entry for the project.
 
+Start stone and netldi unless -n is specified.
+
+If you create a stone from an extent snapshot, you should use the -N
+option to start the stone, the first time.
+
+
 OPTIONS
-  -h display help
+  -h 
+     display help
+  -n
+     No startStone, no startNetldi.
+  -s <snapshot-file-path> 
+     path to snapshot file used to create stone. If not present
+     $GEMSTONE/bin/extent0.seaside.dbf is used.
 
 EXAMPLES
   $(basename $0) -h
@@ -25,8 +37,17 @@ set -e # exit on error
 if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"; exit 1
 fi
-source ${GS_HOME}/bin/shFunctions
-getOpts_help $@
+
+snapshotArg=""
+noRestartArg=""
+while getopts "hns:" OPT ; do
+  case "$OPT" in
+    h) usage; exit 0;;
+    n) noRestartArg=" -n "
+    s) snapshotFileArg=" -s ${OPTARG} ";;
+    *) usage; exit 1;;
+  esac
+done
 
 if [ $# -ne 3 ]; then
   usage; exit 1
@@ -35,6 +56,6 @@ stoneName="$1"
 gsvers="$2"
 projectName="$3"
 
-$GS_HOME/bin/createTodeStone $stoneName $gsvers
+$GS_HOME/bin/createTodeStone $noRestartArg $snapshotArg $stoneName $gsvers
 
 $GS_HOME/bin/installTodeProjectStone $stoneName $projectName

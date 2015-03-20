@@ -39,7 +39,7 @@ fi
 
 snapshotFile=""
 noRestart="false"
-while getopts "hs:" OPT ; do
+while getopts "hns:" OPT ; do
   case "$OPT" in
     h) usage; exit 0;;
     n) noRestart="true"

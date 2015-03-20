@@ -8,11 +8,10 @@ usage() {
 USAGE: $(basename $0) [-h] [-n] [-s <snapshot-file-path>] <stone-name> <gemstone-version>
 
 Create a new stone with the given stone name. Do not install tODE. Start stone
-and netldi unless -n is specified
+and netldi unless -n is specified.
 
 If you create a stone from an extent snapshot, you should use the -N
 option to start the stone, the first time.
-
 
 OPTIONS
   -h
@@ -38,7 +37,7 @@ fi
 
 snapshotFile=""
 noRestart="false"
-while getopts "hs:" OPT ; do
+while getopts "hns:" OPT ; do
   case "$OPT" in
     h) usage; exit 0;;
     n) noRestart="true"
