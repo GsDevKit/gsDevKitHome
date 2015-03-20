@@ -18,7 +18,6 @@ createStone
 		createProductLn: stoneDirectory;
 		createEmptySubDirectories: stoneDirectory;
 		createEmptyStatsSubDirectories: stoneDirectory;
-		copySnapshotExtent: stoneDirectory;
 		copyTemplateSystemConf: stoneDirectory;
 		copyTemplateFiles: stoneDirectory;
 		createTopaziniFile: stoneDirectory;

@@ -37,13 +37,13 @@ if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"; exit 1
 fi
 
-snapshotFile=""
-noRestart="false"
+snapshotFileArg=""
+noRestartArg=""
 while getopts "hns:" OPT ; do
   case "$OPT" in
     h) usage; exit 0;;
-    n) noRestart="true";;
-    s) snapshotFile="${OPTARG}";;
+    n) noRestartArg=" -n ";;
+    s) snapshotFileArg=" -s ${OPTARG} ";;
     *) usage; exit 1;;
   esac
 done
@@ -60,11 +60,6 @@ fi
 
 echo "Creating stone $stoneName"
 pharo=$GS_HOME/pharo
-$pharo/pharo $pharo/todeClient.image createStone $stoneName $gsvers $snapshotFile
+$pharo/pharo $pharo/todeClient.image createStone $stoneName $gsvers
 
-if [ "${noRestart}" = "false" ] ; then
-  echo "Starting stone and netldi"
-  # -N option used to ignore the tranlog files during restart
-  $GS_HOME/bin/startStone -N $stoneName
-  $GS_HOME/bin/startNetldi $stoneName
-fi
+$GS_HOME/bin/stoneExtent $noRestartArg $snapshotFileArg $stoneName
