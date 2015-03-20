@@ -30,6 +30,10 @@
 #    Print build version information and available IPv4 addresses
 #=========================================================================
 
+echo "================="
+echo "   GsDevKit script: $(basename $0)"
+echo "================="
+
 # help function
 usage() {
  cat <<HELP
