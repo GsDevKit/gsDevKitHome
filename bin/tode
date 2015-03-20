@@ -43,11 +43,11 @@ if [ "${GS_HOME}x" = "x" ] ; then
 fi
 
 #set -e # exit on error
-if [ ! -e "$GS_HOME/pharo/pharo" ]; then
-  $GS_HOME/bin/installPharo
+pharo=$GS_HOME/pharo
+
+if [ ! -e $pharo/todeClient.image ] ; then
+  $GS_HOME/bin/createTodeImage
 fi
 
 # Run script
-pharo=$GS_HOME/pharo
-#unset GEMSTONE_NRS_ALL
 $pharo/pharo $pharo/todeClient.image $*

@@ -35,10 +35,11 @@ if [ $# -ne 0 ]; then
   usage; exit 1
 fi
 
-if [ ! -e "$GS_HOME/pharo/pharo" ]; then
-  $GS_HOME/bin/installPharo
+pharo=$GS_HOME/pharo
+
+if [ ! -e $pharo/todeClient.image ] ; then
+  $GS_HOME/bin/createTodeImage
 fi
 
 # Run script
-pharo=$GS_HOME/pharo
 $pharo/pharo $pharo/todeClient.image stones

@@ -45,11 +45,16 @@ while getopts "hp:" OPT ; do
 done
 shift $(($OPTIND - 1))
 
+if [ ! -e "$GS_HOME/pharo/pharo" ]; then
+  $GS_HOME/bin/installPharo
+fi
+
 pharo=$GS_HOME/pharo
 if [ -e $pharo/todeClient${postFix}.image ] ; then
   echo "todeClient already installed"
   exit 0
 fi
+
 
 todeLoadPath=$GS_HOME/tode/sys/default/pharo/todeLoad.st
 if [ -e $GS_HOME/tode/sys/local/pharo/todeLoad.st ] ; then

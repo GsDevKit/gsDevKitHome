@@ -59,12 +59,13 @@ fi
 stoneName="$1"
 gsvers="$2"
 
-if [ ! -e "$GS_HOME/pharo/pharo" ]; then
-  $GS_HOME/bin/installPharo
+pharo=$GS_HOME/pharo
+
+if [ ! -e $pharo/todeClient.image ] ; then
+  $GS_HOME/bin/createTodeImage
 fi
 
 echo "Creating stone $stoneName"
-pharo=$GS_HOME/pharo
 $pharo/pharo $pharo/todeClient.image createStone $stoneName $gsvers
 
 $GS_HOME/bin/stoneExtent $noRestartArg $snapshotFileArg $stoneName

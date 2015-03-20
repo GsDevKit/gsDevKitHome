@@ -9,15 +9,18 @@ echo "================="
 
 usage() {
   cat <<HELP
-USAGE: $(basename $0) [-h] [-p <postfix>]
+USAGE: $(basename $0) [-h] [-c] [-p <postfix>]
 
 Launch todeClient image.
 
 OPTIONS
   -h 
      display help
+  -c
+     Clean and rebuild the todeClient image
   -p <postfix>
-     Launch the tode client image created with a matching postfix.
+     Launch the tode client image created with a matching postfix. If
+     the tode client image does not exist, build it.
 
 EXAMPLES
   $(basename $0) -h
@@ -28,8 +31,10 @@ HELP
 }
 
 postFix=""
+cleanImage=""
 while getopts "hp:" OPT ; do
   case "$OPT" in
+    c) cleanImage="clean";;
     h) usage; exit 0 ;;
     p) postFix="${OPTARG}" ;;
     *) usage; exit 1 ;;
@@ -43,8 +48,16 @@ if [ "${GS_HOME}x" = "x" ] ; then
 fi
 
 set -e # exit on error
-if [ ! -e "$GS_HOME/pharo/pharo" ]; then
-  $GS_HOME/bin/installPharo
+pharo=$GS_HOME/pharo
+
+if [ -e $pharo/todeClient${postFix}.image ] ; then
+  if [ "$cleanImage" = "clean" ] ; then
+    rm $pharo/todeClient${postFix}.image $pharo/todeClient${postFix}.changes
+  fi
+fi
+
+if [ ! -e $pharo/todeClient${postFix}.image ] ; then
+  $GS_HOME/bin/createTodeImage -p ${postFix}
 fi
 
 pharo=$GS_HOME/pharo

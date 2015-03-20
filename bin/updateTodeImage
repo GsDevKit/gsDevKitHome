@@ -50,8 +50,12 @@ fi
 
 echo "updating todeClient${postFix} image using $todeLoadPath"
 
-
 pharo=$GS_HOME/pharo
+
+if [ ! -e $pharo/todeClient${postFix}.image ] ; then
+  $GS_HOME/bin/createTodeImage -p ${postFix}
+fi
+
 $pharo/pharo $pharo/todeClient${postFix}.image save todeClientTmp
 
 $pharo/pharo $pharo/todeClientTmp.image st --quit --save $todeLoadPath
