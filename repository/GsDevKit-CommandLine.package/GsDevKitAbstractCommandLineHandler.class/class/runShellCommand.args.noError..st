@@ -20,22 +20,23 @@ runShellCommand: shellCommandPath args: shellArgumentArray noError: noError
 	FileStream readOnlyFileNamed: errName do: [ :fileStream | stdErr := fileStream contents ].
 	success
 		ifFalse: [ 
-			Transcript
-				cr;
-				show: 'Error running shell command: ' , shellCommandPath printString;
-				cr;
-				show: 'with args:'.
-			shellArgumentArray
-				do: [ :arg | 
+			noError
+				ifFalse: [ 
 					Transcript
 						cr;
-						tab;
-						show: arg ].
-			Transcript
-				cr;
-				show: 'STDOUT: ' , stdOut printString;
-				cr;
-				show: 'STDERR: ' , stdErr.
-			noError
-				ifFalse: [ self error: 'Shell command: ' , shellCommandPath printString , ' failed.' ] ].
+						show: 'Error running shell command: ' , shellCommandPath printString;
+						cr;
+						show: 'with args:'.
+					shellArgumentArray
+						do: [ :arg | 
+							Transcript
+								cr;
+								tab;
+								show: arg ].
+					Transcript
+						cr;
+						show: 'STDOUT: ' , stdOut printString;
+						cr;
+						show: 'STDERR: ' , stdErr.
+					self error: 'Shell command: ' , shellCommandPath printString , ' failed.' ] ].
 	^ stdOut
