@@ -42,7 +42,7 @@ noRestart="false"
 while getopts "hns:" OPT ; do
   case "$OPT" in
     h) usage; exit 0;;
-    n) noRestart="true"
+    n) noRestart="true";;
     s) snapshotFile="${OPTARG}";;
     *) usage; exit 1;;
   esac

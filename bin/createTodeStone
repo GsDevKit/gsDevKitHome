@@ -41,7 +41,7 @@ noRestartArg=""
 while getopts "hns:" OPT ; do
   case "$OPT" in
     h) usage; exit 0;;
-    n) noRestartArg=" -n "
+    n) noRestartArg=" -n ";;
     s) snapshotFileArg=" -s ${OPTARG} ";;
     *) usage; exit 1;;
   esac
