@@ -34,8 +34,4 @@ gsvers="$2"
 
 $GS_HOME/bin/createStone $stoneName $gsvers
 
-$GS_HOME/bin/startStone $stoneName
-
-$GS_HOME/bin/startNetldi $stoneName
-
 $GS_HOME/bin/installTodeStone $stoneName

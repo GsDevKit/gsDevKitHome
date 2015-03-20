@@ -38,5 +38,6 @@ stoneName="$1"
 projectName="$2"
 
 $GS_HOME/bin/tode todeIt $stoneName << EOF
-project load $projectName
+project load ${projectName}
+bu backup ${projectName}.dbf
 EOF

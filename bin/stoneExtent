@@ -11,13 +11,13 @@ Copy a new extent into the stone's extent directory. The stone
 will be stopped before doing the copy and after the copy is complete,
 the stone will be restarted with the -N option.
 
-If you've specified the -n option, then the stone is not restarted.
+With the -n option, the stone is not restart started.
 
 OPTIONS
   -h
      display help
   -n
-     No stone restart.
+     No startStone.
   -s <snapshot-file-path> 
      path to snapshot file used to create stone. If not present
      $GEMSTONE/bin/extent0.seaside.dbf is used. If you specify

@@ -41,10 +41,6 @@ $GS_HOME/bin/createTodeImage
 
 $GS_HOME/bin/createStone $stoneName $gsvers
 
-$GS_HOME/bin/startStone $stoneName
-
-$GS_HOME/bin/startNetldi $stoneName
-
 if [ "${GS_TRAVIS}x" = "x" ] ; then
   $GS_HOME/bin/startStatmonitor $stoneName
 else
