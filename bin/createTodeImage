@@ -43,6 +43,7 @@ while getopts "hp:" OPT ; do
     *) usage; exit 1;;
   esac
 done
+shift $(($OPTIND - 1))
 
 pharo=$GS_HOME/pharo
 if [ -e $pharo/todeClient${postFix}.image ] ; then

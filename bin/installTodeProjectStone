@@ -44,6 +44,7 @@ while getopts "b:h" OPT ; do
     *) usage; exit 1;;
   esac
 done
+shift $(($OPTIND - 1))
 
 if [ "${backupName}x" = "x" ] ; then
   backupName="${projectName}"

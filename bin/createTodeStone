@@ -50,6 +50,7 @@ while getopts "hns:" OPT ; do
     *) usage; exit 1;;
   esac
 done
+shift $(($OPTIND - 1))
 
 if [ $# -ne 2 ]; then
   usage; exit 1

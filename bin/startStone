@@ -65,6 +65,7 @@ while getopts "hw:CNR" OPT ; do
     *) usage; exit 1 ;;
   esac
 done
+shift $(($OPTIND - 1))
 
 if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"; exit 1

@@ -35,6 +35,7 @@ while getopts "hp:" OPT ; do
     *) usage; exit 1 ;;
   esac
 done
+shift $(($OPTIND - 1))
 
 set -e # exit on error
 if [ "${GS_HOME}x" = "x" ] ; then
