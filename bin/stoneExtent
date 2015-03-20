@@ -60,6 +60,10 @@ stoneName=$1
 
 # set up stone environment
 stonePath=$GS_HOME/gemstone/stones/$stoneName
+if [ ! -e "$stonePath/stone.env" ] ; then
+  echo "The file: $stonePath/stone.env is missing ... $stonePath directory appears to be corrupted."
+fi
+
 pushd $stonePath >& /dev/null
 source $stonePath/stone.env
 popd >& /dev/null
