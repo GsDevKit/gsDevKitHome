@@ -7,9 +7,6 @@ post30Load2x
 		showWarning: false;
 		raiseWarning: false.
 	World closeAllWindowsDiscardingChanges.	"close all windows"
-	ThreadSafeTranscript open
-		extent: 245 @ 110;
-		position: 730 @ 550.
 	(Smalltalk at: #TDShell) perform: #devKitRoot: with: gsDevKitHome pathString.
 	(Smalltalk at: #PolymorphSystemSettings)
 		perform: #desktopLogoFileName:
