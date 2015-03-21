@@ -3,7 +3,8 @@
 		"commandName" : "dkh 7/19/2014 07:54",
 		"description" : "dkh 7/19/2014 07:54" },
 	"instance" : {
-		"activate" : "dkh 3/20/2015 18:27",
+		"activate" : "dkh 3/20/2015 19:32",
+		"checkArguments" : "dkh 3/20/2015 19:32",
 		"gsVers" : "dkh 7/19/2014 07:59",
 		"newExtent" : "dkh 3/20/2015 18:27",
 		"removeTranlogs" : "dkh 3/20/2015 18:26",

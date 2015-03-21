@@ -1,4 +1,4 @@
-Usage: newExtentForBackup [ --help] <stone-name>  <snapshot-file-path>
+Usage: newExtentForRecovery [ --help] <stone-name>  <snapshot-file-path>
   <stone-name>          name of the stone to be created
   <snapshot-file-path>  Path to extent snapshot file to be used to
                         restore the stone. 

@@ -18,13 +18,13 @@ the stone will be restarted with the -N option.
 If the -s option is not specified, $GEMSTONE/bin/extent0.seaside.dbf will be used as 
 the initial extent.
 
-With the -n option, the stone is not restart started.
+With the -n option, the stone is not restarted and the <snapshot-file-path> is required.
 
 OPTIONS
   -h
      display help
   -n
-     No startStone.
+     No startStone. <snapshot-file-path> required.
   -s <snapshot-file-path> 
      Path to snapshot file used to create stone.
 
@@ -72,11 +72,22 @@ popd >& /dev/null
 echo "Shutdown stone"
 $GS_HOME/bin/stopStone $stoneName
 
-echo "Copy snapshot"
-$GS_HOME/bin/tode newExtent $stoneName $snapshotFile
 
-echo "Restarting stone"
 if [ "${noRestart}" = "false" ] ; then
+  echo "Copy snapshot and remove tranlogs"
+  $GS_HOME/bin/tode newExtent $stoneName $snapshotFile
+
   # -N option used to ignore the tranlog files during restart
+  echo "Restarting stone"
   $GS_HOME/bin/startStone -N $stoneName
+else
+  echo "Copy snapshot and leave tranlogs for recovery"
+  
+  if [ "${snapshotFile}x" = "x" ] ; then
+    echo "Must specify <snapshot-file-path>, when using the -n (no restart option)"
+    echo "  Tranlogs left in $GS_HOME/gemstone/stones/${stoneName}/tranlogs"
+    echo "  Are not likely to be appropriate for $GEMSTONE/bin/extent0.seaside.dbf"
+    usage; exit 1
+  fi
+  $GS_HOME/bin/tode newExtentForRecovery $stoneName $snapshotFile
 fi
