@@ -15,4 +15,5 @@ post30Load2x
 	(Smalltalk at: #NECPreferences) perform: #enabled: with: false.
 	windowProperties := (Smalltalk at: #TDAbstractWindowProperties) import: 'standard-small'.
 	windowProperties installOn: (Smalltalk at: #TDTopezGemStoneClient).
-	Smalltalk at: #TODE_CLIENT_INSTALLED put: true
+	Smalltalk at: #TODE_CLIENT_INSTALLED put: true.
+	(Smalltalk at: #TDShell) resetWorldMenu
