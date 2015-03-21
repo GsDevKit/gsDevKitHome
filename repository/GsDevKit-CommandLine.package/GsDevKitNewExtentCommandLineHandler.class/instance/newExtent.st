@@ -1,4 +1,4 @@
-activations
+actions
 newExtent
 	| stoneDirectory extentFile |
 	Transcript
@@ -16,4 +16,3 @@ newExtent
 		tab;
 		show: 'Finished copying new extent for ' , self stoneName;
 		cr.
-	self exitSuccess

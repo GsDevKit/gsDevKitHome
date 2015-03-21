@@ -28,7 +28,9 @@ Scripts that run on the server machine only.
 |[startStatmonitor][9]| Start statmonitor for the given stone. Two statmonitors are started. One that collects a sample every second and is restarted every hour. One that collects a sample once a minute and is restarted once a day. |
 |<a name="startStone"></a>
 [startStone][10]| Start the stone process for the given stone.|
-|[stoneExtent][11]| Copy a new extent into the stone's extent directory. Stone should be shutdown before copying. |
+|<a name="stoneNewExtent"></a>
+[stoneNewExtent][11]| Copy a new extent into the stone's extent directory. Stone should be shutdown before copying. |
+|[stoneExtent][11]| See [stoneNewExtent](#stoneNewExtent) |
 |[stones][12]| List information about the installed GemStone/S produects, existing stones, running stones and running netldis.|
 |<a name="stopStone"></a>
 [stopStone][13]| Stop the named stone. The netldi is left running. Any statmonitor processes associated with the stone will be stopped.|
@@ -67,7 +69,7 @@ Special purpose utility scripts.
 [8]: startNetldi
 [9]: startStatmonitor
 [10]: startStone
-[11]: stoneExtent
+[11]: stoneNewExtent
 [12]: stones
 [13]: stopStone
 [14]: createTodeImage

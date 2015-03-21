@@ -7,4 +7,6 @@ activate
 			self printHelp.
 			^ self exitFailure: 'Missing stone name' ].
 	self newExtent.
-	Transcript cr
+	self shouldRemoveTranlogs
+		ifTrue: [ self removeTranlogs ].
+	self exitSuccess	

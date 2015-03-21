@@ -3,8 +3,10 @@
 		"commandName" : "dkh 7/19/2014 07:54",
 		"description" : "dkh 7/19/2014 07:54" },
 	"instance" : {
-		"activate" : "dkh 2/17/2015 13:58",
+		"activate" : "dkh 3/20/2015 18:27",
 		"gsVers" : "dkh 7/19/2014 07:59",
-		"newExtent" : "dkh 3/19/2015 12:11",
+		"newExtent" : "dkh 3/20/2015 18:27",
+		"removeTranlogs" : "dkh 3/20/2015 18:26",
+		"shouldRemoveTranlogs" : "dkh 3/20/2015 18:15",
 		"snapshotFile" : "dkh 3/20/2015 11:06",
 		"stoneInfo" : "dkh 7/19/2014 07:58" } }
