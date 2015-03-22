@@ -1,12 +1,18 @@
 activations
 createStone
-	| stoneDirectory stoneInfo |
+	| stoneDirectory newStoneInfo |
 	Transcript
 		cr;
 		show: 'Creating stone ' , self stoneName.
 	stoneDirectory := self stonesHome / self stoneName.
 	stoneDirectory exists
 		ifTrue: [ 
+			self stoneInfo gsVers = self gsVers
+				ifFalse: [ 
+					self
+						exitFailure:
+							'Attempting to create new stone with GemStone version ' , self gsVers printString
+								, ', but stone has already been created using GemStone version ' , self stoneInfo gsVers printString , '.' ].
 			self stderr
 				nextPutAll: stoneDirectory pathString , ' already exists.';
 				lf;
@@ -23,11 +29,11 @@ createStone
 		createTopaziniFile: stoneDirectory;
 		createDefStoneLn: stoneDirectory;
 		yourself.
-	(stoneInfo := GsDevKitStoneInfo new
+	(newStoneInfo := GsDevKitStoneInfo new
 		stoneName: self stoneName;
 		gsVers: self gsVers;
 		yourself) exportTo: stoneDirectory / self stoneInfoFilename.
-	self createTodeDescription: stoneInfo.
+	self createTodeDescription: newStoneInfo.
 	Transcript
 		cr;
 		tab;
