@@ -11,7 +11,7 @@ usage() {
   cat <<HELP
 USAGE: $(basename $0) [-h] <stone-name>
 
- Start the netldi process for the given stone.
+Start the netldi process for the given stone.
 
 OPTIONS
   -h display help
