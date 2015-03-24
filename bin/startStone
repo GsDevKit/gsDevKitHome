@@ -78,7 +78,8 @@ fi
 if [ $# -ne 1 ]; then
   usage; exit 1
 fi
-stonePath=$GS_HOME/gemstone/stones/$1
+stoneName=$1
+stonePath=$GS_HOME/gemstone/stones/$stoneName
 
 # set up stone environment
 pushd $stonePath >& /dev/null
