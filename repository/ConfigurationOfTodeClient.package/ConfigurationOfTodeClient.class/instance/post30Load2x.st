@@ -1,6 +1,6 @@
 doits
 post30Load2x
-	| gsDevKitHome |
+	| gsDevKitHome monoFontName |
 	Smalltalk at: #TODE_CLIENT_INSTALLED ifPresent: [ ^ self ].
 	gsDevKitHome := FileSystem workingDirectory parent.
 	Deprecation
@@ -16,9 +16,13 @@ post30Load2x
 	Smalltalk at: #TODE_CLIENT_INSTALLED put: true.
 	(Smalltalk at: #TDShell) resetWorldMenu.
 	FreeTypeFontProvider current updateFromSystem.
+	monoFontName := 'Courier New'.	"Windows"
 	Smalltalk os isUnix
-		ifTrue: [ 
-			StandardFonts defaultFont: (LogicalFont familyName: 'DejaVu Sans Mono' pointSize: 9).
-			StandardFonts setAllStandardFontsTo: StandardFonts defaultFont ].
+		ifTrue: [ monoFontName := 'DejaVu Sans Mono' ]
+		ifFalse: [ 
+			Smalltalk os isMacOSX
+				ifTrue: [ monoFontName := 'Monaco' ] ].
+	StandardFonts defaultFont: (LogicalFont familyName: monoFontName pointSize: 8).
+	StandardFonts setAllStandardFontsTo: StandardFonts defaultFont.
 	((Smalltalk at: #TDAbstractWindowProperties) import: 'standard-small')
 		installOn: (Smalltalk at: #TDTopezGemStoneClient)
