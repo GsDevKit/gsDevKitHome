@@ -9,11 +9,13 @@ echo "================="
 
 usage() {
   cat <<HELP
-USAGE: $(basename $0) [-h] [-C] [-N] [-R] [-w <waitstone-timeout>] <stone-name>
+USAGE: $(basename $0) [-h] -b] [-C] [-N] [-R] [-w <waitstone-timeout>] <stone-name>
 
  Start the stone process for the given stone.
 
 OPTIONS
+  -b
+     Start netldi
   -C 
      Startup for conversion.
   -h 
@@ -37,8 +39,10 @@ HELP
 set -e # exit on error
 waitTime=""
 ARG=""
-while getopts "hw:CNR" OPT ; do
+startnetldi=""
+while getopts "bhw:CNR" OPT ; do
   case "$OPT" in
+    b) startnetldi="true" ;;
     C) 
       if [ "${ARGS}x" != "x" ] ; then 
         echo "Only one of -C -N or -R options may be specified"
@@ -90,4 +94,8 @@ if [ "${waitTime}x" = "x" ] ; then
   fi
 else
   $stonePath/product/bin/waitstone $GEMSTONE_NAME $waitTime
+fi
+
+if [ "${startnetldi}" = "true" ] ; then
+  $GS_HOME/bin/startNetldi $stoneName
 fi

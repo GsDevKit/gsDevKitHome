@@ -33,7 +33,7 @@ if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"; exit 1
 fi
 stopNetldi=""
-while getopts "hns:" OPT ; do
+while getopts "bhns:" OPT ; do
   case "$OPT" in
     h) usage; exit 0;;
     b) stopNetldi="true";;
