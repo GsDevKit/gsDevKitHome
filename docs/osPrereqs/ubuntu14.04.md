@@ -46,6 +46,10 @@ sudo apt-get -y install libssl1.0.0:386
 sudo apt-get -y install libssl1.0.0:i386
 sudo apt-get -y install -qq gcc-multilib libstdc++6:i386
 sudo ln -s /usr/lib/i386-lin-gnu/libstdc++.so.6 /usr/lib/i386-linux-gnu/libstdc++.so
+sudo apt-get -y install gdb
+sudo apt-get -y install libfreetype6:i386
+sudo apt-get -y install pstack
+sudo /bin/su -c "echo 'kernel.yama.ptrace_scope = 0' >>/etc/sysctl.d/10-ptrace.conf"
 ```
 
 ##X11 Client (optional)

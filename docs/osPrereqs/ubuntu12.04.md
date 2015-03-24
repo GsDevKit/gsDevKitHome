@@ -47,6 +47,10 @@ sudo apt-get -y install libssl1.0.0:i386
 sudo ln -s /lib/i386-linux-gnu/libpam.so.0 /lib/libpam.so.0
 sudo apt-get -y install -qq gcc-multilib libstdc++6:i386
 sudo ln -s /usr/lib/i386-lin-gnu/libstdc++.so.6 /usr/lib/i386-linux-gnu/libstdc++.so
+sudo apt-get -y install gdb
+sudo apt-get -y install libfreetype6:i386
+sudo apt-get -y install pstack
+sudo /bin/su -c "echo 'kernel.yama.ptrace_scope = 0' >>/etc/sysctl.d/10-ptrace.conf"
 ```
 
 ##X11 Client (optional)
@@ -56,31 +60,9 @@ If you want run the Pharo client using [X11 forwarding][1] with `ssh`, then you 
 sudo apt-get -y install libgl1-mesa-dev:i386
 sudo apt-get -y install libxcb-dri2-0:i386
 ```
-
-##Install Source Code Pro Monospaced Font
-1. [Check for the latest release of the Source Code Pro font][5]
-2. Copy the `Source code (zip)` link url and use it as an arg to `wget` as follows (in this case you'd download [version 1.017R][6])
-
-   ```
-   wget https://github.com/adobe-fonts/source-code-pro/archive/1.017R.zip
-   ```
-3. Unzip and install the True Type fonts on your machine:
-
-   ```
-   unzip 1.017R.zip
-   sudo mkdir /usr/local/share/fonts
-   sudo mkdir /usr/local/share/fonts/truetypes
-   sudo mkdir /usr/local/share/fonts/truetypes/SourceCodePro
-   sudo cp source-code-pro-1.017R/TTF/SourceCodePro-Regular.ttf /usr/local/share/fonts/truetypes/SourceCodePro
-   sudo apt-get install fontconfig
-   sudo fc-cache -f -v
-   ```
  
 [1]: http://unix.stackexchange.com/questions/12755/how-to-forward-x-over-ssh-from-ubuntu-machine
 [2]: https://help.ubuntu.com/12.04/serverguide/openssh-server.html
 [3]: ../../bin/osPrereqs
 [4]: http://www.cyberciti.biz/tips/linux-unix-bsd-openssh-server-best-practices.html
-[5]: https://github.com/adobe-fonts/source-code-pro/releases/latest
-[6]: https://github.com/adobe-fonts/source-code-pro/releases/tag/1.017R
-
 
