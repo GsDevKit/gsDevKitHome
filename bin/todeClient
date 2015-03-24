@@ -59,10 +59,11 @@ fi
 
 if [ ! -e $pharo/todeClient${postFix}.image ] ; then
   echo "The requested todeClient image: $pharo/todeClient${postFix}.image does not exist"
-  while true; do
-    read -p "Do you wish to create todeClient${postFix}?" yn
+  created="false"
+  while [ "$created" = "false" ] ; do
+    read -p "Do you wish to create todeClient${postFix}? [y/n]" yn
     case $yn in
-      [Yy]* ) $GS_HOME/bin/createTodeImage -p ${postFix};;
+      [Yy]* ) $GS_HOME/bin/createTodeImage -p ${postFix}; created="true" ;;
       [Nn]* ) exit 1;;
       * ) echo "Please answer yes or no.";;
     esac

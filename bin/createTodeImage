@@ -36,10 +36,11 @@ if [ "${GS_HOME}x" = "x" ] ; then
 fi
 
 postFix=""
-while getopts "hp:" OPT ; do
+while getopts ":hp:" OPT ; do
   case "$OPT" in
     h) usage; exit 0;;
     p) postFix="${OPTARG}";;
+    ?) postFix="";;          # handle optional -p argument "
     *) usage; exit 1;;
   esac
 done
