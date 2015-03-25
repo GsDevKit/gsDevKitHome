@@ -30,6 +30,7 @@ In a GsDevKit installation the `Server Processes` in the diagram above are co-lo
 The `Application` in the diagram above corresponds to a tODE client.
 
 In general GemStone may be configured in 4 different ways, all processes co-located on a single machine]:
+
 1. [stone, gem and application (tODE) running on same machine][11].
 2. stone and gem running on the same machine, application (tODE) running on second machine.
 
