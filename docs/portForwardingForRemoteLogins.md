@@ -1,4 +1,4 @@
-# Using Port Forwading for Remote logins
+# Using Port Forwading for remote tODE clients
 
 1. [Intro](#intro)
 2. [Netldi Setup](#netldi-setup)
@@ -24,7 +24,7 @@ The *well-known `netldi` port number* is the port number specified in `netLDI` f
 
 Normally the *child process port* is randomly assigned, but since we need to set up the port forwarding ahead of time, we will have to use the `startnetldi` command's `-p` option to define a port range.
 In our case the *port range* will be a single port number and we'll use `55325` in this example.
-Before starting a `netldi` you need to make sure that all of the required environmental variables (**GEMSTONE**, **EMSTONE_NRS_ALL**, etc.) are defined.
+Before starting a `netldi` you need to make sure that all of the required environmental variables (**GEMSTONE**, **GEMSTONE_NRS_ALL**, etc.) are defined.
 
 ##SSH Port Forwarding Server-side
 

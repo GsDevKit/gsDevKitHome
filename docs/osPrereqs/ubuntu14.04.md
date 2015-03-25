@@ -1,12 +1,16 @@
 # GsDevKit prerequisites for Ubuntu 14.04 
-It is recommended that you [Install ssh (optional)](#install-ssh-optional), since you can [run a script to the install prerequisite packages](#osPrereqs-bash-script).
+It is recommended that you [Install ssh (optional)](#install-ssh-optional).
+Besides the obvious advantages of secure remote logins and secure remote file copying, ssh gives you flexibility to:
+  - run tODE locally and log into remote servers via **ssh port forwarding**
+  - run tODE on remote server and host display on local X server via **ssh X11 forwarding**
+  - use the osprereqs script to install the platform prerequisites
 
-If you decide not to [run the script](#osPrereqs-bash-script), then following the manual instrructions in each section:
+If you decide not to [run the script](#osPrereqs-bash-script), then following the manual instructions in each section:
 
 3. [Install ssh (optional)](#install-ssh-optional)
    - [osPrereqs bash script](#osPrereqs-bash-script)
 1. [Install Basic Prerequisites (required)](#install-basic-prerequisites-required)
-2. [Install X11 Client (optional)](#install-x11-client-optional)
+2. [X11 forwarding](#install-x11-forwarding-optional)
 
 ##Install ssh (optional)
 I recommend that you start by [installing ssh][2] on your server.
@@ -52,8 +56,7 @@ sudo apt-get -y install pstack
 sudo /bin/su -c "echo 'kernel.yama.ptrace_scope = 0' >>/etc/sysctl.d/10-ptrace.conf"
 ```
 
-##X11 Client (optional)
-If you want run the Pharo client using [X11 forwarding][1] with `ssh`, then you need to install the **X11 client**:
+##X11 forwardingIf you want run the Pharo client using [X11 forwarding][1] with `ssh`, then you need to install the **X11 client**:
 
 ```
 sudo apt-get -y install libgl1-mesa-dev:i386
