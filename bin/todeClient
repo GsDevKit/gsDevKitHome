@@ -36,7 +36,7 @@ postFix=""
 force=""
 while getopts "fhp:" OPT ; do
   case "$OPT" in
-    c) force="true";;
+    f) force="true";;
     h) usage; exit 0 ;;
     p) postFix="${OPTARG}" ;;
     *) usage; exit 1 ;;
