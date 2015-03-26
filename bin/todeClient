@@ -66,8 +66,7 @@ if [ ! -e $pharo/todeClient${postFix}.image ] ; then
       [Nn]* ) exit 1;;
       * ) echo "Please answer yes or no.";;
     esac
-done
- 
+  done
 fi
 
 pharo=$GS_HOME/pharo
