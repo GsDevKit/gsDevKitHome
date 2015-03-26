@@ -1,4 +1,4 @@
-# Using Port Forwading for remote tODE clients
+# Using Port Forwarding for Remote GemStone Servers
 
 1. [Intro](#intro)
 2. [Netldi Setup](#netldi-setup)
