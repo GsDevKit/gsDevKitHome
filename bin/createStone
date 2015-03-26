@@ -20,6 +20,10 @@ the initial extent.
 If you create a stone from an extent snapshot, you should use the -N
 option to start the stone, the first time.
 
+If the stone already exists, creation is skipped unless the -f otion is specified,
+in which case the stone and netldi are stopped and the existing stone directory removed
+before creation.
+
 OPTIONS
   -h
      display help
@@ -48,10 +52,10 @@ fi
 snapshotFileArg=""
 noRestartArg=""
 force=""
-while getopts "hns:" OPT ; do
+while getopts "fhns:" OPT ; do
   case "$OPT" in
     h) usage; exit 0;;
-    f) force="true";lient 
+    f) force="true";; 
     s) snapshotFileArg=" -s ${OPTARG} ";;
     *) usage; exit 1;;
   esac
