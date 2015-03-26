@@ -61,8 +61,8 @@ fi
 
 message="create"
 if [ -e $pharo/todeClient${postFix}.image ] ; then
-  if [ "${force}x" = "x" ] ; then
-    echo "todeClient already created, use -f to update"
+  if [ "${force}x" = "truex" ] ; then
+    echo "todeClient already created, use -f to force creation"
     exit 0
   else
     message="update"
