@@ -50,7 +50,6 @@ Scripts that can be run on the client machine or the server.
 |[pharo][21]| Run headless pharo scripts using the Pharo image.|
 |[tode][22]| Run headless tode scripts using the todeClient image.|
 |[todeClient][15]| Launch todeClient image. Requires X11 client.|
-|[updateTodeImage][16]| Update the tODE client image.|
 
 ##Utility Scripts
 Special purpose utility scripts.
@@ -74,7 +73,7 @@ Special purpose utility scripts.
 [13]: stopStone
 [14]: createTodeImage
 [15]: todeClient
-[16]: updateTodeImage
+
 [17]: installGci
 [18]: installGemStone
 [19]: installPharo
