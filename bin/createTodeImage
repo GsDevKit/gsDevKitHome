@@ -59,9 +59,10 @@ if [ ! -e "$GS_HOME/pharo/pharo" ]; then
   $GS_HOME/bin/installPharo
 fi
 
+pharo=$GS_HOME/pharo
 message="create"
 if [ -e $pharo/todeClient${postFix}.image ] ; then
-  if [ "${force}x" = "truex" ] ; then
+  if [ "${force}x" = "x" ] ; then
     echo "todeClient already created, use -f to force creation"
     exit 0
   else
@@ -77,7 +78,6 @@ fi
 
 echo "${message} todeClient${postFix} image using $todeLoadPath"
 
-pharo=$GS_HOME/pharo
 $pharo/pharo $pharo/Pharo.image save todeClientTmp
 
 $pharo/pharo $pharo/todeClientTmp.image st --quit --save $todeLoadPath
