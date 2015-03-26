@@ -100,3 +100,5 @@ fi
 if [ "${startnetldi}" = "true" ] ; then
   $GS_HOME/bin/startNetldi $stoneName
 fi
+
+echo "...finished $(basename $0)"

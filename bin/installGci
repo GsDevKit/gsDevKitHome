@@ -60,3 +60,5 @@ case "$PLATFORM" in
     cp $gs_product/lib32/lib* $pharo_vm/Pharo.app/Contents/MacOS/Plugins
   ;;
 esac
+
+echo "...finished $(basename $0)"

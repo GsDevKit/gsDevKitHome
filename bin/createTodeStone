@@ -61,3 +61,5 @@ gsvers="$2"
 $GS_HOME/bin/createStone $noRestartArg $snapshotFileArg $stoneName $gsvers
 
 $GS_HOME/bin/installTodeStone $stoneName
+
+echo "...finished $(basename $0)"

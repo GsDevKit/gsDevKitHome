@@ -41,3 +41,5 @@ $GS_HOME/bin/installGemStone $gsvers
 $GS_HOME/bin/createTodeImage
 
 $GS_HOME/bin/todeClient
+
+echo "...finished $(basename $0)"

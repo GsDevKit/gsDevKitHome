@@ -45,3 +45,5 @@ popd >& /dev/null
 
 # install tode
 $GS_HOME/bin/tode installTode $stoneName
+
+echo "...finished $(basename $0)"

@@ -79,3 +79,5 @@ else
   # running on travis server - statmonitor fails on startup (bug #44491)
   echo "skipping $GS_HOME/bin/todeClient"
 fi
+
+echo "...finished $(basename $0)"

@@ -86,4 +86,4 @@ $pharo/pharo $pharo/todeClientTmp.image save todeClient${postFix}
 
 rm -f $pharo/todeClientTmp.*
 echo
-echo "tODEClient${postFix} image ${message} complete"
+echo "...finished $(basename $0)"

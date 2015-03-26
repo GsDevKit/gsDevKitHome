@@ -45,3 +45,5 @@ source $stonePath/stone.env
 popd >& /dev/null
 
 $GS_HOME/bin/tode backup $stoneName $backupFile
+
+echo "...finished $(basename $0)"

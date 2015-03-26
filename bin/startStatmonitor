@@ -49,3 +49,5 @@ cd $stonePath/stats/1-second
 $stonePath/product/bin/statmonitor $stoneName -Arzq -h 1 -i 1 -u 0 &
 cd ../60-second
 $stonePath/product/bin/statmonitor $stoneName -Arzq -h 24 -i 60 -u 0 &
+
+echo "...finished $(basename $0)"

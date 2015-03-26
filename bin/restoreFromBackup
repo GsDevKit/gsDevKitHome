@@ -46,3 +46,5 @@ popd >& /dev/null
 
 # do restore
 $GS_HOME/bin/tode restoreFromBackup $stoneName $backupFile
+
+echo "...finished $(basename $0)"

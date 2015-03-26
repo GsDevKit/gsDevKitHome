@@ -40,3 +40,5 @@ echo "performing: __$*__"
 $GS_HOME/bin/tode todeIt $stoneName << EOF
 $*
 EOF
+
+echo "...finished $(basename $0)"

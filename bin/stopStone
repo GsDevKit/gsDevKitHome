@@ -59,3 +59,5 @@ $GS_HOME/bin/gs/stopGemstone
 if [ "${stopNetldi}" = "true" ] ; then
   $GS_HOME/bin/stopNetldi $stoneName
 fi
+
+echo "...finished $(basename $0)"

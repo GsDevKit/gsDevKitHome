@@ -66,3 +66,5 @@ projectName="$3"
 $GS_HOME/bin/createTodeStone $noRestartArg $snapshotFileArg $stoneName $gsvers
 
 $GS_HOME/bin/installTodeProjectStone $stoneName $projectName
+
+echo "...finished $(basename $0)"

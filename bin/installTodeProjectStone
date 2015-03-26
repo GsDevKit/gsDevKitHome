@@ -61,3 +61,5 @@ $GS_HOME/bin/tode todeIt $stoneName << EOF
 project load ${projectName}
 bu backup ${backupName}.dbf
 EOF
+
+echo "...finished $(basename $0)"
