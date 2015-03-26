@@ -24,8 +24,18 @@ I recommend that you install the two optional packages [SSH](#ssh) and [X11 Clie
 If you are undecided, then please read the section on [Client/Server Configurations](#clientserver-configurations) to help you make up your mind.
 
 ###SSH
+Platform-specific installation instructions:
+
+- [ssh for Ubuntu 12.04][65]
+- [ssh for Ubuntu 14.04][66]
+- [ssh for OS X10.9][67]
 
 ###X11 Client
+Platform-specific installation instructions:
+
+- [X11 Client for Ubuntu 12.04][75]
+- [X11 Client for Ubuntu 14.04][76]
+- [X11 Client for OS X10.9][77]
 
 ##Client/Server Configurations
 A [GemStone server][8] is made up of several different processes:
@@ -86,3 +96,15 @@ Depending upon network latency and whether or not you are comfortable opening po
 [15]: http://gemtalksystems.com/licensing/#CWELicensing
 [16]: ../x11ForwardingForRemoteDisplays.md#x11-forwarding-for-remote-servers
 [17]: ../portForwardingForRemoteLogins.md#using-port-forwarding-for-remote-gemstone-servers
+
+[55]: ubuntu12.04.md
+[56]: ubuntu14.04.md
+[57]: OSX10.9.md
+
+[65]: ubuntu12.04.md#install-ssh-optional
+[66]: ubuntu14.04.md#install-ssh-optional
+[67]: OSX10.9.md#install-ssh-optional
+
+[75]: ubuntu12.04.md#install-x11-client-optional
+[76]: ubuntu14.04.md#install-x11-client-optional
+[77]: OSX10.9.md#install-x11-client-optional

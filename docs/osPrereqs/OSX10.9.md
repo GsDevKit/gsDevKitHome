@@ -1,11 +1,20 @@
 # GsDevKit prerequisites for OS X10.9
 
+1. [Install Basic Prerequisites (required)](#install-basic-prerequisites-required)
+3. [Install ssh (optional)](#install-ssh-optional)
+4. [X11 Client (optional)](#install-x11-client-optional)
+2. [osPrereqs Installation Script (optional)](#osPrereqs-installation-script-optional)
+
+If you are undecided about whether or not you should install the optional packages, read the section on [Client/Server Configurations][4].
+
+##Install Basic Prerequisites (required)
+
 The following programs must be installed on OS X 10.9 for GsDefKit and tODE to function:
 
   - git
   - wget
 
-To install git, [follow these instructions][2].
+To install `git`, [follow these instructions][2].
 
 To install `wget`, first [install brew][1] then:
 
@@ -13,10 +22,17 @@ To install `wget`, first [install brew][1] then:
 brew install wget
 ```
 
-###X11
-X11 is not required for GsDevKit or Pharo, however, if you want to use [vsd][4], then you need to [install X11][3].
+##Install ssh (optional)
+ssh is installed on Mac OS X by default, so no additional steps are needed.
+
+###Install X11 Client (optional)
+To install X11 [follow these instructions][3].
+
+###osPrereqs Installation Script (optional)
+Currently the [osPrereqs script][5] does not support OS X.
 
 [1]: http://coolestguidesontheplanet.com/setting-up-os-x-mavericks-and-homebrew/
 [2]: http://git-scm.com/book/en/v2/Getting-Started-Installing-Git#Installing-on-Mac
 [3]: http://xquartz.macosforge.org/landing/
-[4]: http://gemtalksystems.com/products/vsd/
+[4]: osPrereqs.md#clientserver-configurations
+[5]: ../../bin/osPrereqs
