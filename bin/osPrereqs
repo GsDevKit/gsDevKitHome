@@ -48,6 +48,7 @@ installUbuntuPackages(){
     sudo apt-get -y update
     sudo apt-get -y install curl
     sudo apt-get -y install git
+    sudo apt-get -y install zip
     sudo apt-get -y install unzip
     sudo apt-get -y install libpam0g:i386
     sudo apt-get -y install libssl1.0.0:i386
@@ -61,10 +62,12 @@ installUbuntuPackages(){
       sudo apt-get -y install libxcb-dri2-0:i386
     fi
     if [ "${gemtools}" = "true" ] ; then
-      mkdir gemtools
-      cd gemtools
-      wget http://seaside.gemtalksystems.com/squeak/GemTools-1.0-beta.8.7-31x.zip
-      unzip GemTools-1.0-beta.8.7-31x.zip
+      sudo apt-get -y install sane:i386
+      sudo apt-get -y install libsm6:i386
+      if [ ! -d "GemTools-1.0-beta.8.7-31x.app" ] ; then
+        wget http://seaside.gemtalksystems.com/squeak/GemTools-1.0-beta.8.7-310x.zip
+        unzip GemTools-1.0-beta.8.7-31x.zip
+      fi
     fi
 }
 
