@@ -1,6 +1,6 @@
 doits
 post30Load2x
-	| gsDevKitHome monoFontName |
+	| gsDevKitHome monoFontName windowProperties bounds |
 	Smalltalk at: #TODE_CLIENT_INSTALLED ifPresent: [ ^ self ].
 	gsDevKitHome := FileSystem workingDirectory parent.
 	Deprecation
@@ -24,5 +24,10 @@ post30Load2x
 				ifTrue: [ monoFontName := 'Monaco' ] ].
 	StandardFonts defaultFont: (LogicalFont familyName: monoFontName pointSize: 8).
 	StandardFonts setAllStandardFontsTo: StandardFonts defaultFont.
-	((Smalltalk at: #TDAbstractWindowProperties) import: 'standard-small')
-		installOn: (Smalltalk at: #TDTopezGemStoneClient)
+	windowProperties := (Smalltalk at: #TDAbstractWindowProperties) import: 'standard-small'.
+	windowProperties installOn: (Smalltalk at: #TDTopezGemStoneClient).
+	bounds := windowProperties caculateWindowBounds at: #transcript.
+	ThreadSafeTranscript install.
+	Transcript open
+		extent: bounds extent;
+		position: bounds origin
