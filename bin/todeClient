@@ -69,6 +69,21 @@ if [ ! -e $pharo/todeClient${postFix}.image ] ; then
   done
 fi
 
+# Detect operating system
+PLATFORM="`uname -sm | tr ' ' '-'`"
+# Macs with Core i7 use the same software as older Macs
+[ $PLATFORM = "Darwin-x86_64" ] && PLATFORM="Darwin-i386"
+
+vmArgs=""
+case "$PLATFORM" in
+  Darwin-i386) vmArgs="" ;;
+  Linux-x86_64) vmArgs=" --textenc UTF-8" ;;
+  *)
+    echo "unsupported platform: $PLATFORM"
+    exit 1
+    ;;
+esac
+
 pharo=$GS_HOME/pharo
 unset GEMSTONE_NRS_ALL
-$pharo/pharo-ui --textenc UTF-8 $pharo/todeClient${postFix}.image &> $pharo/logs/todeClient${postFix}.log &
+$pharo/pharo-ui $vmArgs $pharo/todeClient${postFix}.image &> $pharo/logs/todeClient${postFix}.log &

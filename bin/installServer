@@ -31,7 +31,6 @@ OPTIONS
 EXAMPLES
    $(basename $0) -h
    $(basename $0) kit 3.2.1
-   $(basename $0) kit 3.2.1
    $(basename $0) -f kit 3.2.1
 
 HELP
