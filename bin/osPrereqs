@@ -11,7 +11,7 @@ set -e # exit on error
 
 usage() {
   cat <<HELP
-USAGE: $(basename $0) [-h] -o [ubuntu12.04|ubuntu14.04] [-X] [-G]
+  USAGE: $(basename $0) [-h] [-X] [-G]
 
 Install os-specific required packages:
   - 32 bit libraries
@@ -27,8 +27,6 @@ and os-specific optional packages:
 OPTIONS
   -h 
      display help
-  -o 
-     select os
   -G
      install GemTools and the GemTools prerequisites
   -X 
@@ -37,10 +35,9 @@ OPTIONS
 
 EXAMPLES
   ./$(basename $0) -h
-  ./$(basename $0) -o ubuntu12.04
-  ./$(basename $0) -X -o ubuntu12.04
-  ./$(basename $0) -G -X -o ubuntu12.04
-
+  ./$(basename $0)
+  ./$(basename $0) -X
+  ./$(basename $0) -G -X
 HELP
 }
 
@@ -71,15 +68,15 @@ installUbuntuPackages(){
     fi
 }
 
-os=""
+
+os=`lsb_release -rs`
 X11client=""
 gemtools=""
 
-while getopts "ho:GX" OPT ; do
+while getopts "h:GX" OPT ; do
   case "$OPT" in
     G) gemtools="true";;
     h) usage; exit 0 ;;
-    o) os="${OPTARG}" ;;
     X) X11client="1";;
     *) usage; exit 1 ;;
   esac
@@ -87,14 +84,14 @@ done
 shift $(($OPTIND - 1))
 
 case "$os" in
-  ubuntu12.04)
+  12.04)
     installUbuntuPackages
     sudo ln -f -s /lib/i386-linux-gnu/libpam.so.0 /lib/libpam.so.0
     sudo ln -f -s /usr/lib/i386-lin-gnu/libstdc++.so.6 /usr/lib/i386-linux-gnu/libstdc++.so
-  ;;
-  ubuntu14.04)
+    ;;
+  14.04)
     installUbuntuPackages
     sudo ln -f -s /usr/lib/i386-lin-gnu/libstdc++.so.6 /usr/lib/i386-linux-gnu/libstdc++.so
     ;;
-  *) usage; exit 1;;
+  *) echo "unrecognized Ubuntu version $os"; usage; exit 1;;
 esac

@@ -1,5 +1,5 @@
 #Operating System Prerequisites
-If you are installing the GsDevKit on OS X, then go directly to the [GsDevKit prerequisites for OS X10.9 document](#gsdevkit-prerequisites-for-os-x109).
+If you are installing the GsDevKit on OS X, then go directly to the [GsDevKit prerequisites for OS X10.9 document][3].
 
 If you care about customizing the installation of Ubuntu packages, the read the sections on [required](#required-ubuntu-packages) and [recommended](#recommended-ubuntu-packages) packages.
 
@@ -8,7 +8,7 @@ Otherwise just follow the instructins in the following section.
 ##Simplified Prerequisite Installation for Ubuntu
 
 1. Login to your Ubuntu server
-2. Manuall install [SSH](#ssh):
+2. Manually install [SSH](#ssh):
 
    ```
    sudo apt-get -y update
@@ -16,7 +16,7 @@ Otherwise just follow the instructins in the following section.
    sudo apt-get -y install openssh-server
    ```
 
-3. Logout of your ubuntu server and copy [osPrereqs install script][2] from local clone to Ubuntu server:
+3. Logout of your ubuntu server and copy [osPrereqs install script][2] from local clone to Ubuntu server using `scp`:
 
    ```
    scp $GS_HOME/bin/osPrereqs <server-username>@<server-ip-address>:/home/<server-username>
@@ -33,10 +33,10 @@ Otherwise just follow the instructins in the following section.
 5. Install prerequisites:
 
    ```
-   /home/<server-username>/osPrereqs -X -o (ubuntu14.04 | ubuntu12.04)
+   /home/<server-username>/osPrereqs -X
    ```
 
-   *Note add the `-G` flag is you intend to use GemTools on your server as well.*
+   *Note add the `-G` flag is you intend to use GemTools on your server.*
 
 6. [Continue with the installation of gsDevKitHome on your Ubuntu server][1].
 
@@ -67,29 +67,25 @@ Platform-specific installation instructions:
 
 - [ssh for Ubuntu 12.04][65]
 - [ssh for Ubuntu 14.04][66]
-- [ssh for OS X10.9][67]
 
 ###X11 Client
 Platform-specific installation instructions:
 
 - [X11 Client for Ubuntu 12.04][75]
 - [X11 Client for Ubuntu 14.04][76]
-- [X11 Client for OS X10.9][77]
 
 [1]: ../../README.md#clone-gsdevkithome
 [2]: ../../bin/osPrereqs
+[3]: OSX10.9.md#gsdevkit-prerequisites-for-os-x109
 
 [16]: ../x11ForwardingForRemoteDisplays.md#x11-forwarding-for-remote-servers
 [17]: ../portForwardingForRemoteLogins.md#using-port-forwarding-for-remote-gemstone-servers
 
 [55]: ubuntu12.04.md
 [56]: ubuntu14.04.md
-[57]: OSX10.9.md
 
 [65]: ubuntu12.04.md#install-ssh-optional
 [66]: ubuntu14.04.md#install-ssh-optional
-[67]: OSX10.9.md#install-ssh-optional
 
 [75]: ubuntu12.04.md#install-x11-client-optional
 [76]: ubuntu14.04.md#install-x11-client-optional
-[77]: OSX10.9.md#install-x11-client-optional
