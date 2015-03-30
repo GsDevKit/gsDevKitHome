@@ -6,12 +6,6 @@ If you care about customizing the installation of Ubuntu packages, the read the 
 Otherwise just follow the instructins in the following section.
 
 ##Simplified Prerequisite Installation for Ubuntu
-The instructions in this section assume that:
-
-1. You will install both the [required]((#required-packages) and [recommended](#recommended-packages) ([SSH](#ssh) and [X11 Client](#x11-client)) packages.
-2. You have a [local clone of the gsDevKitHome project][1].
-
-Installation steps:
 
 1. Login to your Ubuntu server
 2. Manuall install [SSH](#ssh):
@@ -27,6 +21,8 @@ Installation steps:
    ```
    scp $GS_HOME/bin/osPrereqs <server-username>@<server-ip-address>:/home/<server-username>
    ```
+
+   *If you do not have a local clone of gsDevKitHome, then create an [osPrereqs script][2] using your favorite text editor or follow the manual steps in the [required]((#required-ubuntu-packages) and [recommended](#recommended-ubuntu-packages) sections.*
 
 4. Login to your Ubuntu server using [SSH](#ssh):
 
