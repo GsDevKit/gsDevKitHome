@@ -45,14 +45,7 @@ The following packages are required for GsDevKit:
 - unzip            - needed by FileTree
 - wget             - needed by bin/installGemStone script
 
-The following packages are optional:
-- X11              - needed to run [VSD][58] and Pharo (on Linux) with X11 forwarding (`ssh -X`)
-- ssh              - needed to run Pharo with X11 forwarding and ease of access to server
- 
-If these packages are **NOT** already installed on your machine, then see the prerequisite installation guide for your platform:
-- [GsDevKit prerequisites for Ubuntu 12.04][55]
-- [GsDevKit prerequisites for Ubuntu 14.04][56]
-- [GsDevKit prerequisites for OS X10.9][57]
+For a full list of required/recommended packages plus installation instructions and scripts, see the  [GsDevKit Operating System Prerequisites][36].
    
 ###Clone gsDevKitHome
 Clone the [gsDevKitHome project][2] to your GemStone development server and create a unique branch to keep any changes you make for your project isolated from the Dev Kit master branch:
@@ -177,10 +170,10 @@ commit the changes that you've made.
 [33]: bin/stones
 [34]: bin/installGemStone
 [35]: bin/todeClient
+[36]: docs/osPrereqs/OsPrereqs.md#gsdevkit-operating-system-prerequisites
+
 [46]: bin/installTodeStone
-[55]: docs/osPrereqs/ubuntu12.04.md
-[56]: docs/osPrereqs/ubuntu14.04.md
-[57]: docs/osPrereqs/OSX10.9.md
+
 [58]: http://gemtalksystems.com/products/vsd/
 [59]: bin/createTodeImage
 [60]: bin/createStone
@@ -188,12 +181,15 @@ commit the changes that you've made.
 [62]: https://github.com/dalehenrich/tode/blob/master/docs/GettingStarted.md#getting-started-with-tode
 [63]: docs/images/todeClient.png
 [64]: https://github.com/dalehenrich/tode/blob/master/docs/GettingStarted.md#tode-test-login
+
 [74]: tode/sys/default/projects
 [75]: https://help.github.com/articles/using-pull-requests/
 [76]: https://github.com/dalehenrich/tode/blob/master/docs/releaseNotes/releaseNotes0.1.0.md#project-entry
+
 [94]: projects/README.md#featured-gsdevkit-projects
 [95]: projects/README.md#gsdevkit-projects
 [96]: bin/README.md
 [97]: https://github.com/dalehenrich/tode/blob/master/docs/releaseNotes/releaseNotes0.1.0.md#git-credentials-and-tode
 [98]: http://gemtalksystems.com/products/gs64/
 [99]: http://gemtalksystems.com/licensing/#CWELicensing
+

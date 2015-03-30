@@ -1,4 +1,4 @@
-#Operating System Prerequisites
+#GsDevKit Operating System Prerequisites
 If you are installing the GsDevKit on OS X, then go directly to the [GsDevKit prerequisites for OS X10.9 document][3].
 
 If you care about customizing the installation of Ubuntu packages, the read the sections on [required](#required-ubuntu-packages) and [recommended](#recommended-ubuntu-packages) packages.
