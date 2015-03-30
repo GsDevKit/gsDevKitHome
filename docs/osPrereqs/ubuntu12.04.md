@@ -3,6 +3,7 @@
 1. [Install Basic Prerequisites (required)](#install-basic-prerequisites-required)
 3. [Install ssh (recommended)](#install-ssh-recommended)
 4. [X11 Client (recommended)](#install-x11-client-recommended)
+5. [GemTools (optional](#gemtools-optional)
 
 ##Install Basic Prerequisites (required)
 
@@ -41,3 +42,10 @@ sudo apt-get -y install libgl1-mesa-dev:i386
 sudo apt-get -y install libxcb-dri2-0:i386
 ```
 
+##GemTools (optional)
+Required libraries if using GemTools from http://seaside.gemtalksystems.com/squeak/GemTools-1.0-beta.8.7-310x.zip.
+
+```
+sudo apt-get -y install libx11-6:i386
+sudo apt-get -y install libsm6:i386
+```
