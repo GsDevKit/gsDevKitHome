@@ -170,7 +170,7 @@ commit the changes that you've made.
 [33]: bin/stones
 [34]: bin/installGemStone
 [35]: bin/todeClient
-[36]: docs/osPrereqs/OsPrereqs.md#gsdevkit-operating-system-prerequisites
+[36]: docs/osPrereqs/osPrereqs.md#gsdevkit-operating-system-prerequisites
 
 [46]: bin/installTodeStone
 
