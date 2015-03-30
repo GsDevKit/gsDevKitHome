@@ -1,7 +1,7 @@
 #Operating System Prerequisites
 If you are installing the GsDevKit on OS X, then go directly to the [GsDevKit prerequisites for OS X10.9 document](#gsdevkit-prerequisites-for-os-x109).
 
-If you care about customizing the installation of Ubuntu packages, the read the sections on [required]((#required-ubuntu-packages) and [recommended](#recommended-ubuntu-packages) packages.
+If you care about customizing the installation of Ubuntu packages, the read the sections on [required](#required-ubuntu-packages) and [recommended](#recommended-ubuntu-packages) packages.
 
 Otherwise just follow the instructins in the following section.
 
@@ -22,7 +22,7 @@ Otherwise just follow the instructins in the following section.
    scp $GS_HOME/bin/osPrereqs <server-username>@<server-ip-address>:/home/<server-username>
    ```
 
-   *If you do not have a local clone of gsDevKitHome, then create an [osPrereqs script][2] using your favorite text editor or follow the manual steps in the [required]((#required-ubuntu-packages) and [recommended](#recommended-ubuntu-packages) sections.*
+   *If you do not have a local clone of gsDevKitHome, then create an [osPrereqs script][2] using your favorite text editor or follow the manual steps in the [required](#required-ubuntu-packages) and [recommended](#recommended-ubuntu-packages) sections.*
 
 4. Login to your Ubuntu server using [SSH](#ssh):
 
