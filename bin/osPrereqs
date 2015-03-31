@@ -60,6 +60,9 @@ installUbuntuPackages(){
     fi
     if [ "${gemtools}" = "true" ] ; then
       if [ ! -d "GemTools-1.0-beta.8.7-3101x.app" ] ; then
+        sudo apt-get -y install libXrender1:i386
+        sudo apt-get -y install libSM6:i386
+        sudo apt-get -y install libICE6:i386
         wget http://seaside.gemtalksystems.com/squeak/GemTools-1.0-beta.8.7-310x.zip
         unzip GemTools-1.0-beta.8.7-310x.zip
       fi
@@ -84,25 +87,11 @@ shift $(($OPTIND - 1))
 case "$os" in
   12.04)
     installUbuntuPackages
-    if [ "${gemtools}" = "true" ] ; then
-      sudo apt-get -y install libXrender.so.1:i386
-      sudo apt-get -y install libSM.so.6:i386
-      sudo apt-get -y install libICE.so.6:i386
-#      sudo apt-get -y install libx11-6:i386
-#      sudo apt-get -y install libsm6:i386
-    fi
     sudo ln -f -s /lib/i386-linux-gnu/libpam.so.0 /lib/libpam.so.0
     sudo ln -f -s /usr/lib/i386-lin-gnu/libstdc++.so.6 /usr/lib/i386-linux-gnu/libstdc++.so
     ;;
   14.04)
     installUbuntuPackages
-    if [ "${gemtools}" = "true" ] ; then
-      sudo apt-get -y install libXrender.so.1:i386
-      sudo apt-get -y install libSM.so.6:i386
-      sudo apt-get -y install libICE.so.6:i386
-#      sudo apt-get -y install sane:i386
-#      sudo apt-get -y install libsm6:i386
-    fi
     sudo ln -f -s /usr/lib/i386-lin-gnu/libstdc++.so.6 /usr/lib/i386-linux-gnu/libstdc++.so
     ;;
   *) echo "unrecognized Ubuntu version $os"; usage; exit 1;;
