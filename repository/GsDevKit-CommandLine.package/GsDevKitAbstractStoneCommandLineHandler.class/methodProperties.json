@@ -2,7 +2,6 @@
 	"class" : {
 		"isAbstract" : "dkh 7/19/2014 07:49" },
 	"instance" : {
-		"backupsHome" : "dkh 7/19/2014 08:29",
 		"copySeasideSystemConf:" : "dkh 7/19/2014 07:50",
 		"copySnapshotExtent:" : "dkh 3/19/2015 13:56",
 		"copyTemplateFiles:" : "dkh 7/19/2014 07:50",
