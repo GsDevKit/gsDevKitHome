@@ -20,7 +20,5 @@ performTodeCommand travis logout
 performTodeCommand travis script --list
 performTodeCommand travis sessionDescription -h
 performTodeCommand travis updateClient
-performTodeCommand travis updateServer
-performTodeCommand travis whatsNew
 
 stopStone travis
