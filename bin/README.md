@@ -42,7 +42,7 @@ Scripts that can be run on the client machine or the server.
 | script | description |
 |--------|-------------|
 |<a name="createTodeImage"></a>
-[createTodeImage][14]| Create the tODE client image. Used for running pharo-based tODE scripts and for running the tODE client UI. Only needs to be run once.| 
+[createTodeImage][14]| Create the tODE client image. Used for running pharo-based tODE scripts and for running the tODE client UI. Using the -f option updates the client image. | 
 |[installClient][1]| Create a todeClient image on a remote machine. Runs the [installGemstone][18], [createTodeImage][14] and [todeClient][15] scripts.|
 |[installGci][17]| Copy the gci libraries for the given GemStone version to the $GS\_HOME/pharo directory. |
 |[installPharo][19]| Download and install a Linux or Mac Pharo3.0 VM, image and changes file.|
@@ -50,6 +50,7 @@ Scripts that can be run on the client machine or the server.
 |[pharo][21]| Run headless pharo scripts using the Pharo image.|
 |[tode][22]| Run headless tode scripts using the todeClient image.|
 |[todeClient][15]| Launch todeClient image. Requires X11 client.|
+|[updateTodeImage][16]| Update the todeClient image.|
 
 ##Utility Scripts
 Special purpose utility scripts.
@@ -73,7 +74,7 @@ Special purpose utility scripts.
 [13]: stopStone
 [14]: createTodeImage
 [15]: todeClient
-
+[16]: updateTodeImage
 [17]: installGci
 [18]: installGemStone
 [19]: installPharo
