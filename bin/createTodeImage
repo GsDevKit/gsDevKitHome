@@ -78,12 +78,16 @@ fi
 
 echo "${message} todeClient${postFix} image using $todeLoadPath"
 
-$pharo/pharo $pharo/Pharo.image save todeClientTmp
+if [ "${force}" = "true" ] ; then
+  $pharo/pharo $pharo/todeClient${postFix}.image save todeClientTmp
+else
+  $pharo/pharo $pharo/Pharo.image save todeClientTmp
+fi
 
 $pharo/pharo $pharo/todeClientTmp.image st --quit --save $todeLoadPath
 
 $pharo/pharo $pharo/todeClientTmp.image save todeClient${postFix}
-
 rm -f $pharo/todeClientTmp.*
+
 echo
 echo "...finished $(basename $0)"

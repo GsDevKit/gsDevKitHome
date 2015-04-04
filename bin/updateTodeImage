@@ -27,7 +27,11 @@ if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"; exit 1
 fi
 
-source ${GS_HOME}/bin/shFunctions
-getOpts_help $@ #parse standard (-h) options
+while getopts "pfh" OPT ; do
+  case "$OPT" in
+    h) usage; exit 0;;
+    *) ;;
+  esac
+done
 
 $GS_HOME/bin/createTodeImage -f $*
