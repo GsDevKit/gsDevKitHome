@@ -27,7 +27,4 @@ post30Load2x
 	windowProperties := (Smalltalk at: #TDAbstractWindowProperties) import: 'standard-small'.
 	windowProperties installOn: (Smalltalk at: #TDTopezGemStoneClient).
 	bounds := windowProperties caculateWindowBounds at: #transcript.
-	ThreadSafeTranscript install.
-	Transcript open
-		extent: bounds extent;
-		position: bounds origin
+	(Smalltalk at: #TDShell) resizeTranscript: bounds
