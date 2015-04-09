@@ -18,7 +18,7 @@ version201: spec
 				baseline: 'Tode'
 					with: [ 
 							spec
-								loads: 'GemStone Dev';
+								loads: #('GemStone Dev' 'Visualize');
 								repository: 'github://dalehenrich/tode:dev/repository' ];
 				postLoadDoIt: #post30Load2x;
 				yourself ]

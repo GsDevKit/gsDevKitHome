@@ -51,16 +51,9 @@ For a full list of required/recommended packages plus installation instructions 
 Clone the [gsDevKitHome project][2] to your GemStone development server and create a unique branch to keep any changes you make for your project isolated from the Dev Kit master branch:
 
 ```Shell
-git clone https://github.com/GsDevKit/gsDevKitHome.git
+git clone git@github.com:GsDevKit/gsDevKitHome.git  # alternately use https://github.com/GsDevKit/gsDevKitHome.git
 cd gsDevKitHome
-git checkout -b  <your project branch name>
-```
-
-If you have registered an SSH keypair with GitHub, then clone using SSH:
-```Shell
-git clone git@github.com:GsDevKit/gsDevKitHome.git
-cd gsDevKitHome
-git checkout -b  <your project branch name>
+git checkout -b  <your-project-branch-name>
 ```
 
 See the documentation on [Git Credentials and tODE][97] for more information.
