@@ -2,7 +2,7 @@ versions
 version200: spec
 	<version: '2.0.0'>
 	spec
-		for: #'pharo3.x'
+		for: #( #'pharo3.x' #'pharo4.x')
 		do: [ 
 			spec blessing: #release.	
 			spec description: 'Changes in support of https://github.com/GsDevKit/gsDevKitHome/issues/32'.

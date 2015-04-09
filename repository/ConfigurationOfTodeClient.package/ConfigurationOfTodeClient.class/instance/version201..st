@@ -2,10 +2,10 @@ versions
 version201: spec
 	<version: '2.0.1'>
 	spec
-		for: #'pharo3.x'
+		for: #( #'pharo3.x' #'pharo4.x')
 		do: [ 
 			spec blessing: #development.	
-			spec description: 'Changes in support of https://github.com/GsDevKit/gsDevKitHome/issues/32'.
+			spec description: 'points at tode dev branch'.
 			spec repository: 'filetree://' , (FileSystem workingDirectory parent / 'repository') pathString.
 			spec
 				package: 'GsDevKit-CommandLine' with: [ spec requires: #('Tode' 'OSProcess') ];
