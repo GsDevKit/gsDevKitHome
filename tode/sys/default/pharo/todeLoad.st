@@ -11,7 +11,7 @@
     repository: 'github://dalehenrich/metacello-work:master/repository';
     onConflict: [:ex | ex allow];
     load.
-  "If tODE is already loaded, force the baseline to be loaded again"
+  "If tODE is already loaded, clear github cache for baseline"
   Metacello image
     baseline: 'Tode';
     get.

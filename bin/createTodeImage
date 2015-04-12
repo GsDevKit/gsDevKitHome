@@ -63,7 +63,7 @@ pharo=$GS_HOME/pharo
 message="create"
 if [ -e $pharo/todeClient${postFix}.image ] ; then
   if [ "${force}x" = "x" ] ; then
-    echo "todeClient already created, use -f to force creation"
+    echo "todeClient already created, use -f to force update"
     exit 0
   else
     message="update"
