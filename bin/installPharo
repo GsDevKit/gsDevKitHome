@@ -51,7 +51,7 @@ fi
 # Download Pharo
 
 cd $GS_HOME/pharo
-wget -O- get.pharo.org/vmLatest | bash
+wget -O- get.pharo.org/vm30 | bash
 wget -O- get.pharo.org/30 | bash
 
 echo "...finished $(basename $0)"
