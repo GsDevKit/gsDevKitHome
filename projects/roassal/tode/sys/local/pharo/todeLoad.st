@@ -1,5 +1,5 @@
 [ 
-  "Master pharo todeLoad.st"
+  "Roassal/Visualization todeLoad.st (loading `dev` version)"
   | gs_home |
   gs_home := Smalltalk os environment at: 'GS_HOME'.
   Metacello new
@@ -13,7 +13,7 @@
     load.
   Metacello new
     configuration: 'TodeClient';
-    version: #release;
+    version: #dev;
     repository: 'filetree://', gs_home, '/repository';
     get;
     load: #('Core' 'Visualize') ]
