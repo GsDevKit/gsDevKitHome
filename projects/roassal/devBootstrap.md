@@ -55,7 +55,7 @@ cp $GS_HOME/projects/roassal/tode/sys/local/pharo/todeLoad.st $GS_HOME/tode/sys/
 installServer $stoneName 3.2.6
 ```
 
-Now, follow the instructions in the [Roassal readme][2].
+Now, follow the instructions in the [Roassal Examples in the readme][2].
 
 [1]: https://github.com/dalehenrich/tode#fork-destination-box
-[2]: README.md#Examples
+[2]: README.md#examples
