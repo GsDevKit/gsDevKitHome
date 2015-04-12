@@ -20,6 +20,10 @@ The workspace variable `shell` is bound to an instance of **TDSHell** and you us
 
 ![roassal tode workspace][4]
 
+The `Tools` menu gives you access to the full tODE development environment:
+
+![tode tools menu][5]
+
 ### `onServerDo:`
 The following simple expressions should give you a feel for how to use the workspace and [server blocks][1]:
 
@@ -35,6 +39,12 @@ shell onServerDo: [ (System stoneVersionReport at: 'gsVersion') inspect ].
 
 "Bring up the Pharo inspector"
 (shell onServerDo: [ System stoneVersionReport at: 'gsVersion' ]) inspect
+
+"local temp variables referenced from block are passed to server"
+| x y |
+x := 3.
+y := 4.
+shell onServerDo: [ x + y ].
 ```
 
 ##Example Roassal Visualizations

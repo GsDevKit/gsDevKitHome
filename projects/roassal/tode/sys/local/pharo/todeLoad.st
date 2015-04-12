@@ -11,6 +11,10 @@
     repository: 'github://dalehenrich/metacello-work:master/repository';
     onConflict: [:ex | ex allow];
     load.
+  "If tODE is already loaded, force the baseline to be loaded again"
+  Metacello image
+    baseline: 'Tode';
+    get.
   Metacello new
     configuration: 'TodeClient';
     version: #dev;
