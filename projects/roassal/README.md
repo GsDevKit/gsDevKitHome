@@ -1,4 +1,4 @@
-# Roassal Visualizations
+# Roassal Visualization
 Right now, the support for [Roassal][2] visualization is based running client-side (Pharo) workspaces that use [server blocks][1].
 Over time server-side tODE commands that use [Roassal][2] for visualization will be implemented.
 
@@ -41,13 +41,14 @@ shell onServerDo: [ (System stoneVersionReport at: 'gsVersion') inspect ].
 (shell onServerDo: [ System stoneVersionReport at: 'gsVersion' ]) inspect
 
 "local temp variables referenced from block are passed to server"
-| x y |
+| x y z |
 x := 3.
 y := 4.
-shell onServerDo: [ x + y ].
+z := shell onServerDo: [ x + y ].
+z + 3
 ```
 
-##Example Roassal Visualizations
+##Example Roassal Visualization
 
 ```Smalltalk
 | res process resultProcessed builder |
