@@ -58,4 +58,4 @@ installServer $stoneName 3.2.6
 Now, follow the instructions in the [Roassal readme][2].
 
 [1]: https://github.com/dalehenrich/tode#fork-destination-box
-[2]: devBootstrap.md#Examples
+[2]: README.md#Examples
