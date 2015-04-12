@@ -84,10 +84,10 @@ The `$GS_HOME/bin/installServer` script:
 
 Before running the `installServer` script, please check on the [GemStone/S 64 Bit product page for the latest versions][98] and visit [the Community and Web Edition Licensing page for information on the license included with the download and other options][98].
 It is recommended that you download and use the latest version of the GemStone/S 64 Bit product.
-The following creates a new stone named `devKit` based on [version 3.2.4 of GemStone/S][16]:
+The following creates a new stone named `devKit` based on [version 3.2.6 of GemStone/S][16]:
 
 ```Shell
-installServer devKit 3.2.4
+installServer devKit 3.2.6
 ```
 *Note that the script will prompt you for your password because it uses `sudo` to setup up your server for running GemStone*.
 
