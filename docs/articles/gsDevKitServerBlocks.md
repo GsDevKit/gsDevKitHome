@@ -82,16 +82,17 @@ At first blush this may seem like a somewhat unremarkable capability until you r
           DevKitShell
             onServerDo: [ 
               NeoCSVDictionary at: record x put: record.
-              cnt \\ 100 = 0
-                ifTrue: [ System commitTransaction ] ] ] ].
+              cnt \\ 1000 = 0
+                ifTrue: [ System commitTransaction ].
+              nil ] ] ].
   DevKitShell onServerDo: [ System commitTransaction ]
   ```
 
 6. Do a Query on GemStone, store the query results on the server and return results size:
   ```Smalltalk
   | min max resultSize |
-  min := 50000.
-  max := 55000.
+  min := 500.
+  max := 550.
   resultSize := DevKitShell
     onServerDo: [ 
       | queryResults |
