@@ -21,7 +21,7 @@ On the client, the result is reified and returned as the result of the `onServer
 ##THIN CLIENT
 At first blush this may seem like a somewhat unremarkable capability until you realize that you can use *tODE Server Blocks* as a data base session from Pharo.
 
-1. Install NeoCSV in Pharo
+1. Install NeoCSV in Pharo:
   ```Smalltalk
 
   Smalltalk at: #DevKitShell put: (TDShell forStone: 'devKit').
@@ -32,14 +32,31 @@ At first blush this may seem like a somewhat unremarkable capability until you r
     load.
   ```
 
-2. Export domain class to GemStone
+2. Export domain class to GemStone:
   ```Smalltalk
   DevKitShell exportClassToServer: (Smalltalk at: #NeoCSVTestObject).
   ```
 
-```Smalltalk
-  | count min max resultIds selectedRecord rowId |
+3. Create dummy domain data:
+  ```Smalltalk
+  | benchmark |
+  benchmark := NeoCSVBenchmark new.
+  benchmark cleanup.
+  benchmark write3.
+  ```
 
+4. Initialize data store in GemStone:
+  ```Smalltalk
+  DevKitShell
+    onServerDo: [ 
+      Smalltalk
+        at: #'NeoCSVData'
+        put: Dictionary new ]
+  ```
+
+5. Load domain data into GemStone from CSV file:
+  ```Smalltalk
+  | count |
   count := 0.	"Load data from a csv file"
   'NeoCSVBenchmark.csv' asFileReference
     readStreamDo: [ :stream | 
@@ -56,13 +73,17 @@ At first blush this may seem like a somewhat unremarkable capability until you r
           count := count + 1.
           DevKitShell
             onServerDo: [ 
-              (Smalltalk
-                at: #'NeoCSVData'
-                ifAbsent: [ Smalltalk at: #'NeoCSVData' put: Dictionary new ])
+              NeoCSVData
                 at: record x
                 put: record ].
           count \\ 1000
-            ifTrue: [ System commitTransaction ] ] ].	"query"
+            ifTrue: [ System commitTransaction ] ] ].
+  ```
+
+5. 
+
+  ```Smalltalk
+	"query"
   min := 50000.
   max := 55000.
   resultIds := DevKitShell
@@ -79,6 +100,6 @@ At first blush this may seem like a somewhat unremarkable capability until you r
     onServerDo: [ (Smalltalk at: #'NeoCSVData') at: rowId ifAbsent: [ nil ] ].
   DevKitShell quit.
   selectedRecord
-```
+  ```
 
 [1]: https://github.com/GsDevKit/ston#ston---smalltalk-object-notation
