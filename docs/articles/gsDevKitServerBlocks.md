@@ -98,13 +98,13 @@ At first blush this may seem like a somewhat unremarkable capability until you r
       | queryResults |
       queryResults := OrderedCollection new.
       NeoCSVDictionary
-        keysAndValuesDo: [ :key :value | 
-          (value >= min and: [ value <= max ])
-            ifTrue: [ queryResults add: key ] ].
-      UserGlobals at: #'NeoCSVQueryResults put: queryResults.
+        keysAndValuesDo: [ :id :record | 
+          (id >= min and: [ id <= max ])
+            ifTrue: [ queryResults add: record ] ].
+      UserGlobals at: #'NeoCSVQueryResults' put: queryResults.
       System commitTransaction.
-      queryResults size].
-  Smalltalk at: #NeoQuerySize put: resultSize
+      queryResults size ].
+  Smalltalk at: #'NeoQuerySize' put: resultSize
   ```
 
 7. View a specific record:
