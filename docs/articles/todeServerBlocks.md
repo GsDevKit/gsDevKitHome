@@ -21,4 +21,23 @@ On the client, the result is reified and returned as the result of the `onServer
 ##THIN CLIENT
 At first blush this may seem like a somewhat unremarkable capability until you realize that you can use *tODE Server Blocks* as a data base session from Pharo.
 
+```Smalltalk
+| shell |
+shell := TDShell newOn: 'devKit'.
+'NeoCSVBenchmark.csv' asFileReference readStreamDo: [ :stream | 
+	| reader converter |
+	converter := [ :string | NeoNumberParser parse: string ].
+	reader := (NeoCSVReader on: (ZnBufferedReadStream on: stream)).
+	reader
+           recordClass: NeoCSVTestObject;
+			addIntegerField: #x: ;
+			addIntegerField: #y: ;
+			addIntegerField: #z:.
+	reader do: [:object | .
+		shell onServerDo: [
+			(Smalltalk at: #NeoCVSData 
+				ifAbsent: [Smalltalk at: #NeoCVSData put: Array new]) add: object
+	     ]] ]
+```
+
 [1]: https://github.com/GsDevKit/ston#ston---smalltalk-object-notation
