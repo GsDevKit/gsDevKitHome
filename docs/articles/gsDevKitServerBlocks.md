@@ -61,11 +61,9 @@ At first blush this may seem like a somewhat unremarkable capability until you r
 
 5. Load domain data into GemStone from CSV file. Commit every 1000 records:
   ```Smalltalk
-  | count |
-  count := 0.
-  'NeoCSVBenchmark.csv' asFileReference
+'NeoCSVBenchmark.csv' asFileReference
     readStreamDo: [ :stream | 
-      | reader converter |
+      | reader converter buffer bufCnt numRecords records |
       converter := [ :string | NeoNumberParser parse: string ].
       reader := NeoCSVReader on: (ZnBufferedReadStream on: stream).
       reader
@@ -73,18 +71,25 @@ At first blush this may seem like a somewhat unremarkable capability until you r
         addIntegerField: #'x:';
         addIntegerField: #'y:';
         addIntegerField: #'z:'.
-      reader
-        do: [ :object | 
-          | record cnt |
-          count := count + 1.
-          cnt := count.
-          record := object.
-          DevKitShell
-            onServerDo: [ 
-              NeoCSVDictionary at: record x put: record.
-              cnt \\ 1000 = 0
-                ifTrue: [ System commitTransaction ].
-              nil ] ] ].
+      buffer := Array new: 1000.
+      bufCnt := 0.
+      [ reader atEnd ]
+        whileFalse: [ 
+          bufCnt := bufCnt + 1.
+          buffer at: bufCnt put: reader next.
+          bufCnt = buffer size
+            ifTrue: [ 
+              numRecords := bufCnt + 0.
+              records := buffer.
+              DevKitShell
+                onServerDo: [ 
+                  1 to: numRecords do: [ :index | 
+                    | record |
+                    record := records at: index.
+                    NeoCSVDictionary at: record x put: record ].
+                  System commitTransaction.
+                  nil ].
+              bufCnt := 0 ] ] ].
   DevKitShell onServerDo: [ System commitTransaction ]
   ```
 
