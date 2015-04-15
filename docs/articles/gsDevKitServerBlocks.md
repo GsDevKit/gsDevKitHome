@@ -75,8 +75,7 @@ At first blush this may seem like a somewhat unremarkable capability until you r
         addIntegerField: #'z:'.
       reader
         do: [ :object | 
-          | record "References from within server block must be declared as temp in
-         outer scope" cnt |
+          | record cnt |
           count := count + 1.
           cnt := count.
           record := object.
