@@ -61,7 +61,7 @@ At first blush this may seem like a somewhat unremarkable capability until you r
 
 5. Load domain data into GemStone from CSV file. Commit every 1000 records:
   ```Smalltalk
-  | count record |
+  | count |
   count := 0.
   'NeoCSVBenchmark.csv' asFileReference
     readStreamDo: [ :stream | 
@@ -75,16 +75,18 @@ At first blush this may seem like a somewhat unremarkable capability until you r
         addIntegerField: #'z:'.
       reader
         do: [ :object | 
-          record := object.
+          "References from within server block must be declared as temp in
+           outer scope" 
+          | record cnt |
           count := count + 1.
+          cnt := count.
+          record := object.
           DevKitShell
             onServerDo: [ 
-              NeoCSVDictionary
-                at: record x
-                put: record.
-              count \\ 1000 = 0
+              NeoCSVDictionary at: record x put: record.
+              cnt \\ 1000 = 0
                 ifTrue: [ System commitTransaction ] ] ] ].
-   DevKitShell onServerDo: [ System commitTransaction ]
+  DevKitShell onServerDo: [ System commitTransaction ]
   ```
 
 6. Do a Query on GemStone, store the query results on the server and return results size:
