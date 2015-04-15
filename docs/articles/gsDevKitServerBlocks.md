@@ -1,10 +1,10 @@
 # GsDevKit Server Blocks
-A *GsDevKit Server Block* is a `block` that is written in-line in client Smalltalk in Pharo, while the code in the `block` is executed on the server in GemSTone.
+A *GsDevKit Server Block* is a `block` that is written in-line in client Smalltalk in Pharo, while the code in the `block` is executed on the server in GemStone.
 For example, the following code can be evaluated in a standard Pharo workspace while the `[ x + y ]` block is executed in a gem connected to the `devKit` stone:
 
 ```Smalltalk
 | tdShell x y |
-  tdShell := TDShell newOn: 'devKit'.
+  tdShell := TDShell forSessionNamed: 'devKit'.
   x := 3.
   y := 4.
   tdShell onServerDo: [ x + y ]
@@ -19,12 +19,14 @@ The result of the `block` evaluation is serialized using [STON][1] and returned 
 On the client, the result is reified and returned as the result of the `onServerDo:` message.
 
 ##THIN CLIENT
-At first blush this may seem like a somewhat unremarkable capability until you realize that you can use *tODE Server Blocks* as a data base session from Pharo.
+At first blush this may seem like a somewhat unremarkable capability until you realize that you can use *GsDevKit Server Blocks* as a data base session from Pharo.
+
+*Note: all of the following expressions should be executed in a standard Pharo workspace.*
 
 1. Install NeoCSV in Pharo:
   ```Smalltalk
 
-  Smalltalk at: #DevKitShell put: (TDShell forStone: 'devKit').
+  Smalltalk at: #DevKitShell put: (TDShell forSessionNamed: 'devKit').
   Metacello new
     configuration: 'ConfigurationOfNeoCSV';
     version: #'stable';
@@ -32,9 +34,11 @@ At first blush this may seem like a somewhat unremarkable capability until you r
     load.
   ```
 
-2. Export domain class to GemStone:
+2. Export domain class (NeoCSVTestObject) to GemStone:
   ```Smalltalk
-  DevKitShell exportClassToServer: (Smalltalk at: #NeoCSVTestObject).
+  DevKitShell 
+    exportClassToServer: NeoCSVTestObject;
+    onServerDo: [ System commitTransaction ].
   ```
 
 3. Create dummy domain data:
@@ -49,9 +53,10 @@ At first blush this may seem like a somewhat unremarkable capability until you r
   ```Smalltalk
   DevKitShell
     onServerDo: [ 
-      Smalltalk
-        at: #'NeoCSVData'
-        put: Dictionary new ]
+      UserGlobals
+        at: #'NeoCSVDictionary'
+        put: Dictionary new.
+      System commitTransaction ]
   ```
 
 5. Load domain data into GemStone from CSV file. Commit every 1000 records:
@@ -73,10 +78,10 @@ At first blush this may seem like a somewhat unremarkable capability until you r
           count := count + 1.
           DevKitShell
             onServerDo: [ 
-              NeoCSVData
+              NeoCSVDictionary
                 at: record x
                 put: record ].
-          count \\ 1000
+          count \\ 1000 = 0
             ifTrue: [ System commitTransaction ] ] ].
    DevKitShell onServerDo: [ System commitTransaction ]
   ```
@@ -90,22 +95,23 @@ At first blush this may seem like a somewhat unremarkable capability until you r
     onServerDo: [ 
       | queryResults |
       queryResults := OrderedCollection new.
-      (Smalltalk at: #'NeoCSVData')
+      NeoCSVDictionary
         keysAndValuesDo: [ :key :value | 
           (value >= min and: [ value <= max ])
             ifTrue: [ queryResults add: key ] ].
-       Smalltalk at: #'NeoCSVQuery put: {queryResults. 1. 0.}.
+      UserGlobals at: #'NeoCSVQueryResults put: queryResults.
+      System commitTransaction.
       queryResults size].
-  Smalltalk at: #NeoQuerySize put: queryResults
+  Smalltalk at: #NeoQuerySize put: resultSize
   ```
 
 7. View a specific record:
   ```Smalltalk
 	
-  | rowId selectedRecord |
-  rowId := Collection randomForPicking integerBetween: 1 and: NeoQuerySize.
+  | resultIndex selectedRecord |
+  resultIndex := Collection randomForPicking integerBetween: 1 and: NeoQuerySize.
   selectedRecord := DevKitShell
-    onServerDo: [ NeoCSVData at: rowId ifAbsent: [ self error: 'row not found' ] ].
+    onServerDo: [  NeoCSVQueryResults at: resultIndex ].
   selectedRecord
   ```
 
