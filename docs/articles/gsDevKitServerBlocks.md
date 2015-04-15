@@ -28,7 +28,7 @@ At first blush this may seem like a somewhat unremarkable capability until you r
 
   Smalltalk at: #DevKitShell put: (TDShell forSessionNamed: 'devKit').
   Metacello new
-    configuration: 'ConfigurationOfNeoCSV';
+    configuration: 'NeoCSV';
     version: #'stable';
     repository: 'http://smalltalkhub.com/mc/Pharo/MetaRepoForPharo30/main/';
     load.
