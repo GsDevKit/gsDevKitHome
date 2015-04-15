@@ -110,11 +110,10 @@ At first blush this may seem like a somewhat unremarkable capability until you r
 7. View a specific record:
   ```Smalltalk
 	
-  | resultIndex selectedRecord |
-  resultIndex := Collection randomForPicking integerBetween: 1 and: NeoQuerySize.
-  selectedRecord := DevKitShell
-    onServerDo: [  NeoCSVQueryResults at: resultIndex ].
-  selectedRecord
+  | resultIndex |
+  resultIndex := 25.
+  DevKitShell
+    onServerDo: [  NeoCSVQueryResults at: resultIndex ]
   ```
 
 8. Quit GemStone session:
