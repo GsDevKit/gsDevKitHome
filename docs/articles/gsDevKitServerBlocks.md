@@ -54,10 +54,10 @@ At first blush this may seem like a somewhat unremarkable capability until you r
         put: Dictionary new ]
   ```
 
-5. Load domain data into GemStone from CSV file:
+5. Load domain data into GemStone from CSV file. Commit every 1000 records:
   ```Smalltalk
   | count |
-  count := 0.	"Load data from a csv file"
+  count := 0.
   'NeoCSVBenchmark.csv' asFileReference
     readStreamDo: [ :stream | 
       | reader converter |
@@ -78,15 +78,15 @@ At first blush this may seem like a somewhat unremarkable capability until you r
                 put: record ].
           count \\ 1000
             ifTrue: [ System commitTransaction ] ] ].
+   DevKitShell onServerDo: [ System commitTransaction ]
   ```
 
-5. 
-
+6. Do a Query on GemStone, store the query results on the server and return results size:
   ```Smalltalk
-	"query"
+  | min max resultSize |
   min := 50000.
   max := 55000.
-  resultIds := DevKitShell
+  resultSize := DevKitShell
     onServerDo: [ 
       | queryResults |
       queryResults := OrderedCollection new.
@@ -94,12 +94,24 @@ At first blush this may seem like a somewhat unremarkable capability until you r
         keysAndValuesDo: [ :key :value | 
           (value >= min and: [ value <= max ])
             ifTrue: [ queryResults add: key ] ].
-      queryResults ].	"display selected record"
-  rowId := resultIds atRandom.
+       Smalltalk at: #'NeoCSVQuery put: {queryResults. 1. 0.}.
+      queryResults size].
+  Smalltalk at: #NeoQuerySize put: queryResults
+  ```
+
+7. View a specific record:
+  ```Smalltalk
+	
+  | rowId selectedRecord |
+  rowId := Collection randomForPicking integerBetween: 1 and: NeoQuerySize.
   selectedRecord := DevKitShell
-    onServerDo: [ (Smalltalk at: #'NeoCSVData') at: rowId ifAbsent: [ nil ] ].
-  DevKitShell quit.
+    onServerDo: [ NeoCSVData at: rowId ifAbsent: [ self error: 'row not found' ] ].
   selectedRecord
+  ```
+
+8. Quit GemStone session:
+  ```Smalltalk
+  DevKitShell quit.
   ```
 
 [1]: https://github.com/GsDevKit/ston#ston---smalltalk-object-notation
