@@ -21,10 +21,25 @@ On the client, the result is reified and returned as the result of the `onServer
 ##THIN CLIENT
 At first blush this may seem like a somewhat unremarkable capability until you realize that you can use *tODE Server Blocks* as a data base session from Pharo.
 
+1. Install NeoCSV in Pharo
+  ```Smalltalk
+
+  Smalltalk at: #DevKitShell put: (TDShell forStone: 'devKit').
+  Metacello new
+    configuration: 'ConfigurationOfNeoCSV';
+    version: #'stable';
+    repository: 'http://smalltalkhub.com/mc/Pharo/MetaRepoForPharo30/main/';
+    load.
+  ```
+
+2. Export domain class to GemStone
+  ```Smalltalk
+  DevKitShell exportClassToServer: (Smalltalk at: #NeoCSVTestObject).
+  ```
+
 ```Smalltalk
-  | shell count min max resultIds selectedRecord rowId |
-  shell := TDShell forStone: 'devKit'.	"define domain class on server"
-  shell exportClassToServer: NeoCSVTestObject.
+  | count min max resultIds selectedRecord rowId |
+
   count := 0.	"Load data from a csv file"
   'NeoCSVBenchmark.csv' asFileReference
     readStreamDo: [ :stream | 
@@ -39,7 +54,7 @@ At first blush this may seem like a somewhat unremarkable capability until you r
       reader
         do: [ :record | 
           count := count + 1.
-          shell
+          DevKitShell
             onServerDo: [ 
               (Smalltalk
                 at: #'NeoCSVData'
@@ -50,7 +65,7 @@ At first blush this may seem like a somewhat unremarkable capability until you r
             ifTrue: [ System commitTransaction ] ] ].	"query"
   min := 50000.
   max := 55000.
-  resultIds := shell
+  resultIds := DevKitShell
     onServerDo: [ 
       | queryResults |
       queryResults := OrderedCollection new.
@@ -60,9 +75,9 @@ At first blush this may seem like a somewhat unremarkable capability until you r
             ifTrue: [ queryResults add: key ] ].
       queryResults ].	"display selected record"
   rowId := resultIds atRandom.
-  selectedRecord := shell
+  selectedRecord := DevKitShell
     onServerDo: [ (Smalltalk at: #'NeoCSVData') at: rowId ifAbsent: [ nil ] ].
-  shell quit.
+  DevKitShell quit.
   selectedRecord
 ```
 
