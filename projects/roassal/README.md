@@ -1,5 +1,5 @@
 # Roassal Visualization
-Right now, the support for [Roassal][2] visualization is based running client-side (Pharo) workspaces that use [server blocks][1].
+Right now, the support for [Roassal][2] visualization is based running client-side (Pharo) workspaces that use [GsDevKit server blocks][1].
 Over time server-side tODE commands that use [Roassal][2] for visualization will be implemented.
 
 ## Installation
@@ -25,7 +25,7 @@ The `Tools` menu gives you access to the full tODE development environment:
 ![tode tools menu][5]
 
 ### `onServerDo:`
-The following simple expressions should give you a feel for how to use the workspace and [server blocks][1]:
+The following simple expressions should give you a feel for how to use the workspace and [GsDevKit server blocks][1]:
 
 ```Smalltalk
 "Evaulate a simple expression"
@@ -139,7 +139,7 @@ A similar problem exists if you try send Pharo-only class instances to the serve
   builder open
 ```
 
-[1]: ../../docs/articles/todeServerBlocks.md
+[1]: ../../docs/articles/gsDevKitServerBlocks.md
 [2]: http://objectprofile.com/Roassal.html
 [3]: ../../docs/images/roassalMenu.png
 [4]: ../../docs/images/roassalWorkspace.png
