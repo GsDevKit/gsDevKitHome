@@ -1,4 +1,10 @@
 # GsDevKit Server Blocks
+1. [Intro](#intro)
+1. [`onServerDo:` Examples](#onserverdo-examples)
+2. [THIN CLIENT example](#thin-client-example)
+3. [Caveats](#caveats)
+
+##Intro
 A *GsDevKit Server Block* is a `block` that is written in-line in client Smalltalk in Pharo, while the code in the `block` is executed on the server in GemStone.
 For example, the following code can be evaluated in a standard Pharo workspace while the `[ x + y ]` block is executed in a gem connected to the `devKit` stone:
 
@@ -18,9 +24,6 @@ The result of the `block` evaluation is serialized using [STON][1] and returned 
 
 On the client, the result is reified and returned as the result of the `onServerDo:` message.
 
-1. [`onServerDo:` Examples](#onserverdo-examples)
-2. [THIN CLIENT example](#thin-client-example)
-3. [Caveats](#caveats)
 
 ##`onServerDo:` Examples
 
@@ -203,5 +206,3 @@ A similar problem exists if you try send Pharo-only class instances to the serve
 
 
 [1]: https://github.com/GsDevKit/ston#ston---smalltalk-object-notation
-[2]: http://www.slideshare.net/esug/tode-and-now-for-something-completely-different
-[3]: http://www.slideshare.net/esug/a-longandwindingtode-esug2014-07
