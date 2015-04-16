@@ -18,11 +18,11 @@ The result of the `block` evaluation is serialized using [STON][1] and returned 
 
 On the client, the result is reified and returned as the result of the `onServerDo:` message.
 
-1. [GsDevKit Server Block examples](#gsdevkit-server-block-examples)
+1. [`onServerDo:` Examples](#onserverdo-examples)
 2. [THIN CLIENT example](#thin-client-example)
 3. [Caveats](#caveats)
 
-##GsDevKit Server Block examples
+##`onServerDo:` Examples
 
 ```Smalltalk
 "Evaulate a simple expression"
