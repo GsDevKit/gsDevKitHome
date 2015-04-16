@@ -28,32 +28,27 @@ On the client, the result is reified and returned as the result of the `onServer
 ##`onServerDo:` Examples
 
 ```Smalltalk
+"Establish server connection"
+Smalltalk at: #DevKitShell put: (TDShell forSessionNamed: 'devKit').
+
 "Evaulate a simple expression"
-| shell |
-shell := TDShell forSessionNamed: 'devKit'.
-shell onServerDo: [ 3 + 4 ].
-shell quit. 
+DevKitShell onServerDo: [ 3 + 4 ].
 
 "Bring up the tODE debugger"
-| shell |
-shell := TDShell forSessionNamed: 'devKit'.
-shell onServerDo: [ 3 foo ].
-shell quit
+DevKitShell onServerDo: [ 3 foo ].
 
 "Bring up the tODE inspector"
-| shell |
-shell := TDShell forSessionNamed: 'devKit'.
-shell onServerDo: [ 3 inspect ].
-shell quit.
+DevKitShell onServerDo: [ 3 inspect ].
 
 "local temp variables referenced from block are passed to server"
-| shell x y z |
-shell := TDShell forSessionNamed: 'devKit'.
+| x y z |
 x := 3.
 y := 4.
-z := shell onServerDo: [ x + y ].
-z + 3
-shell quit
+z := DevKitShell onServerDo: [ x + y ].
+z + 3.
+
+"Terminate server connection"
+DevKitShell quit.
 ```
 
 ##THIN CLIENT example
