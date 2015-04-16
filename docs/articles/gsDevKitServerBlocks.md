@@ -18,8 +18,56 @@ The result of the `block` evaluation is serialized using [STON][1] and returned 
 
 On the client, the result is reified and returned as the result of the `onServerDo:` message.
 
-##THIN CLIENT
-At first blush this may seem like a somewhat unremarkable capability until you realize that you can use *GsDevKit Server Blocks* as a data base session from Pharo.
+1. [GsDevKit Server Block examples](#gsdevkit-server-block-examples)
+2. [THIN CLIENT example](#thin-client-example)
+3. [Caveats](#caveats)
+
+##GsDevKit Server Block examples
+
+```Smalltalk
+"Evaulate a simple expression"
+| shell |
+shell := TDShell forSessionNamed: 'devKit'.
+shell onServerDo: [ 3 + 4 ].
+shell quit. 
+
+"Bring up the tODE debugger"
+| shell |
+shell := TDShell forSessionNamed: 'devKit'.
+shell onServerDo: [ 3 foo ].
+shell quit
+
+"Bring up the tODE inspector"
+| shell |
+shell := TDShell forSessionNamed: 'devKit'.
+shell onServerDo: [ 3 inspect ].
+shell quit.
+
+"local temp variables referenced from block are passed to server"
+| shell x y z |
+shell := TDShell forSessionNamed: 'devKit'.
+x := 3.
+y := 4.
+z := shell onServerDo: [ x + y ].
+z + 3
+shell quit
+```
+
+##THIN CLIENT example
+The classic problem when working with a client/server application is to pick the right cut point for the client/server boundary.
+Too fat and you end up needing more and more of the business objects on the client which leads to network-based performance issues as well as complicated replication/management frameworks.
+Too thin and ... I'm not sure that the client can be too thin.
+
+The advantage of using a thin client includes:
+- the ability to closely manage the volume of data that is passed over the wire between client and server
+- minimize coupling of code between client and server
+- consolidate business logic on server
+- consolidte presention logic on client
+
+Using *server blocks* to implement a thin client application means that the client/server boundary can be controlled by moving a block boundary in the code.
+Business logic can evolve from a few lines of code in a client-side *server block* to a few server-side methods.
+
+The following doits illustrate a few of the common use cases encountered in a thin client application.
 
 *Note: all of the following expressions should be executed in a standard Pharo workspace.*
 
@@ -79,7 +127,7 @@ At first blush this may seem like a somewhat unremarkable capability until you r
           buffer at: bufCnt put: reader next.
           bufCnt = buffer size
             ifTrue: [ 
-              numRecords := bufCnt + 0.
+              numRecords := bufCnt.
               records := buffer.
               DevKitShell
                 onServerDo: [ 
@@ -126,4 +174,34 @@ At first blush this may seem like a somewhat unremarkable capability until you r
   DevKitShell quit.
   ```
 
+##Caveats
+When using `doIt`, `printIt`, etc. the workspace code is initially compiled in Pharo.
+Consequently if you have an expression like:
+
+```Smalltalk
+shell onServerDo: [ System stoneVersionReport inspect ].
+```
+
+The Pharo compiler will complain about the fact that the `System` global is not present in Pharo.
+In this case, declare `System` as a global.
+
+Pharo will also complain that the method `#stoneVersionReport` doesn't exist.
+In this case, tell Pharo to ignore about the *missing method*.
+
+
+If you try to execute this expression:
+
+```Smalltalk
+(shell onServerDo: [ System stoneVersionReport ]) inspect.
+```
+
+You will get an error when STON tries to reify the instance **StringKeyValueDictionary**, since there is no class by that name.
+There are a number of solutions that **could** be applied, but in the short term, you should avoid tring to pass instances of classes that only exist in GemStone.
+The easiest solution is to write more server code, that pre-proceses the returned objects so that common classes are used ...
+
+A similar problem exists if you try send Pharo-only class instances to the server via tempoary values.
+
+
 [1]: https://github.com/GsDevKit/ston#ston---smalltalk-object-notation
+[2]: http://www.slideshare.net/esug/tode-and-now-for-something-completely-different
+[3]: http://www.slideshare.net/esug/a-longandwindingtode-esug2014-07
