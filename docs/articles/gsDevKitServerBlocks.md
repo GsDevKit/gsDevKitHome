@@ -9,11 +9,11 @@ A *GsDevKit Server Block* is a `block` that is written in-line in client Smallta
 For example, the following code can be evaluated in a standard Pharo workspace while the `[ x + y ]` block is executed in a gem connected to the `devKit` stone:
 
 ```Smalltalk
-| shell x y z |
+  | shell x y z |
   shell := TDShell forSessionNamed: 'devKit'.
   x := 3.
   y := 4.
-  z := tdShell onServerDo: [ x + y ].
+  z := shell onServerDo: [ x + y ].
   shell quit.
   z
 ```
