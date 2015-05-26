@@ -5,6 +5,8 @@
 
 set -e  # exit on error
 
+uname -a   #gather info for bug 44185
+
 # Uncomment to use alternate version of tODE for tests
 cp $GS_HOME/tests/tode/sys/local/server/scripts/installTode.ws $GS_HOME/tode/sys/local/server/scripts
 cp $GS_HOME/tests/tode/sys/local/projects/*.ston $GS_HOME/tode/sys/local/projects

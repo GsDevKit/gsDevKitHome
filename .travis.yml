@@ -11,10 +11,10 @@ notifications:
 env:
 
 
-  - GS_VERSION=3.1.0.6 TEST=BasicTodeClient
-  - GS_VERSION=3.2.6   TEST=BasicTodeClient
+#  - GS_VERSION=3.1.0.6 TEST=BasicTodeClient
+#  - GS_VERSION=3.2.6   TEST=BasicTodeClient
 #  - GS_VERSION=3.1.0.6 TEST=Basic
-#  - GS_VERSION=3.2.4   TEST=Basic
+  - GS_VERSION=3.2.6   TEST=Basic
 #  - GS_VERSION=3.1.0.6 TEST=Projects1
 #  - GS_VERSION=3.2.4   TEST=Projects1
 #  - GS_VERSION=3.1.0.6 TEST=Projects2
