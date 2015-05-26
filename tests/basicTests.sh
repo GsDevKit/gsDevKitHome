@@ -5,6 +5,10 @@
 
 set -e  # exit on error
 
+# install OS prereqs which includes gdb, which should five us a C stack for 
+# bug 44491
+$GS_HOME/bin/osPrereqs
+
 # install server
 installServer travis $GS_VERSION
 cd $GS_HOME/tode/sys/stones/travis
