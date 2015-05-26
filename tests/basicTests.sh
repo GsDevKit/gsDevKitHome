@@ -28,7 +28,7 @@ restoreFromBackup -h
 startNetldi -h
 startStatmonitor -h
 startStone -h
-stoneExtent -h
+stoneNewExtent -h
 stones -h
 stopStone -h
 $GS_HOME/bin/tode -h   # apparently '.' is in the PATH
