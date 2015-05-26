@@ -1,5 +1,5 @@
 # GsDevKit Server Blocks
-A *GsDevKit Server Block* is a `block` that is written in-line in client Smalltalk in Pharo, while the code in the `block` is executed on the server in GemStone.
+A *GsDevKit Server Block* is a `block` that is written in-line in a client Smalltalk (currently Phar)o, while the code in the `block` is executed on the server in GemStone.
 For example, the following code can be evaluated in a standard Pharo workspace while the `[ x + y ]` block is executed in a gem connected to the `devKit` stone:
 
 ```Smalltalk
