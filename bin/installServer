@@ -1,4 +1,4 @@
-#! /bin/bash -x
+#! /bin/bash
 #=========================================================================
 # Copyright (c) 2014, 2015 GemTalk Systems, LLC <dhenrich@gemtalksystems.com>.
 #=========================================================================
@@ -63,8 +63,7 @@ $GS_HOME/bin/createTodeImage $forceArg
 
 $GS_HOME/bin/createStone $forceArg $stoneName $gsvers
 
-# if [ "${GS_TRAVIS}x" = "x" ] ; then
-if [ "x" = "x" ] ; then  # test bug44491 against 3.2.6
+if [ "${GS_TRAVIS}x" = "x" ] ; then
   $GS_HOME/bin/startStatmonitor $stoneName
 else
   # running on travis server - statmonitor fails on startup (bug #44491)

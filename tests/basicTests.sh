@@ -59,7 +59,7 @@ $GS_HOME/bin/tode --list
 stopStone travis
 
 createStone travis_2 $GS_VERSION
-stoneExtent travis_2
+stoneNewExtent travis_2
 
 installServer travis_3 $GS_VERSION
 cd $GS_HOME/tode/sys/stones/travis_3
