@@ -279,6 +279,7 @@ else
     echo "[Warning] /opt/gemstone directory already exists"
     echo "to replace it, remove or rename it and rerun this script"
   fi
+  touch $gsdevkitSysSetup
 fi # no sudo usage after this point
 
 # Look for either wget to download GemStone
