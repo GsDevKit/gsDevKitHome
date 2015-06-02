@@ -36,10 +36,6 @@ export todeHomeSnapshot=$GS_HOME/gemstone/stones/${STONENAME1}/snapshots/extent0
 export baseSnapshot=$GS_HOME/gemstone/stones/${STONENAME1}/product/bin/extent0.dbf
 export seasideSnapshot=$GS_HOME/gemstone/stones/${STONENAME1}/product/bin/extent0.dbf
 
-ls -l $baseSnapshot
-ls -l  $seasideSnapshot
-ls -l  $todeHomeSnapshot
-
 case $TEST in
   Basic)
     $GS_HOME/tests/basicTests.sh
