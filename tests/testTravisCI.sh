@@ -25,6 +25,16 @@ fi
 if [ "${STONENAME3}x" = "x" ] ; then
   export STONENAME3="travis3"
 fi
+if [ "${STONENAME4}x" = "x" ] ; then
+  export STONENAME4="travis4"
+fi
+
+
+$GS_HOME/tests/basicInstallServer.sh
+
+export todeHomeSnapshot=$GS_HOME/gemstone/stones/${STONENAME1}/snapshots/extent0.home.dbf
+export baseSnapshot=$GS_HOME/gemstone/stones/${STONENAME1}/product/bin/extent0.dbf
+export seasideSnapshot=$GS_HOME/gemstone/stones/${STONENAME1}/product/bin/extent0.dbf
 
 case $TEST in
   Basic)

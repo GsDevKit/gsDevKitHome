@@ -5,20 +5,9 @@
 
 set -e  # exit on error
 
-gsdevkitSysSetup=$GS_HOME/bin/.gsdevkitSysSetup # if file exists, system setup alrady completed
+stones
 
-if [ -e "$gsdevkitSysSetup" ]; then
-  echo "Skip running osPrereqs, system already setup ($gsdevkitSysSetup exists)"
-else
-  # install OS prereqs which includes gdb, which should give us a C stack for 
-  # bug 44491
-  $GS_HOME/bin/osPrereqs
-fi
-
-# install server
-installServer ${STONENAME1} $GS_VERSION
-cd $GS_HOME/tode/sys/stones/${STONENAME1}
-ls dirs.ston  home  homeComposition.ston  packages.ston  projectComposition.ston  projects  repos.ston
+startStone -b ${STONENAME1}
 
 stones
 
@@ -66,10 +55,14 @@ $GS_HOME/bin/tode --list
 
 stopStone -b ${STONENAME1}
 
-createStone ${STONENAME2} $GS_VERSION
-stoneNewExtent ${STONENAME2}
+# create a base stone (no tODE or GLASS1 installed)
+createStone -s $baseSnapshot ${STONENAME2} $GS_VERSION
 
-installServer ${STONENAME3} $GS_VERSION
+# create a base stone (no tODE installed)
+createStone -s $seasideSnapshot ${STONENAME4} $GS_VERSION
+
+#create a tODE stone
+createTodeStone -s $todeHomeSnapshot ${STONENAME3} $GS_VERSION
 cd $GS_HOME/tode/sys/stones/${STONENAME3}
 ls dirs.ston  home  homeComposition.ston  packages.ston  projectComposition.ston  projects  repos.ston
 performTodeCommand ${STONENAME3} eval \`3+4\`\; eval \`self == 7 ifFalse: [ System logout ]\`
@@ -77,6 +70,7 @@ performTodeCommand ${STONENAME3} ls /home
 
 stopStone -b ${STONENAME2}
 stopStone -b ${STONENAME3}
+stopStone -b ${STONENAME4}
 
 . $GS_HOME/bin/defStone.env ${STONENAME1}
 cd $GS_HOME/gemstone/stones/${STONENAME1}
