@@ -19,10 +19,10 @@ fi
 installServer ${STONENAME1} $GS_VERSION
 cd $GS_HOME/tode/sys/stones/${STONENAME1}
 ls dirs.ston  home  homeComposition.ston  packages.ston  projectComposition.ston  projects  repos.ston
+ls -altr $GS_HOME/gemstone/stones/${STONENAME1}/snapshots
 
 stones
 
 stopStone -b ${STONENAME1}
-stopNetldi ${STONENAME1}
 
 echo "$0 DONE"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 #
 # Copyright (c) 2015 GemTalk Systems, LLC. All Rights Reserved <dhenrich@gemtalksystems.com>.
 #
@@ -35,6 +35,10 @@ $GS_HOME/tests/basicInstallServer.sh
 export todeHomeSnapshot=$GS_HOME/gemstone/stones/${STONENAME1}/snapshots/extent0.home.dbf
 export baseSnapshot=$GS_HOME/gemstone/stones/${STONENAME1}/product/bin/extent0.dbf
 export seasideSnapshot=$GS_HOME/gemstone/stones/${STONENAME1}/product/bin/extent0.dbf
+
+ls -l $baseSnapshot
+ls -l  $seasideSnapshot
+ls -l  $todeHomeSnapshot
 
 case $TEST in
   Basic)

@@ -56,12 +56,15 @@ $GS_HOME/bin/tode --list
 stopStone -b ${STONENAME1}
 
 # create a base stone (no tODE or GLASS1 installed)
+ls -l $baseSnapshot
 createStone -s $baseSnapshot ${STONENAME2} $GS_VERSION
 
 # create a base stone (no tODE installed)
+ls -l  $seasideSnapshot
 createStone -s $seasideSnapshot ${STONENAME4} $GS_VERSION
 
 #create a tODE stone
+ls -l  $todeHomeSnapshot
 createTodeStone -s $todeHomeSnapshot ${STONENAME3} $GS_VERSION
 cd $GS_HOME/tode/sys/stones/${STONENAME3}
 ls dirs.ston  home  homeComposition.ston  packages.ston  projectComposition.ston  projects  repos.ston
