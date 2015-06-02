@@ -40,6 +40,7 @@ startStatmonitor -h
 startStone -h
 stoneNewExtent -h
 stones -h
+stopNetldi -h
 stopStone -h
 $GS_HOME/bin/tode -h   # apparently '.' is in the PATH
 todeClient -h
@@ -53,9 +54,11 @@ stones
 # restoreFromBackup travis travis.dbf
 
 stopStone ${STONENAME1}
+stopNetldi ${STONENAME1}
 updateTodeImage ${STONENAME1}
 startStone ${STONENAME1}
 stopStone ${STONENAME1}
+stopNetldi ${STONENAME1}
 
 stones
 
@@ -63,6 +66,7 @@ $GS_HOME/bin/pharo --list
 $GS_HOME/bin/tode --list
 
 stopStone ${STONENAME1}
+stopNetldi ${STONENAME1}
 
 createStone ${STONENAME2} $GS_VERSION
 stoneNewExtent ${STONENAME2}
@@ -74,8 +78,12 @@ performTodeCommand ${STONENAME3} eval \`3+4\`\; eval \`self == 7 ifFalse: [ Syst
 performTodeCommand ${STONENAME3} ls /home
 
 stopStone ${STONENAME2}
+stopNetldi ${STONENAME2}
 stopStone ${STONENAME3}
+stopNetldi ${STONENAME3}
 
 . $GS_HOME/bin/defStone.env ${STONENAME1}
 cd $GS_HOME/gemstone/stones/${STONENAME1}
 . defStone.env
+
+echo "$0 DONE"
