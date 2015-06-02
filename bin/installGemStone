@@ -149,7 +149,7 @@ echo "[Info] Starting installation of $gsvers on $machine_name"
 gsdevkitSysSetup=$GS_HOME/bin/.gsdevkitSysSetup # if file exists, system setup alrady completed
 
 if [ -e "$gsdevkitSysSetup" ]; then
-  echo "Skip operating system configuration steps (using sudo)"
+  echo "Skip operating system configuration steps, system already setup ($gsdevkitSysSetup exists)"
 else
   # Do a trivial sudo to test we can and get the password prompt out of the way
   sudo date

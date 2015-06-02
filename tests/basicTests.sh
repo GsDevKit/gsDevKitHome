@@ -5,9 +5,15 @@
 
 set -e  # exit on error
 
-# install OS prereqs which includes gdb, which should five us a C stack for 
-# bug 44491
-$GS_HOME/bin/osPrereqs
+gsdevkitSysSetup=$GS_HOME/bin/.gsdevkitSysSetup # if file exists, system setup alrady completed
+
+if [ -e "$gsdevkitSysSetup" ]; then
+  echo "Skip running osPrereqs, system already setup ($gsdevkitSysSetup exists)"
+else
+  # install OS prereqs which includes gdb, which should give us a C stack for 
+  # bug 44491
+  $GS_HOME/bin/osPrereqs
+fi
 
 # install server
 installServer ${STONENAME1} $GS_VERSION
