@@ -57,16 +57,14 @@ stopStone ${STONENAME1}
 stopNetldi ${STONENAME1}
 updateTodeImage ${STONENAME1}
 startStone ${STONENAME1}
-stopStone ${STONENAME1}
-stopNetldi ${STONENAME1}
+stopStone -b ${STONENAME1}
 
 stones
 
 $GS_HOME/bin/pharo --list
 $GS_HOME/bin/tode --list
 
-stopStone ${STONENAME1}
-stopNetldi ${STONENAME1}
+stopStone -b ${STONENAME1}
 
 createStone ${STONENAME2} $GS_VERSION
 stoneNewExtent ${STONENAME2}
@@ -77,10 +75,8 @@ ls dirs.ston  home  homeComposition.ston  packages.ston  projectComposition.ston
 performTodeCommand ${STONENAME3} eval \`3+4\`\; eval \`self == 7 ifFalse: [ System logout ]\`
 performTodeCommand ${STONENAME3} ls /home
 
-stopStone ${STONENAME2}
-stopNetldi ${STONENAME2}
-stopStone ${STONENAME3}
-stopNetldi ${STONENAME3}
+stopStone -b ${STONENAME2}
+stopStone -b ${STONENAME3}
 
 . $GS_HOME/bin/defStone.env ${STONENAME1}
 cd $GS_HOME/gemstone/stones/${STONENAME1}
