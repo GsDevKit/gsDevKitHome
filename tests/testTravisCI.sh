@@ -16,6 +16,16 @@ cp $GS_HOME/tests/projects/pier3/install300.ston $GS_HOME/projects/pier3
 cp $GS_HOME/tests/projects/seaside31/install.ston $GS_HOME/projects/seaside31
 cp $GS_HOME/tests/projects/zinc/install.ston $GS_HOME/projects/zinc
 
+if [ "${STONENAME1}x" = "x" ] ; then
+  export STONENAME1="travis1"
+fi
+if [ "${STONENAME2}x" = "x" ] ; then
+  export STONENAME2="travis2"
+fi
+if [ "${STONENAME3}x" = "x" ] ; then
+  export STONENAME3="travis3"
+fi
+
 case $TEST in
   Basic)
     $GS_HOME/tests/basicTests.sh
