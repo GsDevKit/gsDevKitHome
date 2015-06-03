@@ -7,10 +7,11 @@ set -e  # exit on error
 
 $GS_HOME/bin/createTodeImage
 
-. $GS_HOME/bin/defStone.env ${STONENAME1}
 
 # test $GEMSTONE/seaside/bin/bootstrapGLASS script
 createStone -s $baseSnapshot ${STONENAME1} $GS_VERSION
+
+. $GS_HOME/bin/defStone.env ${STONENAME1}
 
 $GEMSTONE/seaside/bin/bootstrapGLASS
 
