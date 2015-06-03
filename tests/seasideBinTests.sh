@@ -10,19 +10,15 @@ $GS_HOME/bin/createTodeImage
 . $GS_HOME/bin/defStone.env ${STONENAME1}
 
 # test $GEMSTONE/seaside/bin/bootstrapGLASS script
-stoneNewExtent -s $baseSnapshot ${STONENAM1} $GS_VERSION
+createStone -s $baseSnapshot ${STONENAME1} $GS_VERSION
 
 $GEMSTONE/seaside/bin/bootstrapGLASS
 
 #test $GEMSTONE/seaside/bin/runBackup
 
-export GEMSTONE_DATADIR=$GS_HOME/gemstone/stones/${STONENAM1}
+export GEMSTONE_DATADIR=$GS_HOME/gemstone/stones/${STONENAME1}
 $GEMSTONE/seaside/bin/runBackup
 ls ${GEMSTONE_DATADIR}/backups
-
-stopStone -b ${STONENAME1}
-
-stoneNewExtent -s $seasideSnapshot ${STONENAM1} $GS_VERSION
 
 stopStone -b ${STONENAME1}
 
