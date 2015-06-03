@@ -24,6 +24,8 @@ Install os-specific required packages:
 and os-specific optional packages:
   - X11
 
+If the file $GS_HOME/bin/.osPrereqsSysSetup exists, then the prerequisite installation is skipped.
+
 OPTIONS
   -h 
      display help
@@ -31,7 +33,6 @@ OPTIONS
      install GemTools and the GemTools prerequisites
   -X 
      if present, X11 client installed
-  
 
 EXAMPLES
   ./$(basename $0) -h
@@ -84,15 +85,22 @@ while getopts "h:GX" OPT ; do
 done
 shift $(($OPTIND - 1))
 
-case "$os" in
-  12.04)
-    installUbuntuPackages
-    sudo ln -f -s /lib/i386-linux-gnu/libpam.so.0 /lib/libpam.so.0
-    sudo ln -f -s /usr/lib/i386-lin-gnu/libstdc++.so.6 /usr/lib/i386-linux-gnu/libstdc++.so
-    ;;
-  14.04)
-    installUbuntuPackages
-    sudo ln -f -s /usr/lib/i386-lin-gnu/libstdc++.so.6 /usr/lib/i386-linux-gnu/libstdc++.so
-    ;;
-  *) echo "unrecognized Ubuntu version $os"; usage; exit 1;;
-esac
+# touch the following file, if you prefer to skip the installation of prerequisites
+osPrereqsSysSetup=$GS_HOME/bin/.osPrereqsSysSetup # if file exists, skip installation
+
+if [ -e "$osPrereqsSysSetup" ]; then
+  echo "Skip operating system prerequisites, operating system prerequisites already installed ($osPrereqsSysSetup exists)"
+else
+  case "$os" in
+    12.04)
+      installUbuntuPackages
+      sudo ln -f -s /lib/i386-linux-gnu/libpam.so.0 /lib/libpam.so.0
+      sudo ln -f -s /usr/lib/i386-lin-gnu/libstdc++.so.6 /usr/lib/i386-linux-gnu/libstdc++.so
+      ;;
+    14.04)
+      installUbuntuPackages
+      sudo ln -f -s /usr/lib/i386-lin-gnu/libstdc++.so.6 /usr/lib/i386-linux-gnu/libstdc++.so
+      ;;
+    *) echo "unrecognized Ubuntu version $os"; usage; exit 1;;
+  esac
+fi

@@ -43,6 +43,8 @@ Download and install the given GemStone version. Will make sure that
 shared memory is correctly configuration on your server. Performs some
 operations as `root` using sudo.
 
+If the file $GS_HOME/bin/.gsdevkitSysSetup exists skip the steps requiring sudo access. 
+
 OPTIONS
   -h display help
 

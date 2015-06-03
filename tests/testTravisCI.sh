@@ -49,6 +49,10 @@ case $TEST in
   Projects1|Projects2)
     $GS_HOME/tests/projectTests.sh
     ;;
+  SeasideBin)
+    export baseSnapshot=$GS_HOME/gemstone/stones/${STONENAME1}/product/bin/extent0.dbf
+    $GS_HOME/tests/seasideBinTests.sh
+    ;;
   Seaside3)
     $GS_HOME/tests/seaside3Tests.sh
     ;;

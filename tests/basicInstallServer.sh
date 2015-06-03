@@ -5,10 +5,10 @@
 
 set -e  # exit on error
 
-gsdevkitSysSetup=$GS_HOME/bin/.gsdevkitSysSetup # if file exists, system setup alrady completed
+osPrereqsSysSetup=$GS_HOME/bin/.osPrereqsSysSetup # if file exists, skip installation
 
-if [ -e "$gsdevkitSysSetup" ]; then
-  echo "Skip running osPrereqs, system already setup ($gsdevkitSysSetup exists)"
+if [ -e "$osPrereqsSysSetup" ]; then
+  echo "Skip running osPrereqs, system already setup ($osPrereqsSysSetup exists)"
 else
   # install OS prereqs which includes gdb, which should give us a C stack for 
   # bug 44491
