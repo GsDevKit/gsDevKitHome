@@ -8,13 +8,7 @@ set -e  # exit on error
 uname -a   #gather info for bug 44185
 
 # Uncomment to use alternate version of tODE for tests
-cp $GS_HOME/tests/tode/sys/local/server/scripts/installTode.ws $GS_HOME/tode/sys/local/server/scripts
-cp $GS_HOME/tests/tode/sys/local/projects/*.ston $GS_HOME/tode/sys/local/projects
-cp $GS_HOME/tests/tode/sys/local/pharo/todeLoad.st $GS_HOME/tode/sys/local/pharo
-cp $GS_HOME/tests/projects/magritte3/install.ston $GS_HOME/projects/magritte3
-cp $GS_HOME/tests/projects/pier3/install300.ston $GS_HOME/projects/pier3
-cp $GS_HOME/tests/projects/seaside31/install.ston $GS_HOME/projects/seaside31
-cp $GS_HOME/tests/projects/zinc/install.ston $GS_HOME/projects/zinc
+$GS_HOME/tests/todeDevBranch.sh
 
 if [ "${STONENAME1}x" = "x" ] ; then
   export STONENAME1="travis1"
@@ -48,10 +42,6 @@ case $TEST in
     ;;
   Projects1|Projects2)
     $GS_HOME/tests/projectTests.sh
-    ;;
-  SeasideBin)
-    export baseSnapshot=$GS_HOME/gemstone/stones/${STONENAME1}/product/bin/extent0.dbf
-    $GS_HOME/tests/seasideBinTests.sh
     ;;
   Seaside3)
     $GS_HOME/tests/seaside3Tests.sh
