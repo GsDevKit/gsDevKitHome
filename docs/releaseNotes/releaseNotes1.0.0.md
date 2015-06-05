@@ -1,4 +1,7 @@
 # Release Notes 1.0.0
+Getting started with git:
+  - http://forum.world.st/How-to-get-started-with-Git-and-Pharo-tp4765096p4765417.html
+  - http://forum.world.st/How-to-get-started-with-Git-and-Pharo-tp4765096p4765463.html
 
 - [Bug Fixes](#bug-fixes)
 - [Pull Requests](#pull-requests)
