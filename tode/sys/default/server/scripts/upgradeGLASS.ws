@@ -3,12 +3,13 @@
 
 Transcript cr; show: '---Step 1 of tODE bootstrap process: execute upgradeGlass.ws'.
 [
-  | monticelloDir gofer |
+  | monticelloDir gofer gsHome |
   Transcript
     cr;
     show: '-----Install GsUpgrader-Core package '.
 
-  monticelloDir := ServerFileDirectory on: '$GS_HOME/tode/sys/local/monticello'.
+  gsHome := GsFile _expandEnvVariable: 'GS_HOME' isClient: false.
+  monticelloDir := ServerFileDirectory on: gsHome, '/tode/sys/local/monticello'.
   gofer := Gofer new
         package: 'GsUpgrader-Core';
         yourself.
