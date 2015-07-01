@@ -72,7 +72,8 @@ export PATH=$GS_HOME/bin:$PATH
 It's a good idea to define `$GS_HOME` and `$PATH` in your `.bashrc` file.
 
 ###Install a GemStone stone
-The `$GS_HOME/bin/installServer` script: 
+To install a GemStone stone, run the `$GS_HOME/bin/installServer` script.
+This script performs the following individual steps.  
 - installs GemStone and Pharo, if not already installed, using the [$GS_HOME/bin/installGemStone][34] script.
 - builds a tODE client image, using the [$GS_HOME/bin/createTodeImage][59] script.
 - creates a stone, using the [$GS_HOME/bin/createStone][60] script.
