@@ -5,7 +5,7 @@ The Development Kit for GemStone/S (GsDevKit) contains tools and compatiblity ch
 The Development kit includes simplified processes for installating and managing the GemStone/S server.
 
 Detailed instructions for configuring your OS and installing GemStone/S, GsDevKit, and starting tODE: 
-* [Installing GsDevKit](#development-kit-server-installation)
+* [Development Kit Installation and Configuration](#development-kit-server-installation)
 
 Additional supporting documentation:
 
@@ -19,6 +19,7 @@ Additional supporting documentation:
 
 ##Development Kit Server Installation
 
+The following steps will install the GemStone/S and Development Kit server, and open the tODE IDE client image:
 1. [Operating System Prerequisites](#operating-system-prerequisites)
 2. [Clone gsDevKitHome](#clone-gsdevkithome)
 3. [Define gsDevKitHome Environment Variables](#define-gsdevkithome-environment-variables)
@@ -32,7 +33,7 @@ Additional supporting documentation:
 
 ###Operating System Prerequisites
 The Dev Kit server can be installed on Linux or Mac OS X.
-The following packages are required for GsDevKit:
+The following OS packages must be installated in your system for GsDevKit to work correctly in all cases:
 - 32 bit libraries - needed to run Pharo (headless)
 - curl             - needed by FileTree
 - git              - needed by GsDevKit and tODE
