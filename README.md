@@ -1,14 +1,11 @@
 # Open Source Development Kit for GemStone/S 64 Bit [![master branch:](https://travis-ci.org/GsDevKit/gsDevKitHome.png?branch=master)](https://travis-ci.org/GsDevKit/gsDevKitHome)
 
-The Development Kit for GemStone/S features:
+The Development Kit for GemStone/S (GsDevKit) contains tools and compatiblity changes that sit on top of the GemStone/S 64 Bit product, providing a complete and powerful open-source development environment. The Development kit allows Pharo and Squeak developers to take advantage of GemStone's object persistence, along with a variety of open-source Smalltalk tools and frameworks.
 
-* [Simplified GemStone/S installation](#development-kit-server-installation).
-  - [Operating System Prerequisites](#operating-system-prerequisites)
-  - [Clone gsDevKitHome](#clone-gsdevkithome)
-  - [Define gsDevKitHome Environment Variables](#define-gsdevkithome-environment-variables)
-  - [Install a GemStone stone](#install-a-gemstone-stone)
-  - [Open a tODE client image](#open-a-tode-client-image)
-  - [Commit gsDevKitHome configuration changes to git](#commit-gsdevkithome-configuration-changes-to-git)
+The Development kit includes simplified processes for installating and managing the GemStone/S server.
+
+Detailed instructions for configuring your OS and installing GemStone/S, GsDevKit, and starting tODE: 
+* [Installing GsDevKit](#development-kit-server-installation)
 
 Additional supporting documentation:
 
@@ -18,7 +15,6 @@ Additional supporting documentation:
 * [Remote tODE Client installation][17].
 * [Scripts for controlling stones][96].
 
----
 ---
 
 ##Development Kit Server Installation
