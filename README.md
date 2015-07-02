@@ -18,8 +18,8 @@ Additional supporting documentation:
 ---
 
 ##Development Kit Server Installation
-
 The following steps will install the GemStone/S and Development Kit server, and open the tODE IDE client image:
+
 1. [Operating System Prerequisites](#operating-system-prerequisites)
 2. [Clone gsDevKitHome](#clone-gsdevkithome)
 3. [Define gsDevKitHome Environment Variables](#define-gsdevkithome-environment-variables)
