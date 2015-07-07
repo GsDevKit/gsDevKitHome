@@ -54,13 +54,14 @@ if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"; exit 1
 fi
 
+
 snapshotFile=""
 noRestart="false"
 while getopts "hns:" OPT ; do
   case "$OPT" in
     h) usage; exit 0;;
     n) noRestart="true";;
-    s) snapshotFile="${OPTARG}";;
+    s) snapshotFile=`readlink -f ${OPTARG}` ;;
     *) usage; exit 1;;
   esac
 done
