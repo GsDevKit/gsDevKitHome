@@ -39,7 +39,7 @@ OPTIONS
      before using the -n option.
 
   -s <snapshot-file-path> 
-     Path to snapshot file used to create stone.
+     Path to snapshot file used to create stone. Path may be a relative file path.
 
 EXAMPLES
   $(basename $0) -h
