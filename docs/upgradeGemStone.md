@@ -37,7 +37,7 @@
 
 ---
 
-**READ THE INSTALL GUIDES for Linux[1] or Mac[2] FIRST**. 
+**READ THE INSTALL GUIDES for [Linux][1] or [Mac][2] FIRST**. 
 
 ---
 
@@ -485,17 +485,16 @@ and temp values:
 [3]: ../bin/upgradeGemStone
 [4]: http://forum.world.st/Glass-Upgrade-GS-2-4-GS-3-1-when-GLASS-Seaside-etc-versions-have-already-diverged-tp4745943p4746183.html
 [5]: http://lists.gemtalksystems.com/mailman/listinfo/glass
-[6] http://gemtalksystems.com/products/gs64/versions32x/#326
-[7] http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-1052936
-[8] http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-998508
-[9] http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-990954
-[10] http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-998565
-[11] http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-1051868
-[12] http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-1055060
-[13] http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/4-GsDevKit.htm#87400
-[14] http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/4-GsDevKit.htm#14654
-[15] http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/4-GsDevKit.htm#pgfId-1055984
-[16] http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/4-GsDevKit.htm#34464
-
-[17] http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/GS64-InstallGuide-Linux-3.2.6.htm
-[18] http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/3-Conversion.htm#pgfId-1055431
+[6]: http://gemtalksystems.com/products/gs64/versions32x/#326
+[7]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-1052936
+[8]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-998508
+[9]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-990954
+[10]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-998565
+[11]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-1051868
+[12]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-1055060
+[13]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/4-GsDevKit.htm#87400
+[14]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/4-GsDevKit.htm#14654
+[15]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/4-GsDevKit.htm#pgfId-1055984
+[16]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/4-GsDevKit.htm#34464
+[17]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/GS64-InstallGuide-Linux-3.2.6.htm
+[18]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/3-Conversion.htm#pgfId-1055431
