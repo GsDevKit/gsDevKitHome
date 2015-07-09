@@ -48,7 +48,7 @@ To perform an upgrade, you need to accomplish three things:
 
 During the upgrade process, all methods are removed from the  classes in GemStone, so it is necessary to reload the  GLASS/GsDevKit and you application code.
 
-The [upgradeGemStone script][3] automates nearly all of the upgrade steps called out in the [Upgrading from GemStone/S 64 Bit 3.x versions][20] chapter: [step 1][13], [step 4][21], [step 5][22] and [step 6][23] of the [Prepare for Upgran][7] section; [step 1][8] and [step 2][10] of the [Perform the Upgrade][9] section. All of the steps in the [Upgrading GsDevKit Applications][15]
+The [upgradeGemStone script][3] automates nearly all of the upgrade steps called out in the [Upgrading from GemStone/S 64 Bit 3.x versions][20] chapter: [step 1][13], [step 4][21], [step 5][22] and [step 6][23] of the [Prepare for Upgrade][7] section; [step 1][8] and [step 2][10] of the [Perform the Upgrade][9] section. All of the steps in the [Upgrading GsDevKit Applications][15]
 
 [Steo 2][14] and [step 3][16] of the [Prepare for Upgran][7] section need to be performed manually before the upgrade is started.
 
@@ -156,60 +156,36 @@ Before running the [upgradeGemStone script][3] for the first time, you need to
 
 ---
 
-The [upgrade.sh script][3] performs the following upgrade steps:
+The [upgradeGemStone script][3] performs the following upgrade steps:
 
-1. Install and configure the target version of GemStone.
-2. Stop source stone
-3. Set up the target version environment
-4. [Copy extent and remove tranlog files [**OPTIONAL**]](#1-copy-extent-and-remove-tranlog-files)
-5. [Start target stone](#2-start-stone)
-6. [Run *upgradeImage* script](#3-run-upgradeimage-script)
-7. [Execute *bootstrap-globals* topaz file](#4-execute-bootstrap-globals-topaz-file)
+1. [Install and configure the target version of GemStone](#1-install-and-configure-the-target-version-of-gemstone)
+2. [Stop source stone](#2-stop-source-stone)
+3. [Set up the target stone environment](#3-set-up-the-target-stone-environment)
+4. [Copy extent and remove tranlog files](#4-copy-extent-and-remove-tranlog-files)
+5. [Start target stone](#5-start-stone)
+6. [Run  `$GEMSTONE/bin/upgradeImage` script](#6-run-gemstonebinupgradeimage-script)
+7. [Configure the GsDevKit Upgrade](#7-configure-the-gsdevkit-upgrade)
 8. [Run *upgradeSeasideImage* script](#5-run-upgradeseasideimage-script)
 9. [Execute *application-load* topaz file](#6-execute-application-load-topaz-file)
 
 ---
 
-### 1. Copy extent and remove tranlog files
-The first step of the upgrade process is to copy the source extent file
-(from GemStone 2.4.x or GemStone 3.1) into the $GEMSTONE_DATADIR and
-make sure that there are no tranlog files left over from previous runs.
+### 1. Install and configure the target version of GemStone
+[Step 1][13] of the [Prepare for Upgrade][7] section is performed using the [installGemStone][24] and [createStone][25] scripts. 
 
-The location of the source extent is specified by the `-e` option:
+### 2. Stop source stone
+[Step 4][21] of the [Prepare for Upgrade][7] section is performed using the [stopStone][26] script.
 
-```Shell
-$WE_HOME/bin/upgrade.sh -C -e /opt/gemstone/3.1/product/seaside/data/extent0.dbf \
-                        -a $WE_HOME/bin/upgrade/loadSeaside3.0.10.tpz \
-                        -b $WE_HOME/bin/upgrade/bootstrapConfigurationOf
-```
+### 3. Set up the target version environment
+[Step 5][22]  of the [Prepare for Upgrade][7] section is performed by the [createStone][25] script, setting up the standard GsDevKitHome environment. The [upgradeGemStone script][3] creates an `upgradeLog` directory in the `$GS_HOME/gemstone/stones/<target-stone-name>` directory and devinds the `upgradeLogDir` environment variable.
 
-If you are copying the extent from the data dir of an old stone (as
-above), make sure that the stone has been shut down cleanly.
+### 4. Copy extent and remove tranlog files
+[step 6][23] of the [Prepare for Upgrade][7] section is performed by the [stoneNewExtent][27] script.
 
-If you omit the `-e` option when running the script no extent copy will
-be performed and you are responsible for making sure that the proper
-extent is present in the $GEMSTONE_DATADIR.
+### 5. Start stone
+[Step 1][8] of the [Perform the Upgrade][9] section is performed by the [startStone][28] script. If the source stone is a 2.4.x version, then the `-C` option is used to start the stone.
 
-### 2. Start stone
-Once the source extent is in place, the script starts the stone using
-the stone name specified by the $GEMSTONE_NAME environment variable. The
-stone is started with the following command:
-
-```Shell
-$GEMSTONE/bin/startstone $GEMSTONE_NAME
-```
-
-If the the `-C` option is present (specifying that the source extent is
-from GemStone 2.4.x), then the stone is started as follows:
-
-```Shell
-$GEMSTONE/bin/startstone -C $GEMSTONE_NAME
-```
-
-After the stone is started, the script waits 5 minutes for the stone to
-be ready for logins.
-
-### 3. Run *upgradeImage* script
+### 6. Run `$GEMSTONE/bin/upgradeImage` script
 Once the stone has been started, the script runs *upgradeImage*
 using the following command:
 
@@ -221,64 +197,7 @@ the *topazerrors.log* file contains pointers to the error conditions. See
 [Interpretting topazerrors.log files](#interpretting-topazerrorslog-files)
 for information about interpretting the contents of the *topazerrors.log*.
 
-### 4. Execute *bootstrap-globals* topaz file
-
-As described in the *Configure Seaside Upgrade* section of the 
-**Installation Guides for [Linux][1] or [Mac][2]** there are a number of
-**Bootstrap Globals**  that can be set to control the operation of the
-*upgradeSeasideImage* script.
-
-The original intent of the *upgradeSeasideImage* script was that it
-would bootstrap the correct version of the ConfigurationOfGLASS (GLASS
-1.0-beta.9.1 for GemStone 3.2) into the image as well as load the
-correct version of your application. 
-
-The script made the assumption
-that it would be relatively straightforward to arrange to have all of
-the mcz files used by your application located in a single
-directory-based Monticello repository
-(**BootstrapRepositoryDirectory**). With the increased usage of git-base 
-repositories, this particular assumption is no longer valid.
-
-[As pointed out by Pieter Nagel][4] in a discussion on the [GLASS mailing
-list][5], it turns out that the
-*upgradeSeasideImage* really only needs to bootstrap the code referenced
-by **ConfigurationOfGLASS** and produce an upgraded version of the
-*extent0.seaside.dbf* file.
-
-To that end I have created a default [*bootstrap-globals*
-file](../../bin/upgrade/bootstrapConfigurationOfGLASS1.0-beta.9.1.tpz) with the following
-contents:
-
-```Smalltalk
- UserGlobals
-  at: #BootstrapRepositoryDirectory
-  put: GsPackageLibrary getMonticelloRepositoryDirectory.
-true
-%
-run
- UserGlobals
-  at: #BootstrapApplicationLoadSpecs
-  ifAbsent: [
-    UserGlobals
-      at: #BootstrapApplicationLoadSpecs
-      put: {
-        { 'ConfigurationOfGLASS' . '1.0-beta.9.1' . #('default') .
-              BootstrapRepositoryDirectory } .
-           }.
-  ].
-```
-
-The above is the absolute minimum needed to correctly bootstrap GLASS
-into an upgraded repository. 
-
-The location of the *bootstrap-globals* file is specified by the `-b` option:
-
-```Shell
-$WE_HOME/bin/upgrade.sh -C -e /opt/gemstone/3.1/product/seaside/data/extent0.dbf \
-                        -a $WE_HOME/bin/upgrade/loadSeaside3.0.10.tpz \
-                        -b $WE_HOME/bin/upgrade/bootstrapConfigurationOf
-```
+### 7. Configure the GsDevKit Upgrade
 
 ### 5. Run *upgradeSeasideImage* script
 Once the *bootstrap-globals* script has been run, the *upgradeSeaside* script is run using the following command:
@@ -497,3 +416,10 @@ and temp values:
 [21]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-1078826
 [22]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-1050451
 [23]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-1000098
+
+[24]: ../../bin/installGemStone
+[25]: ../../bin/createStone
+[26]: ../../bin/stopStone
+[27]: ../../bin/stoneNewExtent
+[28]: ../../bin/startStone
+
