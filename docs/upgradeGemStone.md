@@ -14,14 +14,13 @@
 
 1. [Introduction](#introduction)
 2. [Before Upgrading](#before-upgrading)
-   - [Package Naming Guidelines](#package-naming-guidelines)
+ - [Package Naming Guidelines](#package-naming-guidelines)
 3. [Running the upgradeGemStone script](#running-the-upgradegemstone-script)
 4. [Post Upgrade](#post-upgrade)
 4. [Upgrade Error Diagnostics](#upgrade-error-diagnostics)
-   - [Common *upgradeImage* Errors](#common-upgradeimage-errors)
-   - [Common *upgradeSeasideImage* Errors](#common-upgradeseasideimage-errors)
-
-   - [Interpretting *topazerrors.log* files](#interpretting-topazerrorslog-files)
+ - [Common *upgradeImage* Errors](#common-upgradeimage-errors)
+ - [Common *upgradeSeasideImage* Errors](#common-upgradeseasideimage-errors)
+ - [Interpretting *topazerrors.log* files](#interpretting-topazerrorslog-files)
    
 ---
 
