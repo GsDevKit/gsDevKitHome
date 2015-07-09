@@ -14,22 +14,14 @@
 
 1. [Introduction](#introduction)
 2. [Before Upgrading](#before-upgrading)
-   * [Package Naming Guidelines](#package-naming-guidelines)
-
-3. [Upgrade Script](#upgrade-script)
-   * [1. Copy extent and remove tranlog files](#1-copy-extent-and-remove-tranlog-files)
-   * [2. Start stone](#2-start-stone)
-   * [3. Run *upgradeImage* script](#3-run-upgradeimage-script)
-   * [4. Execute *bootstrap-globals* topaz file](#4-execute-bootstrap-globals-topaz-file)
-   * [5. Run *upgradeSeasideImage* script](#5-run-upgradeseasideimage-script)
-   * [6. Execute *application-load* topaz file](#6-execute-application-load-topaz-file)
-
+   - [Package Naming Guidelines](#package-naming-guidelines)
+3. [Running the upgradeGemStone script](#running-the-upgradegemstone-script)
 4. [Post Upgrade](#post-upgrade)
 4. [Upgrade Error Diagnostics](#upgrade-error-diagnostics)
-   * [Common *upgradeImage* Errors](#common-upgradeimage-errors)
-   * [Common *upgradeSeasideImage* Errors](#common-upgradeseasideimage-errors)
+   - [Common *upgradeImage* Errors](#common-upgradeimage-errors)
+   - [Common *upgradeSeasideImage* Errors](#common-upgradeseasideimage-errors)
 
-   * [Interpretting *topazerrors.log* files](#interpretting-topazerrorslog-files)
+   - [Interpretting *topazerrors.log* files](#interpretting-topazerrorslog-files)
    
 ---
 
@@ -143,7 +135,7 @@ for both GemStone `2.x` (or `3.1.x`) and GemStone `3.2` as it is much easier
 to share the common code across multiple platforms, when merging
 isn't required.
 
-##Upgrade Script
+##Running the upgradeGemStone script
 
 ---
 
@@ -154,6 +146,7 @@ isn't required.
 The [upgrade.sh script][3] automates the 6 main steps of the GemStone
 upgrade process:
 
+1. Install and configure the target version of GemStone.
 1. [Copy extent and remove tranlog files [**OPTIONAL**]](#1-copy-extent-and-remove-tranlog-files)
 2. [Start stone](#2-start-stone)
 3. [Run *upgradeImage* script](#3-run-upgradeimage-script)
