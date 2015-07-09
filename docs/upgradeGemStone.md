@@ -45,25 +45,20 @@ The upgrade process can get a little complicated, so I have created an
 [upgradeGemStone script][3] that acts as a driver for the entire GsDevKitHome upgrade
 process.
 
-To perform an upgrade, you need to accomplish
-three things:
+To perform an upgrade, you need to accomplish three things:
 
-1. Install the GemStone/S Core code base for the target GemStone version, which may include new
-   **Global** methods and classes. The [upgradeGemStone script][3] covers:
-   - The entire [Prepare for Upgrade section][7].
-   - [Step 1][8] and [step 2][10] of the [Perform the Upgrade section][9].
-   - [Step 3][11] and [step 4][12] of the [Perform the Upgrade section][9] need to be performed manually after the [upgradeGemStone script][3] is completed.
+1. Install the GemStone/S Core code base for the target GemStone version, which may include new **Global** methods and classes. 
+
   
-2. Install the GLASS/GsDevKit code base for the target GemStone version, which may include different sets of
-   GsDevKit packages. The [upgradeGemStone script][3] covers the:
+2. Install the GLASS/GsDevKit code base for the target GemStone version, which may include different sets of GsDevKit packages. 
 
-   - [Configure the GsDevKit Upgrade section][13] of [Upgrading GsDevKit Applications][15]
-   - [Perform the Upgrade section][14] of [Upgrading GsDevKit Applications][15]
+3. Install your application code, which may need to be different for the target GemStone version.
 
+During the upgrade process, all methods are removed from the  classes in GemStone, so it is necessary to reload the  GLASS/GsDevKit and you application code.
 
-3. Install your application code, which may need to be
-   different for the target GemStone version. The [upgradeGemStone script][3] covers the [Load your Application Code][16] section of [Upgrading GsDevKit Applicationsn][15]
+The [upgradeGemStone script][3] automates nearly all of the upgrade steps called out in the [Upgrading from GemStone/S 64 Bit 3.x versions][20] chapter: the entire [Prepare for Upgran][7] section; [step 1][8] and [step 2][10] of the [Perform the Upgrade][9] section. All of the steps in the [Upgrading GsDevKit Applications][15]
 
+[Step 3][11], and [step 4][12]  of the [Perform the Upgrade][9] section need to be performed manually after the upgrade is comnplete).
 
 ##Before Upgrading
 
@@ -85,6 +80,8 @@ If you are upgrading from GemStone 2.x, the port may be more complicated
 and you should pay special attention to the section entitled 
 [Prior to Upgrade in existing application][18] in [Chapter 3][17] of the
 Install Guides.
+
+You should also [Check for use of deprecated methods][19].
 
 ###Package Naming Guidelines
 
@@ -492,9 +489,12 @@ and temp values:
 [10]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-998565
 [11]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-1051868
 [12]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-1055060
-[13]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/4-GsDevKit.htm#87400
-[14]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/4-GsDevKit.htm#14654
+
+
 [15]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/4-GsDevKit.htm#pgfId-1055984
-[16]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/4-GsDevKit.htm#34464
+
 [17]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/GS64-InstallGuide-Linux-3.2.6.htm
 [18]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/3-Conversion.htm#pgfId-1055431
+
+[19] http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-1055017
+[20] http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm
