@@ -13,8 +13,9 @@
 ---
 
 1. [Introduction](#introduction)
-2. [Before Upgrading](#before-upgrading)
+2. [Porting you application to the target version of GemStone](#porting-your-application-to-the-target-version-of-gemstone)
  - [Package Naming Guidelines](#package-naming-guidelines)
+3. [Pre Upgrade](#pre-upgrade)
 3. [Running the upgradeGemStone script](#running-the-upgradegemstone-script)
 4. [Post Upgrade](#post-upgrade)
 4. [Upgrade Error Diagnostics](#upgrade-error-diagnostics)
@@ -47,11 +48,13 @@ To perform an upgrade, you need to accomplish three things:
 
 During the upgrade process, all methods are removed from the  classes in GemStone, so it is necessary to reload the  GLASS/GsDevKit and you application code.
 
-The [upgradeGemStone script][3] automates nearly all of the upgrade steps called out in the [Upgrading from GemStone/S 64 Bit 3.x versions][20] chapter: the entire [Prepare for Upgran][7] section; [step 1][8] and [step 2][10] of the [Perform the Upgrade][9] section. All of the steps in the [Upgrading GsDevKit Applications][15]
+The [upgradeGemStone script][3] automates nearly all of the upgrade steps called out in the [Upgrading from GemStone/S 64 Bit 3.x versions][20] chapter: [step 1][13], [step 4][21], [step 5][22] and [step 6][23] of the [Prepare for Upgran][7] section; [step 1][8] and [step 2][10] of the [Perform the Upgrade][9] section. All of the steps in the [Upgrading GsDevKit Applications][15]
 
-[Step 3][11], and [step 4][12]  of the [Perform the Upgrade][9] section need to be performed manually after the upgrade is comnplete).
+[Steo 2][14] and [step 3][16] of the [Prepare for Upgran][7] section need to be performed manually before the upgrade is started.
 
-##Before Upgrading
+[Step 3][11], and [step 4][12] of the [Perform the Upgrade][9] section need to be performed manually after the upgrade is comnplete).
+
+##Porting your application to the target version of GemStone
 
 ---
 
@@ -134,6 +137,17 @@ for both GemStone `2.x` (or `3.1.x`) and GemStone `3.2` as it is much easier
 to share the common code across multiple platforms, when merging
 isn't required.
 
+##Pre Upgrade
+
+---
+
+**READ THE INSTALL GUIDES for [Linux][1] or [Mac][2] FIRST**. 
+
+---
+
+Before running the [upgradeGemStone script][3] for the first time, you need to 
+[reset SystemUser password][14] and [stop user activity][16].
+
 ##Running the upgradeGemStone script
 
 ---
@@ -142,33 +156,17 @@ isn't required.
 
 ---
 
-The [upgrade.sh script][3] automates the 6 main steps of the GemStone
-upgrade process:
+The [upgrade.sh script][3] performs the following upgrade steps:
 
 1. Install and configure the target version of GemStone.
-1. [Copy extent and remove tranlog files [**OPTIONAL**]](#1-copy-extent-and-remove-tranlog-files)
-2. [Start stone](#2-start-stone)
-3. [Run *upgradeImage* script](#3-run-upgradeimage-script)
-4. [Execute *bootstrap-globals* topaz file](#4-execute-bootstrap-globals-topaz-file)
-5. [Run *upgradeSeasideImage* script](#5-run-upgradeseasideimage-script)
-6. [Execute *application-load* topaz file](#6-execute-application-load-topaz-file)
-
-The script is provided as a template that you can customize to fit your
-upgrade process requirements.
-
-Before running this script, you should have [installed GemStone
-3.2](../install/gettingStartedWithWebEdition.md) and use the
-[defWebEdition source script](../../bin/defWebEdition) to define the
-standard environment variables for the Web Edition.
-
-In addition to the environment variables defined by *defWebEdition*, you
-need to define the upgrade specific environment variable
-**upgradeLogDir** that specifies the directory where the upgrade log
-files will be located.
-
-Finally the GemStone 3.2 stone should not be running when this script is
-started.
-
+2. Stop source stone
+3. Set up the target version environment
+4. [Copy extent and remove tranlog files [**OPTIONAL**]](#1-copy-extent-and-remove-tranlog-files)
+5. [Start target stone](#2-start-stone)
+6. [Run *upgradeImage* script](#3-run-upgradeimage-script)
+7. [Execute *bootstrap-globals* topaz file](#4-execute-bootstrap-globals-topaz-file)
+8. [Run *upgradeSeasideImage* script](#5-run-upgradeseasideimage-script)
+9. [Execute *application-load* topaz file](#6-execute-application-load-topaz-file)
 
 ---
 
@@ -344,6 +342,13 @@ the *topazerrors.log* file contains pointers to the error conditions. See
 for information about interpretting the contents of the *topazerrors.log*.
 
 ## Post Upgrade
+
+---
+
+**READ THE INSTALL GUIDES for [Linux][1] or [Mac][2] FIRST**. 
+
+---
+
 After the script has completed with no errors, you should continue following
 the upgrade procedure outlined in the *Post-upgrade Application Code Modifications* 
 sections in **Chapter 2. Upgrading from previous 
@@ -481,12 +486,14 @@ and temp values:
 [10]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-998565
 [11]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-1051868
 [12]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-1055060
-
-
+[13]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-1048004
+[14]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-1054657
 [15]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/4-GsDevKit.htm#pgfId-1055984
-
+[16]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-944232
 [17]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/GS64-InstallGuide-Linux-3.2.6.htm
 [18]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/3-Conversion.htm#pgfId-1055431
-
-[19] http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-1055017
-[20] http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm
+[19]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-1055017
+[20]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm
+[21]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-1078826
+[22]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-1050451
+[23]: http://downloads.gemtalksystems.com/docs/GemStone64/3.2.x/GS64-InstallGuide-Linux-3.2.6/2-Upgrade.htm#pgfId-1000098
