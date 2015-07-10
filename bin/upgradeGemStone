@@ -31,6 +31,7 @@ OPTIONS
 EXAMPLES
 
 HELP
+}
 
 set -e # exit on error
 if [ "${GS_HOME}x" = "x" ] ; then
@@ -110,7 +111,7 @@ fi
 
 source $targetStonePath/stone.env
 startStoneArg=""
-if [ $sourceStoneName is 2.4.x ] then
+if [ $sourceStoneName is 2.4.x ]  ; then
   startStoneArg="-C"
 fi
 
@@ -132,7 +133,7 @@ EOF
 echo "Installing tODE"
 $GS_HOME/bin/installTodeStone $targetStoneName
 
-if [ "${postUpgradeLoadScriptPath}x" != "x" ] ; then
+if [ "${postUpgradeLoadScriptPath}x" != "x" ] ;  then
   #install application code
   echo "Running /home/${postUpgradeLoadScriptPath} tODE script"
 
@@ -142,3 +143,4 @@ TODE
 fi
 
 echo "...finished $(basename $0)"
+
