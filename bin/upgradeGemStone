@@ -21,7 +21,7 @@ OPTIONS
      Force creation of new stone by deleting 
      $GS_HOME/gemstone/stone/<target-stone-name> directory if it exists
   -l <post-load-tode-script>
-     path the to tODE script that loads your application code
+     tODE path the to tODE script that loads your application code
   -s <source-stone-extent-file-path> 
      Path to  <source-stone-name> extent file used as starting point for 
      upgrade.
@@ -47,7 +47,7 @@ while getopts "cfhl:s:u" OPT ; do
     h) usage; exit 0;;
     c) runUpgrade="false";;
     f) forceArg="-f";; 
-    l) postUpgradeLoadScriptName="${OPTARG}"
+    l) postUpgradeLoadScriptPath="${OPTARG}";;
     s) 
        snapshotFileArg=" -s ${OPTARG} "
        hasSnapshotFile="true"
@@ -132,12 +132,12 @@ EOF
 echo "Installing tODE"
 $GS_HOME/bin/installTodeStone $targetStoneName
 
-if [ "${postUpgradeLoadScriptName}x" != "x" ] ; then
+if [ "${postUpgradeLoadScriptPath}x" != "x" ] ; then
   #install application code
-  echo "Running /home/${postUpgradeLoadScriptName} tODE script"
+  echo "Running /home/${postUpgradeLoadScriptPath} tODE script"
 
   $GS_HOME/bin/tode todeIt $targetStoneName << TODE
-/home/${postUpgradeLoadScriptName}
+${postUpgradeLoadScriptPath}
 TODE
 fi
 
