@@ -33,7 +33,7 @@ The following steps will install the GemStone/S and Development Kit server, and 
 
 ###Operating System Prerequisites
 The Dev Kit server can be installed on Linux or Mac OS X.
-The following OS packages must be installated in your system for GsDevKit to work correctly in all cases:
+The following OS packages must be installed in your system for GsDevKit to work correctly in all cases:
 - 32 bit libraries - needed to run Pharo (headless)
 - curl             - needed by FileTree
 - git              - needed by GsDevKit and tODE
@@ -42,7 +42,7 @@ The following OS packages must be installated in your system for GsDevKit to wor
 - unzip            - needed by FileTree
 - wget             - needed by bin/installGemStone script
 
-For a full list of required/recommended packages plus installation instructions and scripts, see the  [GsDevKit Operating System Prerequisites][36].
+For a detailed instructions on installing the OS prerequisites, a full list of required/recommended packagesi, and scripts that perform the installation, see [GsDevKit Operating System Prerequisite Installation][36].
    
 ###Clone gsDevKitHome
 Clone the [gsDevKitHome project][2] to your GemStone development server and create a unique branch to keep any changes you make for your project isolated from the Dev Kit master branch:
@@ -55,7 +55,7 @@ git checkout -b  <your-project-branch-name>
 
 See the documentation on [Git Credentials and tODE][97] for more information.
 
-*Note, if you already have a [GitHub][15] account, you should consider [forking the Dev Kit project][3] first, as that will make sharing corrections you find much easier.*
+*Note, if you already have a [GitHub][15] account, before performing the clone, you should [fork the Dev Kit project][3] first. If you find and correct any issues with GsDevKit, this will make sharing these corrections much easier.*
 
 ###Define gsDevKitHome Environment Variables
 Define the `$GS_HOME` environment variable and add `$GS_HOME/bin` to your `$PATH`:
@@ -66,7 +66,7 @@ export GS_HOME=`pwd`
 export PATH=$GS_HOME/bin:$PATH
 ```
 
-It's a good idea to define `$GS_HOME` and `$PATH` in your `.bashrc` file.
+To make sure they are always correctly defined, it's a good idea to update your `.bashrc` file with these `$GS_HOME` and `$PATH` definitions. 
 
 ###Install a GemStone stone
 To install a GemStone stone, run the `$GS_HOME/bin/installServer` script.
