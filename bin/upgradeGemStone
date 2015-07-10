@@ -39,7 +39,6 @@ if [ "${GS_HOME}x" = "x" ] ; then
 fi
 
 forceArg=""
-snapshotFileArg="-s $GS_HOME/gemstone/stones/$sourceStoneName/extents/extent0.dbf"
 createStone="true"
 runUpgrade="true"
 hasSnapshotFile="false"
@@ -70,6 +69,10 @@ gsvers="$3"
 sourceStonePath=$GS_HOME/gemstone/stones/$sourceStoneName
 targetStonePath=$GS_HOME/gemstone/stones/$targetStoneName
 
+if [ "${snapshotFileArg}x" = "x" ] ; then
+  snapshotFileArg="-s $GS_HOME/gemstone/stones/$sourceStoneName/extents/extent0.dbf"
+fi
+
 cat <<EOF
 
 Performing the GsDevKitHome upgrade for the stone $targetStoneName.
@@ -85,11 +88,6 @@ $GS_HOME/bin/stopStone $sourceStoneName
 if [ "${createStone}" = "true" ] ; then
   $GS_HOME/bin/installGemStone $gsvers
   $GS_HOME/bin/createStone $forceArg -n $snapshotFileArg $targetStoneName $gsvers
-  $GS_HOME/bin/installGemStone $gsvers
-  cp -r $GS_HOME/tode/sys/stones/$sourceStoneName/projects/* \
-        $GS_HOME/tode/sys/stones/$targetStoneName/projects
-  cp -r $GS_HOME/tode/sys/stones/$sourceStoneName/home/* \
-        $GS_HOME/tode/sys/stones/$targetStoneName/home
 else
   if [ ${hasSnapshotFile} = "true" ] ; then
     $GS_HOME/bin/stoneNewExtent -n $snapshotFileArg $targetStoneName
@@ -100,7 +98,7 @@ pushd $targetStonePath >& /dev/null
   if [ "${createStone}" = "true" ] ; then
     mkdir upgradeLog
   fi
-  cd upgradeLogDir
+  cd upgradeLog
   export upgradeLogDir="$(pwd)"
 popd >& /dev/null
 
@@ -133,6 +131,13 @@ EOF
 
 echo "Installing tODE"
 $GS_HOME/bin/installTodeStone $targetStoneName
+if [ "${createStone}" = "true" ] ; then
+  cp -r $GS_HOME/tode/sys/stones/$sourceStoneName/projects/. \
+        $GS_HOME/tode/sys/stones/$targetStoneName/projects/
+  cp -r $GS_HOME/tode/sys/stones/$sourceStoneName/home/. \
+        $GS_HOME/tode/sys/stones/$targetStoneName/home/
+fi
+
 
 if [ "${postUpgradeLoadScriptPath}x" != "x" ] ;  then
   #install application code
