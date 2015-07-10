@@ -83,6 +83,7 @@ read prompt
 
 $GS_HOME/bin/stopStone $sourceStoneName
 if [ "${createStone}" = "true" ] ; then
+  $GS_HOME/bin/installGemStone $gsvers
   $GS_HOME/bin/createStone $forceArg -n $snapshotFileArg $targetStoneName $gsvers
   $GS_HOME/bin/installGemStone $gsvers
   cp -r $GS_HOME/tode/sys/stones/$sourceStoneName/projects/* \

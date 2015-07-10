@@ -56,6 +56,7 @@ while getopts "fhns:" OPT ; do
   case "$OPT" in
     h) usage; exit 0;;
     f) force="true";; 
+    n) noRestartArg=" -n ";;
     s) snapshotFileArg=" -s ${OPTARG} ";;
     *) usage; exit 1;;
   esac
