@@ -284,6 +284,13 @@ else
   touch $gsdevkitSysSetup
 fi # no sudo usage after this point
 
+if [ -d "$GS_HOME/gemstone/products/$gsvers" ] ; then
+    echo "[Warning] $GS_HOME/gemstone/products/$gsvers already exists"
+    echo "to replace it, remove or rename it and rerun this script"
+    echo "...finished $(basename $0)"
+    exit 0
+fi
+
 # Look for either wget to download GemStone
 if [ -e "`which wget`" ]; then
     cmd="`which wget`"
