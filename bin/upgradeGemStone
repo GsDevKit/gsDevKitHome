@@ -113,6 +113,7 @@ if [ "$majorMinorVersion" = "2.4" ]  ; then
 else
   $GS_HOME/bin/stoneNewExtent -n -s $snapshotFile $targetStoneName
 fi
+rm $targetStonePath/tranlogs/tranlog*.dbf
 
 pushd $targetStonePath >& /dev/null
   if [ "${createStone}" = "true" ] ; then
@@ -164,8 +165,8 @@ run
 (SystemLoginNotification _classVars at: #'Subscriptions') removeAll: (SystemLoginNotification _classVars at: #'Subscriptions').
 true
 %
-
 commit
+
 logout
 output pop
 exit 0
@@ -207,6 +208,11 @@ UserGlobals associations do: [:assoc |
          ifTrue: [
            GsFile gciLogServer: '  removing the baseline ', globalName printString.
            assoc value removeFromSystem ] ] ].
+true
+%
+
+run
+MCWorkingCopy allManagers do: [ :wc | wc packageName = 'Grease' ifTrue: [ wc unregister ] ].
 true
 %
 
