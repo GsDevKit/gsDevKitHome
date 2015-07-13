@@ -80,10 +80,7 @@ if [ -d $GS_HOME/gemstone/stones/$stoneName ] ; then
     echo "stone $stoneName already exists. Use the -f option to force re-creation"
     exit 0 
   else
-    echo "deleting old instance of stone $stoneName (stopping stone and netldi first)"
-    $GS_HOME/bin/stopStone -b $stoneName
-    rm -rf $GS_HOME/gemstone/stones/$stoneName
-    rm -rf $GS_HOME/tode/sys/stones/$stoneName
+    $GS_HOME/bin/deleteStone $stoneName
   fi
 fi
 
