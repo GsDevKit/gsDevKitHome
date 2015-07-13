@@ -49,7 +49,7 @@ while getopts "cfhl:s:u" OPT ; do
     f) forceArg="-f";; 
     l) postUpgradeLoadScriptPath="${OPTARG}";;
     s) 
-       snapshotFileArg=" -s ${OPTARG} "
+       snapshotFile="${OPTARG}"
        hasSnapshotFile="true"
        ;;
     u) createStone="false";;
@@ -69,16 +69,31 @@ gsvers="$3"
 sourceStonePath=$GS_HOME/gemstone/stones/$sourceStoneName
 targetStonePath=$GS_HOME/gemstone/stones/$targetStoneName
 
-if [ "${snapshotFileArg}x" = "x" ] ; then
-  snapshotFileArg="-s $GS_HOME/gemstone/stones/$sourceStoneName/extents/extent0.dbf"
+sourceStoneVersion="$(sed -n '2{p;q;}' $sourceStonePath/product/version.txt| awk '{print $1;}')"
+majorMinorVersion="${sourceStoneVersion:0:3}"
+
+if [ "${hasSnapshotFile}" = "false" ] ; then
+  snapshotFile="$GS_HOME/gemstone/stones/$sourceStoneName/extents/extent0.dbf"
 fi
 
 cat <<EOF
 
-Performing the GsDevKitHome upgrade for the stone $targetStoneName.
+Performing the GsDevKitHome upgrade from the stone "$sourceStoneName" to the
+stone "$targetStoneName":
+
+  1. executes the $GS_HOME/bin/installGemStone to install GemStone $gsvers
+  2. executes the $GS_HOME/bin/createStone to create the $targetStoneName stone
+  3. copy the extent0.dbf file from "$sourceStoneName to $targetStoneName
+  4. create $targetStonePath/upgradeLog
+  5. executes the $GEMSTONE/bin/upgradeImage script
+  6. executes the $GEMSTONE/seaside/bin/upgradeSeasideImage script
+  7. exeuctes the $GS_HOME/bin/installTodeStone in $targetStoneName stone
+     to complete the upgrade process
 
 If an error occurs during execution of this script, the details of the error are
-available in the topazerrors.log file.
+available in the topazerrors.log file in the 
+"$targetStonePath/upgradeLog"
+directory or on stdout.
 
 Press the return key to continue...
 EOF
@@ -87,11 +102,16 @@ read prompt
 $GS_HOME/bin/stopStone $sourceStoneName
 if [ "${createStone}" = "true" ] ; then
   $GS_HOME/bin/installGemStone $gsvers
-  $GS_HOME/bin/createStone $forceArg -n $snapshotFileArg $targetStoneName $gsvers
+  $GS_HOME/bin/createStone $forceArg $targetStoneName $gsvers
+  $GS_HOME/bin/stopStone $targetStoneName
+fi
+
+if [ "$majorMinorVersion" = "2.4" ]  ; then
+  #Cannot use copydbf to copy a 2.4 extent to 3.x
+  cp $snapshotFile $targetStonePath/extents/extent0.dbf
+  chmod +w $targetStonePath/extents/extent0.dbf
 else
-  if [ ${hasSnapshotFile} = "true" ] ; then
-    $GS_HOME/bin/stoneNewExtent -n $snapshotFileArg $targetStoneName
-  fi
+  $GS_HOME/bin/stoneNewExtent -n -s $snapshotFile $targetStoneName
 fi
 
 pushd $targetStonePath >& /dev/null
@@ -110,8 +130,6 @@ fi
 
 source $GS_HOME/bin/defStone.env $targetStoneName
 startStoneArg=""
-sourceStoneVersion="$(sed -n '2{p;q;}' $GS_HOME/gemstone/stones/$sourceStoneName/product/version.txt| awk '{print $1;}')"
-majorMinorVersion="${sourceStoneVersion:0:3}"
 if [ "$majorMinorVersion" = "2.4" ]  ; then
   startStoneArg="-C"
 fi
