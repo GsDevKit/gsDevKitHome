@@ -42,7 +42,7 @@ The following OS packages must be installed in your system for GsDevKit to work 
 - unzip            - needed by FileTree
 - wget             - needed by bin/installGemStone script
 
-For a detailed instructions on installing the OS prerequisites, a full list of required/recommended packagesi, and scripts that perform the installation, see [GsDevKit Operating System Prerequisite Installation][36].
+For a detailed instructions on installing the OS prerequisites, a full list of required/recommended packages, and scripts that perform the installation, see [GsDevKit Operating System Prerequisite Installation][36].
    
 ###Clone gsDevKitHome
 Clone the [gsDevKitHome project][2] to your GemStone development server and create a unique branch to keep any changes you make for your project isolated from the Dev Kit master branch:
