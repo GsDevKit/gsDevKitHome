@@ -3,5 +3,5 @@ TDRawGatewayNode{#name:'projectComposition',#contents:'(TDComposedProjectEntryNo
     topez: self topez)
     addPathNode: \'/sys/stone/projects\';
     addPathNode: \'/sys/local/projects\';
-    addPathNode: \'/sys/default/projects\' includes: #( \'grease\' \'metacello\' \'pharoCompat\' \'seaside\' \'sixx\' \'ston\' \'tode\' \'xml\' \'zinc\');
+    addPathNode: \'/sys/default/projects\' includes: #( \'grease\' \'gsDevKitHome\' \'metacello\' \'pharoCompat\' \'seaside\' \'sixx\' \'ston\' \'tode\' \'xml\' \'zinc\');
     yourself'}
