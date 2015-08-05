@@ -47,6 +47,12 @@ For a detailed instructions on installing the OS prerequisites, a full list of r
 ###Clone gsDevKitHome
 Clone the [gsDevKitHome project][2] to your GemStone development server and create a unique branch to keep any changes you make for your project isolated from the Dev Kit master branch:
 
+The recommended process is:
+  1. Create and log into a github account.
+  2. Fork the GsDevKit project
+  3. Create a unique branch for your work
+  4. Clone the project to your local GemStone development server
+
 ```Shell
 git clone git@github.com:GsDevKit/gsDevKitHome.git  # alternately use https://github.com/GsDevKit/gsDevKitHome.git
 cd gsDevKitHome
