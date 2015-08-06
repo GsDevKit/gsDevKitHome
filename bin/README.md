@@ -1,7 +1,10 @@
 # GsDevKit Scripts
 
+The bin/ directory contains scripts to install, run, and perform various management tatks for GsDevKit. 
+
 - [Server Scripts](#server-scripts)
 - [Client Scripts](#client-scripts)
+- [Utility Scripts](#utility-scripts)
 
 ## Server Scripts
 Scripts that run on the server machine only.
