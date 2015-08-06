@@ -10,7 +10,7 @@ echo "================="
 if [ -s $GEMSTONE/seaside/etc/gemstone.secret ]; then
       . $GEMSTONE/seaside/etc/gemstone.secret
 else
-      echo 'Missing password file $GEMSTONE/seaside/etc/gemstone.secret'
+      echo "Missing password file $GEMSTONE/seaside/etc/gemstone.secret"
       exit 1
  fi
 

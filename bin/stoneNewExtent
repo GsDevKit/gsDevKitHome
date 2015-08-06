@@ -39,7 +39,7 @@ OPTIONS
      before using the -n option.
 
   -s <snapshot-file-path> 
-     Path to snapshot file used to create stone.
+     Path to snapshot file used to create stone. Path may be a relative file path.
 
 EXAMPLES
   $(basename $0) -h
@@ -54,13 +54,14 @@ if [ "${GS_HOME}x" = "x" ] ; then
   echo "the GS_HOME environment variable needs to be defined"; exit 1
 fi
 
+
 snapshotFile=""
 noRestart="false"
 while getopts "hns:" OPT ; do
   case "$OPT" in
     h) usage; exit 0;;
     n) noRestart="true";;
-    s) snapshotFile="${OPTARG}";;
+    s) snapshotFile=`readlink -f ${OPTARG}` ;;
     *) usage; exit 1;;
   esac
 done
