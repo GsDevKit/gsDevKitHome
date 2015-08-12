@@ -1,10 +1,11 @@
 This document provides detailed step-by-step instructions on forking GsDevKit, cloning to 
 your local server, creating a branch, and how to commit and update.  
+
 Github and git provide many options and this is not the only way to perform these tasks; these instructions
 are provided as a convenience for people getting started with github. 
 
 ###Clone gsDevKitHome
-Clone the [gsDevKitHome project][2] to your GemStone development server and create a 
+Clone the [gsDevKitHome project][1] to your GemStone development server and create a 
 unique branch to keep any changes you make for your project isolated from the Dev Kit master branch:
 
 The recommended process is:
@@ -20,7 +21,7 @@ cd gsDevKitHome
 git checkout -b  <your_branch_name>
 git push origin <your_branch_name>
 ```  
-  5. On github, set the default branch for your account to your new branch. 
+  5. On [github settings][4], set the default branch for your account to your new branch. 
 https://github.com/<yourAccountName>/gsDevKitHome/settings
 
 You may clone using https://github.com/GsDevKit/gsDevKitHome.git, but this creates issues later.
@@ -36,6 +37,12 @@ To update my local checkout from the github branch:
 git pull origin <your_branch_name>
 ```
 
-See the documentation on [Git Credentials and tODE][97] for more information.
+See the documentation on [Git Credentials and tODE][6] for more information.
 
 *Note, if you already have a [GitHub][15] account, before performing the clone, you should [fork the Dev Kit project][3] first. If you find and correct any issues with GsDevKit, this will make sharing these corrections much easier.*
+
+
+[1]: https://github.com/GsDevKit/gsDevKitHome
+[3]: https://github.com/GsDevKit/gsDevKitHome/fork
+[4]: https://github.com/<yourAccountName>/gsDevKitHome/settings 
+[6]: https://github.com/dalehenrich/tode/blob/master/docs/releaseNotes/releaseNotes0.1.0.md#git-credentials-and-tode
