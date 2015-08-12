@@ -45,40 +45,17 @@ The following OS packages must be installed in your system for GsDevKit to work 
 For a detailed instructions on installing the OS prerequisites, a full list of required/recommended packages, and scripts that perform the installation, see [GsDevKit Operating System Prerequisite Installation][36].
    
 ###Clone gsDevKitHome
-Clone the [gsDevKitHome project][2] to your GemStone development server and create a unique branch to keep any changes you make for your project isolated from the Dev Kit master branch:
 
-The recommended process is:
-  1. Create a github account, if needed, and log in.
-  2. Fork the GsDevKit project on github.
-  3. On your local GemStone development server, clone your GsDevKit fork. 
+[Fork the gsDevKitHome project][3], clone your fork to your local GemStone development server, and create a unique branch to keep any changes you make for your project isolated.
+
+If you are new to github, see the [detailed instructions][37]. You will need to setup authentication (generally, SSH credentials) as well, to allow tODE to work. 
+
 ```Shell
 git clone git@github.com:<yourAccountName>/gsDevKitHome.git  
-```
-  4. Create a unique branch for your work, and synchronize github
-```Shell
 cd gsDevKitHome
 git checkout -b  <your_branch_name>
 git push origin <your_branch_name>
 ```  
-  5. On github, set the default branch for your account to your new branch. 
-https://github.com/<yourAccountName>/gsDevKitHome/settings
-
-You may clone using https://github.com/GsDevKit/gsDevKitHome.git, but this creates issues later.
-
-These instructions do not cover all you need to know about git, but a few tips: 
-To commit changes in the local checkout to the github branch:
-```
-git commit -a -m "checkin comment"
-git push origin <your_branch_name>
-```
-To update my local checkout from the github branch:
-```
-git pull origin <your_branch_name>
-```
-
-See the documentation on [Git Credentials and tODE][97] for more information.
-
-*Note, if you already have a [GitHub][15] account, before performing the clone, you should [fork the Dev Kit project][3] first. If you find and correct any issues with GsDevKit, this will make sharing these corrections much easier.*
 
 ###Define gsDevKitHome Environment Variables
 Define the `$GS_HOME` environment variable and add `$GS_HOME/bin` to your `$PATH`:
@@ -185,6 +162,7 @@ commit the changes that you've made.
 [34]: bin/installGemStone
 [35]: bin/todeClient
 [36]: docs/osPrereqs/osPrereqs.md#gsdevkit-operating-system-prerequisites
+[37]: docs/installationGitHubDetails.md 
 
 [46]: bin/installTodeStone
 
