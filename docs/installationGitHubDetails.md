@@ -4,45 +4,59 @@ your local server, creating a branch, and how to commit and update.
 Github and git provide many options and this is not the only way to perform these tasks; these instructions
 are provided as a convenience for people getting started with github. 
 
-###Clone gsDevKitHome
-Clone the [gsDevKitHome project][1] to your GemStone development server and create a 
-unique branch to keep any changes you make for your project isolated from the Dev Kit master branch:
+###Log into your github account
+[log in to github][1].  If you don't have a github account, you can create a free account here: [join github][2].
 
-The recommended process is:
-  1. Create a github account, if needed, and log in.
-  2. Fork the GsDevKit project on github.
-  3. On your local GemStone development server, clone your GsDevKit fork. 
-```Shell
-git clone git@github.com:<yourAccountName>/gsDevKitHome.git  
-```
-  4. Create a unique branch for your work, and synchronize github
-```Shell
-cd gsDevKitHome
-git checkout -b  <your_branch_name>
-git push origin <your_branch_name>
-```  
-  5. On [github settings][4], set the default branch for your account to your new branch. 
-https://github.com/<yourAccountName>/gsDevKitHome/settings
+###Fork the GsDevKit project on github.
+
+[Fork the GsDevKit project] [4] to your account.  
+
+###Setup your SSH credentials
 
 You may clone using https://github.com/GsDevKit/gsDevKitHome.git, but this creates issues later.
 
-These instructions do not cover all you need to know about git, but a few tips: 
-To commit changes in the local checkout to the github branch:
+##Clone your GsDevKit fork
+On your local GemStone development server, clone your GsDevKit fork. 
+
+```Shell
+git clone git@github.com:<yourAccountName>/gsDevKitHome.git  
+```
+  
+##Create a branch for your work
+
+You will create a unique branch for your work, to keep your in-progress work separate from your main codebase.  You may create several branches that you can merge into your fork when they are ready.
+
+```Shell
+cd gsDevKitHome
+git checkout -b  <your_branch_name>
+```
+
+To ensure that this branch is visible on github, perform the synchronization:
+
+```
+git push origin <your_branch_name>
+```  
+
+###Set your default branch
+On your github settings page, (https://github.com/<yourAccountName>/gsDevKitHome/settings), set the default branch for your account to your new branch. 
+
+###Work on your code
+
+You are now ready to work on code!  
+
+These instructions do not cover all you need to know about using git for managing code, but a few tips: 
+
+To commit changes in your local checkout to the github branch:
 ```
 git commit -a -m "checkin comment"
 git push origin <your_branch_name>
 ```
-To update my local checkout from the github branch:
+To update your local checkout from the github branch:
 ```
 git pull origin <your_branch_name>
 ```
 
-See the documentation on [Git Credentials and tODE][6] for more information.
-
-*Note, if you already have a [GitHub][15] account, before performing the clone, you should [fork the Dev Kit project][3] first. If you find and correct any issues with GsDevKit, this will make sharing these corrections much easier.*
-
-
-[1]: https://github.com/GsDevKit/gsDevKitHome
-[3]: https://github.com/GsDevKit/gsDevKitHome/fork
-[4]: https://github.com/<yourAccountName>/gsDevKitHome/settings 
-[6]: https://github.com/dalehenrich/tode/blob/master/docs/releaseNotes/releaseNotes0.1.0.md#git-credentials-and-tode
+[1]: https://github.com/login
+[2]: https://github.com/
+[3]: https://github.com/GsDevKit/gsDevKitHome
+[4]: https://github.com/GsDevKit/gsDevKitHome/fork
