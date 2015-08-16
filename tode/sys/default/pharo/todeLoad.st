@@ -28,8 +28,13 @@
     repository: 'filetree://', gs_home, '/repository';
     get;
     load ]
-      on: Warning
+      on: Warning, MetacelloSkipDirtyPackageLoad
       do: [:ex | 
-        Transcript cr; show: ex description.
-        ex resume ].
+        (ex isKindOf: MetacelloSkipDirtyPackageLoad)
+          ifTrue: [ 
+            "Load over dirty packages"
+            ex resume: false ]
+          ifFalse: [
+            Transcript cr; show: ex description.
+            ex resume: true ] ].
 
