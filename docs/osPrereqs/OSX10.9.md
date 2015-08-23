@@ -40,3 +40,6 @@ The following prerequisites are installed on Mac OS X by default, so no addition
 [3]: http://xquartz.macosforge.org/landing/
 [4]: osPrereqs.md#clientserver-configurations
 [5]: ../../bin/osPrereqs
+
+##Unknown
+- PAM - is this needed for OS X?
