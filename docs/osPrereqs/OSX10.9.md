@@ -32,8 +32,8 @@ The following prerequisites are installed on Mac OS X by default, so no addition
 - ssh
 - curl
 
-###osPrereqs Installation Script (optional)
-Currently the [osPrereqs script][5] does not support OS X.
+###Unsupported
+- Currently the [osPrereqs script][5] does not support OS X.
 
 [1]: http://coolestguidesontheplanet.com/setting-up-os-x-mavericks-and-homebrew/
 [2]: http://git-scm.com/book/en/v2/Getting-Started-Installing-Git#Installing-on-Mac
