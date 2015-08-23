@@ -1,14 +1,11 @@
 # Open Source Development Kit for GemStone/S 64 Bit [![master branch:](https://travis-ci.org/GsDevKit/gsDevKitHome.png?branch=master)](https://travis-ci.org/GsDevKit/gsDevKitHome)
 
-The Development Kit for GemStone/S features:
+The Development Kit for GemStone/S (GsDevKit) contains tools and compatiblity changes that sit on top of the GemStone/S 64 Bit product, providing a complete and powerful open-source development environment. The Development kit allows Pharo and Squeak developers to take advantage of GemStone's object persistence, along with a variety of open-source Smalltalk tools and frameworks.
 
-* [Simplified GemStone/S installation](#development-kit-server-installation).
-  - [Operating System Prerequisites](#operating-system-prerequisites)
-  - [Clone gsDevKitHome](#clone-gsdevkithome)
-  - [Define gsDevKitHome Environment Variables](#define-gsdevkithome-environment-variables)
-  - [Install a GemStone stone](#install-a-gemstone-stone)
-  - [Open a tODE client image](#open-a-tode-client-image)
-  - [Commit gsDevKitHome configuration changes to git](#commit-gsdevkithome-configuration-changes-to-git)
+The Development kit includes simplified processes for installating and managing the GemStone/S server.
+
+Detailed instructions for configuring your OS and installing GemStone/S, GsDevKit, and starting tODE: 
+* [Development Kit Installation and Configuration](#development-kit-server-installation)
 
 Additional supporting documentation:
 
@@ -19,9 +16,9 @@ Additional supporting documentation:
 * [Scripts for controlling stones][96].
 
 ---
----
 
 ##Development Kit Server Installation
+The following steps will install the GemStone/S and Development Kit server, and open the tODE IDE client image:
 
 1. [Operating System Prerequisites](#operating-system-prerequisites)
 2. [Clone gsDevKitHome](#clone-gsdevkithome)
@@ -36,7 +33,7 @@ Additional supporting documentation:
 
 ###Operating System Prerequisites
 The Dev Kit server can be installed on Linux or Mac OS X.
-The following packages are required for GsDevKit:
+The following OS packages must be installed in your system for GsDevKit to work correctly in all cases:
 - 32 bit libraries - needed to run Pharo (headless)
 - curl             - needed by FileTree
 - git              - needed by GsDevKit and tODE
@@ -45,20 +42,43 @@ The following packages are required for GsDevKit:
 - unzip            - needed by FileTree
 - wget             - needed by bin/installGemStone script
 
-For a full list of required/recommended packages plus installation instructions and scripts, see the  [GsDevKit Operating System Prerequisites][36].
+For a detailed instructions on installing the OS prerequisites, a full list of required/recommended packages, and scripts that perform the installation, see [GsDevKit Operating System Prerequisite Installation][36].
    
 ###Clone gsDevKitHome
 Clone the [gsDevKitHome project][2] to your GemStone development server and create a unique branch to keep any changes you make for your project isolated from the Dev Kit master branch:
 
+The recommended process is:
+  1. Create a github account, if needed, and log in.
+  2. Fork the GsDevKit project on github.
+  3. On your local GemStone development server, clone your GsDevKit fork. 
 ```Shell
-git clone git@github.com:GsDevKit/gsDevKitHome.git  # alternately use https://github.com/GsDevKit/gsDevKitHome.git
+git clone git@github.com:<yourAccountName>/gsDevKitHome.git  
+```
+  4. Create a unique branch for your work, and synchronize github
+```Shell
 cd gsDevKitHome
-git checkout -b  <your-project-branch-name>
+git checkout -b  <your_branch_name>
+git push origin <your_branch_name>
+```  
+  5. On github, set the default branch for your account to your new branch. 
+https://github.com/<yourAccountName>/gsDevKitHome/settings
+
+You may clone using https://github.com/GsDevKit/gsDevKitHome.git, but this creates issues later.
+
+These instructions do not cover all you need to know about git, but a few tips: 
+To commit changes in the local checkout to the github branch:
+```
+git commit -a -m "checkin comment"
+git push origin <your_branch_name>
+```
+To update my local checkout from the github branch:
+```
+git pull origin <your_branch_name>
 ```
 
 See the documentation on [Git Credentials and tODE][97] for more information.
 
-*Note, if you already have a [GitHub][15] account, you should consider [forking the Dev Kit project][3] first, as that will make sharing corrections you find much easier.*
+*Note, if you already have a [GitHub][15] account, before performing the clone, you should [fork the Dev Kit project][3] first. If you find and correct any issues with GsDevKit, this will make sharing these corrections much easier.*
 
 ###Define gsDevKitHome Environment Variables
 Define the `$GS_HOME` environment variable and add `$GS_HOME/bin` to your `$PATH`:
@@ -69,10 +89,11 @@ export GS_HOME=`pwd`
 export PATH=$GS_HOME/bin:$PATH
 ```
 
-It's a good idea to define `$GS_HOME` and `$PATH` in your `.bashrc` file.
+To make sure they are always correctly defined, it's a good idea to update your `.bashrc` file with these `$GS_HOME` and `$PATH` definitions. 
 
 ###Install a GemStone stone
-The `$GS_HOME/bin/installServer` script: 
+To install a GemStone stone, run the `$GS_HOME/bin/installServer` script.
+This script performs the following individual steps.  
 - installs GemStone and Pharo, if not already installed, using the [$GS_HOME/bin/installGemStone][34] script.
 - builds a tODE client image, using the [$GS_HOME/bin/createTodeImage][59] script.
 - creates a stone, using the [$GS_HOME/bin/createStone][60] script.
