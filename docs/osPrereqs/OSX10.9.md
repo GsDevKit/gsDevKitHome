@@ -22,11 +22,15 @@ To install `wget`, first [install brew][1] then:
 brew install wget
 ```
 
-##Install ssh (optional)
-ssh is installed on Mac OS X by default, so no additional steps are needed.
+##Optional Installs
 
 ###Install X11 Client (optional)
-To install X11 [follow these instructions][3].
+To connect to a remote stone, you may want to install X11 [follow these instructions][3]. Other options are to install X11 on the remote, or to connect to the remote netldi port via SSH.
+
+##Preinstalled
+The following prerequisites are installed on Mac OS X by default, so no additional steps are needed.
+- ssh
+- curl
 
 ###osPrereqs Installation Script (optional)
 Currently the [osPrereqs script][5] does not support OS X.
