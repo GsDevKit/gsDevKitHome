@@ -54,7 +54,7 @@ The recommended process is:
 ```Shell
 git clone git@github.com:<yourAccountName>/gsDevKitHome.git  
 ```
-  4. Create a unique branch for your work, and synchronize github
+  4. Create a unique branch for your work, and synchronize github [FOR EARLY ADOPTERS, `git checkout dev` FIRST]
 ```Shell
 cd gsDevKitHome
 git checkout -b  <your_branch_name>
