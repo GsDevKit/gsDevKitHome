@@ -52,12 +52,18 @@ The recommended process is:
   2. Fork the GsDevKit project on github.
   3. On your local GemStone development server, clone your GsDevKit fork. 
 ```Shell
-git clone git@github.com:<yourAccountName>/gsDevKitHome.git  
+git clone git@github.com:<yourAccountName>/gsDevKitHome.git
+cd gsDevKitHome
 ```
   4. Create a unique branch for your work, and synchronize github [FOR EARLY ADOPTERS, `git checkout dev` FIRST]
 ```Shell
-cd gsDevKitHome
+# The purpose of the branch is to have a place to make all your personal customizations. This way, 
+# if you ever want to feed back changes to gsDevKitHome, your dev branch will be clean. Since the 
+# basic use case is to have one branch for all your development. You may want to name it after 
+# yourself!
 git checkout -b  <your_branch_name>
+# Where you push depends on your workflow. Since this is git, you have many options to host your 
+# code (e.g. GitHub, BitBucket). If you want to simply push to your GitHub fork:
 git push origin <your_branch_name>
 ```  
   5. On github, set the default branch for your account to your new branch. 
