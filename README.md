@@ -114,7 +114,7 @@ It is recommended that you download and use the latest version of the GemStone/S
 The following creates a new stone named `devKit` based on [version 3.2.6 of GemStone/S][16]:
 
 ```Shell
-installServer devKit 3.2.6
+installServer devKit 3.2.7
 ```
 *Note that the script will prompt you for your password because it uses `sudo` to setup up your server for running GemStone*.
 
