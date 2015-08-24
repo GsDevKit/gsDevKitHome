@@ -22,17 +22,24 @@ To install `wget`, first [install brew][1] then:
 brew install wget
 ```
 
-##Install ssh (optional)
-ssh is installed on Mac OS X by default, so no additional steps are needed.
+##Optional Installs
 
 ###Install X11 Client (optional)
-To install X11 [follow these instructions][3].
+To connect to a remote stone, you may want to install X11 [follow these instructions][3]. Other options are to install X11 on the remote, or to connect to the remote netldi port via SSH.
 
-###osPrereqs Installation Script (optional)
-Currently the [osPrereqs script][5] does not support OS X.
+##Preinstalled
+The following prerequisites are installed on Mac OS X by default, so no additional steps are needed.
+- ssh
+- curl
+
+###Unsupported
+- Currently the [osPrereqs script][5] does not support OS X.
 
 [1]: http://coolestguidesontheplanet.com/setting-up-os-x-mavericks-and-homebrew/
 [2]: http://git-scm.com/book/en/v2/Getting-Started-Installing-Git#Installing-on-Mac
 [3]: http://xquartz.macosforge.org/landing/
 [4]: osPrereqs.md#clientserver-configurations
 [5]: ../../bin/osPrereqs
+
+##Unknown
+- PAM - is this needed for OS X?
