@@ -12,21 +12,21 @@ env:
 
 
 #  - GS_VERSION=3.1.0.6 TEST=BasicTodeClient
-#  - GS_VERSION=3.2.6   TEST=BasicTodeClient
-#  - GS_VERSION=3.1.0.6 TEST=Basic
-  - GS_VERSION=3.2.6   TEST=Basic
+#  - GS_VERSION=3.2.7   TEST=BasicTodeClient
+  - GS_VERSION=3.1.0.6 TEST=Basic
+  - GS_VERSION=3.2.7   TEST=Basic
 #  - GS_VERSION=3.1.0.6 TEST=Projects1
-#  - GS_VERSION=3.2.4   TEST=Projects1
+#  - GS_VERSION=3.2.7   TEST=Projects1
 #  - GS_VERSION=3.1.0.6 TEST=Projects2
-#  - GS_VERSION=3.2.4   TEST=Projects2
+#  - GS_VERSION=3.2.7   TEST=Projects2
 #  - GS_VERSION=3.1.0.6 TEST=Magritte
-#  - GS_VERSION=3.2.4   TEST=Magritte
+#  - GS_VERSION=3.2.7   TEST=Magritte
 #  - GS_VERSION=3.1.0.6 TEST=Pier300
-##  - GS_VERSION=3.2.4   TEST=Pier300  # older versions of Seaside3.0 aren't loadable in 3.2 ... invalid UTF8 characters in WAXMLEncoder table
+##  - GS_VERSION=3.2.7   TEST=Pier300  # older versions of Seaside3.0 aren't loadable in 3.2 ... invalid UTF8 characters in WAXMLEncoder table
 #  - GS_VERSION=3.1.0.6 TEST=Seaside3
-#  - GS_VERSION=3.2.4   TEST=Seaside3
+#  - GS_VERSION=3.2.7   TEST=Seaside3
 #  - GS_VERSION=3.1.0.6 TEST=Zinc
-#  - GS_VERSION=3.2.4   TEST=Zinc
+#  - GS_VERSION=3.2.7   TEST=Zinc
 
 before_script:
   - export GS_HOME="$(pwd)"

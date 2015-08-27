@@ -98,6 +98,7 @@ else
       sudo ln -f -s /usr/lib/i386-lin-gnu/libstdc++.so.6 /usr/lib/i386-linux-gnu/libstdc++.so
       ;;
     14.04)
+      sudo dpkg --add-architecture i386
       installUbuntuPackages
       sudo ln -f -s /usr/lib/i386-lin-gnu/libstdc++.so.6 /usr/lib/i386-linux-gnu/libstdc++.so
       ;;

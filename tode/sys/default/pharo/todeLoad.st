@@ -11,6 +11,13 @@
     repository: 'github://dalehenrich/metacello-work:master/repository';
     onConflict: [:ex | ex allow];
     load.
+  false ifTrue: [
+    "To avoid GitHub API rate limits, edit and define github username/password in tode client image"
+    "Change `false` to `true` execute this block"
+    Smalltalk at: #MCGitHubRepository ifPresent: [:cls |
+      cls
+        siteUsername: '';
+        sitePassword: ''] ].
   "If tODE is already loaded, clear github cache for baseline"
   Metacello image
     baseline: 'Tode';
@@ -21,8 +28,12 @@
     repository: 'filetree://', gs_home, '/repository';
     get;
     load ]
-      on: Warning
+      on: Warning, MetacelloSkipDirtyPackageLoad
       do: [:ex | 
-        Transcript cr; show: ex description.
-        ex resume ].
-
+        (ex isKindOf: MetacelloSkipDirtyPackageLoad)
+          ifTrue: [ 
+            "Load over dirty packages"
+            ex resume: false ]
+          ifFalse: [
+            Transcript cr; show: ex description.
+            ex resume: true ] ].
