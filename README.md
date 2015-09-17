@@ -47,57 +47,43 @@ For a detailed instructions on installing the OS prerequisites, a full list of r
 ###Clone gsDevKitHome
 Clone the [gsDevKitHome project][2] to your GemStone development server and create a unique branch to keep any changes you make for your project isolated from the Dev Kit master branch:
 
-The recommended process is:
-  1. Create a github account, if needed, and log in.
-  2. Fork the GsDevKit project on github.
-  3. On your local GemStone development server, clone your GsDevKit fork. 
-    ```Shell
-    git clone git@github.com:<yourAccountName>/gsDevKitHome.git
-    cd gsDevKitHome
-    ```
-    
-  4. **FOR EARLY ADOPTERS** `checkout` the dev branch:
-    ```Shell
-    git checkout dev
-    ```
-    
-  5. Create a unique branch for your work, and synchronize github 
-    ```Shell
-    # The purpose of the branch is to have a place to make all your personal customizations. This way, 
-    # if you ever want to feed back changes to gsDevKitHome, your dev branch will be clean. Since the 
-    # basic use case is to have one branch for all your development. You may want to name it after 
-    # yourself!
+[Fork the gsDevKitHome project][3], clone your fork to your local GemStone development server, and create a unique branch to keep any changes you make for your project isolated.
+
+If you are new to github, see the [detailed instructions][37]. You will need to setup authentication (generally, SSH credentials) as well, to allow tODE to work. 
+
+```Shell
+git clone git@github.com:<yourAccountName>/gsDevKitHome.git
+cd gsDevKitHome
+```
+
+  4. **FOR EARLY ADOPTERS ONLY** `checkout` the dev branch:
+  ```Shell
+# The dev branch is the branch that contains working version of GsDevKitHome
+git checkout dev
+  ```
+
+  4. Create a unique branch for your work, and synchronize github
+
+  ```Shell
+# The purpose of the branch is to have a place to make all your personal customizations. This way, 
+# if you ever want to feed back changes to gsDevKitHome, your dev branch will be clean. Since the 
+# basic use case is to have one branch for all your development. You may want to name it after 
+# yourself!
 git checkout -b  <your_branch_name>
-    # Where you push depends on your workflow. Since this is git, you have many options to host your 
-    # code (e.g. GitHub, BitBucket). If you want to simply push to your GitHub fork:
-    git push origin <your_branch_name>
-    ```  
-
-  6. On github, set the default branch for your account to your new branch. 
-
-    ```
-    https://github.com/<yourAccountName>/gsDevKitHome/settings
-    ```
-
-You may clone using https://github.com/GsDevKit/gsDevKitHome.git, but this creates issues later.
-
-These instructions do not cover all you need to know about git, but a few tips: 
-To commit changes in the local checkout to the github branch:
-
-```
-git commit -a -m "checkin comment"
+# Where you push depends on your workflow. Since this is git, you have many options to host your 
+# code (e.g. GitHub, BitBucket). If you want to simply push to your GitHub fork:
 git push origin <your_branch_name>
-```
+  ```  
 
-To update my local checkout from the github branch:
+  5. **FOR EARLY ADOPTERS ONLY** execute the following shell commands before doing your first install. The files ensure that you are using the dev branch of tODE for the client and server installations:
 
-```
-git pull origin <your_branch_name>
-```
+  ```Shell
+# These scripts ensure that you are using the dev branch of tODE
+cp $GS_HOME/tests/tode/sys/local/server/scripts/installTode.ws $GS_HOME/tode/sys/local/server/scripts
+cp $GS_HOME/tests/tode/sys/local/projects/*.ston $GS_HOME/tode/sys/local/projects
+cp $GS_HOME/tests/tode/sys/local/pharo/todeLoad.st $GS_HOME/tode/sys/local/pharo
+  ```
 
-See the documentation on [Git Credentials and tODE][97] for more information.
-
-*Note, if you already have a [GitHub][15] account, before performing the clone, you should [fork the Dev Kit project][3] first. If you find and correct any issues with GsDevKit, this will make sharing these corrections much easier.*
 
 ###Define gsDevKitHome Environment Variables
 Define the `$GS_HOME` environment variable and add `$GS_HOME/bin` to your `$PATH`:
@@ -124,19 +110,10 @@ This script performs the following individual steps.
 
 Before running the `installServer` script, please check on the [GemStone/S 64 Bit product page for the latest versions][98] and visit [the Community and Web Edition Licensing page for information on the license included with the download and other options][98].
 It is recommended that you download and use the latest version of the GemStone/S 64 Bit product.
-
-**FOR EARLY ADOPTERS** execute the following shell commands before doing your first install. The files ensure that you are using the dev branch of tODE for the client and server installations:
-
-```Shell
-cp $GS_HOME/tests/tode/sys/local/server/scripts/installTode.ws $GS_HOME/tode/sys/local/server/scripts
-cp $GS_HOME/tests/tode/sys/local/projects/*.ston $GS_HOME/tode/sys/local/projects
-cp $GS_HOME/tests/tode/sys/local/pharo/todeLoad.st $GS_HOME/tode/sys/local/pharo
-```
-
-The following creates a new stone named `devKit` based on [version 3.2.7 of GemStone/S][16]:
+The following creates a new stone named `devKit` based on [version 3.2.6 of GemStone/S][16]:
 
 ```Shell
-installServer devKit 3.2.7
+installServer devKit 3.2.8.1
 ```
 *Note that the script will prompt you for your password because it uses `sudo` to setup up your server for running GemStone*.
 
@@ -213,6 +190,7 @@ commit the changes that you've made.
 [34]: bin/installGemStone
 [35]: bin/todeClient
 [36]: docs/osPrereqs/osPrereqs.md#gsdevkit-operating-system-prerequisites
+[37]: docs/installationGitHubDetails.md 
 
 [46]: bin/installTodeStone
 
