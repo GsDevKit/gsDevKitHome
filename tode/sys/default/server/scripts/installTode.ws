@@ -5,10 +5,10 @@ Transcript
 GsDeployer bulkMigrate: [ 
   Metacello new
     baseline: 'Tode';
-    repository: 'github://dalehenrich/tode:master/repository';
+    repository: 'github://dalehenrich/tode:v0.0.4/repository';
     get.
   Metacello new
     baseline: 'Tode';
-    repository: 'github://dalehenrich/tode:master/repository';
+    repository: 'github://dalehenrich/tode:v0.0.4/repository';
     onConflict: [ :ex | ex allow ];
     load: 'GemStone Dev' ].
