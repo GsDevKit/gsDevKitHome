@@ -19,7 +19,7 @@ version201: spec
 					with: [ 
 							spec
 								loads: 'GemStone Dev';
-								repository: 'github://dalehenrich/tode:dev/repository' ];
+								repository: 'github://dalehenrich/tode:v0.1.?/repository' ];
 				import: 'Tode' provides: #('Visualize');
 				postLoadDoIt: #post30Load2x;
 				yourself.
