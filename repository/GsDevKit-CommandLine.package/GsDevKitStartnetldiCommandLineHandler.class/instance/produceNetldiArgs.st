@@ -1,7 +1,7 @@
 actions
 produceNetldiArgs
 	| info netldiArgs |
-	info := GsDevKitStoneInfo importFrom: self stonesHome / self stoneName / self stoneInfoFilename.
+	info := self stoneInfo.
 	netldiArgs := OrderedCollection new.
 	self netldiArgsOn: netldiArgs.
 	info netldiArgsOn: netldiArgs.

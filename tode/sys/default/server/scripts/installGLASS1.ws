@@ -1,23 +1,11 @@
 "Third step in tODE installation process: install GLASS1.
- Let GsUpgrader do the installation. Conditionally lock GLASS1 repository
- if you want to use a non-standard installation location."
-false
-    ifTrue: [ 
-      "if you want to use a non-standard repo for GLASS1"
-      Transcript
-        cr;
-        show: 'Locking GLASS1: filetree:///opt/git/glass/repository'.
-      GsDeployer
-        bulkMigrate: [ 
-          Metacello new
-            baseline: 'GLASS1';
-            repository: 'filetree:///opt/git/glass/repository';
-            lock ] ].
+ Let GsUpgrader do the installation. GsUpgrader package loaded during step 1 (upgradeGLASS.ws)."
+
+Transcript cr; show: '---Step 3 of tODE bootstrap process: execute installGLASS1.ws'.
+
+GsUpgrader batchErrorHandlingDo: [
+  | monticelloDir gofer |
   Transcript
     cr;
-    show: '-----Upgrading GLASS1 using gsUpgrader'.
-  Gofer new
-    package: 'GsUpgrader-Core';
-    url: 'http://ss3.gemtalksystems.com/ss/gsUpgrader';
-    load.
-  (Smalltalk at: #'GsUpgrader') upgradeGLASS1.
+    show: '-----Upgrade GLASS1 using gsUpgrader'.
+  GsUpgrader upgradeGLASS1 ].

@@ -1,3 +1,4 @@
 accessing
 stoneName
-	self subclassResponsibility
+	stoneName ifNil: [ stoneName := self arguments at: 1 ].
+	^ stoneName

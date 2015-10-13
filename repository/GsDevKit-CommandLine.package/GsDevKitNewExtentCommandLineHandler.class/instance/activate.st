@@ -2,8 +2,8 @@ activation
 activate
 	self activateHelp
 		ifTrue: [ ^ self ].
-	self arguments size < 1
-		ifTrue: [ 
-			self printHelp.
-			^ self exitFailure: 'Missing stone name' ].
-	self newExtent
+	self checkArguments.
+	self newExtent.
+	self shouldRemoveTranlogs
+		ifTrue: [ self removeTranlogs ].
+	self exitSuccess	

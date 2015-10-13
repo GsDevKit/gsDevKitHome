@@ -7,4 +7,5 @@ activate
 			self printHelp.
 			^ self exitFailure: 'Missing arguments' ].
 	Author useAuthor: 'gsDevKit' during: [ self evaluate ].
+	Transcript cr.
 	self exitSuccess

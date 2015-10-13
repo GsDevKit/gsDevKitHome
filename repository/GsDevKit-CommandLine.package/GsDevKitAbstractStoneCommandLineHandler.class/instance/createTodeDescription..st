@@ -1,19 +1,20 @@
 actions
-createTodeDescription: stoneInfo
-	| sessionDescription localHostName|
+createTodeDescription: theStoneInfo
+	| sessionDescription localHostName |
 	localHostName := NetNameResolver localHostName.
 	sessionDescription := TDSessionDescription new
-		name: stoneInfo stoneName;
-		gemstoneVersion: stoneInfo gsVers;
+		name: theStoneInfo stoneName;
+		gemstoneVersion: theStoneInfo gsVers;
 		stoneHost: localHostName;
-		stoneName: stoneInfo stoneName;
+		stoneName: theStoneInfo stoneName;
 		gemHost: localHostName;
-		netLDI: stoneInfo netldiName;
+		netLDI: theStoneInfo netldiName;
 		gemTask: 'gemnetobject';
 		userId: 'DataCurator';
 		password: 'swordfish';
 		backupDirectory: self backupsHome pathString;
+		snapshotDirectory: self snapshotsHome pathString;
 		serverGitRoot: self gitHome pathString;
 		serverTodeRoot: self todeHome pathString;
 		yourself.
-	sessionDescription exportTo: self  sessionDescriptionHome pathString , '/'
+	sessionDescription exportTo: self sessionDescriptionHome pathString , '/'

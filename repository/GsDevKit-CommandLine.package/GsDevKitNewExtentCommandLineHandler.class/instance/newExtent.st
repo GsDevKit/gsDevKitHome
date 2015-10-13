@@ -1,4 +1,4 @@
-activations
+actions
 newExtent
 	| stoneDirectory extentFile |
 	Transcript
@@ -9,11 +9,10 @@ newExtent
 	extentFile exists
 		ifTrue: [ extentFile delete ].
 	self
-		copySeasideExtent: stoneDirectory;
+		copySnapshotExtent: stoneDirectory;
 		yourself.
 	Transcript
 		cr;
 		tab;
 		show: 'Finished copying new extent for ' , self stoneName;
 		cr.
-	self exitSuccess

@@ -4,10 +4,9 @@
 		 ],
 	"classvars" : [
 		 ],
-	"commentStamp" : "dkh 7/19/2014 07:56",
+	"commentStamp" : "dkh 3/19/2015 12:08",
 	"instvars" : [
-		"stoneName",
-		"stoneInfo" ],
+		 ],
 	"name" : "GsDevKitNewExtentCommandLineHandler",
 	"pools" : [
 		 ],

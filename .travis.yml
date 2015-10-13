@@ -1,9 +1,32 @@
 language: erlang
 
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/c59e6bffa0b41a693676 # GsDevKit/chat (public)
+    on_success: always # options: [always|never|change] default: always
+    on_failure: always  # options: [always|never|change] default: always
+    on_start: false     # default: false
+
 env:
 
-  - GS_VERSION=3.1.0.6
-  - GS_VERSION=3.2.3
+
+#  - GS_VERSION=3.1.0.6 TEST=BasicTodeClient
+#  - GS_VERSION=3.2.7   TEST=BasicTodeClient
+  - GS_VERSION=3.1.0.6 TEST=Basic
+  - GS_VERSION=3.2.7   TEST=Basic
+#  - GS_VERSION=3.1.0.6 TEST=Projects1
+#  - GS_VERSION=3.2.7   TEST=Projects1
+#  - GS_VERSION=3.1.0.6 TEST=Projects2
+#  - GS_VERSION=3.2.7   TEST=Projects2
+#  - GS_VERSION=3.1.0.6 TEST=Magritte
+#  - GS_VERSION=3.2.7   TEST=Magritte
+#  - GS_VERSION=3.1.0.6 TEST=Pier300
+##  - GS_VERSION=3.2.7   TEST=Pier300  # older versions of Seaside3.0 aren't loadable in 3.2 ... invalid UTF8 characters in WAXMLEncoder table
+#  - GS_VERSION=3.1.0.6 TEST=Seaside3
+#  - GS_VERSION=3.2.7   TEST=Seaside3
+#  - GS_VERSION=3.1.0.6 TEST=Zinc
+#  - GS_VERSION=3.2.7   TEST=Zinc
 
 before_script:
   - export GS_HOME="$(pwd)"
@@ -16,69 +39,4 @@ before_script:
   - sudo ln -s /usr/lib/i386-linux-gnu/libstdc++.so.6 /usr/lib/i386-linux-gnu/libstdc++.so
 
 script:
-    # install server
-  - bash installServer travis $GS_VERSION
-
-  - bash stones
-
-    # help
-  - bash backup -h
-  - bash createStone -h
-  - bash createTodeImage -h
-  - bash createTodeStone -h
-  - bash installClient -h
-  - bash installGci -h
-  - bash installGemStone -h
-  - bash installPharo -h
-  - bash installServer -h
-  - bash installTodeStone -h
-  - bash $GS_HOME/bin/pharo -h  # apparently '.' is in the PATH
-  - bash restoreFromBackup -h
-  - bash startNetldi -h
-  - bash startStatmonitor -h
-  - bash startStone -h
-  - bash stoneExtent -h
-  - bash stones -h
-  - bash stopStone -h
-  - bash $GS_HOME/bin/tode -h   # apparently '.' is in the PATH
-  - bash todeClient -h
-  - bash updateTodeImage -h
-    # functions
-  - bash createTodeImage -p _small
-
-  - bash stones
-
-#  - bash backup travis travis.dbf            # nothing but trouble on travis
-#  - bash restoreFromBackup travis travis.dbf # nothing but trouble on travis
-
-  - bash stopStone travis
-  - bash updateTodeImage travis
-  - bash startStone travis
-
-  - bash stones
-
-  - bash $GS_HOME/bin/pharo --list
-  - bash $GS_HOME/bin/tode --list
-
-  - bash createStone travis_2 $GS_VERSION
-  - bash stoneExtent travis_2
-
-    # projects
-    #   help
-  - bash $GS_HOME/projects/glass/createProjectEntry -h
-  - bash $GS_HOME/projects/zinc/createProjectEntry -h
-  - bash $GS_HOME/projects/seaside31/createProjectEntry -h
-  - bash $GS_HOME/projects/glass/loadProject -h
-  - bash $GS_HOME/projects/zinc/loadProject -h
-  - bash $GS_HOME/projects/seaside31/loadProject -h
-    #   create project entries
-  - bash $GS_HOME/projects/glass/createProjectEntry travis
-  - bash $GS_HOME/projects/zinc/createProjectEntry travis
-  - bash $GS_HOME/projects/seaside31/createProjectEntry travis Examples Zinc FastCGI
-    #   load project
-  - bash $GS_HOME/projects/seaside31/loadProject travis
-
-    # defStone.env 
-  - . $GS_HOME/bin/defStone.env travis
-  - cd $GS_HOME/gemstone/stones/travis
-  - . defStone.env
+  - tests/testTravisCI.sh

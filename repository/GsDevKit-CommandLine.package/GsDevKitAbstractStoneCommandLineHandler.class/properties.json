@@ -6,7 +6,9 @@
 		 ],
 	"commentStamp" : "",
 	"instvars" : [
-		 ],
+		"stoneName",
+		"stoneInfo",
+		"snapshotFile" ],
 	"name" : "GsDevKitAbstractStoneCommandLineHandler",
 	"pools" : [
 		 ],

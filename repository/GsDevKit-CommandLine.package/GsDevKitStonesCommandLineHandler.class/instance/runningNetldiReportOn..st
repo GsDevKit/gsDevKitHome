@@ -8,7 +8,7 @@ runningNetldiReportOn: stream
 	stream
 		nextPutAll: 'Running Netldis:';
 		cr.
-	result := self runShellCommand: (self gemstoneBin / 'gslist') pathString args: #('-lc').
+	result := self runShellCommand: (self gemstoneBin / 'gslist') pathString args: #('-lc') noError: true.
 	(result beginsWith: 'gslist[Info]: No GemStone servers')
 		ifTrue: [ ^ self ].
 	stream

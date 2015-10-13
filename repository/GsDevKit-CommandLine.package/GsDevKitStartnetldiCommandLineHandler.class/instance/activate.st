@@ -8,5 +8,8 @@ activate
 			self printHelp.
 			^ self exitFailure: 'Missing arguments' ].
 	argsArray := self produceNetldiArgs.
-	Transcript cr; show: (self runShellCommand: (self gemstoneBin / 'startnetldi') pathString args: argsArray).
+	Transcript
+		cr;
+		show: (self runShellCommand: (self gemstoneBin / 'startnetldi') pathString args: argsArray);
+		cr.
 	self exitSuccess

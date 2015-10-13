@@ -4,9 +4,8 @@
 		 ],
 	"classvars" : [
 		 ],
-	"commentStamp" : "dkh 7/17/2014 13:34",
+	"commentStamp" : "dkh 3/20/2015 11:07",
 	"instvars" : [
-		"stoneName",
 		"gsVers" ],
 	"name" : "GsDevKitCreateStoneCommandLineHandler",
 	"pools" : [
