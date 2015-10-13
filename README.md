@@ -56,12 +56,6 @@ git clone git@github.com:<yourAccountName>/gsDevKitHome.git
 cd gsDevKitHome
 ```
 
-  4. **FOR EARLY ADOPTERS ONLY** `checkout` the dev branch:
-  ```Shell
-# The dev branch is the branch that contains working version of GsDevKitHome
-git checkout dev
-  ```
-
   4. Create a unique branch for your work, and synchronize github
 
   ```Shell
@@ -74,16 +68,6 @@ git checkout -b  <your_branch_name>
 # code (e.g. GitHub, BitBucket). If you want to simply push to your GitHub fork:
 git push origin <your_branch_name>
   ```  
-
-  5. **FOR EARLY ADOPTERS ONLY** execute the following shell commands before doing your first install. The files ensure that you are using the dev branch of tODE for the client and server installations:
-
-  ```Shell
-# These scripts ensure that you are using the dev branch of tODE
-cp $GS_HOME/tests/tode/sys/local/server/scripts/installTode.ws $GS_HOME/tode/sys/local/server/scripts
-cp $GS_HOME/tests/tode/sys/local/projects/*.ston $GS_HOME/tode/sys/local/projects
-cp $GS_HOME/tests/tode/sys/local/pharo/todeLoad.st $GS_HOME/tode/sys/local/pharo
-  ```
-
 
 ###Define gsDevKitHome Environment Variables
 Define the `$GS_HOME` environment variable and add `$GS_HOME/bin` to your `$PATH`:
