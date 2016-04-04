@@ -1,5 +1,7 @@
 # Open Source Development Kit for GemStone/S 64 Bit [![master branch:](https://travis-ci.org/GsDevKit/gsDevKitHome.png?branch=master)](https://travis-ci.org/GsDevKit/gsDevKitHome)
 
+# NOTE - All new installations should be using https://github.com/GsDevKit/GsDevKit_home
+
 The Development Kit for GemStone/S (GsDevKit) contains tools and compatiblity changes that sit on top of the GemStone/S 64 Bit product, providing a complete and powerful open-source development environment. The Development kit allows Pharo and Squeak developers to take advantage of GemStone's object persistence, along with a variety of open-source Smalltalk tools and frameworks.
 
 The Development kit includes simplified processes for installating and managing the GemStone/S server.
