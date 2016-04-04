@@ -145,6 +145,7 @@ can reopen and reconnect your tODE image to the devKit stone by:
 startStone devKit
 startNetldi devKit
 todeClient
+```
 
 ---
 ---
