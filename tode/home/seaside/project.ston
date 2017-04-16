@@ -1,0 +1,8 @@
+TDObjectGatewayNode{#name:'project',#contents:'TDProjectSpecEntryDefinition new
+    configuration: \'Seaside3\'
+      version: \'3.1.2\'
+      repository:
+        \'http://www.smalltalkhub.com/mc/Seaside/MetacelloConfigurations/main\'
+      loads: #(\'Development\' \'Examples\' \'Zinc\');
+    status: #(#\'active\');
+    yourself'}
