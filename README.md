@@ -138,6 +138,15 @@ commit the changes that you've made.
    git add --all                       # stage the changed files
    git commit -m"initial installation" # commit the changes
    ```
+###After restarting your machine
+After you restart your machine (perhaps because of a security upgrade) your gemstone server 
+is not automatically restarted. If $GS_HOME and your path are set in your `.bashrc` file you
+can reopen and reconnect your tODE image to the devKit stone by:
+
+```Shell
+startStone devKit
+startNetldi devKit
+todeClient
 
 ---
 ---
